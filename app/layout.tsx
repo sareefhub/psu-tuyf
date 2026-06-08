@@ -1,13 +1,6 @@
 import { Analytics } from '@vercel/analytics/next'
 import type { Metadata } from 'next'
-import { Kanit } from 'next/font/google'
-import './globals.css'
-
-const kanit = Kanit({
-  variable: '--font-kanit',
-  subsets: ['latin', 'thai'],
-  weight: ['300', '400', '500', '600', '700'],
-})
+import './globals.css' // นำเข้าสไตล์หลักและสไตล์ฟอนต์ PSU Stidti
 
 export const metadata: Metadata = {
   title: 'PSU-TUYF — Smart Campus Information Portal',
@@ -28,7 +21,8 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en" className={`${kanit.variable} bg-background`}>
+    // ลบคลาสของ Google Font 'Kanit' ออก เพื่อเรียกใช้ PSU Stidti จาก CSS ระดับระบบอย่างสมบูรณ์
+    <html lang="en" className="bg-background">
       <body className="font-sans antialiased">
         {children}
         {process.env.NODE_ENV === 'production' && <Analytics />}
