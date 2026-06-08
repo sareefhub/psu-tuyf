@@ -3,6 +3,7 @@
 import { useT } from "@/components/language-context"
 import { GraduationCap, ArrowRight, User } from "lucide-react"
 import { Button } from "@/components/ui/button"
+import Image from "next/image"
 
 // โครงสร้างข้อมูลรายชื่อนักเรียนทุน ที่แมปคีย์กับไฟล์แปลภาษา JSON
 const directoryData = [
@@ -15,7 +16,7 @@ const directoryData = [
           {
             name: "Miss SOPHOUN YOUK",
             studentKey: "s1",
-            image: "",
+            image: "/images/mscd/bsc-scholarships/student-1.png",
           },
         ],
       },
@@ -27,18 +28,18 @@ const directoryData = [
       {
         groupKey: "g1",
         students: [
-          { name: "Mr. Faruk Waede", studentKey: "s1", image: "" },
-          { name: "Miss Inasnee Rattanawongsawas", studentKey: "s2", image: "" },
-          { name: "Miss Fatimah Mahae", studentKey: "s3", image: "" },
-          { name: "Miss Nirania Waedaya", studentKey: "s4", image: "" },
-          { name: "Miss Sufianee Abu", studentKey: "s5", image: "" },
+          { name: "Mr. Faruk Waede", studentKey: "s1", image: "/images/mscd/bsc-scholarships/student-2.png" },
+          { name: "Miss Inasnee Rattanawongsawas", studentKey: "s2", image: "/images/mscd/bsc-scholarships/student-3.png" },
+          { name: "Miss Fatimah Mahae", studentKey: "s3", image: "/images/mscd/bsc-scholarships/student-4.png" },
+          { name: "Miss Nirania Waedaya", studentKey: "s4", image: "/images/mscd/bsc-scholarships/student-5.png" },
+          { name: "Miss Sufianee Abu", studentKey: "s5", image: "/images/mscd/bsc-scholarships/student-6.png" },
         ],
       },
       {
         groupKey: "g2",
         students: [
-          { name: "Miss Liza Thea", studentKey: "s1", image: "" },
-          { name: "Mr. Chhavy Chorn", studentKey: "s2", image: "" },
+          { name: "Miss Liza Thea", studentKey: "s1", image: "/images/mscd/bsc-scholarships/student-7.png" },
+          { name: "Mr. Chhavy Chorn", studentKey: "s2", image: "/images/mscd/bsc-scholarships/student-8.png" },
         ],
       },
     ],
@@ -49,15 +50,15 @@ const directoryData = [
       {
         groupKey: "g1",
         students: [
-          { name: "Miss Rusmee Binmaming", studentKey: "s1", image: "" },
-          { name: "Mr. Affan Yahyoh", studentKey: "s2", image: "" },
+          { name: "Miss Rusmee Binmaming", studentKey: "s1", image: "/images/mscd/bsc-scholarships/student-9.png" },
+          { name: "Mr. Affan Yahyoh", studentKey: "s2", image: "/images/mscd/bsc-scholarships/student-10.png" },
         ],
       },
       {
         groupKey: "g2",
         students: [
-          { name: "Mr. Namoral Thy", studentKey: "s1", image: "" },
-          { name: "Miss Layya Meak", studentKey: "s2", image: "" },
+          { name: "Mr. Namoral Thy", studentKey: "s1", image: "/images/mscd/bsc-scholarships/student-11.png" },
+          { name: "Miss Layya Meak", studentKey: "s2", image: "/images/mscd/bsc-scholarships/student-12.png" },
         ],
       },
     ],
@@ -85,18 +86,30 @@ function StudentCard({
 }>) {
   return (
     <div className="group bg-card border border-border/50 rounded-2xl overflow-hidden shadow-sm hover:shadow-md hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between">
-      {/* กล่องภาพตัวแทนนักเรียน (Placeholder) */}
-      <div className="relative aspect-4/5 bg-linear-to-tr from-accent/5 via-primary/5 to-pink-500/5 flex flex-col items-center justify-center p-6 text-muted-foreground/60 border-b border-border/40 overflow-hidden">
-        <div className="absolute inset-0 bg-linear-to-b from-transparent to-black/5" />
-
-        <div className="relative z-10 flex flex-col items-center">
-          <div className="h-20 w-20 rounded-full bg-white/90 shadow-sm flex items-center justify-center text-primary/70 mb-3 group-hover:scale-105 transition-transform duration-300">
-            <User className="h-8 w-8 text-primary/70" />
-          </div>
-          <span className="text-[9px] font-bold uppercase tracking-widest text-primary/70 bg-white/70 px-2 py-0.5 rounded border border-border/40">
-            {t("bscScholarships.directory.photo")}
-          </span>
-        </div>
+      {/* ภาพนักเรียนทุน */}
+      <div className="relative aspect-4/5 bg-linear-to-tr from-accent/5 via-primary/5 to-pink-500/5 flex flex-col items-center justify-center border-b border-border/40 overflow-hidden">
+        {student.image ? (
+          <Image
+            src={student.image}
+            alt={student.name}
+            fill
+            sizes="(max-width: 640px) 100vw, (max-width: 768px) 50vw, (max-width: 1024px) 33vw, 25vw"
+            className="object-cover group-hover:scale-105 transition-transform duration-500"
+            priority={yearKey === "y2566"} // โหลดภาพปีแรกแบบด่วนเพื่อช่วยลด LCP (Largest Contentful Paint)
+          />
+        ) : (
+          <>
+            <div className="absolute inset-0 bg-linear-to-b from-transparent to-black/5" />
+            <div className="relative z-10 flex flex-col items-center p-6 text-muted-foreground/60">
+              <div className="h-20 w-20 rounded-full bg-white/90 shadow-sm flex items-center justify-center text-primary/70 mb-3 group-hover:scale-105 transition-transform duration-300">
+                <User className="h-8 w-8 text-primary/70" />
+              </div>
+              <span className="text-[9px] font-bold uppercase tracking-widest text-primary/70 bg-white/70 px-2 py-0.5 rounded border border-border/40">
+                {t("bscScholarships.directory.photo")}
+              </span>
+            </div>
+          </>
+        )}
       </div>
 
       {/* รายละเอียดข้อมูลนักเรียนทุน */}
