@@ -9,9 +9,9 @@ export const metadata: Metadata = {
   generator: 'v0.app',
   icons: {
     // กำหนดให้ใช้ภาพโลโก้ PSU-TUYF เป็นไอคอน Favicon ของเว็บไซต์บนแท็บเบราว์เซอร์
-    icon: '/images/logo-psu-tuyf.png',
-    shortcut: '/images/logo-psu-tuyf.png',
-    apple: '/images/logo-psu-tuyf.png',
+    icon: '/images/logo/logo-psu-tuyf.png',
+    shortcut: '/images/logo/logo-psu-tuyf.png',
+    apple: '/images/logo/logo-psu-tuyf.png',
   },
 }
 

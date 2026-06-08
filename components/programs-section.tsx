@@ -10,7 +10,7 @@ const programs = [
   {
     id: "mscd",
     abbr: "MSCD",
-    image: "/images/mscd.png",
+    image: "/images/icon/mscd.png",
     titleTh: "การพัฒนาชุมชนอย่างยั่งยืนด้วยคณิตศาสตร์",
     titleEn: "Mathematics for Sustainable Community Development",
     descTh:
@@ -21,7 +21,7 @@ const programs = [
   {
     id: "mgss",
     abbr: "MGSS",
-    image: "/images/mgss.png",
+    image: "/images/icon/mgss.png",
     titleTh: "สนับสนุนนักศึกษาระดับบัณฑิตศึกษาในสาขาคณิตศาสตร์",
     titleEn: "Mathematical Graduated Students Supporting Project",
     descTh:
@@ -32,7 +32,7 @@ const programs = [
   {
     id: "algebra",
     abbr: "Algebra Enrichment",
-    image: "/images/algebra-enrichment.png",
+    image: "/images/icon/algebra-enrichment.png",
     titleTh: "เสริมสร้างความเข้มแข็งทางพีชคณิต",
     titleEn: "Algebra Enrichment Project",
     descTh:

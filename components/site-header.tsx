@@ -60,7 +60,7 @@ export function SiteHeader() {
         <a href="#home" className="flex items-center gap-2.5">
           {/* แสดงรูปภาพโลโก้ PSU-TUYF แทนตัวอักษร P เดิม */}
           <img
-            src="/images/logo-psu-tuyf.png"
+            src="/images/logo/logo-psu-tuyf.png"
             alt="PSU-TUYF Logo"
             className="h-12 w-12 object-contain"
           />
