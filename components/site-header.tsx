@@ -184,7 +184,7 @@ function LanguageToggle({
       <button
         onClick={() => setLang("th")}
         aria-pressed={lang === "th"}
-        className={`rounded-full px-3 py-1.5 transition-colors ${
+        className={`rounded-full px-3 py-1.5 transition-colors cursor-pointer ${
           lang === "th"
             ? "bg-primary text-primary-foreground"
             : "text-muted-foreground hover:text-primary"
@@ -195,7 +195,7 @@ function LanguageToggle({
       <button
         onClick={() => setLang("en")}
         aria-pressed={lang === "en"}
-        className={`rounded-full px-3 py-1.5 transition-colors ${
+        className={`rounded-full px-3 py-1.5 transition-colors cursor-pointer ${
           lang === "en"
             ? "bg-primary text-primary-foreground"
             : "text-muted-foreground hover:text-primary"
