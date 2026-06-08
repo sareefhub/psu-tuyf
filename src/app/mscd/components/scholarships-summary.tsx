@@ -90,7 +90,8 @@ export function ScholarshipsSummarySection() {
           </div>
 
           <Link href="/mscd/bsc-scholarships" className="w-fit">
-            <Button className="font-bold text-xs bg-primary hover:bg-accent text-white rounded-full px-5 py-2.5 flex items-center gap-2 transition-all duration-300">
+            {/* ใช้ token text-primary-foreground แทน text-white เพื่อให้เปลี่ยนได้จากค่ากลาง */}
+            <Button className="font-bold text-xs bg-primary hover:bg-accent text-primary-foreground rounded-full px-5 py-2.5 flex items-center gap-2 transition-all duration-300">
               ดูรายละเอียดทำเนียบนักเรียนทุนแบบเต็ม
               <ArrowRight className="h-4 w-4" />
             </Button>

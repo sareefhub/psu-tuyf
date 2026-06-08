@@ -47,8 +47,8 @@ export function HeroSection() {
             {t("hero.badge")}
           </span>
 
-          {/* ปรับสีหัวข้อ PSU-TUYF เป็นสีขาวล้วนตามต้องการ */}
-          <h1 className="mt-6 text-balance text-5xl font-bold leading-none tracking-tight text-white sm:text-6xl lg:text-7xl">
+          {/* ใช้ token text-primary-foreground แทน text-white เพื่อให้เปลี่ยนได้จากค่ากลาง */}
+          <h1 className="mt-6 text-balance text-5xl font-bold leading-none tracking-tight text-primary-foreground sm:text-6xl lg:text-7xl">
             PSU-TUYF
           </h1>
 

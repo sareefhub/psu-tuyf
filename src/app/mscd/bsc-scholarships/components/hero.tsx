@@ -9,7 +9,8 @@ export function BscHero() {
     <section className="bg-primary text-primary-foreground relative overflow-hidden py-16 lg:py-20">
       <div className="absolute inset-0 bg-linear-to-br from-primary via-primary to-primary/95" />
       <div className="mx-auto max-w-7xl px-6 relative z-10">
-        <h1 className="text-balance text-4xl font-bold tracking-tight text-white sm:text-5xl lg:text-6xl leading-tight sm:leading-tight">
+        {/* ใช้ token text-primary-foreground แทน text-white เพื่อให้เปลี่ยนได้จากค่ากลาง */}
+        <h1 className="text-balance text-4xl font-bold tracking-tight text-primary-foreground sm:text-5xl lg:text-6xl leading-tight sm:leading-tight">
           <span className="inline-block">
             {t("bscScholarships.hero.title")}
           </span>{" "}

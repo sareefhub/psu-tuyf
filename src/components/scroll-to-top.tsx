@@ -60,7 +60,7 @@ export function ScrollToTop() {
   return (
     <button
       onClick={scrollToTop}
-      className={`fixed bottom-6 right-6 z-50 flex items-center justify-center rounded-full bg-white shadow-lg border border-gray-200 transition-all duration-300 hover:shadow-xl active:scale-95 group focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-accent cursor-pointer ${
+      className={`fixed bottom-6 right-6 z-50 flex items-center justify-center rounded-full bg-card shadow-lg border border-border transition-all duration-300 hover:shadow-xl active:scale-95 group focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-accent cursor-pointer ${
         isVisible
           ? "opacity-100 translate-y-0 scale-100 pointer-events-auto"
           : "opacity-0 translate-y-4 scale-75 pointer-events-none"
@@ -72,11 +72,12 @@ export function ScrollToTop() {
       }}
       aria-label="เลื่อนขึ้นด้านบนสุด"
     >
+      {/* ใช้ token bg-card และ border-border แทน bg-white/border-gray-200 เพื่อให้เปลี่ยนสีจากค่ากลาง */}
       {/* วงแหวน Progress Ring แบบ SVG */}
       <svg className="absolute -rotate-90" width={size} height={size}>
-        {/* วงกลมฉากหลัง (สีเทาอ่อน) */}
+        {/* วงกลมฉากหลัง (ใช้ token text-border แทน text-gray-200 เพื่อให้เปลี่ยนสีจากค่ากลาง) */}
         <circle
-          className="text-gray-200"
+          className="text-border"
           stroke="currentColor"
           strokeWidth={strokeWidth}
           fill="transparent"

@@ -16,9 +16,9 @@ export function MscdHero() {
       
       <div className="mx-auto max-w-7xl px-6 relative z-10">
 
-        
-        <h1 className="text-balance text-4xl font-bold tracking-tight text-white sm:text-5xl lg:text-6xl leading-tight sm:leading-tight">
-          <span className="inline-block text-white">
+        {/* ใช้ token text-primary-foreground แทน text-white เพื่อให้เปลี่ยนได้จากค่ากลาง */}
+        <h1 className="text-balance text-4xl font-bold tracking-tight text-primary-foreground sm:text-5xl lg:text-6xl leading-tight sm:leading-tight">
+          <span className="inline-block text-primary-foreground">
             {t("programDetails.mscd.title")}
           </span>
         </h1>
