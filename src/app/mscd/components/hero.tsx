@@ -23,10 +23,6 @@ export function MscdHero() {
           </span>
         </h1>
 
-        <p className="mt-2 text-xs sm:text-sm font-medium tracking-wide uppercase text-accent/80 italic">
-          {t("programDetails.mscd.sub")}
-        </p>
-
         <p className="mt-5 max-w-3xl text-pretty text-sm font-light leading-relaxed text-primary-foreground/80 sm:text-base">
           {t("programs.mscd.desc")}
         </p>
