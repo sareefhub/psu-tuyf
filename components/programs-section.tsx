@@ -95,9 +95,15 @@ export function ProgramsSection() {
                   {t(p.descTh, p.descEn)}
                 </p>
 
-                {/* ลิงก์รายละเอียดแบบคลีน (Text Link พร้อมไอคอนขยับได้เมื่อ Hover และแก้ไข Linter: aria-label) */}
+                {/* ปุ่มดูรายละเอียดที่ถูกระงับการนำทางชั่วคราวด้วย e.preventDefault() เนื่องจากยังไม่มีหน้าข้อมูลย่อย */}
                 <Button
-                  render={<a href={`#${p.id}`} aria-label={t(`ดูรายละเอียดของโครงการ ${p.abbr}`, `View details of ${p.abbr} project`)} />}
+                  render={
+                    <a
+                      href={`#${p.id}`}
+                      onClick={(e) => e.preventDefault()}
+                      aria-label={t(`ดูรายละเอียดของโครงการ ${p.abbr}`, `View details of ${p.abbr} project`)}
+                    />
+                  }
                   nativeButton={false}
                   variant="link"
                   className="mt-6 p-0 h-auto justify-start font-semibold text-primary hover:text-accent hover:no-underline"
