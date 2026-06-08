@@ -1,8 +1,8 @@
 import i18n from "i18next"
 import { initReactI18next } from "react-i18next"
 
-import thCommon from "../public/locales/th/common.json"
-import enCommon from "../public/locales/en/common.json"
+import thCommon from "../../public/locales/th/common.json"
+import enCommon from "../../public/locales/en/common.json"
 
 // ทรัพยากรคำแปลสำหรับแต่ละภาษา
 // ใช้การ import แบบสแตติกเพื่อความรวดเร็วและรองรับ SSR ไร้ปัญหาเรื่องเครือข่าย

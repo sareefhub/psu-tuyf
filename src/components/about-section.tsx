@@ -4,7 +4,7 @@ import { useEffect, useState, useRef } from "react"
 import { useT } from "@/components/language-context"
 
 // คอมโพเนนต์สำหรับแสดงผลตัวเลขนับขึ้น (Animated Counter) แบบ Clean และสมูท
-function Counter({ target, duration = 1500 }: { target: number; duration?: number }) {
+function Counter({ target, duration = 1500 }: Readonly<{ target: number; duration?: number }>) {
   const [count, setCount] = useState(0)
   const elementRef = useRef<HTMLSpanElement>(null)
 
@@ -71,20 +71,23 @@ export function AboutSection() {
         <div className="mt-10 grid gap-4 sm:grid-cols-3">
           {[
             {
+              id: "started",
               value: <Counter target={t(2564, 2021)} />,
               label: t("about.stat_started"),
             },
             {
+              id: "projects",
               value: <Counter target={3} />,
               label: t("about.stat_projects"),
             },
             {
+              id: "campuses",
               value: <Counter target={2} />,
               label: t("about.stat_campuses"),
             },
-          ].map((stat, idx) => (
+          ].map((stat) => (
             <div
-              key={idx}
+              key={stat.id}
               className="rounded-2xl border border-border bg-card px-5 py-6 text-center"
             >
               <div className="text-3xl font-bold text-primary">{stat.value}</div>
