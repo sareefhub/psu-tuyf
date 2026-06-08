@@ -3,7 +3,7 @@ import type { Metadata } from 'next'
 import './globals.css' // นำเข้าสไตล์หลักและสไตล์ฟอนต์ PSU Stidti
 
 export const metadata: Metadata = {
-  title: 'PSU-TUYF — Smart Campus Information Portal',
+  title: 'PSU-TUYF',
   description:
     'A modernized campus information platform for the Faculty of Science and Technology, Prince of Songkla University.',
   generator: 'v0.app',
