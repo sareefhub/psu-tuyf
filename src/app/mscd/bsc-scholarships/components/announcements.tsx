@@ -109,15 +109,13 @@ export function SelectionAnnouncements() {
 
         {/* ================= กล่องหน้าต่างลอยเปิดอ่านเอกสาร (Popup Modal Overlay) ================= */}
         {previewPdf && (
-          <button
-            type="button"
+          <div
             className="fixed inset-0 bg-black/60 z-50 flex items-center justify-center p-4 backdrop-blur-xs animate-fade-in w-full cursor-default"
             onClick={(e) => {
               if (e.target === e.currentTarget) {
                 setPreviewPdf(null)
               }
             }}
-            aria-label="Close document preview"
           >
             <div
               className="bg-card border border-border w-full max-w-5xl rounded-3xl overflow-hidden shadow-2xl relative flex flex-col h-[80vh] sm:h-[85vh] animate-scale-in"
@@ -201,7 +199,7 @@ export function SelectionAnnouncements() {
                 {t("bscScholarships.announcements.footerHelp")}
               </div>
             </div>
-          </button>
+          </div>
         )}
       </div>
     </section>

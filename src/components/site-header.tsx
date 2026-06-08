@@ -4,6 +4,7 @@ import { useState } from "react"
 import { ChevronDown, Menu, X } from "lucide-react"
 import { useLanguage, useT } from "@/components/language-context"
 import { usePathname } from "next/navigation"
+import Image from "next/image"
 
 type NavChild = { label: string; href: string }
 type NavLink = { label: string; href: string; children?: NavChild[] }
@@ -70,9 +71,11 @@ export function SiteHeader() {
       <div className="mx-auto grid h-16 max-w-6xl grid-cols-[auto_1fr_auto] items-center gap-4 px-6">
         <a href={getHref("#home")} className="flex items-center gap-2.5">
           {/* แสดงรูปภาพโลโก้ PSU-TUYF แทนตัวอักษร P เดิม */}
-          <img
+          <Image
             src="/images/logo/logo-psu-tuyf.png"
             alt="PSU-TUYF Logo"
+            width={48}
+            height={48}
             className="h-12 w-12 object-contain"
           />
           <span className="text-lg font-semibold tracking-tight text-primary">

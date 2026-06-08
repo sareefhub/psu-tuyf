@@ -1,22 +1,27 @@
 "use client"
 
 import { useT } from "@/components/language-context"
+// นำเข้า Image และไฟล์ภาพสถิติแบบ Static เพื่อใช้ประโยชน์ในการคำนวณอัตราส่วนภาพ ป้องกันปัญหา CLS
+import Image from "next/image"
+import statsImg1 from "../../../../../public/images/mscd/bsc-scholarships/scholarship-student-stats-1.png"
+import statsImg2 from "../../../../../public/images/mscd/bsc-scholarships/scholarship-student-stats-2.png"
+import statsImg3 from "../../../../../public/images/mscd/bsc-scholarships/scholarship-student-stats-3.png"
 
 export function SelectionStatistics() {
   const t = useT()
 
-  // อาเรย์ข้อมูลรูปภาพสถิตินักเรียนทุน
+  // อาเรย์ข้อมูลรูปภาพสถิตินักเรียนทุน (ใช้ตัวแปรภาพที่นำเข้าแบบ Static)
   const statsImages = [
     {
-      src: "/images/mscd/bsc-scholarships/scholarship-student-stats-1.png",
+      src: statsImg1,
       altKey: "bscScholarships.statistics.alt1",
     },
     {
-      src: "/images/mscd/bsc-scholarships/scholarship-student-stats-2.png",
+      src: statsImg2,
       altKey: "bscScholarships.statistics.alt2",
     },
     {
-      src: "/images/mscd/bsc-scholarships/scholarship-student-stats-3.png",
+      src: statsImg3,
       altKey: "bscScholarships.statistics.alt3",
     },
   ]
@@ -37,12 +42,11 @@ export function SelectionStatistics() {
         {/* เลย์เอาต์แสดงภาพกราฟสถิติ 3 คอลัมน์แบบแบนและคลีน */}
         <div className="grid gap-8 md:grid-cols-3">
           {statsImages.map((image) => (
-            <div key={image.src} className="flex items-center justify-center overflow-hidden">
-              <img
+            <div key={image.altKey} className="flex items-center justify-center overflow-hidden">
+              <Image
                 src={image.src}
                 alt={t(image.altKey)}
                 className="w-full h-auto object-contain rounded-2xl"
-                loading="lazy"
               />
             </div>
           ))}

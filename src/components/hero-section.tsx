@@ -4,15 +4,16 @@ import { useState, useEffect } from "react"
 import { ArrowRight, ChevronLeft, ChevronRight } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { useT } from "@/components/language-context"
+// นำเข้า Image และภาพประกอบแบบ Static เพื่อประสิทธิภาพและการดึงขนาดสัดส่วนภาพที่แม่นยำ
+import Image from "next/image"
+import heroImg1 from "../../public/images/hero-section/psu-tuyf-1.png"
+import heroImg2 from "../../public/images/hero-section/psu-tuyf-2.png"
+import heroImg3 from "../../public/images/hero-section/psu-tuyf-3.png"
+import heroImg4 from "../../public/images/hero-section/psu-tuyf-4.png"
+import heroImg5 from "../../public/images/hero-section/psu-tuyf-5.png"
 
-// รายชื่อภาพสไลด์แสดงผลงานในอดีตของโครงการ PSU-TUYF
-const heroImages = [
-  "/images/hero-section/psu-tuyf-1.png",
-  "/images/hero-section/psu-tuyf-2.png",
-  "/images/hero-section/psu-tuyf-3.png",
-  "/images/hero-section/psu-tuyf-4.png",
-  "/images/hero-section/psu-tuyf-5.png",
-]
+// รายชื่อภาพสไลด์แสดงผลงานในอดีตของโครงการ PSU-TUYF (ใช้ตัวแปรภาพที่นำเข้าแบบ Static)
+const heroImages = [heroImg1, heroImg2, heroImg3, heroImg4, heroImg5]
 
 export function HeroSection() {
   const t = useT()
@@ -87,10 +88,11 @@ export function HeroSection() {
         {/* ส่วนสไลเดอร์แสดงรูปภาพหลายรูป (Carousel Showcase) แสดงรูปภาพเต็มขนาดจริงโดยไม่จำกัดความสูงและไม่ครอปภาพ (แสดงด้านบนเมื่อหน้าจอเล็ก) */}
         <div className="relative group w-full overflow-hidden rounded-3xl border border-primary-foreground/15 shadow-2xl bg-black/10 order-first lg:order-0">
           {heroImages.map((img, idx) => (
-            <img
-              key={img}
+            <Image
+              key={img.src}
               src={img}
               alt={`${t("hero.img_alt")} ${idx + 1}`}
+              priority={idx === 0} // รูปภาพสไลด์แรกสุดที่เป็น LCP ให้ตั้งค่าโหลดด่วน (LCP Optimization)
               className={`w-full transition-all duration-700 ease-in-out ${
                 idx === 0 ? "relative" : "absolute inset-0 h-full"
               } ${idx === currentIndex ? "opacity-100 z-10" : "opacity-0 z-0"}`}
@@ -119,7 +121,7 @@ export function HeroSection() {
           <div className="absolute bottom-4 left-1/2 z-20 flex -translate-x-1/2 gap-2">
             {Array.from(heroImages.entries()).map(([idx, img]) => (
               <button
-                key={img}
+                key={img.src}
                 onClick={() => setCurrentIndex(idx)}
                 aria-label={`Go to slide ${idx + 1}`}
                 className={`h-2.5 rounded-full cursor-pointer transition-all duration-300 ${
