@@ -7,7 +7,8 @@ export function AboutSection() {
 
   return (
     <section id="about" className="py-20">
-      <div className="mx-auto max-w-3xl px-6">
+      {/* ปรับขนาดความกว้างสูงสุดให้เป็น max-w-6xl เพื่อให้ขอบซ้ายขวาตรงกับส่วน HeroSection */}
+      <div className="mx-auto max-w-6xl px-6">
         <span className="text-sm font-semibold uppercase tracking-wide text-accent">
           {t("เกี่ยวกับโครงการ", "About the Project")}
         </span>

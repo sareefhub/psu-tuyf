@@ -82,7 +82,8 @@ export function ProgramDetails() {
 
   return (
     <section className="py-8">
-      <div className="mx-auto max-w-5xl px-6">
+      {/* ปรับขนาดความกว้างสูงสุดให้เป็น max-w-6xl เพื่อให้ขอบซ้ายขวาตรงกับส่วน HeroSection */}
+      <div className="mx-auto max-w-6xl px-6">
         <div className="flex flex-col gap-6">
           {details.map((d) => (
             <article
