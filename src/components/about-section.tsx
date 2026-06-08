@@ -68,7 +68,7 @@ export function AboutSection() {
           <p>{t("about.desc_2")}</p>
         </div>
 
-        <div className="mt-10 grid gap-4 sm:grid-cols-3">
+        <div className="mt-12 grid grid-cols-1 divide-y divide-border/60 py-6 sm:grid-cols-3 sm:divide-y-0 sm:divide-x sm:divide-border/60">
           {[
             {
               id: "started",
@@ -88,10 +88,16 @@ export function AboutSection() {
           ].map((stat) => (
             <div
               key={stat.id}
-              className="rounded-2xl border border-border bg-card px-5 py-6 text-center"
+              className="flex items-center justify-center gap-5 px-6 py-4 sm:py-2"
             >
-              <div className="text-3xl font-bold text-primary">{stat.value}</div>
-              <div className="mt-1 text-sm font-medium text-muted-foreground">{stat.label}</div>
+              {/* ฝั่งซ้าย: ตัวเลขขนาดใหญ่หนาพิเศษ (ใช้ font-extrabold และขนาด 4xl/5xl ตามดีไซน์) */}
+              <div className="text-4xl md:text-5xl font-extrabold tracking-tight text-primary flex-shrink-0 min-w-[3.5rem] text-right">
+                {stat.value}
+              </div>
+              {/* ฝั่งขวา: ข้อความอธิบายตัวอักษรเล็กชิดซ้าย (นำมาไว้เคียงข้างตัวเลขในแนวราบ) */}
+              <div className="text-left text-xs font-semibold text-muted-foreground leading-tight max-w-[140px]">
+                {stat.label}
+              </div>
             </div>
           ))}
         </div>
