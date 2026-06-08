@@ -18,7 +18,6 @@ export function MscdHero() {
 
         
         <h1 className="text-balance text-4xl font-bold tracking-tight text-white sm:text-5xl lg:text-6xl leading-tight sm:leading-tight">
-          <span className="inline-block text-accent">MSCD</span>{" "}
           <span className="inline-block text-white">
             {t("programDetails.mscd.title")}
           </span>

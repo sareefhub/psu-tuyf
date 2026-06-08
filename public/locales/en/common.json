@@ -46,14 +46,28 @@
   },
   "programDetails": {
     "mscd": {
-      "title": "Mathematics for Sustainable Community Development (MSCD) Project",
+      "title": "Mathematics for Sustainable Community Development Project",
       "sub": "โครงการพัฒนาชุมชนอย่างยั่งยืนด้วยคณิตศาสตร์",
       "desc": "This project focuses on developing mathematical potential at various levels, including secondary school students, undergraduate students, and mathematics teachers in secondary schools. Its goal is to strengthen the foundational knowledge and essential skills needed for sustainable community development. The project is divided into three main components:",
       "items": [
         "Scholarships for undergraduate students",
         "Projects for developing secondary school students",
         "Projects for developing secondary school mathematics teachers"
-      ]
+      ],
+      "subprojects": {
+        "scholarships": {
+          "title": "1. Undergraduate Scholarships (B.Sc. Scholarships)",
+          "desc": "This first sub-project focuses on cultivating high-quality mathematics graduates to meet community needs. Scholarships are awarded to Thai and Cambodian students, all of whom will receive continuous support to develop their mathematical potential to prepare them for becoming mathematics teachers in Islamic schools in Southern Thailand, or returning to contribute to Cambodia's development."
+        },
+        "student": {
+          "title": "2. High School Student Development (Student Improve)",
+          "desc": "This sub-project aims to elevate the mathematical abilities of high school students in Islamic private schools in Yala, Pattani, and Narathiwat provinces to prepare them with higher capabilities for their future academic paths."
+        },
+        "teacher": {
+          "title": "3. Mathematics Teacher Training (Teacher Improve)",
+          "desc": "This final sub-project is crucial for improving the quality of mathematics teaching in private Islamic schools, focusing on reinforcing teachers' knowledge and active pedagogy skills to enable modern, effective classrooms."
+        }
+      }
     },
     "mgss": {
       "title": "Mathematical Graduated Students Supporting (MGSS) Project",
@@ -152,7 +166,7 @@
     },
     "obligations": {
       "title": "Obligations & Conditions for Recipients",
-      "desc": "Recipient conditions and requirements for students under the PSU-TUYF (MSCD) scholarship program",
+      "desc": "Recipient conditions and requirements for students under the PSU-TUYF scholarship program",
       "preamble": "Selected students must be eligible to study in the B.Sc. Mathematics & Computer Science program, Faculty of Science and Technology, PSU Pattani Campus, sign the agreement, and comply with these rules:",
       "items": {
         "item1": "Show diligence in studies and good conduct. In each semester, recipients must submit academic results and conduct certifications from their advisor, program chair, and department head according to the form specified by the scholarship project.",
