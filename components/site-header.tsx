@@ -47,6 +47,13 @@ export function SiteHeader() {
     { label: t("ติดต่อ", "Contact"), href: "#footer" },
   ]
 
+  // ฟังก์ชันป้องกันไม่ให้ลิงก์นำทางไปยังจุดอื่นเนื่องจากยังไม่มีหน้าข้อมูลย่อยแยกต่างหาก
+  const handleLinkClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+    if (href !== "#home") {
+      e.preventDefault() // ป้องกันไม่ให้หน้าจอสไลด์หรือเปลี่ยนตำแหน่ง
+    }
+  }
+
   return (
     <header className="sticky top-0 z-50 border-b border-border/60 bg-background/85 backdrop-blur-md">
       <div className="mx-auto grid h-16 max-w-6xl grid-cols-[auto_1fr_auto] items-center gap-4 px-6">
@@ -68,6 +75,7 @@ export function SiteHeader() {
               <div key={link.href} className="group relative">
                 <a
                   href={link.href}
+                  onClick={(e) => handleLinkClick(e, link.href)}
                   className="flex items-center gap-1 rounded-lg px-3 py-2 text-sm font-medium text-muted-foreground transition-colors hover:text-primary"
                 >
                   {link.label}
@@ -79,6 +87,7 @@ export function SiteHeader() {
                       <a
                         key={child.href}
                         href={child.href}
+                        onClick={(e) => handleLinkClick(e, child.href)}
                         className="block rounded-lg px-3 py-2 text-sm text-muted-foreground transition-colors hover:bg-secondary hover:text-primary"
                       >
                         {child.label}
@@ -91,6 +100,7 @@ export function SiteHeader() {
               <a
                 key={link.href}
                 href={link.href}
+                onClick={(e) => handleLinkClick(e, link.href)}
                 className="rounded-lg px-3 py-2 text-sm font-medium text-muted-foreground transition-colors hover:text-primary"
               >
                 {link.label}
@@ -121,7 +131,10 @@ export function SiteHeader() {
                   <div className="flex items-center">
                     <a
                       href={link.href}
-                      onClick={() => setOpen(false)}
+                      onClick={(e) => {
+                        handleLinkClick(e, link.href)
+                        if (link.href === "#home") setOpen(false)
+                      }}
                       className="flex-1 rounded-lg px-3 py-2.5 text-sm font-medium text-muted-foreground transition-colors hover:bg-secondary hover:text-primary"
                     >
                       {link.label}
@@ -145,7 +158,10 @@ export function SiteHeader() {
                         <a
                           key={child.href}
                           href={child.href}
-                          onClick={() => setOpen(false)}
+                          onClick={(e) => {
+                            handleLinkClick(e, child.href)
+                            if (child.href === "#home") setOpen(false)
+                          }}
                           className="rounded-lg px-3 py-2 text-sm text-muted-foreground transition-colors hover:bg-secondary hover:text-primary"
                         >
                           {child.label}
@@ -158,7 +174,10 @@ export function SiteHeader() {
                 <a
                   key={link.href}
                   href={link.href}
-                  onClick={() => setOpen(false)}
+                  onClick={(e) => {
+                    handleLinkClick(e, link.href)
+                    if (link.href === "#home") setOpen(false)
+                  }}
                   className="rounded-lg px-3 py-2.5 text-sm font-medium text-muted-foreground transition-colors hover:bg-secondary hover:text-primary"
                 >
                   {link.label}

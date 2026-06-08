@@ -22,7 +22,7 @@ export default function RootLayout({
 }>) {
   return (
     // ลบคลาสของ Google Font 'Kanit' ออก เพื่อเรียกใช้ PSU Stidti จาก CSS ระดับระบบอย่างสมบูรณ์
-    <html lang="en" className="bg-background">
+    <html lang="en" className="scroll-smooth bg-background">
       <body className="font-sans antialiased">
         {children}
         {process.env.NODE_ENV === 'production' && <Analytics />}
