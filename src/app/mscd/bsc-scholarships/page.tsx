@@ -48,7 +48,7 @@ function BscScholarshipsContent() {
 
         {/* แถบนำทางแบบแคปซูลกลมมนคุมธีมหน้าแรก (Global Tab Bar) */}
         <section className="py-8 bg-background border-t border-border/40">
-          <div className="mx-auto max-w-6xl px-6">
+          <div className="mx-auto max-w-7xl px-6">
             <div className="flex justify-center">
               <div className="inline-flex items-center bg-secondary/50 border border-border/50 p-1.5 rounded-full overflow-x-auto max-w-full scrollbar-none">
                 {tabs.map((tab) => {

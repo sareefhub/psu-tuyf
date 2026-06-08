@@ -7,7 +7,7 @@ export function ProjectOverview() {
 
   return (
     <section className="py-16 bg-background">
-      <div className="mx-auto max-w-6xl px-6">
+      <div className="mx-auto max-w-7xl px-6">
         <div className="space-y-6">
           <div className="space-y-4">
             <h2 className="text-2xl font-bold text-primary">

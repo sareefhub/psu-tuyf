@@ -38,7 +38,7 @@ export function ProgramsSection() {
       id="programs"
       className="bg-secondary/30 flex min-h-[calc(100vh-4rem)] items-center py-20 scroll-mt-16"
     >
-      <div className="mx-auto max-w-6xl px-6 w-full">
+      <div className="mx-auto max-w-7xl px-6 w-full">
         {/* ส่วนหัวข้อหลักของโครงการ */}
         <div className="mx-auto max-w-2xl text-center">
           <h2 className="text-balance text-3xl font-bold tracking-tight text-primary sm:text-4xl">

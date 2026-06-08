@@ -29,7 +29,7 @@ export function EligibilitySection() {
 
   return (
     <section className="py-10 bg-background">
-      <div className="mx-auto max-w-6xl px-6">
+      <div className="mx-auto max-w-7xl px-6">
         {/* หัวข้อสไตล์หน้าแรก */}
         <div className="text-center max-w-2xl mx-auto mb-16 space-y-3">
           <h2 className="text-balance text-2xl font-bold tracking-tight text-primary sm:text-3xl">
@@ -82,8 +82,8 @@ export function ObligationsSection() {
   const t = useT()
 
   return (
-    <section className="py-10 bg-background animate-fade-in max-w-4xl mx-auto px-6">
-      <div className="space-y-6">
+    <section className="py-10 bg-background animate-fade-in">
+      <div className="mx-auto max-w-7xl px-6 space-y-6">
         {/* หัวข้อสไตล์หน้าแรก */}
         <div className="text-center space-y-2 mb-8">
           <h2 className="text-balance text-2xl font-bold tracking-tight text-primary sm:text-3xl">
@@ -140,7 +140,7 @@ export function FundingSection() {
 
   return (
     <section className="py-10 bg-background">
-      <div className="mx-auto max-w-6xl px-6">
+      <div className="mx-auto max-w-7xl px-6">
         {/* หัวข้อสไตล์หน้าแรก */}
         <div className="text-center max-w-2xl mx-auto mb-16 space-y-3">
           <h2 className="text-balance text-2xl font-bold tracking-tight text-primary sm:text-3xl">

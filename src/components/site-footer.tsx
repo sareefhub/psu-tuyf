@@ -8,7 +8,7 @@ export function SiteFooter() {
 
   return (
     <footer id="footer" className="bg-primary text-primary-foreground">
-      <div className="mx-auto max-w-6xl px-6 py-14">
+      <div className="mx-auto max-w-7xl px-6 py-14">
         <div className="grid gap-10 md:grid-cols-3">
           <div>
             <span className="text-xl font-bold">
