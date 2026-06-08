@@ -51,9 +51,12 @@ export function SiteHeader() {
     <header className="sticky top-0 z-50 border-b border-border/60 bg-background/85 backdrop-blur-md">
       <div className="mx-auto grid h-16 max-w-6xl grid-cols-[auto_1fr_auto] items-center gap-4 px-6">
         <a href="#home" className="flex items-center gap-2.5">
-          <span className="flex h-9 w-9 items-center justify-center rounded-lg bg-primary text-sm font-bold text-primary-foreground">
-            P
-          </span>
+          {/* แสดงรูปภาพโลโก้ PSU-TUYF แทนตัวอักษร P เดิม */}
+          <img
+            src="/images/logo-psu-tuyf.png"
+            alt="PSU-TUYF Logo"
+            className="h-12 w-12 object-contain"
+          />
           <span className="text-lg font-semibold tracking-tight text-primary">
             PSU<span className="text-accent">-TUYF</span>
           </span>

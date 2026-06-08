@@ -15,21 +15,10 @@ export const metadata: Metadata = {
     'A modernized campus information platform for the Faculty of Science and Technology, Prince of Songkla University.',
   generator: 'v0.app',
   icons: {
-    icon: [
-      {
-        url: '/icon-light-32x32.png',
-        media: '(prefers-color-scheme: light)',
-      },
-      {
-        url: '/icon-dark-32x32.png',
-        media: '(prefers-color-scheme: dark)',
-      },
-      {
-        url: '/icon.svg',
-        type: 'image/svg+xml',
-      },
-    ],
-    apple: '/apple-icon.png',
+    // กำหนดให้ใช้ภาพโลโก้ PSU-TUYF เป็นไอคอน Favicon ของเว็บไซต์บนแท็บเบราว์เซอร์
+    icon: '/images/logo-psu-tuyf.png',
+    shortcut: '/images/logo-psu-tuyf.png',
+    apple: '/images/logo-psu-tuyf.png',
   },
 }
 
