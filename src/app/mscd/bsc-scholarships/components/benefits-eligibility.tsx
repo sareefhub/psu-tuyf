@@ -1,111 +1,27 @@
 "use client"
 
 import { useT } from "@/components/language-context"
-import { Award } from "lucide-react" // ลบ Check และ CheckCircle2 ที่ไม่ได้ใช้งานออก
+import { Award } from "lucide-react"
 
-// ================= ข้อมูลคุณสมบัติของผู้สมัครทุน =================
-const eligibilityData = [
-  {
-    labelTh:
-      "เป็นผู้ที่สมัครโครงการรับนักศึกษาคณะวิทยาศาสตร์และเทคโนโลยี TCAS1 รอบ 1/1 หรือ 1/2 (แฟ้มสะสมผลงาน) สาขาคณิตศาสตร์และวิทยาการคอมพิวเตอร์ โดยผ่านโครงการ ดังนี้:",
-    labelEn:
-      "Applied for Faculty of Science and Technology admission in TCAS Round 1 (1/1 or 1/2 Portfolio) for Mathematics and Computer Science through one of the following projects:",
-    subItemsTh: [
-      "โครงการรับนักศึกษาวิธีพิเศษเพื่อเข้าศึกษาในคณะวิทยาศาสตร์และเทคโนโลยี",
-      "โครงการรับนักเรียนจากโรงเรียนสังกัดสมาคมสมาพันธ์โรงเรียนเอกชนภาคใต้เพื่อเข้าศึกษาในคณะวิทยาศาสตร์และเทคโนโลยี",
-      "โครงการรับนักเรียนที่มีผลการเรียนดี เข้าศึกษาระดับปริญญาตรี ในมหาวิทยาลัยสงขลานครินทร์",
-      "โครงการส่งเสริมผู้มีคุณธรรม จริยธรรม บําเพ็ญประโยชน์ช่วยเหลือสังคมเข้าศึกษาระดับปริญญาตรี",
-    ],
-    subItemsEn: [
-      "Special Admission Project for Faculty of Science and Technology",
-      "Southern Association of Private Schools Confederation Project",
-      "High Academic Achievement Student Admission Project (PSU)",
-      "Moral, Ethics, and Public Service Promotion Admission Project",
-    ],
-  },
-  {
-    labelTh:
-      "กำลังศึกษาในระดับชั้นมัธยมศึกษาปีที่ 6 หรือสำเร็จการศึกษาจากโรงเรียนเอกชนสอนศาสนาอิสลามในสามจังหวัดชายแดนใต้ (ปัตตานี ยะลา และนราธิวาส)",
-    labelEn:
-      "Currently in Grade 12 (M.6) or graduated from an Islamic private school in the three southern border provinces (Pattani, Yala, Narathiwat).",
-  },
-  {
-    labelTh:
-      "มีผลการเรียนสะสม (GPAX) ไม่ต่ำกว่า 3.00 และผลการเรียนเฉลี่ย 5 ภาคการศึกษาวิชาคณิตศาสตร์ไม่ต่ำกว่า 2.50",
-    labelEn:
-      "Cumulative GPAX of at least 3.00, and a 5-semester average grade in Mathematics of at least 2.50.",
-  },
-  {
-    labelTh:
-      "เป็นผู้มีสุขภาพกายและจิตเป็นปกติ ไม่เป็นโรคติดต่อหรือโรคร้ายแรงที่เป็นอุปสรรคต่อการเรียน",
-    labelEn:
-      "In good physical and mental health, with no contagious or severe illnesses that obstruct studies.",
-  },
-  {
-    labelTh: "เป็นผู้มีใจรักในวิชาคณิตศาสตร์และมีเจตคติที่ดีต่ออาชีพที่เกี่ยวกับการศึกษา",
-    labelEn:
-      "Possess a passion for mathematics and a positive attitude towards education-related careers.",
-  },
-  {
-    labelTh:
-      "เป็นผู้มีความรับผิดชอบ มีความเป็นผู้นำ สำนึกรักบ้านเกิด และอยากพัฒนาบ้านเกิดของตนเอง หรือ ชุมชนในพื้นที่สามจังหวัดชายแดนใต้",
-    labelEn:
-      "Responsible, possessing leadership qualities, local consciousness, and a desire to develop their hometown or community in the three southern border provinces.",
-  },
-  {
-    labelTh: "เป็นผู้ยินดีปฏิบัติตามเงื่อนไขและข้อผูกพันที่โครงการกำหนด",
-    labelEn: "Willing to comply with all terms and conditions set by the program.",
-  },
-]
+// คีย์ข้อมูลสำหรับดึงค่าคุณสมบัติจาก i18n JSON
+const eligibilityKeys = [
+  { key: "item1", hasSubItems: true },
+  { key: "item2" },
+  { key: "item3" },
+  { key: "item4" },
+  { key: "item5" },
+  { key: "item6" },
+  { key: "item7" },
+] as const
 
-// ================= ข้อมูลข้อปฏิบัติสำหรับผู้ที่ได้รับเลือกเข้ารับทุน =================
-const obligationsData = [
-  {
-    labelTh:
-      "เป็นผู้มีความขยันหมั่นเพียรในการศึกษาและมีความประพฤติดี โดยในทุกภาคการศึกษาจะต้องรายงานผลการศึกษาและได้รับการรับรองความประพฤติจากอาจารย์ที่ปรึกษา ประธานหลักสูตร หัวหน้าสาขาวิชาคณิตศาสตร์และวิทยาการคอมพิวเตอร์ ตามแบบฟอร์มที่โครงการทุนกำหนด",
-    labelEn:
-      "Show diligence in studies and good conduct. In each semester, recipients must submit academic results and conduct certifications from their advisor, program chair, and department head according to the form specified by the scholarship project.",
-  },
-  {
-    labelTh:
-      "ลงทะเบียนเรียนตามแผนการศึกษาของหลักสูตร หากนอกเหนือจากนั้น จะต้องได้รับความเห็นชอบจากคณะกรรมการโครงการ และมีผลการเรียนตามที่กำหนด ดังนี้:",
-    labelEn:
-      "Register according to the program curriculum plan. Any deviation must be approved by the project committee. Academic performance must meet the following criteria:",
-    subItemsTh: [
-      "มีผลการเรียนในแต่ละภาคการศึกษา (GPA) ไม่ต่ำกว่า 2.50",
-      "มีผลการเรียนสะสม (GPAX) ไม่ต่ำกว่า 2.50",
-    ],
-    subItemsEn: ["GPA in each semester not less than 2.50", "Cumulative GPAX not less than 2.50"],
-  },
-]
+// คีย์ข้อมูลสำหรับดึงค่าข้อปฏิบัติจาก i18n JSON
+const obligationsKeys = [
+  { key: "item1" },
+  { key: "item2", hasSubItems: true },
+] as const
 
-// ================= ข้อมูลอัตราค่าใช้จ่ายสนับสนุนทุนการศึกษา =================
-const benefitsData = [
-  {
-    titleTh: "ค่าธรรมเนียมการศึกษา",
-    titleEn: "Tuition Fees",
-    descTh: "จ่ายตามจริงที่มหาวิทยาลัยกำหนด",
-    descEn: "Paid in full as actual expenses set by the university.",
-  },
-  {
-    titleTh: "ค่าใช้จ่ายส่วนตัว",
-    titleEn: "Personal Allowance",
-    descTh: "6,000 บาท/เดือน",
-    descEn: "6,000 THB/month.",
-  },
-  {
-    titleTh: "ค่าหนังสือหรือสื่อสนับสนุนการศึกษา",
-    titleEn: "Books & Educational Materials",
-    descTh: "8,000 บาท/ปี",
-    descEn: "8,000 THB/year.",
-  },
-  {
-    titleTh: "ค่าตอบแทนสนับสนุนการนำเสนอผลงาน",
-    titleEn: "Academic Presentation Support",
-    descTh: "20,000 บาท ตลอดหลักสูตร (ในงานวิชาการระดับชาติหรือนานาชาติ)",
-    descEn: "20,000 THB throughout the curriculum for national or international conferences.",
-  },
-]
+// คีย์ข้อมูลสำหรับดึงค่าอัตราเงินทุนสนับสนุนจาก i18n JSON
+const fundingKeys = ["tuition", "allowance", "books", "presentation"] as const
 
 // ================= 1. ส่วนคุณสมบัติของผู้สมัครทุน =================
 export function EligibilitySection() {
@@ -117,23 +33,20 @@ export function EligibilitySection() {
         {/* หัวข้อสไตล์หน้าแรก */}
         <div className="text-center max-w-2xl mx-auto mb-16 space-y-3">
           <h2 className="text-balance text-2xl font-bold tracking-tight text-primary sm:text-3xl">
-            {t("คุณสมบัติของผู้สมัครทุน", "Applicant Eligibility Criteria")}
+            {t("bscScholarships.eligibility.title")}
           </h2>
           <p className="text-sm text-muted-foreground/80">
-            {t(
-              "ผู้สมัครขอรับทุนการศึกษาโครงการ B.Sc. Scholarships จะต้องมีคุณสมบัติคุณสมบัติดังต่อไปนี้",
-              "Applicants must meet the following criteria to be eligible for the scholarship",
-            )}
+            {t("bscScholarships.eligibility.desc")}
           </p>
         </div>
 
         {/* เลย์เอาต์แสดงผลคุณสมบัติ 7 ข้อ */}
         <div className="grid gap-6 md:grid-cols-2">
-          {eligibilityData.map((req, index) => {
+          {eligibilityKeys.map((item, index) => {
             const isFirst = index === 0
             return (
               <div
-                key={req.labelEn} // ใช้ labelEn เป็น key แทนการใช้ Array index
+                key={item.key}
                 className={`bg-card border border-border/50 rounded-2xl p-6 shadow-sm space-y-3 hover:border-accent/30 transition-all ${
                   isFirst ? "md:col-span-2" : ""
                 }`}
@@ -143,13 +56,12 @@ export function EligibilitySection() {
                     {index + 1}
                   </span>
                   <p className="text-xs text-foreground/90 leading-relaxed font-semibold">
-                    {t(req.labelTh, req.labelEn)}
+                    {t(`bscScholarships.eligibility.items.${item.key}`)}
                   </p>
                 </div>
-                {req.subItemsTh && (
+                {"hasSubItems" in item && item.hasSubItems && (
                   <ul className="pl-9 list-disc space-y-1.5 border-t border-border/40 pt-3 mt-1">
-                    {/* ระบุประเภทข้อมูลเป็น string[] เพื่อหลีกเลี่ยง Implicit 'any' และใช้ข้อความ (sub) เป็น key แทน index */}
-                    {(t(req.subItemsTh, req.subItemsEn) as string[]).map((sub) => (
+                    {(t("bscScholarships.eligibility.subItems1", { returnObjects: true }) as string[]).map((sub) => (
                       <li key={sub} className="text-[11px] text-muted-foreground leading-relaxed">
                         {sub}
                       </li>
@@ -175,32 +87,23 @@ export function ObligationsSection() {
         {/* หัวข้อสไตล์หน้าแรก */}
         <div className="text-center space-y-2 mb-8">
           <h2 className="text-balance text-2xl font-bold tracking-tight text-primary sm:text-3xl">
-            {t(
-              "ข้อปฏิบัติสำหรับผู้ที่ได้รับเลือกเข้ารับทุน",
-              "Obligations & Conditions for Recipients",
-            )}
+            {t("bscScholarships.obligations.title")}
           </h2>
           <p className="text-sm text-muted-foreground/80">
-            {t(
-              "นักเรียนทุนในโครงการ PSU-TUYF (MSCD) จะต้องปฏิบัติตามเงื่อนไขหลักเกณฑ์ดังต่อไปนี้",
-              "Recipient conditions and requirements for students under the PSU-TUYF (MSCD) scholarship program",
-            )}
+            {t("bscScholarships.obligations.desc")}
           </p>
         </div>
 
         {/* คำชี้แจงเบื้องต้น */}
         <p className="text-xs text-muted-foreground leading-relaxed text-center px-4">
-          {t(
-            "นักเรียนที่ได้รับการคัดเลือกเพื่อรับทุนในโครงการ จะต้องเป็นผู้ที่มีสิทธิ์ศึกษาในหลักสูตรระดับปริญญาตรี วท.บ. คณิตศาสตร์และวิทยาการคอมพิวเตอร์ คณะวิทยาศาสตร์และเทคโนโลยี มหาวิทยาลัยสงขลานครินทร์ วิทยาเขตปัตตานี ทำสัญญาตามที่ทุนกำหนด และปฏิบัติตามเงื่อนไขอย่างเคร่งครัด ดังนี้:",
-            "Selected students must be eligible to study in the B.Sc. Mathematics & Computer Science program, Faculty of Science and Technology, PSU Pattani Campus, sign the agreement, and comply with these rules:",
-          )}
+          {t("bscScholarships.obligations.preamble")}
         </p>
 
         {/* แผงแสดงผลข้อปฏิบัติ 2 ส่วน */}
         <div className="grid gap-6 md:grid-cols-2">
-          {obligationsData.map((ob, index) => (
+          {obligationsKeys.map((item, index) => (
             <div
-              key={ob.labelEn} // ใช้ labelEn เป็น key แทนการใช้ Array index
+              key={item.key}
               className="bg-card border border-border/50 rounded-2xl p-6 shadow-sm space-y-4 hover:border-accent/30 transition-all"
             >
               <div className="flex gap-3 items-start">
@@ -208,13 +111,12 @@ export function ObligationsSection() {
                   {index + 1}
                 </span>
                 <p className="text-xs text-foreground/90 leading-relaxed font-semibold">
-                  {t(ob.labelTh, ob.labelEn)}
+                  {t(`bscScholarships.obligations.items.${item.key}`)}
                 </p>
               </div>
-              {ob.subItemsTh && (
+              {"hasSubItems" in item && item.hasSubItems && (
                 <ul className="pl-9 list-disc space-y-1.5 border-t border-border/40 pt-3">
-                  {/* ระบุประเภทข้อมูลเป็น string[] เพื่อหลีกเลี่ยง Implicit 'any' และใช้ข้อความ (sub) เป็น key แทน index */}
-                  {(t(ob.subItemsTh, ob.subItemsEn) as string[]).map((sub) => (
+                  {(t("bscScholarships.obligations.subItems2", { returnObjects: true }) as string[]).map((sub) => (
                     <li
                       key={sub}
                       className="text-[11px] text-muted-foreground leading-relaxed font-semibold"
@@ -242,21 +144,18 @@ export function FundingSection() {
         {/* หัวข้อสไตล์หน้าแรก */}
         <div className="text-center max-w-2xl mx-auto mb-16 space-y-3">
           <h2 className="text-balance text-2xl font-bold tracking-tight text-primary sm:text-3xl">
-            {t("อัตราค่าใช้จ่ายสนับสนุนทุนการศึกษา", "Scholarship Funding & Allowances")}
+            {t("bscScholarships.funding.title")}
           </h2>
           <p className="text-sm text-muted-foreground/80">
-            {t(
-              "สิทธิประโยชน์และมูลค่าเงินทุนการศึกษาที่นักเรียนทุนในโครงการจะได้รับตลอดหลักสูตร",
-              "Financial allowances and tuition funding details provided to recipients throughout the program",
-            )}
+            {t("bscScholarships.funding.desc")}
           </p>
         </div>
 
         {/* อัตราค่าใช้จ่ายสนับสนุนการ์ด 4 ช่อง */}
         <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-          {benefitsData.map((item) => (
+          {fundingKeys.map((key) => (
             <div
-              key={item.titleEn} // ใช้ titleEn เป็น key แทนการใช้ Array index และลบ index ที่ไม่ได้ใช้ออก
+              key={key}
               className="bg-card border border-border/50 rounded-2xl p-6 text-center shadow-sm flex flex-col justify-between hover:border-accent/30 transition-all"
             >
               <div className="flex justify-center mb-4">
@@ -266,10 +165,10 @@ export function FundingSection() {
               </div>
               <div>
                 <h3 className="font-bold text-primary text-sm mb-2">
-                  {t(item.titleTh, item.titleEn)}
+                  {t(`bscScholarships.funding.items.${key}.title`)}
                 </h3>
                 <p className="text-xs text-muted-foreground/90 leading-relaxed font-semibold">
-                  {t(item.descTh, item.descEn)}
+                  {t(`bscScholarships.funding.items.${key}.desc`)}
                 </p>
               </div>
             </div>

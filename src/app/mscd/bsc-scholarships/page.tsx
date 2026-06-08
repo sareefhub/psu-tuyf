@@ -24,14 +24,14 @@ function BscScholarshipsContent() {
   const t = useT()
   const [activeTab, setActiveTab] = useState<TabId>("stats")
 
-  // ข้อมูลของปุ่มแท็บนำทางทั้ง 6 หัวข้อ (ย่อข้อความเพื่อไม่ให้ล้นแถบ และดูสะอาดตาขึ้น)
+  // ข้อมูลของปุ่มแท็บนำทางทั้ง 6 หัวข้อ (ดึงค่าจากไฟล์แปลภาษา JSON)
   const tabs = [
-    { id: "stats", labelTh: "สถิตินักเรียนทุน", labelEn: "Scholarship Statistics" },
-    { id: "directory", labelTh: "ทำเนียบนักเรียนทุน", labelEn: "Recipients Directory" },
-    { id: "eligibility", labelTh: "คุณสมบัติผู้สมัคร", labelEn: "Eligibility Criteria" },
-    { id: "obligations", labelTh: "ข้อปฏิบัติผู้รับทุน", labelEn: "Obligations & Conditions" },
-    { id: "funding", labelTh: "ค่าใช้จ่ายสนับสนุน", labelEn: "Scholarship Funding" },
-    { id: "announcements", labelTh: "ประกาศ", labelEn: "Announcements" },
+    { id: "stats", key: "bscScholarships.tabs.stats" },
+    { id: "directory", key: "bscScholarships.tabs.directory" },
+    { id: "eligibility", key: "bscScholarships.tabs.eligibility" },
+    { id: "obligations", key: "bscScholarships.tabs.obligations" },
+    { id: "funding", key: "bscScholarships.tabs.funding" },
+    { id: "announcements", key: "bscScholarships.tabs.announcements" },
   ] as const
 
   return (
@@ -63,7 +63,7 @@ function BscScholarshipsContent() {
                           : "text-muted-foreground hover:text-primary"
                       }`}
                     >
-                      {t(tab.labelTh, tab.labelEn)}
+                      {t(tab.key)}
                     </button>
                   )
                 })}

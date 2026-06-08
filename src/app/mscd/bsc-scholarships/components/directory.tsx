@@ -4,22 +4,17 @@ import { useT } from "@/components/language-context"
 import { GraduationCap, ArrowRight, User } from "lucide-react"
 import { Button } from "@/components/ui/button"
 
-// โครงสร้างข้อมูลรายชื่อนักเรียนทุนแยกตามปีการศึกษาและกลุ่มสัญชาติ
+// โครงสร้างข้อมูลรายชื่อนักเรียนทุน ที่แมปคีย์กับไฟล์แปลภาษา JSON
 const directoryData = [
   {
-    yearTh: "นักเรียนทุนรับเข้าปีการศึกษา 2566",
-    yearEn: "Scholarship Admitted Students Academic Year 2023 (2566)",
+    yearKey: "y2566",
     groups: [
       {
-        titleTh: "นักเรียนกัมพูชา Cambodian Student Scholars 2021",
-        titleEn: "Cambodian Student Scholars 2021",
+        groupKey: "g1",
         students: [
           {
             name: "Miss SOPHOUN YOUK",
-            roleTh: "Scholar Student since , 2023",
-            roleEn: "Scholar Student since , 2023",
-            campusTh: "Pattani Campus",
-            campusEn: "Pattani Campus",
+            studentKey: "s1",
             image: "",
           },
         ],
@@ -27,125 +22,42 @@ const directoryData = [
     ],
   },
   {
-    yearTh: "นักเรียนทุนรับเข้าปีการศึกษา 2565",
-    yearEn: "Scholarship Admitted Students Academic Year 2022 (2565)",
+    yearKey: "y2565",
     groups: [
       {
-        titleTh: "นักเรียนไทย Thai Student Scholars 2021",
-        titleEn: "Thai Student Scholars 2021",
+        groupKey: "g1",
         students: [
-          {
-            name: "Mr. Faruk Waede",
-            roleTh: "2nd year student, 2022",
-            roleEn: "2nd year student, 2022",
-            campusTh: "Pattani Campus",
-            campusEn: "Pattani Campus",
-            image: "",
-          },
-          {
-            name: "Miss Inasnee Rattanawongsawas",
-            roleTh: "2nd year Student, 2022",
-            roleEn: "2nd year Student, 2022",
-            campusTh: "Pattani Campus",
-            campusEn: "Pattani Campus",
-            image: "",
-          },
-          {
-            name: "Miss Fatimah Mahae",
-            roleTh: "2nd year student, 2022",
-            roleEn: "2nd year student, 2022",
-            campusTh: "Pattani Campus",
-            campusEn: "Pattani Campus",
-            image: "",
-          },
-          {
-            name: "Miss Nirania Waedaya",
-            roleTh: "2nd year student, 2022",
-            roleEn: "2nd year student, 2022",
-            campusTh: "Pattani Campus",
-            campusEn: "Pattani Campus",
-            image: "",
-          },
-          {
-            name: "Miss Sufianee Abu",
-            roleTh: "2nd year student, 2022",
-            roleEn: "2nd year student, 2022",
-            campusTh: "Pattani Campus",
-            campusEn: "Pattani Campus",
-            image: "",
-          },
+          { name: "Mr. Faruk Waede", studentKey: "s1", image: "" },
+          { name: "Miss Inasnee Rattanawongsawas", studentKey: "s2", image: "" },
+          { name: "Miss Fatimah Mahae", studentKey: "s3", image: "" },
+          { name: "Miss Nirania Waedaya", studentKey: "s4", image: "" },
+          { name: "Miss Sufianee Abu", studentKey: "s5", image: "" },
         ],
       },
       {
-        titleTh: "นักเรียนกัมพูชา Cambodian Student Scholars 2022",
-        titleEn: "Cambodian Student Scholars 2022",
+        groupKey: "g2",
         students: [
-          {
-            name: "Miss Liza Thea",
-            roleTh: "2nd year student, 2022",
-            roleEn: "2nd year student, 2022",
-            campusTh: "Pattani Campus",
-            campusEn: "Pattani Campus",
-            image: "",
-          },
-          {
-            name: "Mr. Chhavy Chorn",
-            roleTh: "2nd year Student, 2022",
-            roleEn: "2nd year Student, 2022",
-            campusTh: "Pattani Campus",
-            campusEn: "Pattani Campus",
-            image: "",
-          },
+          { name: "Miss Liza Thea", studentKey: "s1", image: "" },
+          { name: "Mr. Chhavy Chorn", studentKey: "s2", image: "" },
         ],
       },
     ],
   },
   {
-    yearTh: "นักเรียนทุนรับเข้าปีการศึกษา 2564",
-    yearEn: "Scholarship Admitted Students Academic Year 2021 (2564)",
+    yearKey: "y2564",
     groups: [
       {
-        titleTh: "นักเรียนไทย Thai Student Scholars 2021",
-        titleEn: "Thai Student Scholars 2021",
+        groupKey: "g1",
         students: [
-          {
-            name: "Miss Rusmee Binmaming",
-            roleTh: "3rd year student, 2021",
-            roleEn: "3rd year student, 2021",
-            campusTh: "Pattani Campus",
-            campusEn: "Pattani Campus",
-            image: "",
-          },
-          {
-            name: "Mr. Affan Yahyoh",
-            roleTh: "3rd year student, 2021",
-            roleEn: "3rd year student, 2021",
-            campusTh: "Pattani Campus",
-            campusEn: "Pattani Campus",
-            image: "",
-          },
+          { name: "Miss Rusmee Binmaming", studentKey: "s1", image: "" },
+          { name: "Mr. Affan Yahyoh", studentKey: "s2", image: "" },
         ],
       },
       {
-        titleTh: "นักเรียนกัมพูชา Cambodian Student Scholars 2021",
-        titleEn: "Cambodian Student Scholars 2021",
+        groupKey: "g2",
         students: [
-          {
-            name: "Mr. Namoral Thy",
-            roleTh: "3rd year student, 2021",
-            roleEn: "3rd year student, 2021",
-            campusTh: "Pattani Campus",
-            campusEn: "Pattani Campus",
-            image: "",
-          },
-          {
-            name: "Miss Layya Meak",
-            roleTh: "3rd year student, 2021",
-            roleEn: "3rd year student, 2021",
-            campusTh: "Pattani Campus",
-            campusEn: "Pattani Campus",
-            image: "",
-          },
+          { name: "Mr. Namoral Thy", studentKey: "s1", image: "" },
+          { name: "Miss Layya Meak", studentKey: "s2", image: "" },
         ],
       },
     ],
@@ -155,16 +67,22 @@ const directoryData = [
 // โครงสร้างของข้อมูลนักเรียนทุนแต่ละคน
 interface Student {
   name: string
-  roleTh: string
-  roleEn: string
-  campusTh: string
-  campusEn: string
+  studentKey: string
   image: string
 }
 
 // คอมโพเนนต์ย่อยสำหรับแสดงการ์ดรายละเอียดนักเรียนทุนแต่ละคน
-// แยกออกมาเพื่อป้องกันการเขียนฟังก์ชันซ้อนกันลึกเกิน 4 ระดับ (Nesting functions)
-function StudentCard({ student, t }: Readonly<{ student: Student; t: (th: any, en: any) => any }>) {
+function StudentCard({
+  student,
+  yearKey,
+  groupKey,
+  t,
+}: Readonly<{
+  student: Student
+  yearKey: string
+  groupKey: string
+  t: (key: string) => string
+}>) {
   return (
     <div className="group bg-card border border-border/50 rounded-2xl overflow-hidden shadow-sm hover:shadow-md hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between">
       {/* กล่องภาพตัวแทนนักเรียน (Placeholder) */}
@@ -176,7 +94,7 @@ function StudentCard({ student, t }: Readonly<{ student: Student; t: (th: any, e
             <User className="h-8 w-8 text-primary/70" />
           </div>
           <span className="text-[9px] font-bold uppercase tracking-widest text-primary/70 bg-white/70 px-2 py-0.5 rounded border border-border/40">
-            {t("รูปนักเรียนทุน", "Recipients Photo")}
+            {t("bscScholarships.directory.photo")}
           </span>
         </div>
       </div>
@@ -188,21 +106,21 @@ function StudentCard({ student, t }: Readonly<{ student: Student; t: (th: any, e
             {student.name}
           </h4>
           <p className="text-xs text-muted-foreground/80 leading-relaxed">
-            {t(student.roleTh, student.roleEn)}
+            {t(`bscScholarships.directory.years.${yearKey}.groups.${groupKey}.students.${student.studentKey}.role`)}
           </p>
           <p className="text-[10px] font-semibold text-muted-foreground/75 flex items-center gap-1">
             <GraduationCap className="h-3.5 w-3.5 text-accent" />
-            {t(student.campusTh, student.campusEn)}
+            {t(`bscScholarships.directory.years.${yearKey}.groups.${groupKey}.students.${student.studentKey}.campus`)}
           </p>
         </div>
 
-        {/* ปุ่มดูรายละเอียดเพิ่มเติม - ใช้ปุ่มสำหรับ Accessibility */}
+        {/* ปุ่มดูรายละเอียดเพิ่มเติม */}
         <Button
           variant="link"
           className="p-0 h-auto justify-start font-semibold text-xs text-primary hover:text-accent hover:no-underline mt-2"
           onClick={() => {}}
         >
-          {t("ดูรายละเอียดเพิ่มเติม", "More Detail")}
+          {t("bscScholarships.directory.moreDetail")}
           <ArrowRight className="ml-1.5 h-3.5 w-3.5 transition-transform duration-300 group-hover:translate-x-1" />
         </Button>
       </div>
@@ -219,42 +137,41 @@ export function SelectionDirectory() {
         {/* หัวข้อทำเนียบนักเรียนทุน */}
         <div className="text-center max-w-2xl mx-auto mb-16 space-y-3">
           <h2 className="text-balance text-2xl font-bold tracking-tight text-primary sm:text-3xl">
-            {t("ทำเนียบนักเรียนทุน", "Scholarship Recipients Directory")}
+            {t("bscScholarships.directory.title")}
           </h2>
           <p className="text-sm text-muted-foreground/80">
-            {t(
-              "รายชื่อเกียรติยศของนักเรียนและนักศึกษาผู้ได้รับทุนการศึกษาโครงการ B.Sc. Scholarships",
-              "Honorary list of B.Sc. Scholarships program recipients",
-            )}
+            {t("bscScholarships.directory.desc")}
           </p>
         </div>
 
         {/* รายการแบ่งตามปีการศึกษา */}
         <div className="space-y-20">
           {directoryData.map((yearGroup) => (
-            <div key={yearGroup.yearEn} className="space-y-12">
+            <div key={yearGroup.yearKey} className="space-y-12">
               {/* แถบปีการศึกษาแบ่งส่วนชัดเจน */}
               <div className="border-b border-border/80 pb-3">
                 <h3 className="text-xl font-bold text-primary flex items-center gap-2">
                   <span className="h-5 w-1 bg-accent rounded-full" />
-                  {t(yearGroup.yearTh, yearGroup.yearEn)}
+                  {t(`bscScholarships.directory.years.${yearGroup.yearKey}.label`)}
                 </h3>
               </div>
 
               {/* วนลูปกลุ่มสัญชาติย่อยภายในปีนั้น ๆ */}
               <div className="space-y-10">
                 {yearGroup.groups.map((group) => (
-                  <div key={group.titleEn} className="space-y-6">
+                  <div key={group.groupKey} className="space-y-6">
                     <span className="text-xs font-bold text-muted-foreground uppercase tracking-widest block bg-secondary/40 px-3 py-1 rounded w-fit">
-                      {t(group.titleTh, group.titleEn)}
+                      {t(`bscScholarships.directory.years.${yearGroup.yearKey}.groups.${group.groupKey}.title`)}
                     </span>
 
-                    {/* รายชื่อนักเรียนในกลุ่มนี้แสดงเป็น Grid คลีน ๆ */}
+                    {/* รายชื่อนักเรียนในกลุ่มนี้แสดงเป็น Grid */}
                     <div className="grid gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
                       {group.students.map((student) => (
                         <StudentCard
                           key={student.name}
                           student={student}
+                          yearKey={yearGroup.yearKey}
+                          groupKey={group.groupKey}
                           t={t}
                         />
                       ))}

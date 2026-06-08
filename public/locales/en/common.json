@@ -83,5 +83,229 @@
     "contact": "Contact",
     "campus": "Prince of Songkla University, Pattani Campus",
     "copyright": "© {{year}} PSU-TUYF · The TUYF Charitable Trust Fund. All rights reserved."
+  },
+  "bscScholarships": {
+    "tabs": {
+      "stats": "Scholarship Statistics",
+      "directory": "Recipients Directory",
+      "eligibility": "Eligibility Criteria",
+      "obligations": "Obligations & Conditions",
+      "funding": "Scholarship Funding",
+      "announcements": "Announcements"
+    },
+    "hero": {
+      "title": "B.Sc. Scholarships",
+      "subtitle": "(Undergraduate)",
+      "desc": "Committed to cultivating high-quality mathematicians to meet societal needs by awarding scholarships to Thai and Cambodian undergraduate students for continuous capacity building."
+    },
+    "overview": {
+      "title": "About B.Sc. Scholarships Program",
+      "desc1": "The PSU-TUYF Scholarship Program is committed to cultivating high-quality mathematicians to meet societal needs by awarding scholarships to Thai and Cambodian undergraduate students. All scholarship recipients will receive continuous mathematical capacity building to prepare them for the future, whether becoming mathematics teachers in Islamic schools in Southern Thailand, or returning to contribute to the development of Cambodia.",
+      "desc2": "This project commenced in 2021 with support from the PSU-TUYF Charitable Trust Fund and will run until 2025. Currently, 12 students have been selected to receive this scholarship. The project continues to strive to build capable mathematicians to be a crucial driving force for the future development of both nations."
+    },
+    "statistics": {
+      "title": "Scholarship Student Statistics",
+      "desc": "Statistical report of B.Sc. Scholarships program participants",
+      "alt1": "Number of Graduated Scholarship Students",
+      "alt2": "Number of Scholarship Recipients by Nationality",
+      "alt3": "Number of Scholarship Recipients by Academic Year"
+    },
+    "timeline": {
+      "title": "Application Timeline",
+      "desc": "Key phases of the application, review, and selection process.",
+      "steps": {
+        "step1": {
+          "date": "April - May",
+          "title": "Application & Document Submission",
+          "desc": "Submit the scholarship application form along with latest academic transcripts and personal profile."
+        },
+        "step2": {
+          "date": "Early June",
+          "title": "Interview & Review Phase",
+          "desc": "List of qualified candidates announced, followed by interviews with the project selection committee."
+        },
+        "step3": {
+          "date": "Mid-June",
+          "title": "Final Announcement & Orientation",
+          "desc": "Announcement of scholarship recipients followed by the annual scholarship orientation."
+        }
+      }
+    },
+    "eligibility": {
+      "title": "Applicant Eligibility Criteria",
+      "desc": "Applicants must meet the following criteria to be eligible for the scholarship",
+      "items": {
+        "item1": "Applied for Faculty of Science and Technology admission in TCAS Round 1 (1/1 or 1/2 Portfolio) for Mathematics and Computer Science through one of the following projects:",
+        "item2": "Currently in Grade 12 (M.6) or graduated from an Islamic private school in the three southern border provinces (Pattani, Yala, Narathiwat).",
+        "item3": "Cumulative GPAX of at least 3.00, and a 5-semester average grade in Mathematics of at least 2.50.",
+        "item4": "In good physical and mental health, with no contagious or severe illnesses that obstruct studies.",
+        "item5": "Possess a passion for mathematics and a positive attitude towards education-related careers.",
+        "item6": "Responsible, possessing leadership qualities, local consciousness, and a desire to develop their hometown or community in the three southern border provinces.",
+        "item7": "Willing to comply with all terms and conditions set by the program."
+      },
+      "subItems1": [
+        "Special Admission Project for Faculty of Science and Technology",
+        "Southern Association of Private Schools Confederation Project",
+        "High Academic Achievement Student Admission Project (PSU)",
+        "Moral, Ethics, and Public Service Promotion Admission Project"
+      ]
+    },
+    "obligations": {
+      "title": "Obligations & Conditions for Recipients",
+      "desc": "Recipient conditions and requirements for students under the PSU-TUYF (MSCD) scholarship program",
+      "preamble": "Selected students must be eligible to study in the B.Sc. Mathematics & Computer Science program, Faculty of Science and Technology, PSU Pattani Campus, sign the agreement, and comply with these rules:",
+      "items": {
+        "item1": "Show diligence in studies and good conduct. In each semester, recipients must submit academic results and conduct certifications from their advisor, program chair, and department head according to the form specified by the scholarship project.",
+        "item2": "Register according to the program curriculum plan. Any deviation must be approved by the project committee. Academic performance must meet the following criteria:"
+      },
+      "subItems2": [
+        "GPA in each semester not less than 2.50",
+        "Cumulative GPAX not less than 2.50"
+      ]
+    },
+    "funding": {
+      "title": "Scholarship Funding & Allowances",
+      "desc": "Financial allowances and tuition funding details provided to recipients throughout the program",
+      "items": {
+        "tuition": {
+          "title": "Tuition Fees",
+          "desc": "Paid in full as actual expenses set by the university."
+        },
+        "allowance": {
+          "title": "Personal Allowance",
+          "desc": "6,000 THB/month."
+        },
+        "books": {
+          "title": "Books & Educational Materials",
+          "desc": "8,000 THB/year."
+        },
+        "presentation": {
+          "title": "Academic Presentation Support",
+          "desc": "20,000 THB throughout the curriculum for national or international conferences."
+        }
+      }
+    },
+    "directory": {
+      "title": "Scholarship Recipients Directory",
+      "desc": "Honorary list of B.Sc. Scholarships program recipients",
+      "photo": "Recipients Photo",
+      "moreDetail": "More Detail",
+      "years": {
+        "y2566": {
+          "label": "Scholarship Admitted Students Academic Year 2023 (2566)",
+          "groups": {
+            "g1": {
+              "title": "Cambodian Student Scholars 2021",
+              "students": {
+                "s1": {
+                  "role": "Scholar Student since , 2023",
+                  "campus": "Pattani Campus"
+                }
+              }
+            }
+          }
+        },
+        "y2565": {
+          "label": "Scholarship Admitted Students Academic Year 2022 (2565)",
+          "groups": {
+            "g1": {
+              "title": "Thai Student Scholars 2021",
+              "students": {
+                "s1": {
+                  "role": "2nd year student, 2022",
+                  "campus": "Pattani Campus"
+                },
+                "s2": {
+                  "role": "2nd year Student, 2022",
+                  "campus": "Pattani Campus"
+                },
+                "s3": {
+                  "role": "2nd year student, 2022",
+                  "campus": "Pattani Campus"
+                },
+                "s4": {
+                  "role": "2nd year student, 2022",
+                  "campus": "Pattani Campus"
+                },
+                "s5": {
+                  "role": "2nd year student, 2022",
+                  "campus": "Pattani Campus"
+                }
+              }
+            },
+            "g2": {
+              "title": "Cambodian Student Scholars 2022",
+              "students": {
+                "s1": {
+                  "role": "2nd year student, 2022",
+                  "campus": "Pattani Campus"
+                },
+                "s2": {
+                  "role": "2nd year Student, 2022",
+                  "campus": "Pattani Campus"
+                }
+              }
+            }
+          }
+        },
+        "y2564": {
+          "label": "Scholarship Admitted Students Academic Year 2021 (2564)",
+          "groups": {
+            "g1": {
+              "title": "Thai Student Scholars 2021",
+              "students": {
+                "s1": {
+                  "role": "3rd year student, 2021",
+                  "campus": "Pattani Campus"
+                },
+                "s2": {
+                  "role": "3rd year student, 2021",
+                  "campus": "Pattani Campus"
+                }
+              }
+            },
+            "g2": {
+              "title": "Cambodian Student Scholars 2021",
+              "students": {
+                "s1": {
+                  "role": "3rd year student, 2021",
+                  "campus": "Pattani Campus"
+                },
+                "s2": {
+                  "role": "3rd year student, 2021",
+                  "campus": "Pattani Campus"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "announcements": {
+      "title": "Project Announcements",
+      "desc": "Official announcements and selection results for B.Sc. Scholarships program",
+      "read": "Read",
+      "download": "Download",
+      "noPdfTitle": "Document File Not Uploaded Yet",
+      "noPdfDesc": "Cannot load preview because the current file link is set to '#'. Please upload your PDF file and change the fileUrl variable to the actual path to enable the PDF viewer.",
+      "pdfReadyTitle": "Document Ready to View",
+      "pdfReadyDesc": "For the best viewing and zooming experience on mobile devices, please open the PDF file directly via the button below.",
+      "pdfOpenBtn": "Open Document (PDF)",
+      "footerHelp": "Official project publication · Print or download the full copy using your browser controls.",
+      "items": {
+        "item1": {
+          "title": "B.Sc. Scholarships Application Announcement, Academic Year 2024",
+          "date": "12 Apr 2024"
+        },
+        "item2": {
+          "title": "List of Qualified Candidates for Scholarship Interviews, Academic Year 2024",
+          "date": "03 Jun 2024"
+        },
+        "item3": {
+          "title": "Final Announcement of Scholarship Recipients, Academic Year 2024",
+          "date": "15 Jun 2024"
+        }
+      }
+    }
   }
 }

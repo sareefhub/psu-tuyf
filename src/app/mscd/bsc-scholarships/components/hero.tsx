@@ -16,16 +16,13 @@ export function BscHero() {
         </div>
         <h1 className="text-balance text-4xl font-bold tracking-tight text-white sm:text-5xl lg:text-6xl leading-tight sm:leading-tight">
           <span className="inline-block">
-            {t("ทุนการศึกษาระดับปริญญาตรี", "B.Sc. Scholarships")}
+            {t("bscScholarships.hero.title")}
           </span>{" "}
-          <span className="inline-block">{t("(B.Sc. Scholarships)", "(Undergraduate)")}</span>
+          <span className="inline-block">{t("bscScholarships.hero.subtitle")}</span>
         </h1>
 
         <p className="mt-4 max-w-2xl text-pretty text-base font-light leading-relaxed text-primary-foreground/80 sm:text-lg">
-          {t(
-            "มุ่งมั่นสร้างนักคณิตศาสตร์ที่มีคุณภาพเพื่อตอบสนองความต้องการของสังคม โดยมอบทุนการศึกษาให้กับนักศึกษาไทยและนักเรียนกัมพูชาในระดับปริญญาตรีเพื่อพัฒนาศักยภาพอย่างต่อเนื่อง",
-            "Committed to cultivating high-quality mathematicians to meet societal needs by awarding scholarships to Thai and Cambodian undergraduate students for continuous capacity building.",
-          )}
+          {t("bscScholarships.hero.desc")}
         </p>
       </div>
     </section>
