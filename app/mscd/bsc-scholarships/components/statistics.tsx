@@ -5,7 +5,7 @@ import { useT } from "@/components/language-context"
 export function SelectionStatistics() {
   const t = useT()
 
-  // อาเรย์ข้อมูลรูปภาพสถิตินักเรียนทุนที่ได้รับมอบหมาย
+  // อาเรย์ข้อมูลรูปภาพสถิตินักเรียนทุน
   const statsImages = [
     {
       src: "/images/mscd/bsc-scholarships/scholarship-student-stats-1.png",
@@ -25,7 +25,7 @@ export function SelectionStatistics() {
   ]
 
   return (
-    <section className="py-16 bg-background">
+    <section className="py-10 bg-background">
       <div className="mx-auto max-w-6xl px-6">
         
         {/* หัวข้อสถิติแบบ Clean Clean สไตล์หน้าแรก */}
@@ -41,7 +41,7 @@ export function SelectionStatistics() {
           </p>
         </div>
 
-        {/* เลดี้เอาต์แสดงภาพกราฟสถิติ 3 คอลัมน์แบบแบนและคลีน (ไม่มีกรอบ เงา หรือพื้นหลังซ้อน) */}
+        {/* เลย์เอาต์แสดงภาพกราฟสถิติ 3 คอลัมน์แบบแบนและคลีน */}
         <div className="grid gap-8 md:grid-cols-3">
           {statsImages.map((image, index) => (
             <div 

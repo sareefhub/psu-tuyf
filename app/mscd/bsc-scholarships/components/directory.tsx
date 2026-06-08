@@ -156,7 +156,7 @@ export function SelectionDirectory() {
   const t = useT()
 
   return (
-    <section className="py-20 bg-background">
+    <section className="py-10 bg-background">
       <div className="mx-auto max-w-6xl px-6">
         
         {/* หัวข้อทำเนียบนักเรียนทุน */}
