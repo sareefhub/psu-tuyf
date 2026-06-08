@@ -2,14 +2,12 @@
 
 import { useT } from "@/components/language-context"
 import { ArrowRight } from "lucide-react"
-import { useRouter } from "next/navigation"
 import Image from "next/image"
-import { Button } from "@/components/ui/button"
+import Link from "next/link"
 
 // คอมโพเนนต์แสดงภาพรวมและวัตถุประสงค์หลักของโครงการ MSCD พร้อมการ์ดนำทางตามดีไซน์สไตล์หน้าแรก
 export function MscdOverview() {
   const t = useT()
-  const router = useRouter()
 
   // ข้อมูลการ์ด 3 ส่วนหลักสไตล์การ์ดหน้าแรก (เฉพาะรูปภาพหัวข้อหลัก และปุ่มดูรายละเอียด)
   const cards = [
@@ -30,15 +28,6 @@ export function MscdOverview() {
     },
   ]
 
-  // จัดการการคลิกปุ่มนำทาง/รายละเอียด
-  const handleCardClick = (e: React.MouseEvent<HTMLAnchorElement | HTMLButtonElement>, id: "scholarships" | "students" | "teachers") => {
-    if (id === "scholarships") {
-      router.push("/mscd/bsc-scholarships")
-    } else {
-      e.preventDefault() // ป้องกันการดำเนินการเนื่องจากยังไม่มีหน้าเพจย่อยแยกต่างหากเลียนแบบปุ่มหน้าแรก
-    }
-  }
-
   return (
     <section className="py-16 bg-background">
       <div className="mx-auto max-w-7xl px-6">
@@ -48,7 +37,7 @@ export function MscdOverview() {
           {cards.map((card) => (
             <article
               key={card.id}
-              className="group flex flex-col overflow-hidden rounded-xl border border-border/60 bg-card transition-all duration-300 hover:border-border hover:shadow-sm"
+              className="relative group flex flex-col overflow-hidden rounded-xl border border-border/60 bg-card transition-all duration-300 hover:border-border hover:shadow-sm"
             >
               {/* ส่วนหัวแสดงรูปภาพสัดส่วนสี่เหลี่ยมจัตุรัส แสดงผลเต็มพื้นที่การ์ดแบบดั้งเดิม */}
               <div className="relative aspect-square w-full overflow-hidden bg-muted/20">
@@ -68,14 +57,20 @@ export function MscdOverview() {
                   {card.title}
                 </h3>
 
-                <Button
-                  variant="link"
-                  className="p-0 h-auto justify-start font-semibold text-primary hover:text-accent hover:no-underline cursor-pointer"
-                  onClick={(e) => handleCardClick(e, card.id)}
-                >
+                {/* ปุ่มดูรายละเอียด - แสดงผลแบบลิงก์โดยจะทำงานร่วมกับ Link ล่องหนเมื่อเป็นโครงการที่มีอยู่จริง */}
+                <div className="inline-flex items-center text-sm font-semibold text-primary group-hover:text-accent transition-colors">
                   {t("programs.more_detail")}
                   <ArrowRight className="ml-1.5 h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
-                </Button>
+                </div>
+
+                {/* หากเป็นโครงการ B.Sc. Scholarships ที่มีอยู่จริง จะเรนเดอร์ Link ล่องหนทับทั้งแผ่นการ์ดเพื่อให้กดได้ทั้งแผ่น */}
+                {card.id === "scholarships" && (
+                  <Link
+                    href="/mscd/bsc-scholarships"
+                    className="after:absolute after:inset-0 after:z-10"
+                    aria-label={t("programs.view_details_aria", { abbr: card.title })}
+                  />
+                )}
               </div>
             </article>
           ))}
@@ -85,4 +80,5 @@ export function MscdOverview() {
     </section>
   )
 }
+
 
