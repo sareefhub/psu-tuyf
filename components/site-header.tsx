@@ -3,6 +3,7 @@
 import { useState } from "react"
 import { ChevronDown, Menu, X } from "lucide-react"
 import { useLanguage, useT } from "@/components/language-context"
+import { usePathname } from "next/navigation"
 
 type NavChild = { label: string; href: string }
 type NavLink = { label: string; href: string; children?: NavChild[] }
@@ -12,6 +13,8 @@ export function SiteHeader() {
   const [mobileSub, setMobileSub] = useState<string | null>(null)
   const { lang, setLang } = useLanguage()
   const t = useT()
+  const pathname = usePathname()
+  const isHome = pathname === "/"
 
   const navLinks: NavLink[] = [
     { label: t("หน้าแรก", "Home"), href: "#home" },
@@ -19,7 +22,7 @@ export function SiteHeader() {
       label: "MSCD",
       href: "#mscd",
       children: [
-        { label: "B.Sc. Scholarships", href: "#mscd-0" },
+        { label: "B.Sc. Scholarships", href: "/mscd/bsc-scholarships" },
         { label: "Student Improvement", href: "#mscd-1" },
         { label: "Teacher Improvement", href: "#mscd-2" },
       ],
@@ -47,9 +50,17 @@ export function SiteHeader() {
     { label: t("ติดต่อ", "Contact"), href: "#footer" },
   ]
 
+  // ฟังก์ชันคำนวณพาธจริงตามตำแหน่งหน้าปัจจุบัน
+  const getHref = (href: string) => {
+    if (!isHome && href.startsWith("#")) {
+      return `/${href}`
+    }
+    return href
+  }
+
   // ฟังก์ชันป้องกันไม่ให้ลิงก์นำทางไปยังจุดอื่นเนื่องจากยังไม่มีหน้าข้อมูลย่อยแยกต่างหาก
   const handleLinkClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
-    if (href !== "#home") {
+    if (isHome && href.startsWith("#") && href !== "#home") {
       e.preventDefault() // ป้องกันไม่ให้หน้าจอสไลด์หรือเปลี่ยนตำแหน่ง
     }
   }
@@ -57,7 +68,7 @@ export function SiteHeader() {
   return (
     <header className="sticky top-0 z-50 border-b border-border/60 bg-background/85 backdrop-blur-md">
       <div className="mx-auto grid h-16 max-w-6xl grid-cols-[auto_1fr_auto] items-center gap-4 px-6">
-        <a href="#home" className="flex items-center gap-2.5">
+        <a href={getHref("#home")} className="flex items-center gap-2.5">
           {/* แสดงรูปภาพโลโก้ PSU-TUYF แทนตัวอักษร P เดิม */}
           <img
             src="/images/logo/logo-psu-tuyf.png"
@@ -74,7 +85,7 @@ export function SiteHeader() {
             link.children ? (
               <div key={link.href} className="group relative">
                 <a
-                  href={link.href}
+                  href={getHref(link.href)}
                   onClick={(e) => handleLinkClick(e, link.href)}
                   className="flex items-center gap-1 rounded-lg px-3 py-2 text-sm font-medium text-muted-foreground transition-colors hover:text-primary"
                 >
@@ -86,7 +97,7 @@ export function SiteHeader() {
                     {link.children.map((child) => (
                       <a
                         key={child.href}
-                        href={child.href}
+                        href={getHref(child.href)}
                         onClick={(e) => handleLinkClick(e, child.href)}
                         className="block rounded-lg px-3 py-2 text-sm text-muted-foreground transition-colors hover:bg-secondary hover:text-primary"
                       >
@@ -99,7 +110,7 @@ export function SiteHeader() {
             ) : (
               <a
                 key={link.href}
-                href={link.href}
+                href={getHref(link.href)}
                 onClick={(e) => handleLinkClick(e, link.href)}
                 className="rounded-lg px-3 py-2 text-sm font-medium text-muted-foreground transition-colors hover:text-primary"
               >
@@ -130,7 +141,7 @@ export function SiteHeader() {
                 <div key={link.href}>
                   <div className="flex items-center">
                     <a
-                      href={link.href}
+                      href={getHref(link.href)}
                       onClick={(e) => {
                         handleLinkClick(e, link.href)
                         if (link.href === "#home") setOpen(false)
@@ -157,10 +168,10 @@ export function SiteHeader() {
                       {link.children.map((child) => (
                         <a
                           key={child.href}
-                          href={child.href}
+                          href={getHref(child.href)}
                           onClick={(e) => {
                             handleLinkClick(e, child.href)
-                            if (child.href === "#home") setOpen(false)
+                            setOpen(false)
                           }}
                           className="rounded-lg px-3 py-2 text-sm text-muted-foreground transition-colors hover:bg-secondary hover:text-primary"
                         >
@@ -173,10 +184,10 @@ export function SiteHeader() {
               ) : (
                 <a
                   key={link.href}
-                  href={link.href}
+                  href={getHref(link.href)}
                   onClick={(e) => {
                     handleLinkClick(e, link.href)
-                    if (link.href === "#home") setOpen(false)
+                    setOpen(false)
                   }}
                   className="rounded-lg px-3 py-2.5 text-sm font-medium text-muted-foreground transition-colors hover:bg-secondary hover:text-primary"
                 >
