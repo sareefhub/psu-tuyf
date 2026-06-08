@@ -58,7 +58,7 @@ export function TeacherImprovementSection() {
       <div className="space-y-4">
         <h3 className="text-xl font-bold text-primary flex items-center gap-2">
           <span className="h-5 w-1 bg-accent rounded-full" />
-          โครงการอบรมครูคณิตศาสตร์ (Mathematics Teacher Training)
+          <span>โครงการอบรมครูคณิตศาสตร์ (Mathematics Teacher Training)</span>
         </h3>
         <p className="text-sm text-muted-foreground/90 leading-relaxed max-w-4xl">
           การยกระดับคุณภาพการเรียนการสอนวิชาคณิตศาสตร์ที่ยั่งยืน ต้องเริ่มจากการพัฒนาทักษะวิชาชีพของครูผู้สอน 
@@ -75,9 +75,9 @@ export function TeacherImprovementSection() {
             เป้าหมายและผลลัพธ์โครงการ
           </h4>
           <div className="space-y-3">
-            {objectives.map((obj, index) => (
+            {objectives.map((obj) => (
               <div 
-                key={index} 
+                key={obj.text} 
                 className="flex items-start gap-3 p-4 rounded-2xl border border-border bg-card hover:bg-secondary/20 transition-all duration-300"
               >
                 <span className="flex-none mt-0.5">{obj.icon}</span>
@@ -93,9 +93,9 @@ export function TeacherImprovementSection() {
             หลักสูตรและหัวข้อการอบรมหลัก
           </h4>
           <div className="space-y-4">
-            {curriculums.map((curr, index) => (
+            {curriculums.map((curr) => (
               <div 
-                key={index} 
+                key={curr.title} 
                 className="p-5 rounded-2xl border border-border bg-card/40 hover:border-accent/40 transition-all duration-300 space-y-2.5"
               >
                 <div className="flex justify-between items-start gap-4">
@@ -123,9 +123,9 @@ export function TeacherImprovementSection() {
           คลังสื่อประกอบการอบรมและเครื่องมือเพื่อครูคณิตศาสตร์
         </h4>
         <div className="grid gap-4 sm:grid-cols-2">
-          {materials.map((mat, idx) => (
+          {materials.map((mat) => (
             <div 
-              key={idx} 
+              key={mat.title} 
               className="p-4 rounded-2xl border border-border/80 bg-card hover:border-accent/35 flex items-center justify-between gap-4 transition-all duration-300"
             >
               <div className="flex items-start gap-3.5">

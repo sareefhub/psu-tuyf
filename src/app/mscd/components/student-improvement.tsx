@@ -58,7 +58,7 @@ export function StudentImprovementSection() {
       <div className="space-y-4">
         <h3 className="text-xl font-bold text-primary flex items-center gap-2">
           <span className="h-5 w-1 bg-accent rounded-full" />
-          โครงการเพื่อการพัฒนานักเรียนระดับมัธยมศึกษา
+          <span>โครงการเพื่อการพัฒนานักเรียนระดับมัธยมศึกษา</span>
         </h3>
         <p className="text-sm text-muted-foreground/90 leading-relaxed max-w-4xl">
           โครงการย่อยภายใต้โครงการหลักนี้มุ่งเน้นการสร้างแรงบันดาลใจและพัฒนาความรู้ด้านคณิตศาสตร์แก่นักเรียนระดับมัธยมศึกษา 
@@ -74,9 +74,9 @@ export function StudentImprovementSection() {
             วัตถุประสงค์ของโครงการ
           </h4>
           <div className="space-y-3">
-            {objectives.map((obj, index) => (
+            {objectives.map((obj) => (
               <div 
-                key={index} 
+                key={obj.text} 
                 className="flex items-start gap-3 p-4 rounded-2xl border border-border bg-card hover:bg-secondary/20 transition-all duration-300"
               >
                 <span className="flex-none mt-0.5">{obj.icon}</span>
@@ -92,9 +92,9 @@ export function StudentImprovementSection() {
             กิจกรรมและการดำเนินการหลัก
           </h4>
           <div className="space-y-4">
-            {activities.map((act, index) => (
+            {activities.map((act) => (
               <div 
-                key={index} 
+                key={act.title} 
                 className="p-5 rounded-2xl border border-border bg-card/40 hover:border-accent/40 transition-all duration-300 space-y-2.5"
               >
                 <div className="flex justify-between items-start gap-4">

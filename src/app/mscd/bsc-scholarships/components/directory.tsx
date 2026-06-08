@@ -165,7 +165,7 @@ export function SelectionDirectory() {
               <div className="border-b border-border/80 pb-3">
                 <h3 className="text-xl font-bold text-primary flex items-center gap-2">
                   <span className="h-5 w-1 bg-accent rounded-full" />
-                  {t(`bscScholarships.directory.years.${yearGroup.yearKey}.label`)}
+                  <span>{t(`bscScholarships.directory.years.${yearGroup.yearKey}.label`)}</span>
                 </h3>
               </div>
 
