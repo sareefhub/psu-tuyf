@@ -1,6 +1,6 @@
 "use client"
 
-import { createContext, useContext, useState, useEffect, type ReactNode } from "react"
+import { createContext, useContext, useState, useEffect, useMemo, useCallback, type ReactNode } from "react"
 import { useTranslation } from "react-i18next"
 import i18n from "@/lib/i18n" // นำเข้าตั้งค่าเริ่มต้นของ i18n
 
@@ -13,28 +13,31 @@ type LanguageContextValue = {
 
 const LanguageContext = createContext<LanguageContextValue | null>(null)
 
-export function LanguageProvider({ children }: { children: ReactNode }) {
-  const [lang, setLangState] = useState<Lang>("th")
+export function LanguageProvider({ children }: Readonly<{ children: ReactNode }>) {
+  const [lang, setLang] = useState<Lang>("th")
 
   // ดึงภาษาที่บันทึกไว้ใน localStorage ขึ้นมาใช้หลังเมาท์เสร็จ (เพื่อป้องกัน Hydration Mismatch ของ Next.js)
   useEffect(() => {
     const savedLang = localStorage.getItem("app-lang") as Lang | null
     if (savedLang === "th" || savedLang === "en") {
-      setLangState(savedLang)
+      setLang(savedLang)
       i18n.changeLanguage(savedLang)
     }
   }, [])
 
   // ฟังก์ชันสลับภาษาที่จะจัดเก็บค่าใน localStorage และอัปเดตสถานะของ i18next ไปพร้อมกัน
-  const setLang = (newLang: Lang) => {
-    setLangState(newLang)
+  const handleSetLang = useCallback((newLang: Lang) => {
+    setLang(newLang)
     i18n.changeLanguage(newLang)
-    if (typeof window !== "undefined") {
+    if (globalThis.window !== undefined) {
       localStorage.setItem("app-lang", newLang)
     }
-  }
+  }, [])
 
-  return <LanguageContext.Provider value={{ lang, setLang }}>{children}</LanguageContext.Provider>
+  // จัดเก็บค่าใน Context Provider เพื่อไม่ให้ Object เปลี่ยนทุกครั้งที่เรนเดอร์ (ป้องกันการ Re-render ส่วนลูกโดยไม่จำเป็น)
+  const contextValue = useMemo(() => ({ lang, setLang: handleSetLang }), [lang, handleSetLang])
+
+  return <LanguageContext.Provider value={contextValue}>{children}</LanguageContext.Provider>
 }
 
 export function useLanguage() {

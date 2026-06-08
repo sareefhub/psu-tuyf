@@ -164,7 +164,7 @@ interface Student {
 
 // คอมโพเนนต์ย่อยสำหรับแสดงการ์ดรายละเอียดนักเรียนทุนแต่ละคน
 // แยกออกมาเพื่อป้องกันการเขียนฟังก์ชันซ้อนกันลึกเกิน 4 ระดับ (Nesting functions)
-function StudentCard({ student, t }: { student: Student; t: (th: any, en: any) => any }) {
+function StudentCard({ student, t }: Readonly<{ student: Student; t: (th: any, en: any) => any }>) {
   return (
     <div className="group bg-card border border-border/50 rounded-2xl overflow-hidden shadow-sm hover:shadow-md hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between">
       {/* กล่องภาพตัวแทนนักเรียน (Placeholder) */}

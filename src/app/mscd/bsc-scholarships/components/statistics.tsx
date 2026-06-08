@@ -42,8 +42,8 @@ export function SelectionStatistics() {
 
         {/* เลย์เอาต์แสดงภาพกราฟสถิติ 3 คอลัมน์แบบแบนและคลีน */}
         <div className="grid gap-8 md:grid-cols-3">
-          {statsImages.map((image, index) => (
-            <div key={index} className="flex items-center justify-center overflow-hidden">
+          {statsImages.map((image) => (
+            <div key={image.src} className="flex items-center justify-center overflow-hidden">
               <img
                 src={image.src}
                 alt={t(image.altTh, image.altEn)}

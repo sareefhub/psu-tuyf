@@ -123,13 +123,15 @@ export function SelectionAnnouncements() {
           <button
             type="button"
             className="fixed inset-0 bg-black/60 z-50 flex items-center justify-center p-4 backdrop-blur-xs animate-fade-in w-full cursor-default"
-            onClick={() => setPreviewPdf(null)} // คลิกพื้นหลังภายนอกกล่องเพื่อปิดป๊อปอัป
+            onClick={(e) => {
+              if (e.target === e.currentTarget) {
+                setPreviewPdf(null)
+              }
+            }}
             aria-label="Close document preview"
           >
-            {/* ป้องกันไม่ให้คลิกภายในกล่องเอกสารแล้วปิดหน้าต่างพรีวิว */}
             <div
               className="bg-card border border-border w-full max-w-5xl rounded-3xl overflow-hidden shadow-2xl relative flex flex-col h-[80vh] sm:h-[85vh] animate-scale-in"
-              onClick={(e) => e.stopPropagation()}
             >
               {/* ส่วนหัวของป๊อปอัป - ปรับให้ใช้ relative เพื่อยึดตำแหน่งปุ่มปิดให้อยู่กับที่และไม่โดนดันเบียด */}
               <div className="p-4 border-b border-border/40 flex items-center justify-between bg-card text-foreground relative pr-12">

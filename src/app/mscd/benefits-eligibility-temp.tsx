@@ -6,24 +6,28 @@ import { Award, FileText, Check, CheckCircle2 } from "lucide-react"
 // ================= ข้อมูลอัตราค่าใช้จ่ายสนับสนุนทุนการศึกษา =================
 const benefitsData = [
   {
+    id: "tuition",
     titleTh: "ค่าธรรมเนียมการศึกษา",
     titleEn: "Tuition Fees",
     descTh: "จ่ายตามจริงที่มหาวิทยาลัยกำหนด",
     descEn: "Paid in full as actual expenses set by the university.",
   },
   {
+    id: "allowance",
     titleTh: "ค่าใช้จ่ายส่วนตัว",
     titleEn: "Personal Allowance",
     descTh: "6,000 บาท/เดือน",
     descEn: "6,000 THB/month.",
   },
   {
+    id: "materials",
     titleTh: "ค่าหนังสือหรือสื่อสนับสนุนการศึกษา",
     titleEn: "Books & Educational Materials",
     descTh: "8,000 บาท/ปี",
     descEn: "8,000 THB/year.",
   },
   {
+    id: "presentation",
     titleTh: "ค่าตอบแทนสนับสนุนการนำเสนอผลงาน",
     titleEn: "Academic Presentation Support",
     descTh: "20,000 บาท ตลอดหลักสูตร (ในงานวิชาการระดับชาติหรือนานาชาติ)",
@@ -34,6 +38,7 @@ const benefitsData = [
 // ================= ข้อมูลคุณสมบัติของผู้สมัครทุน =================
 const eligibilityData = [
   {
+    id: "tcas",
     labelTh:
       "เป็นผู้ที่สมัครโครงการรับนักศึกษาคณะวิทยาศาสตร์และเทคโนโลยี TCAS1 รอบ 1/1 หรือ 1/2 (แฟ้มสะสมผลงาน) สาขาคณิตศาสตร์และวิทยาการคอมพิวเตอร์ โดยผ่านโครงการ ดังนี้:",
     labelEn:
@@ -52,35 +57,41 @@ const eligibilityData = [
     ],
   },
   {
+    id: "location",
     labelTh:
       "กำลังศึกษาในระดับชั้นมัธยมศึกษาปีที่ 6 หรือสำเร็จการศึกษาจากโรงเรียนเอกชนสอนศาสนาอิสลามในสามจังหวัดชายแดนใต้ (ปัตตานี ยะลา และนราธิวาส)",
     labelEn:
       "Currently in Grade 12 (M.6) or graduated from an Islamic private school in the three southern border provinces (Pattani, Yala, Narathiwat).",
   },
   {
+    id: "gpax",
     labelTh:
       "มีผลการเรียนสะสม (GPAX) ไม่ต่ำกว่า 3.00 และผลการเรียนเฉลี่ย 5 ภาคการศึกษาวิชาคณิตศาสตร์ไม่ต่ำกว่า 2.50",
     labelEn:
       "Cumulative GPAX of at least 3.00, and a 5-semester average grade in Mathematics of at least 2.50.",
   },
   {
+    id: "health",
     labelTh:
       "เป็นผู้มีสุขภาพกายและจิตเป็นปกติ ไม่เป็นโรคติดต่อหรือโรคร้ายแรงที่เป็นอุปสรรคต่อการเรียน",
     labelEn:
       "In good physical and mental health, with no contagious or severe illnesses that obstruct studies.",
   },
   {
+    id: "attitude",
     labelTh: "เป็นผู้มีใจรักในวิชาคณิตศาสตร์และมีเจตคติที่ดีต่ออาชีพที่เกี่ยวกับการศึกษา",
     labelEn:
       "Possess a passion for mathematics and a positive attitude towards education-related careers.",
   },
   {
+    id: "responsibility",
     labelTh:
       "เป็นผู้มีความรับผิดชอบ มีความเป็นผู้นำ สำนึกรักบ้านเกิด และอยากพัฒนาบ้านเกิดของตนเอง หรือ ชุมชนในพื้นที่สามจังหวัดชายแดนใต้",
     labelEn:
       "Responsible, possessing leadership qualities, local consciousness, and a desire to develop their hometown or community in the three southern border provinces.",
   },
   {
+    id: "terms",
     labelTh: "เป็นผู้ยินดีปฏิบัติตามเงื่อนไขและข้อผูกพันที่โครงการกำหนด",
     labelEn: "Willing to comply with all terms and conditions set by the program.",
   },
@@ -89,12 +100,14 @@ const eligibilityData = [
 // ================= ข้อมูลข้อปฏิบัติสำหรับผู้ที่ได้รับเลือกเข้ารับทุน =================
 const obligationsData = [
   {
+    id: "conduct",
     labelTh:
       "เป็นผู้มีความขยันหมั่นเพียรในการศึกษาและมีความประพฤติดี โดยในทุกภาคการศึกษาจะต้องรายงานผลการศึกษาและได้รับการรับรองความประพฤติจากอาจารย์ที่ปรึกษา ประธานหลักสูตร หัวหน้าสาขาวิชาคณิตศาสตร์และวิทยาการคอมพิวเตอร์ ตามแบบฟอร์มที่โครงการทุนกำหนด",
     labelEn:
       "Show diligence in studies and good conduct. In each semester, recipients must submit academic results and conduct certifications from their advisor, program chair, and department head according to the form specified by the scholarship project.",
   },
   {
+    id: "academic",
     labelTh:
       "ลงทะเบียนเรียนตามแผนการศึกษาของหลักสูตร หากนอกเหนือจากนั้น จะต้องได้รับความเห็นชอบจากคณะกรรมการโครงการ และมีผลการเรียนตามที่กำหนด ดังนี้:",
     labelEn:
@@ -133,8 +146,8 @@ export function BenefitsAndEligibility() {
                 )}
               </p>
               <ul className="space-y-5">
-                {benefitsData.map((item, index) => (
-                  <li key={index} className="flex items-start gap-4">
+                {benefitsData.map((item) => (
+                  <li key={item.id} className="flex items-start gap-4">
                     <span className="mt-1 flex h-5 w-5 flex-none items-center justify-center rounded-full bg-accent/15 text-accent">
                       <Check className="h-3 w-3" />
                     </span>
@@ -168,10 +181,10 @@ export function BenefitsAndEligibility() {
                 "Applicants must meet the following criteria to be eligible for the scholarship:",
               )}
             </p>
-            <div className="space-y-4 max-h-[400px] overflow-y-auto pr-2">
+            <div className="space-y-4 max-h-100 overflow-y-auto pr-2">
               {eligibilityData.map((req, index) => (
                 <div
-                  key={index}
+                  key={req.id}
                   className="space-y-2 border-b border-border/40 pb-3 last:border-b-0 last:pb-0"
                 >
                   <div className="flex gap-3 items-start">
@@ -183,9 +196,9 @@ export function BenefitsAndEligibility() {
                   {/* แสดงรายการย่อยของโครงการถ้ามี */}
                   {req.subItemsTh && (
                     <ul className="pl-8 list-disc space-y-1">
-                      {t(req.subItemsTh, req.subItemsEn).map((sub, sIdx) => (
+                      {(t(req.subItemsTh, req.subItemsEn) as string[]).map((sub) => (
                         <li
-                          key={sIdx}
+                          key={sub}
                           className="text-[10px] text-muted-foreground leading-relaxed"
                         >
                           {sub}
@@ -223,11 +236,11 @@ export function BenefitsAndEligibility() {
           <div className="grid gap-6 md:grid-cols-2">
             {obligationsData.map((ob, index) => (
               <div
-                key={index}
+                key={ob.id}
                 className="bg-secondary/20 rounded-2xl p-5 border border-border/40 space-y-3"
               >
                 <div className="flex gap-3 items-start">
-                  <span className="h-6 w-6 rounded-full bg-accent/15 flex items-center justify-center text-xs font-bold text-accent flex-shrink-0">
+                  <span className="h-6 w-6 rounded-full bg-accent/15 flex items-center justify-center text-xs font-bold text-accent shrink-0">
                     {index + 1}
                   </span>
                   <p className="text-xs text-foreground/90 leading-relaxed font-semibold">
@@ -237,9 +250,9 @@ export function BenefitsAndEligibility() {
                 {/* แสดงผลรายการย่อยระบุเกรดที่กำหนด */}
                 {ob.subItemsTh && (
                   <ul className="pl-9 list-disc space-y-1.5">
-                    {t(ob.subItemsTh, ob.subItemsEn).map((sub, sIdx) => (
+                    {(t(ob.subItemsTh, ob.subItemsEn) as string[]).map((sub) => (
                       <li
-                        key={sIdx}
+                        key={sub}
                         className="text-[10px] text-muted-foreground leading-relaxed font-semibold"
                       >
                         {sub}
