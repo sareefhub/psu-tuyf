@@ -58,9 +58,9 @@ export function SelectionTimeline() {
         </div>
 
         <div className="relative border-l-2 border-accent/25 pl-8 ml-4 sm:ml-6 space-y-10">
-          {timelineData.map((step, index) => (
-            <div key={index} className="relative">
-              <span className="absolute -left-[41px] top-1 flex h-6 w-6 items-center justify-center rounded-full bg-background border-2 border-accent">
+          {timelineData.map((step) => (
+            <div key={step.titleEn} className="relative">
+              <span className="absolute -left-10.25 top-1 flex h-6 w-6 items-center justify-center rounded-full bg-background border-2 border-accent">
                 <span className="h-2 w-2 rounded-full bg-accent" />
               </span>
               <div>

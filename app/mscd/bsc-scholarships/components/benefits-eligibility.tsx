@@ -1,7 +1,7 @@
 "use client"
 
 import { useT } from "@/components/language-context"
-import { Check, CheckCircle2, Award } from "lucide-react"
+import { Award } from "lucide-react" // ลบ Check และ CheckCircle2 ที่ไม่ได้ใช้งานออก
 
 // ================= ข้อมูลคุณสมบัติของผู้สมัครทุน =================
 const eligibilityData = [
@@ -133,13 +133,13 @@ export function EligibilitySection() {
             const isFirst = index === 0
             return (
               <div
-                key={index}
+                key={req.labelEn} // ใช้ labelEn เป็น key แทนการใช้ Array index
                 className={`bg-card border border-border/50 rounded-2xl p-6 shadow-sm space-y-3 hover:border-accent/30 transition-all ${
                   isFirst ? "md:col-span-2" : ""
                 }`}
               >
                 <div className="flex gap-3 items-start">
-                  <span className="h-6 w-6 rounded-full bg-accent/10 flex items-center justify-center text-xs font-bold text-accent flex-shrink-0">
+                  <span className="h-6 w-6 rounded-full bg-accent/10 flex items-center justify-center text-xs font-bold text-accent shrink-0">
                     {index + 1}
                   </span>
                   <p className="text-xs text-foreground/90 leading-relaxed font-semibold">
@@ -148,8 +148,9 @@ export function EligibilitySection() {
                 </div>
                 {req.subItemsTh && (
                   <ul className="pl-9 list-disc space-y-1.5 border-t border-border/40 pt-3 mt-1">
-                    {t(req.subItemsTh, req.subItemsEn).map((sub, sIdx) => (
-                      <li key={sIdx} className="text-[11px] text-muted-foreground leading-relaxed">
+                    {/* ระบุประเภทข้อมูลเป็น string[] เพื่อหลีกเลี่ยง Implicit 'any' และใช้ข้อความ (sub) เป็น key แทน index */}
+                    {(t(req.subItemsTh, req.subItemsEn) as string[]).map((sub) => (
+                      <li key={sub} className="text-[11px] text-muted-foreground leading-relaxed">
                         {sub}
                       </li>
                     ))}
@@ -199,11 +200,11 @@ export function ObligationsSection() {
         <div className="grid gap-6 md:grid-cols-2">
           {obligationsData.map((ob, index) => (
             <div
-              key={index}
+              key={ob.labelEn} // ใช้ labelEn เป็น key แทนการใช้ Array index
               className="bg-card border border-border/50 rounded-2xl p-6 shadow-sm space-y-4 hover:border-accent/30 transition-all"
             >
               <div className="flex gap-3 items-start">
-                <span className="h-6 w-6 rounded-full bg-accent/15 flex items-center justify-center text-xs font-bold text-accent flex-shrink-0">
+                <span className="h-6 w-6 rounded-full bg-accent/15 flex items-center justify-center text-xs font-bold text-accent shrink-0">
                   {index + 1}
                 </span>
                 <p className="text-xs text-foreground/90 leading-relaxed font-semibold">
@@ -212,9 +213,10 @@ export function ObligationsSection() {
               </div>
               {ob.subItemsTh && (
                 <ul className="pl-9 list-disc space-y-1.5 border-t border-border/40 pt-3">
-                  {t(ob.subItemsTh, ob.subItemsEn).map((sub, sIdx) => (
+                  {/* ระบุประเภทข้อมูลเป็น string[] เพื่อหลีกเลี่ยง Implicit 'any' และใช้ข้อความ (sub) เป็น key แทน index */}
+                  {(t(ob.subItemsTh, ob.subItemsEn) as string[]).map((sub) => (
                     <li
-                      key={sIdx}
+                      key={sub}
                       className="text-[11px] text-muted-foreground leading-relaxed font-semibold"
                     >
                       {sub}
@@ -252,9 +254,9 @@ export function FundingSection() {
 
         {/* อัตราค่าใช้จ่ายสนับสนุนการ์ด 4 ช่อง */}
         <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-          {benefitsData.map((item, index) => (
+          {benefitsData.map((item) => (
             <div
-              key={index}
+              key={item.titleEn} // ใช้ titleEn เป็น key แทนการใช้ Array index และลบ index ที่ไม่ได้ใช้ออก
               className="bg-card border border-border/50 rounded-2xl p-6 text-center shadow-sm flex flex-col justify-between hover:border-accent/30 transition-all"
             >
               <div className="flex justify-center mb-4">

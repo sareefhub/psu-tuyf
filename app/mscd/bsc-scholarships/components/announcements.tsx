@@ -64,14 +64,14 @@ export function SelectionAnnouncements() {
         {/* รายการแถวแสดงเอกสารประกาศ */}
         <div className="max-w-4xl mx-auto border border-border/60 rounded-3xl overflow-hidden bg-card shadow-sm">
           <div className="divide-y divide-border/40">
-            {announcementsData.map((item, index) => (
+            {announcementsData.map((item) => (
               <div
-                key={index}
+                key={item.fileUrl}
                 className="p-5 sm:p-6 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 hover:bg-secondary/30 transition-colors group"
               >
                 {/* ข้อมูลเนื้อหาด้านซ้าย */}
                 <div className="flex gap-4 items-start">
-                  <div className="h-10 w-10 rounded-xl bg-red-500/10 flex items-center justify-center text-red-500 flex-shrink-0 group-hover:scale-105 transition-transform">
+                  <div className="h-10 w-10 rounded-xl bg-red-500/10 flex items-center justify-center text-red-500 shrink-0 group-hover:scale-105 transition-transform">
                     <FileText className="h-5 w-5" />
                   </div>
                   <div className="space-y-1">
@@ -119,18 +119,23 @@ export function SelectionAnnouncements() {
 
         {/* ================= กล่องหน้าต่างลอยเปิดอ่านเอกสาร (Popup Modal Overlay) ================= */}
         {previewPdf && (
-          <div
-            className="fixed inset-0 bg-black/60 z-50 flex items-center justify-center p-4 backdrop-blur-xs animate-fade-in"
+          // ใช้ button เป็น backdrop overlay เพื่อ accessibility - รองรับ keyboard และ screen reader
+          <button
+            type="button"
+            className="fixed inset-0 bg-black/60 z-50 flex items-center justify-center p-4 backdrop-blur-xs animate-fade-in w-full cursor-default"
             onClick={() => setPreviewPdf(null)} // คลิกพื้นหลังภายนอกกล่องเพื่อปิดป๊อปอัป
+            aria-label="Close document preview"
           >
+            {/* หยุดการปิดเมื่อคลิกภายในกล่องเอกสาร */}
             <div
               className="bg-card border border-border w-full max-w-5xl rounded-3xl overflow-hidden shadow-2xl relative flex flex-col h-[80vh] sm:h-[85vh] animate-scale-in"
-              onClick={(e) => e.stopPropagation()} // ป้องกันการปิดป๊อปอัปเมื่อคลิกในตัวกล่องเอกสาร
+              onClick={(e) => e.stopPropagation()}
+              role="presentation"
             >
               {/* ส่วนหัวของป๊อปอัป - ปรับให้ใช้ relative เพื่อยึดตำแหน่งปุ่มปิดให้อยู่กับที่และไม่โดนดันเบียด */}
               <div className="p-4 border-b border-border/40 flex items-center justify-between bg-card text-foreground relative pr-12">
                 <div className="flex items-center gap-3 max-w-[85%]">
-                  <div className="h-8 w-8 rounded-lg bg-red-500/10 flex items-center justify-center text-red-500 flex-shrink-0">
+                  <div className="h-8 w-8 rounded-lg bg-red-500/10 flex items-center justify-center text-red-500 shrink-0">
                     <FileText className="h-4.5 w-4.5" />
                   </div>
                   <h3 className="font-bold text-primary text-xs sm:text-sm md:text-base truncate">
@@ -215,7 +220,7 @@ export function SelectionAnnouncements() {
                 )}
               </div>
             </div>
-          </div>
+          </button>
         )}
       </div>
     </section>

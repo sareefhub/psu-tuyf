@@ -173,8 +173,8 @@ export function SelectionDirectory() {
 
         {/* รายการแบ่งตามปีการศึกษา */}
         <div className="space-y-20">
-          {directoryData.map((yearGroup, yearIdx) => (
-            <div key={yearIdx} className="space-y-12">
+          {directoryData.map((yearGroup) => (
+            <div key={yearGroup.yearEn} className="space-y-12">
               {/* แถบปีการศึกษาแบ่งส่วนชัดเจน */}
               <div className="border-b border-border/80 pb-3">
                 <h3 className="text-xl font-bold text-primary flex items-center gap-2">
@@ -185,23 +185,23 @@ export function SelectionDirectory() {
 
               {/* วนลูปกลุ่มสัญชาติย่อยภายในปีนั้น ๆ */}
               <div className="space-y-10">
-                {yearGroup.groups.map((group, groupIdx) => (
-                  <div key={groupIdx} className="space-y-6">
+                {yearGroup.groups.map((group) => (
+                  <div key={group.titleEn} className="space-y-6">
                     <span className="text-xs font-bold text-muted-foreground uppercase tracking-widest block bg-secondary/40 px-3 py-1 rounded w-fit">
                       {t(group.titleTh, group.titleEn)}
                     </span>
 
                     {/* รายชื่อนักเรียนในกลุ่มนี้แสดงเป็น Grid คลีน ๆ */}
                     <div className="grid gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
-                      {group.students.map((student, idx) => (
+                      {group.students.map((student) => (
                         <div
-                          key={idx}
+                          key={student.name}
                           className="group bg-card border border-border/50 rounded-2xl overflow-hidden shadow-sm hover:shadow-md hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between"
                         >
                           {/* กล่องภาพตัวแทนนักเรียน (Placeholder) */}
                           {/* หากต้องการใส่รูปภาพจริง: สามารถแก้ไขโดยแทนที่กล่องด้านล่างด้วย <img src={student.image} className="w-full h-full object-cover" /> */}
-                          <div className="relative aspect-[4/5] bg-gradient-to-tr from-accent/5 via-primary/5 to-pink-500/5 flex flex-col items-center justify-center p-6 text-muted-foreground/60 border-b border-border/40 overflow-hidden">
-                            <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black/5" />
+                          <div className="relative aspect-4/5 bg-linear-to-tr from-accent/5 via-primary/5 to-pink-500/5 flex flex-col items-center justify-center p-6 text-muted-foreground/60 border-b border-border/40 overflow-hidden">
+                            <div className="absolute inset-0 bg-linear-to-b from-transparent to-black/5" />
 
                             <div className="relative z-10 flex flex-col items-center">
                               <div className="h-20 w-20 rounded-full bg-white/90 shadow-sm flex items-center justify-center text-primary/70 mb-3 group-hover:scale-105 transition-transform duration-300">
@@ -228,12 +228,11 @@ export function SelectionDirectory() {
                               </p>
                             </div>
 
-                            {/* ปุ่ม More Detail คลีน ๆ สไตล์หน้าแรก */}
+                            {/* ปุ่มดูรายละเอียดเพิ่มเติม - ใช้ button จริงแทน anchor เพื่อ accessibility */}
                             <Button
-                              render={<a href="#" onClick={(e) => e.preventDefault()} />}
-                              nativeButton={false}
                               variant="link"
                               className="p-0 h-auto justify-start font-semibold text-xs text-primary hover:text-accent hover:no-underline mt-2"
+                              onClick={() => {}}
                             >
                               {t("ดูรายละเอียดเพิ่มเติม", "More Detail")}
                               <ArrowRight className="ml-1.5 h-3.5 w-3.5 transition-transform duration-300 group-hover:translate-x-1" />

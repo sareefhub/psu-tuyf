@@ -63,7 +63,7 @@ export function HeroSection() {
 
           <div className="mt-8 flex flex-col gap-3 w-full max-w-xs sm:w-auto sm:flex-row sm:justify-center lg:justify-start">
             <Button
-              render={<a href="#programs" />}
+              render={<a href="#programs" aria-label="View all programs" />}
               nativeButton={false}
               size="lg"
               variant="secondary"
@@ -73,7 +73,7 @@ export function HeroSection() {
               <ArrowRight className="ml-1 h-4 w-4" />
             </Button>
             <Button
-              render={<a href="#about" />}
+              render={<a href="#about" aria-label="About the project" />}
               nativeButton={false}
               size="lg"
               variant="outline"
@@ -85,7 +85,7 @@ export function HeroSection() {
         </div>
 
         {/* ส่วนสไลเดอร์แสดงรูปภาพหลายรูป (Carousel Showcase) แสดงรูปภาพเต็มขนาดจริงโดยไม่จำกัดความสูงและไม่ครอปภาพ (แสดงด้านบนเมื่อหน้าจอเล็ก) */}
-        <div className="relative group w-full overflow-hidden rounded-3xl border border-primary-foreground/15 shadow-2xl bg-black/10 order-first lg:order-none">
+        <div className="relative group w-full overflow-hidden rounded-3xl border border-primary-foreground/15 shadow-2xl bg-black/10 order-first lg:order-0">
           {heroImages.map((img, idx) => (
             <img
               key={img}
@@ -117,9 +117,9 @@ export function HeroSection() {
 
           {/* จุดนำทางสไลด์ (Dots Indicators) อยู่ล่างสุดกึ่งกลาง */}
           <div className="absolute bottom-4 left-1/2 z-20 flex -translate-x-1/2 gap-2">
-            {heroImages.map((_, idx) => (
+            {Array.from(heroImages.entries()).map(([idx, img]) => (
               <button
-                key={idx}
+                key={img}
                 onClick={() => setCurrentIndex(idx)}
                 aria-label={`Go to slide ${idx + 1}`}
                 className={`h-2.5 rounded-full cursor-pointer transition-all duration-300 ${
