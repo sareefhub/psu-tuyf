@@ -9,7 +9,7 @@ export function HeroSection() {
 
   // คำนวณความสูงขั้นต่ำจาก 100vh ลบด้วยความสูงของ Navbar (h-16 = 4rem) เพื่อให้แสดงผลเต็มจอพอดี
   return (
-    <section id="home" className="relative flex min-h-[calc(100vh-4rem)] items-center overflow-hidden bg-primary text-primary-foreground">
+    <section id="home" className="relative flex min-h-[calc(100vh-4rem)] items-center overflow-hidden bg-primary text-primary-foreground scroll-mt-16">
       <div className="mx-auto grid max-w-6xl items-center gap-10 px-6 py-16 sm:py-20 lg:grid-cols-2 lg:py-24">
         <div className="flex flex-col">
           <span className="inline-flex w-fit items-center gap-2 rounded-full border border-primary-foreground/20 bg-primary-foreground/10 px-4 py-1.5 text-xs font-medium text-primary-foreground/90">
