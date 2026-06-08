@@ -1,0 +1,87 @@
+{
+  "nav": {
+    "home": "Home",
+    "programs": "Programs & Projects",
+    "about": "About PSU-TUYF",
+    "details": "Program Details",
+    "contact": "Contact"
+  },
+  "common": {
+    "project_title": "PSU-TUYF Project",
+    "academic_year": "Academic Year"
+  },
+  "hero": {
+    "badge": "Faculty of Science and Technology · PSU Pattani",
+    "desc_1": "Supporting mathematics education and research through the collaboration between Prince of Songkla University and the TUYF Charitable Trust Fund.",
+    "btn_view_all": "View All Projects",
+    "btn_about": "About the Project",
+    "img_alt": "PSU-TUYF project activity image"
+  },
+  "about": {
+    "badge": "About the Project",
+    "title": "Projects Supported by the PSU-TUYF Charitable Trust Fund",
+    "desc_1": "Since 2021, the Department of Mathematics and Computer Science, Faculty of Science and Technology, Prince of Songkla University, Pattani Campus, has been honored to receive significant support from the PSU-TUYF project — a collaboration between Prince of Songkla University and the TUYF Charitable Trust Fund.",
+    "desc_2": "These initiatives are dedicated to elevating the quality of education and research in mathematics. The department currently receives funding for three main projects.",
+    "stat_started": "Started",
+    "stat_projects": "Main Projects",
+    "stat_campuses": "Campuses"
+  },
+  "programs": {
+    "title": "Three Main Projects under PSU-TUYF",
+    "subtitle": "Projects dedicated to elevating the quality of education and research in mathematics.",
+    "more_detail": "More Detail",
+    "view_details_aria": "View details of {{abbr}} project",
+    "mscd": {
+      "title": "Mathematics for Sustainable Community Development",
+      "desc": "Developing mathematical potential at all levels — students, undergraduates, and teachers — to build a foundation for sustainable community development."
+    },
+    "mgss": {
+      "title": "Mathematical Graduated Students Supporting Project",
+      "desc": "Promoting research and teaching, with funding to support highly capable students in graduate-level studies."
+    },
+    "algebra": {
+      "title": "Algebra Enrichment Project",
+      "desc": "Enhancing algebra knowledge in Thailand and establishing a southern Algebra Center as a hub for learning and research."
+    }
+  },
+  "programDetails": {
+    "mscd": {
+      "title": "Mathematics for Sustainable Community Development (MSCD) Project",
+      "sub": "โครงการพัฒนาชุมชนอย่างยั่งยืนด้วยคณิตศาสตร์",
+      "desc": "This project focuses on developing mathematical potential at various levels, including secondary school students, undergraduate students, and mathematics teachers in secondary schools. Its goal is to strengthen the foundational knowledge and essential skills needed for sustainable community development. The project is divided into three main components:",
+      "items": [
+        "Scholarships for undergraduate students",
+        "Projects for developing secondary school students",
+        "Projects for developing secondary school mathematics teachers"
+      ]
+    },
+    "mgss": {
+      "title": "Mathematical Graduated Students Supporting (MGSS) Project",
+      "sub": "โครงการสนับสนุนนักศึกษาระดับบัณฑิตศึกษาในสาขาคณิตศาสตร์",
+      "desc": "This project aims to promote and develop research and teaching in mathematics and applied mathematics. It receives funding to assist highly capable Thai and international students who are interested in advanced research and pursuing graduate studies in mathematics, statistics, and applied mathematics at PSU Hat Yai and Pattani campuses. Currently, the university offers three mathematics curricula:",
+      "items": [
+        "Doctor of Philosophy Program in Mathematics (Hat Yai Campus)",
+        "Master of Science Program in Mathematics (Hat Yai Campus)",
+        "Master of Science Program in Applied Mathematics and Mathematics Teaching Innovation (Pattani Campus)"
+      ]
+    },
+    "algebra": {
+      "title": "Algebra Enrichment Project",
+      "sub": "โครงการเสริมสร้างความเข้มแข็งทางพีชคณิต (2567–2571)",
+      "desc": "This project aims to promote and develop algebra education. Supported by the PSU-TUYF Charitable Trust Fund, the PSU-TUYF Algebra Enrichment Project (2024–2028) seeks to enhance knowledge and skills in algebra within Thailand and establish an Algebra Center in the southern region as a key hub for learning and research. The project consists of four sub-projects:",
+      "items": [
+        "Algebra Center: Established to be a center for knowledge exchange and to promote a deeper understanding of algebra.",
+        "Algebra Scholarship: Provides scholarships to highly skilled students in algebra.",
+        "Algebra Camps: Organizes short-term camps to impart foundational knowledge and advanced concepts in algebra to secondary school students, covering topics like Set Theory, Logic, and Number Theory.",
+        "Exchange Staff: Provides funding for Prince of Songkla University personnel to attend language training, study tours, and conduct research in algebra abroad."
+      ]
+    }
+  },
+  "footer": {
+    "dept": "Department of Mathematics and Computer Science, Faculty of Science and Technology, Prince of Songkla University.",
+    "projects": "Projects",
+    "contact": "Contact",
+    "campus": "Prince of Songkla University, Pattani Campus",
+    "copyright": "© {{year}} PSU-TUYF · The TUYF Charitable Trust Fund. All rights reserved."
+  }
+}

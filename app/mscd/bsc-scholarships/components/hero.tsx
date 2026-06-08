@@ -4,7 +4,7 @@ import { useT } from "@/components/language-context"
 
 export function BscHero() {
   const t = useT()
-  
+
   return (
     <section className="bg-primary text-primary-foreground relative overflow-hidden py-16 lg:py-20">
       <div className="absolute inset-0 bg-gradient-to-br from-primary via-primary to-primary/95" />
@@ -14,13 +14,17 @@ export function BscHero() {
             MSCD
           </span>
         </div>
-        <h1 className="text-balance text-4xl font-bold tracking-tight text-white sm:text-5xl lg:text-6xl">
-          {t("ทุนการศึกษาระดับปริญญาตรี (B.Sc. Scholarships)", "B.Sc. Scholarships (Undergraduate)")}
+        <h1 className="text-balance text-4xl font-bold tracking-tight text-white sm:text-5xl lg:text-6xl leading-tight sm:leading-tight">
+          <span className="inline-block">
+            {t("ทุนการศึกษาระดับปริญญาตรี", "B.Sc. Scholarships")}
+          </span>{" "}
+          <span className="inline-block">{t("(B.Sc. Scholarships)", "(Undergraduate)")}</span>
         </h1>
+
         <p className="mt-4 max-w-2xl text-pretty text-base font-light leading-relaxed text-primary-foreground/80 sm:text-lg">
           {t(
             "มุ่งมั่นสร้างนักคณิตศาสตร์ที่มีคุณภาพเพื่อตอบสนองความต้องการของสังคม โดยมอบทุนการศึกษาให้กับนักศึกษาไทยและนักเรียนกัมพูชาในระดับปริญญาตรีเพื่อพัฒนาศักยภาพอย่างต่อเนื่อง",
-            "Committed to cultivating high-quality mathematicians to meet societal needs by awarding scholarships to Thai and Cambodian undergraduate students for continuous capacity building."
+            "Committed to cultivating high-quality mathematicians to meet societal needs by awarding scholarships to Thai and Cambodian undergraduate students for continuous capacity building.",
           )}
         </p>
       </div>

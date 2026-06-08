@@ -1,7 +1,7 @@
 "use client"
 
 import { useState } from "react"
-import { LanguageProvider, useT } from "@/components/language-context"
+import { useT } from "@/components/language-context"
 import { SiteHeader } from "@/components/site-header"
 import { SiteFooter } from "@/components/site-footer"
 import { ScrollToTop } from "@/components/scroll-to-top"
@@ -9,7 +9,11 @@ import { BscHero } from "./components/hero"
 import { ProjectOverview } from "./components/overview"
 import { SelectionStatistics } from "./components/statistics"
 import { SelectionDirectory } from "./components/directory"
-import { EligibilitySection, ObligationsSection, FundingSection } from "./components/benefits-eligibility"
+import {
+  EligibilitySection,
+  ObligationsSection,
+  FundingSection,
+} from "./components/benefits-eligibility"
 import { SelectionAnnouncements } from "./components/announcements"
 
 type TabId = "stats" | "directory" | "eligibility" | "obligations" | "funding" | "announcements"
@@ -27,7 +31,7 @@ function BscScholarshipsContent() {
     { id: "eligibility", labelTh: "คุณสมบัติผู้สมัคร", labelEn: "Eligibility Criteria" },
     { id: "obligations", labelTh: "ข้อปฏิบัติผู้รับทุน", labelEn: "Obligations & Conditions" },
     { id: "funding", labelTh: "ค่าใช้จ่ายสนับสนุน", labelEn: "Scholarship Funding" },
-    { id: "announcements", labelTh: "ประกาศ", labelEn: "Announcements" }
+    { id: "announcements", labelTh: "ประกาศ", labelEn: "Announcements" },
   ] as const
 
   return (
@@ -68,7 +72,6 @@ function BscScholarshipsContent() {
           </div>
         </section>
 
-
         {/* แสดงผลเนื้อหาของหัวข้อที่เลือกสลับเปลี่ยน */}
         <div className="transition-all duration-300">
           {activeTab === "stats" && <SelectionStatistics />}
@@ -90,9 +93,5 @@ function BscScholarshipsContent() {
 }
 
 export default function BscScholarshipsPage() {
-  return (
-    <LanguageProvider>
-      <BscScholarshipsContent />
-    </LanguageProvider>
-  )
+  return <BscScholarshipsContent />
 }

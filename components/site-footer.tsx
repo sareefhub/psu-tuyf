@@ -15,16 +15,13 @@ export function SiteFooter() {
               PSU<span className="text-accent">-TUYF</span>
             </span>
             <p className="mt-3 text-sm leading-relaxed text-primary-foreground/70">
-              {t(
-                "สาขาวิชาคณิตศาสตร์และวิทยาการคอมพิวเตอร์ คณะวิทยาศาสตร์และเทคโนโลยี มหาวิทยาลัยสงขลานครินทร์",
-                "Department of Mathematics and Computer Science, Faculty of Science and Technology, Prince of Songkla University.",
-              )}
+              {t("footer.dept")}
             </p>
           </div>
 
           <div>
             <h3 className="text-sm font-semibold uppercase tracking-wide text-primary-foreground/90">
-              {t("โครงการ", "Projects")}
+              {t("footer.projects")}
             </h3>
             {/* ลิงก์โครงการที่ถูกระงับการนำทางชั่วคราวด้วย e.preventDefault() เนื่องจากยังไม่มีหน้าข้อมูลย่อย */}
             <ul className="mt-4 space-y-2 text-sm text-primary-foreground/70">
@@ -60,17 +57,12 @@ export function SiteFooter() {
 
           <div>
             <h3 className="text-sm font-semibold uppercase tracking-wide text-primary-foreground/90">
-              {t("ติดต่อ", "Contact")}
+              {t("footer.contact")}
             </h3>
             <ul className="mt-4 space-y-3 text-sm text-primary-foreground/70">
               <li className="flex items-start gap-2.5">
                 <MapPin className="mt-0.5 h-4 w-4 flex-none text-accent" />
-                <span>
-                  {t(
-                    "มหาวิทยาลัยสงขลานครินทร์ วิทยาเขตปัตตานี",
-                    "Prince of Songkla University, Pattani Campus",
-                  )}
-                </span>
+                <span>{t("footer.campus")}</span>
               </li>
               <li className="flex items-center gap-2.5">
                 <Mail className="h-4 w-4 flex-none text-accent" />
@@ -85,10 +77,7 @@ export function SiteFooter() {
         </div>
 
         <div className="mt-12 border-t border-primary-foreground/15 pt-6 text-center text-xs text-primary-foreground/60">
-          {t(
-            `© ${new Date().getFullYear()} PSU-TUYF · The TUYF Charitable Trust Fund. สงวนลิขสิทธิ์`,
-            `© ${new Date().getFullYear()} PSU-TUYF · The TUYF Charitable Trust Fund. All rights reserved.`,
-          )}
+          {t("footer.copyright", { year: new Date().getFullYear() })}
         </div>
       </div>
     </footer>

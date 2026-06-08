@@ -20,11 +20,11 @@ const directoryData = [
             roleEn: "Scholar Student since , 2023",
             campusTh: "Pattani Campus",
             campusEn: "Pattani Campus",
-            image: ""
-          }
-        ]
-      }
-    ]
+            image: "",
+          },
+        ],
+      },
+    ],
   },
   {
     yearTh: "นักเรียนทุนรับเข้าปีการศึกษา 2565",
@@ -40,7 +40,7 @@ const directoryData = [
             roleEn: "2nd year student, 2022",
             campusTh: "Pattani Campus",
             campusEn: "Pattani Campus",
-            image: ""
+            image: "",
           },
           {
             name: "Miss Inasnee Rattanawongsawas",
@@ -48,7 +48,7 @@ const directoryData = [
             roleEn: "2nd year Student, 2022",
             campusTh: "Pattani Campus",
             campusEn: "Pattani Campus",
-            image: ""
+            image: "",
           },
           {
             name: "Miss Fatimah Mahae",
@@ -56,7 +56,7 @@ const directoryData = [
             roleEn: "2nd year student, 2022",
             campusTh: "Pattani Campus",
             campusEn: "Pattani Campus",
-            image: ""
+            image: "",
           },
           {
             name: "Miss Nirania Waedaya",
@@ -64,7 +64,7 @@ const directoryData = [
             roleEn: "2nd year student, 2022",
             campusTh: "Pattani Campus",
             campusEn: "Pattani Campus",
-            image: ""
+            image: "",
           },
           {
             name: "Miss Sufianee Abu",
@@ -72,9 +72,9 @@ const directoryData = [
             roleEn: "2nd year student, 2022",
             campusTh: "Pattani Campus",
             campusEn: "Pattani Campus",
-            image: ""
-          }
-        ]
+            image: "",
+          },
+        ],
       },
       {
         titleTh: "นักเรียนกัมพูชา Cambodian Student Scholars 2022",
@@ -86,7 +86,7 @@ const directoryData = [
             roleEn: "2nd year student, 2022",
             campusTh: "Pattani Campus",
             campusEn: "Pattani Campus",
-            image: ""
+            image: "",
           },
           {
             name: "Mr. Chhavy Chorn",
@@ -94,11 +94,11 @@ const directoryData = [
             roleEn: "2nd year Student, 2022",
             campusTh: "Pattani Campus",
             campusEn: "Pattani Campus",
-            image: ""
-          }
-        ]
-      }
-    ]
+            image: "",
+          },
+        ],
+      },
+    ],
   },
   {
     yearTh: "นักเรียนทุนรับเข้าปีการศึกษา 2564",
@@ -114,7 +114,7 @@ const directoryData = [
             roleEn: "3rd year student, 2021",
             campusTh: "Pattani Campus",
             campusEn: "Pattani Campus",
-            image: ""
+            image: "",
           },
           {
             name: "Mr. Affan Yahyoh",
@@ -122,9 +122,9 @@ const directoryData = [
             roleEn: "3rd year student, 2021",
             campusTh: "Pattani Campus",
             campusEn: "Pattani Campus",
-            image: ""
-          }
-        ]
+            image: "",
+          },
+        ],
       },
       {
         titleTh: "นักเรียนกัมพูชา Cambodian Student Scholars 2021",
@@ -136,7 +136,7 @@ const directoryData = [
             roleEn: "3rd year student, 2021",
             campusTh: "Pattani Campus",
             campusEn: "Pattani Campus",
-            image: ""
+            image: "",
           },
           {
             name: "Miss Layya Meak",
@@ -144,12 +144,12 @@ const directoryData = [
             roleEn: "3rd year student, 2021",
             campusTh: "Pattani Campus",
             campusEn: "Pattani Campus",
-            image: ""
-          }
-        ]
-      }
-    ]
-  }
+            image: "",
+          },
+        ],
+      },
+    ],
+  },
 ]
 
 export function SelectionDirectory() {
@@ -158,7 +158,6 @@ export function SelectionDirectory() {
   return (
     <section className="py-10 bg-background">
       <div className="mx-auto max-w-6xl px-6">
-        
         {/* หัวข้อทำเนียบนักเรียนทุน */}
         <div className="text-center max-w-2xl mx-auto mb-16 space-y-3">
           <h2 className="text-balance text-2xl font-bold tracking-tight text-primary sm:text-3xl">
@@ -167,7 +166,7 @@ export function SelectionDirectory() {
           <p className="text-sm text-muted-foreground/80">
             {t(
               "รายชื่อเกียรติยศของนักเรียนและนักศึกษาผู้ได้รับทุนการศึกษาโครงการ B.Sc. Scholarships",
-              "Honorary list of B.Sc. Scholarships program recipients"
+              "Honorary list of B.Sc. Scholarships program recipients",
             )}
           </p>
         </div>
@@ -176,7 +175,6 @@ export function SelectionDirectory() {
         <div className="space-y-20">
           {directoryData.map((yearGroup, yearIdx) => (
             <div key={yearIdx} className="space-y-12">
-              
               {/* แถบปีการศึกษาแบ่งส่วนชัดเจน */}
               <div className="border-b border-border/80 pb-3">
                 <h3 className="text-xl font-bold text-primary flex items-center gap-2">
@@ -196,7 +194,7 @@ export function SelectionDirectory() {
                     {/* รายชื่อนักเรียนในกลุ่มนี้แสดงเป็น Grid คลีน ๆ */}
                     <div className="grid gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
                       {group.students.map((student, idx) => (
-                        <div 
+                        <div
                           key={idx}
                           className="group bg-card border border-border/50 rounded-2xl overflow-hidden shadow-sm hover:shadow-md hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between"
                         >
@@ -204,7 +202,7 @@ export function SelectionDirectory() {
                           {/* หากต้องการใส่รูปภาพจริง: สามารถแก้ไขโดยแทนที่กล่องด้านล่างด้วย <img src={student.image} className="w-full h-full object-cover" /> */}
                           <div className="relative aspect-[4/5] bg-gradient-to-tr from-accent/5 via-primary/5 to-pink-500/5 flex flex-col items-center justify-center p-6 text-muted-foreground/60 border-b border-border/40 overflow-hidden">
                             <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black/5" />
-                            
+
                             <div className="relative z-10 flex flex-col items-center">
                               <div className="h-20 w-20 rounded-full bg-white/90 shadow-sm flex items-center justify-center text-primary/70 mb-3 group-hover:scale-105 transition-transform duration-300">
                                 <User className="h-8 w-8 text-primary/70" />
@@ -250,7 +248,6 @@ export function SelectionDirectory() {
             </div>
           ))}
         </div>
-
       </div>
     </section>
   )

@@ -65,10 +65,10 @@ export function ScrollToTop() {
           ? "opacity-100 translate-y-0 scale-100 pointer-events-auto"
           : "opacity-0 translate-y-4 scale-75 pointer-events-none"
       }`}
-      style={{ 
-        width: size, 
+      style={{
+        width: size,
         height: size,
-        boxShadow: '0 0 0 2px white, 0 0 0 3px var(--color-accent, #3b82f6)'
+        boxShadow: "0 0 0 2px white, 0 0 0 3px var(--color-accent, #3b82f6)",
       }}
       aria-label="เลื่อนขึ้นด้านบนสุด"
     >

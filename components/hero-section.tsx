@@ -35,12 +35,15 @@ export function HeroSection() {
   }, [])
 
   return (
-    <section id="home" className="relative flex min-h-[calc(100vh-4rem)] items-center overflow-hidden bg-primary text-primary-foreground scroll-mt-16">
+    <section
+      id="home"
+      className="relative flex min-h-[calc(100vh-4rem)] items-center overflow-hidden bg-primary text-primary-foreground scroll-mt-16"
+    >
       {/* ขยายความกว้างสูงสุดเป็น max-w-7xl และปรับอัตราส่วน Grid เป็น 2:3 เพื่อให้สไลเดอร์รูปภาพฝั่งขวามีพื้นที่แสดงผลใหญ่ขึ้นเต็มตา */}
       <div className="mx-auto grid max-w-7xl items-center gap-10 px-6 py-16 sm:py-20 lg:grid-cols-[2fr_3fr] lg:py-24">
         <div className="flex flex-col items-center text-center lg:items-start lg:text-left">
           <span className="inline-flex w-fit items-center gap-2 rounded-full border border-primary-foreground/20 bg-primary-foreground/10 px-4 py-1.5 text-xs font-medium text-primary-foreground/90">
-            {t("คณะวิทยาศาสตร์และเทคโนโลยี · มอ. ปัตตานี", "Faculty of Science and Technology · PSU Pattani")}
+            {t("hero.badge")}
           </span>
 
           {/* ปรับสีหัวข้อ PSU-TUYF เป็นสีขาวล้วนตามต้องการ */}
@@ -55,10 +58,7 @@ export function HeroSection() {
           </p>
 
           <p className="mt-6 max-w-md mx-auto lg:mx-0 text-pretty text-sm leading-relaxed text-primary-foreground/75 sm:text-base">
-            {t(
-              "โครงการสนับสนุนการศึกษาและการวิจัยด้านคณิตศาสตร์ ภายใต้ความร่วมมือ ระหว่างมหาวิทยาลัยสงขลานครินทร์ และกองทุนการกุศล TUYF",
-              "Supporting mathematics education and research through the collaboration between Prince of Songkla University and the TUYF Charitable Trust Fund.",
-            )}
+            {t("hero.desc_1")}
           </p>
 
           <div className="mt-8 flex flex-col gap-3 w-full max-w-xs sm:w-auto sm:flex-row sm:justify-center lg:justify-start">
@@ -69,7 +69,7 @@ export function HeroSection() {
               variant="secondary"
               className="w-full sm:w-auto rounded-full px-7 text-base"
             >
-              {t("ดูโครงการทั้งหมด", "View All Projects")}
+              {t("hero.btn_view_all")}
               <ArrowRight className="ml-1 h-4 w-4" />
             </Button>
             <Button
@@ -79,7 +79,7 @@ export function HeroSection() {
               variant="outline"
               className="w-full sm:w-auto rounded-full border-primary-foreground/30 bg-transparent px-7 text-base text-primary-foreground hover:bg-primary-foreground/10 hover:text-primary-foreground"
             >
-              {t("เกี่ยวกับโครงการ", "About the Project")}
+              {t("hero.btn_about")}
             </Button>
           </div>
         </div>
@@ -90,12 +90,10 @@ export function HeroSection() {
             <img
               key={img}
               src={img}
-              alt={t(`ภาพกิจกรรมโครงการ PSU-TUYF รูปที่ ${idx + 1}`, `PSU-TUYF project activity image ${idx + 1}`)}
+              alt={`${t("hero.img_alt")} ${idx + 1}`}
               className={`w-full transition-all duration-700 ease-in-out ${
                 idx === 0 ? "relative" : "absolute inset-0 h-full"
-              } ${
-                idx === currentIndex ? "opacity-100 z-10" : "opacity-0 z-0"
-              }`}
+              } ${idx === currentIndex ? "opacity-100 z-10" : "opacity-0 z-0"}`}
             />
           ))}
 

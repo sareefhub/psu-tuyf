@@ -1,4 +1,3 @@
-import { LanguageProvider } from "@/components/language-context"
 import { SiteHeader } from "@/components/site-header"
 import { HeroSection } from "@/components/hero-section"
 import { ProgramsSection } from "@/components/programs-section"
@@ -9,19 +8,17 @@ import { ScrollToTop } from "@/components/scroll-to-top"
 
 export default function Home() {
   return (
-    <LanguageProvider>
-      <div className="min-h-screen font-sans">
-        <SiteHeader />
-        <main>
-          <HeroSection />
-          <ProgramsSection />
-          <AboutSection />
-          <ProgramDetails />
-        </main>
-        <SiteFooter />
-        {/* ปุ่มเลื่อนขึ้นด้านบนพร้อมวงแหวนแสดงสถานะความก้าวหน้า */}
-        <ScrollToTop />
-      </div>
-    </LanguageProvider>
+    <div className="min-h-screen font-sans">
+      <SiteHeader />
+      <main>
+        <HeroSection />
+        <ProgramsSection />
+        <AboutSection />
+        <ProgramDetails />
+      </main>
+      <SiteFooter />
+      {/* ปุ่มเลื่อนขึ้นด้านบนพร้อมวงแหวนแสดงสถานะความก้าวหน้า */}
+      <ScrollToTop />
+    </div>
   )
 }

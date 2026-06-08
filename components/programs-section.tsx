@@ -11,34 +11,22 @@ const programs = [
     id: "mscd",
     abbr: "MSCD",
     image: "/images/icon/mscd.png",
-    titleTh: "การพัฒนาชุมชนอย่างยั่งยืนด้วยคณิตศาสตร์",
-    titleEn: "Mathematics for Sustainable Community Development",
-    descTh:
-      "พัฒนาศักยภาพทางคณิตศาสตร์ในทุกระดับชั้น ทั้งนักเรียน นักศึกษา และครู เพื่อรากฐานการพัฒนาชุมชนอย่างยั่งยืน",
-    descEn:
-      "Developing mathematical potential at all levels — students, undergraduates, and teachers — to build a foundation for sustainable community development.",
+    titleKey: "programs.mscd.title",
+    descKey: "programs.mscd.desc",
   },
   {
     id: "mgss",
     abbr: "MGSS",
     image: "/images/icon/mgss.png",
-    titleTh: "สนับสนุนนักศึกษาระดับบัณฑิตศึกษาในสาขาคณิตศาสตร์",
-    titleEn: "Mathematical Graduated Students Supporting Project",
-    descTh:
-      "ส่งเสริมการวิจัยและการเรียนการสอน พร้อมทุนสนับสนุนนักศึกษาที่มีศักยภาพสูงในระดับบัณฑิตศึกษา",
-    descEn:
-      "Promoting research and teaching, with funding to support highly capable students in graduate-level studies.",
+    titleKey: "programs.mgss.title",
+    descKey: "programs.mgss.desc",
   },
   {
     id: "algebra",
     abbr: "Algebra Enrichment",
     image: "/images/icon/algebra-enrichment.png",
-    titleTh: "เสริมสร้างความเข้มแข็งทางพีชคณิต",
-    titleEn: "Algebra Enrichment Project",
-    descTh:
-      "ยกระดับความรู้ด้านพีชคณิตในประเทศไทย และจัดตั้งศูนย์พีชคณิตภาคใต้เป็นศูนย์กลางการเรียนรู้และวิจัย",
-    descEn:
-      "Enhancing algebra knowledge in Thailand and establishing a southern Algebra Center as a hub for learning and research.",
+    titleKey: "programs.algebra.title",
+    descKey: "programs.algebra.desc",
   },
 ]
 
@@ -46,18 +34,18 @@ export function ProgramsSection() {
   const t = useT()
 
   return (
-    <section id="programs" className="bg-secondary/30 flex min-h-[calc(100vh-4rem)] items-center py-20 scroll-mt-16">
+    <section
+      id="programs"
+      className="bg-secondary/30 flex min-h-[calc(100vh-4rem)] items-center py-20 scroll-mt-16"
+    >
       <div className="mx-auto max-w-6xl px-6 w-full">
         {/* ส่วนหัวข้อหลักของโครงการ */}
         <div className="mx-auto max-w-2xl text-center">
           <h2 className="text-balance text-3xl font-bold tracking-tight text-primary sm:text-4xl">
-            {t("3 โครงการหลักภายใต้ PSU-TUYF", "Three Main Projects under PSU-TUYF")}
+            {t("programs.title")}
           </h2>
           <p className="mt-4 text-pretty leading-relaxed text-muted-foreground/80">
-            {t(
-              "โครงการที่มุ่งเน้นการยกระดับคุณภาพการศึกษาและการวิจัยในสาขาคณิตศาสตร์",
-              "Projects dedicated to elevating the quality of education and research in mathematics.",
-            )}
+            {t("programs.subtitle")}
           </p>
         </div>
 
@@ -88,11 +76,11 @@ export function ProgramsSection() {
                 </span>
 
                 <h3 className="mt-2 text-lg font-bold leading-snug text-primary transition-colors group-hover:text-accent">
-                  {t(p.titleTh, p.titleEn)}
+                  {t(p.titleKey)}
                 </h3>
 
                 <p className="mt-3 flex-1 text-sm leading-relaxed text-muted-foreground/75">
-                  {t(p.descTh, p.descEn)}
+                  {t(p.descKey)}
                 </p>
 
                 {/* ปุ่มดูรายละเอียดที่ถูกระงับการนำทางชั่วคราวด้วย e.preventDefault() เนื่องจากยังไม่มีหน้าข้อมูลย่อย */}
@@ -101,14 +89,14 @@ export function ProgramsSection() {
                     <a
                       href={`#${p.id}`}
                       onClick={(e) => e.preventDefault()}
-                      aria-label={t(`ดูรายละเอียดของโครงการ ${p.abbr}`, `View details of ${p.abbr} project`)}
+                      aria-label={t("programs.view_details_aria", { abbr: p.abbr })}
                     />
                   }
                   nativeButton={false}
                   variant="link"
                   className="mt-6 p-0 h-auto justify-start font-semibold text-primary hover:text-accent hover:no-underline"
                 >
-                  {t("ดูรายละเอียด", "More Detail")}
+                  {t("programs.more_detail")}
                   <ArrowRight className="ml-1.5 h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
                 </Button>
               </div>
@@ -119,5 +107,3 @@ export function ProgramsSection() {
     </section>
   )
 }
-
-

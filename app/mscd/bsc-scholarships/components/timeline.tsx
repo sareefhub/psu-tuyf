@@ -10,16 +10,20 @@ const timelineData = [
     dateEn: "April - May",
     titleTh: "รับสมัครและยื่นเอกสารการสมัคร",
     titleEn: "Application & Document Submission",
-    descTh: "ส่งใบสมัครขอรับทุนตามแบบฟอร์มที่ระบุ พร้อมแนบใบรายงานผลการศึกษา (Transcript) และเอกสารแนะนำตัว",
-    descEn: "Submit the scholarship application form along with latest academic transcripts and personal profile."
+    descTh:
+      "ส่งใบสมัครขอรับทุนตามแบบฟอร์มที่ระบุ พร้อมแนบใบรายงานผลการศึกษา (Transcript) และเอกสารแนะนำตัว",
+    descEn:
+      "Submit the scholarship application form along with latest academic transcripts and personal profile.",
   },
   {
     dateTh: "ต้นเดือนมิถุนายน",
     dateEn: "Early June",
     titleTh: "การสอบสัมภาษณ์และพิจารณาคัดเลือก",
     titleEn: "Interview & Review Phase",
-    descTh: "ประกาศรายชื่อผู้มีสิทธิ์เข้ารับการสัมภาษณ์ และสอบสัมภาษณ์โดยคณะกรรมการผู้ทรงคุณวุฒิของโครงการ",
-    descEn: "List of qualified candidates announced, followed by interviews with the project selection committee."
+    descTh:
+      "ประกาศรายชื่อผู้มีสิทธิ์เข้ารับการสัมภาษณ์ และสอบสัมภาษณ์โดยคณะกรรมการผู้ทรงคุณวุฒิของโครงการ",
+    descEn:
+      "List of qualified candidates announced, followed by interviews with the project selection committee.",
   },
   {
     dateTh: "กลางเดือนมิถุนายน",
@@ -27,13 +31,14 @@ const timelineData = [
     titleTh: "ประกาศรายชื่อผู้ได้รับทุนและปฐมนิเทศ",
     titleEn: "Final Announcement & Orientation",
     descTh: "ประกาศผลผู้ผ่านการคัดเลือกเข้ารับทุน และเข้าร่วมปฐมนิเทศผู้ได้รับทุนประจำปีการศึกษา",
-    descEn: "Announcement of scholarship recipients followed by the annual scholarship orientation."
-  }
+    descEn:
+      "Announcement of scholarship recipients followed by the annual scholarship orientation.",
+  },
 ]
 
 export function SelectionTimeline() {
   const t = useT()
-  
+
   return (
     <section className="py-16">
       <div className="mx-auto max-w-4xl px-6">
@@ -45,7 +50,10 @@ export function SelectionTimeline() {
             </h2>
           </div>
           <p className="text-sm text-muted-foreground/80">
-            {t("ขั้นตอนดำเนินการรับสมัครและพิจารณาคัดเลือกผู้ได้รับทุนการศึกษา", "Key phases of the application, review, and selection process.")}
+            {t(
+              "ขั้นตอนดำเนินการรับสมัครและพิจารณาคัดเลือกผู้ได้รับทุนการศึกษา",
+              "Key phases of the application, review, and selection process.",
+            )}
           </p>
         </div>
 

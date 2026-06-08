@@ -17,7 +17,7 @@ export function SiteHeader() {
   const isHome = pathname === "/"
 
   const navLinks: NavLink[] = [
-    { label: t("หน้าแรก", "Home"), href: "#home" },
+    { label: t("nav.home"), href: "#home" },
     {
       label: "MSCD",
       href: "#mscd",
@@ -46,8 +46,8 @@ export function SiteHeader() {
         { label: "Exchange Staff", href: "#algebra-3" },
       ],
     },
-    { label: t("เกี่ยวกับ PSU-TUYF", "About PSU-TUYF"), href: "#about" },
-    { label: t("ติดต่อ", "Contact"), href: "#footer" },
+    { label: t("nav.about"), href: "#about" },
+    { label: t("nav.contact"), href: "#footer" },
   ]
 
   // ฟังก์ชันคำนวณพาธจริงตามตำแหน่งหน้าปัจจุบัน
