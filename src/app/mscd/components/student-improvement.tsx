@@ -122,9 +122,9 @@ export function StudentImprovementSection() {
           เอกสารดาวน์โหลดและประกาศข่าวสาร
         </h4>
         <div className="grid gap-4 sm:grid-cols-2">
-          {documents.map((doc, idx) => (
+          {documents.map((doc) => (
             <div 
-              key={idx} 
+              key={doc.title} 
               className="p-4 rounded-2xl border border-border/80 bg-card hover:border-accent/35 flex items-start gap-3.5 transition-all duration-300"
             >
               <div className="h-9 w-9 rounded-xl bg-accent/10 flex items-center justify-center text-accent flex-none">

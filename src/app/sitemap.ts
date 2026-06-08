@@ -9,7 +9,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       url: baseUrl,
       lastModified: new Date(),
       changeFrequency: "weekly",
-      priority: 1.0, // หน้าแรกมีความสำคัญสูงสุด
+      priority: 1, // หน้าแรกมีความสำคัญสูงสุด
     },
     {
       url: `${baseUrl}/mscd`,
