@@ -6,7 +6,7 @@ export function AboutSection() {
   const t = useT()
 
   return (
-    <section id="about" className="py-20">
+    <section id="about" className="py-20 scroll-mt-16">
       {/* ปรับขนาดความกว้างสูงสุดให้เป็น max-w-6xl เพื่อให้ขอบซ้ายขวาตรงกับส่วน HeroSection */}
       <div className="mx-auto max-w-6xl px-6">
         <span className="text-sm font-semibold uppercase tracking-wide text-accent">
