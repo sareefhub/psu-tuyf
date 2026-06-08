@@ -20,13 +20,13 @@ function BscScholarshipsContent() {
   const t = useT()
   const [activeTab, setActiveTab] = useState<TabId>("stats")
 
-  // ข้อมูลของปุ่มแท็บนำทางทั้ง 6 หัวข้อ
+  // ข้อมูลของปุ่มแท็บนำทางทั้ง 6 หัวข้อ (ย่อข้อความเพื่อไม่ให้ล้นแถบ และดูสะอาดตาขึ้น)
   const tabs = [
     { id: "stats", labelTh: "สถิตินักเรียนทุน", labelEn: "Scholarship Statistics" },
     { id: "directory", labelTh: "ทำเนียบนักเรียนทุน", labelEn: "Recipients Directory" },
-    { id: "eligibility", labelTh: "คุณสมบัติของผู้สมัครทุน", labelEn: "Eligibility Criteria" },
-    { id: "obligations", labelTh: "ข้อปฏิบัติสำหรับผู้ที่ได้รับเลือกเข้ารับทุน", labelEn: "Obligations & Conditions" },
-    { id: "funding", labelTh: "อัตราค่าใช้จ่ายสนับสนุนทุนการศึกษา", labelEn: "Scholarship Funding" },
+    { id: "eligibility", labelTh: "คุณสมบัติผู้สมัคร", labelEn: "Eligibility Criteria" },
+    { id: "obligations", labelTh: "ข้อปฏิบัติผู้รับทุน", labelEn: "Obligations & Conditions" },
+    { id: "funding", labelTh: "ค่าใช้จ่ายสนับสนุน", labelEn: "Scholarship Funding" },
     { id: "announcements", labelTh: "ประกาศ", labelEn: "Announcements" }
   ] as const
 
@@ -53,7 +53,7 @@ function BscScholarshipsContent() {
                     <button
                       key={tab.id}
                       onClick={() => setActiveTab(tab.id)}
-                      className={`rounded-full px-5 py-2.5 text-[11px] sm:text-xs md:text-sm font-bold whitespace-nowrap transition-all duration-300 cursor-pointer ${
+                      className={`rounded-full px-3 py-1.5 sm:px-5 sm:py-2.5 text-[11px] sm:text-xs md:text-sm font-bold whitespace-nowrap transition-all duration-300 cursor-pointer ${
                         isActive
                           ? "bg-accent/15 text-accent shadow-sm"
                           : "text-muted-foreground hover:text-primary"
@@ -67,6 +67,7 @@ function BscScholarshipsContent() {
             </div>
           </div>
         </section>
+
 
         {/* แสดงผลเนื้อหาของหัวข้อที่เลือกสลับเปลี่ยน */}
         <div className="transition-all duration-300">

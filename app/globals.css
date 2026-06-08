@@ -130,3 +130,13 @@
     @apply font-sans;
   }
 }
+
+/* ซ่อน scrollbar สำหรับคลาส scrollbar-none */
+.scrollbar-none {
+  -ms-overflow-style: none;  /* IE และ Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+.scrollbar-none::-webkit-scrollbar {
+  display: none; /* Chrome, Safari และ Opera */
+}
+
