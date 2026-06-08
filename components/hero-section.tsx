@@ -12,7 +12,6 @@ const heroImages = [
   "/images/hero-section/psu-tuyf-3.png",
   "/images/hero-section/psu-tuyf-4.png",
   "/images/hero-section/psu-tuyf-5.png",
-  "/images/hero-section/psu-tuyf-6.png",
 ]
 
 export function HeroSection() {
