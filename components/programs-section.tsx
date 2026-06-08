@@ -69,7 +69,7 @@ export function ProgramsSection() {
               className="group flex flex-col overflow-hidden rounded-xl border border-border/60 bg-card transition-all duration-300 hover:border-border hover:shadow-sm"
             >
               {/* ส่วนรูปภาพโครงการแบบเรียบง่ายและคลีน (แสดงสัดส่วนปกติ ไม่ซูม ไม่ครอป ด้วย object-contain และ p-4) */}
-              <div className="relative aspect-[16/10] w-full overflow-hidden bg-muted/20">
+              <div className="relative aspect-16/10 w-full overflow-hidden bg-muted/20">
                 <Image
                   src={p.image}
                   alt={p.abbr}
@@ -95,9 +95,9 @@ export function ProgramsSection() {
                   {t(p.descTh, p.descEn)}
                 </p>
 
-                {/* ลิงก์รายละเอียดแบบคลีน (Text Link พร้อมไอคอนขยับได้เมื่อ Hover) */}
+                {/* ลิงก์รายละเอียดแบบคลีน (Text Link พร้อมไอคอนขยับได้เมื่อ Hover และแก้ไข Linter: aria-label) */}
                 <Button
-                  render={<a href={`#${p.id}`} />}
+                  render={<a href={`#${p.id}`} aria-label={t(`ดูรายละเอียดของโครงการ ${p.abbr}`, `View details of ${p.abbr} project`)} />}
                   nativeButton={false}
                   variant="link"
                   className="mt-6 p-0 h-auto justify-start font-semibold text-primary hover:text-accent hover:no-underline"

@@ -175,10 +175,10 @@ export function SiteHeader() {
 function LanguageToggle({
   lang,
   setLang,
-}: {
+}: Readonly<{
   lang: "th" | "en"
   setLang: (lang: "th" | "en") => void
-}) {
+}>) {
   return (
     <div className="flex items-center rounded-full border border-border bg-secondary/60 p-0.5 text-xs font-semibold">
       <button
