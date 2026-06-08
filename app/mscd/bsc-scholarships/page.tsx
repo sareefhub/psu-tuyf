@@ -7,6 +7,7 @@ import { ScrollToTop } from "@/components/scroll-to-top"
 import { BscHero } from "./components/hero"
 import { ProjectOverview } from "./components/overview"
 import { SelectionStatistics } from "./components/statistics"
+import { SelectionDirectory } from "./components/directory"
 import { BenefitsAndEligibility } from "./components/benefits-eligibility"
 import { SelectionTimeline } from "./components/timeline"
 
@@ -27,6 +28,9 @@ function BscScholarshipsContent() {
 
         {/* ส่วนสถิตินักเรียนทุน */}
         <SelectionStatistics />
+
+        {/* ส่วนทำเนียบนักเรียนทุน */}
+        <SelectionDirectory />
 
         {/* ส่วนสิทธิประโยชน์และเกณฑ์คุณสมบัติ */}
         <BenefitsAndEligibility />
