@@ -12,6 +12,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 1.0, // หน้าแรกมีความสำคัญสูงสุด
     },
     {
+      url: `${baseUrl}/mscd`,
+      lastModified: new Date(),
+      changeFrequency: "weekly",
+      priority: 0.9, // หน้าภาพรวมโครงการ MSCD
+    },
+    {
       url: `${baseUrl}/mscd/bsc-scholarships`,
       lastModified: new Date(),
       changeFrequency: "weekly",

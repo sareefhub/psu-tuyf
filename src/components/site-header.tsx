@@ -21,11 +21,11 @@ export function SiteHeader() {
     { label: t("nav.home"), href: "#home" },
     {
       label: "MSCD",
-      href: "#mscd",
+      href: "/mscd",
       children: [
         { label: "B.Sc. Scholarships", href: "/mscd/bsc-scholarships" },
-        { label: "Student Improvement", href: "#mscd-1" },
-        { label: "Teacher Improvement", href: "#mscd-2" },
+        { label: "Student Improvement", href: "/mscd" },
+        { label: "Teacher Improvement", href: "/mscd" },
       ],
     },
     {
@@ -99,7 +99,7 @@ export function SiteHeader() {
                   <div className="overflow-hidden rounded-xl border border-border bg-popover p-1.5 shadow-lg">
                     {link.children.map((child) => (
                       <a
-                        key={child.href}
+                        key={`${child.label}-${child.href}`}
                         href={getHref(child.href)}
                         onClick={(e) => handleLinkClick(e, child.href)}
                         className="block rounded-lg px-3 py-2 text-sm text-muted-foreground transition-colors hover:bg-secondary hover:text-primary"
@@ -170,7 +170,7 @@ export function SiteHeader() {
                     <div className="ml-3 flex flex-col gap-0.5 border-l border-border pl-3">
                       {link.children.map((child) => (
                         <a
-                          key={child.href}
+                          key={`${child.label}-${child.href}`}
                           href={getHref(child.href)}
                           onClick={(e) => {
                             handleLinkClick(e, child.href)
