@@ -126,11 +126,10 @@ export function SelectionAnnouncements() {
             onClick={() => setPreviewPdf(null)} // คลิกพื้นหลังภายนอกกล่องเพื่อปิดป๊อปอัป
             aria-label="Close document preview"
           >
-            {/* หยุดการปิดเมื่อคลิกภายในกล่องเอกสาร */}
+            {/* ป้องกันไม่ให้คลิกภายในกล่องเอกสารแล้วปิดหน้าต่างพรีวิว */}
             <div
               className="bg-card border border-border w-full max-w-5xl rounded-3xl overflow-hidden shadow-2xl relative flex flex-col h-[80vh] sm:h-[85vh] animate-scale-in"
               onClick={(e) => e.stopPropagation()}
-              role="presentation"
             >
               {/* ส่วนหัวของป๊อปอัป - ปรับให้ใช้ relative เพื่อยึดตำแหน่งปุ่มปิดให้อยู่กับที่และไม่โดนดันเบียด */}
               <div className="p-4 border-b border-border/40 flex items-center justify-between bg-card text-foreground relative pr-12">

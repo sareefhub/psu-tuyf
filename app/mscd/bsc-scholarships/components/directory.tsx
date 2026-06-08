@@ -152,6 +152,64 @@ const directoryData = [
   },
 ]
 
+// โครงสร้างของข้อมูลนักเรียนทุนแต่ละคน
+interface Student {
+  name: string
+  roleTh: string
+  roleEn: string
+  campusTh: string
+  campusEn: string
+  image: string
+}
+
+// คอมโพเนนต์ย่อยสำหรับแสดงการ์ดรายละเอียดนักเรียนทุนแต่ละคน
+// แยกออกมาเพื่อป้องกันการเขียนฟังก์ชันซ้อนกันลึกเกิน 4 ระดับ (Nesting functions)
+function StudentCard({ student, t }: { student: Student; t: (th: any, en: any) => any }) {
+  return (
+    <div className="group bg-card border border-border/50 rounded-2xl overflow-hidden shadow-sm hover:shadow-md hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between">
+      {/* กล่องภาพตัวแทนนักเรียน (Placeholder) */}
+      <div className="relative aspect-4/5 bg-linear-to-tr from-accent/5 via-primary/5 to-pink-500/5 flex flex-col items-center justify-center p-6 text-muted-foreground/60 border-b border-border/40 overflow-hidden">
+        <div className="absolute inset-0 bg-linear-to-b from-transparent to-black/5" />
+
+        <div className="relative z-10 flex flex-col items-center">
+          <div className="h-20 w-20 rounded-full bg-white/90 shadow-sm flex items-center justify-center text-primary/70 mb-3 group-hover:scale-105 transition-transform duration-300">
+            <User className="h-8 w-8 text-primary/70" />
+          </div>
+          <span className="text-[9px] font-bold uppercase tracking-widest text-primary/70 bg-white/70 px-2 py-0.5 rounded border border-border/40">
+            {t("รูปนักเรียนทุน", "Recipients Photo")}
+          </span>
+        </div>
+      </div>
+
+      {/* รายละเอียดข้อมูลนักเรียนทุน */}
+      <div className="p-5 flex-1 flex flex-col justify-between space-y-4">
+        <div className="space-y-1.5">
+          <h4 className="font-bold text-primary text-sm leading-snug group-hover:text-accent transition-colors">
+            {student.name}
+          </h4>
+          <p className="text-xs text-muted-foreground/80 leading-relaxed">
+            {t(student.roleTh, student.roleEn)}
+          </p>
+          <p className="text-[10px] font-semibold text-muted-foreground/75 flex items-center gap-1">
+            <GraduationCap className="h-3.5 w-3.5 text-accent" />
+            {t(student.campusTh, student.campusEn)}
+          </p>
+        </div>
+
+        {/* ปุ่มดูรายละเอียดเพิ่มเติม - ใช้ปุ่มสำหรับ Accessibility */}
+        <Button
+          variant="link"
+          className="p-0 h-auto justify-start font-semibold text-xs text-primary hover:text-accent hover:no-underline mt-2"
+          onClick={() => {}}
+        >
+          {t("ดูรายละเอียดเพิ่มเติม", "More Detail")}
+          <ArrowRight className="ml-1.5 h-3.5 w-3.5 transition-transform duration-300 group-hover:translate-x-1" />
+        </Button>
+      </div>
+    </div>
+  )
+}
+
 export function SelectionDirectory() {
   const t = useT()
 
@@ -194,51 +252,11 @@ export function SelectionDirectory() {
                     {/* รายชื่อนักเรียนในกลุ่มนี้แสดงเป็น Grid คลีน ๆ */}
                     <div className="grid gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
                       {group.students.map((student) => (
-                        <div
+                        <StudentCard
                           key={student.name}
-                          className="group bg-card border border-border/50 rounded-2xl overflow-hidden shadow-sm hover:shadow-md hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between"
-                        >
-                          {/* กล่องภาพตัวแทนนักเรียน (Placeholder) */}
-                          {/* หากต้องการใส่รูปภาพจริง: สามารถแก้ไขโดยแทนที่กล่องด้านล่างด้วย <img src={student.image} className="w-full h-full object-cover" /> */}
-                          <div className="relative aspect-4/5 bg-linear-to-tr from-accent/5 via-primary/5 to-pink-500/5 flex flex-col items-center justify-center p-6 text-muted-foreground/60 border-b border-border/40 overflow-hidden">
-                            <div className="absolute inset-0 bg-linear-to-b from-transparent to-black/5" />
-
-                            <div className="relative z-10 flex flex-col items-center">
-                              <div className="h-20 w-20 rounded-full bg-white/90 shadow-sm flex items-center justify-center text-primary/70 mb-3 group-hover:scale-105 transition-transform duration-300">
-                                <User className="h-8 w-8 text-primary/70" />
-                              </div>
-                              <span className="text-[9px] font-bold uppercase tracking-widest text-primary/70 bg-white/70 px-2 py-0.5 rounded border border-border/40">
-                                {t("รูปนักเรียนทุน", "Recipients Photo")}
-                              </span>
-                            </div>
-                          </div>
-
-                          {/* รายละเอียดนักเรียนทุน */}
-                          <div className="p-5 flex-1 flex flex-col justify-between space-y-4">
-                            <div className="space-y-1.5">
-                              <h4 className="font-bold text-primary text-sm leading-snug group-hover:text-accent transition-colors">
-                                {student.name}
-                              </h4>
-                              <p className="text-xs text-muted-foreground/80 leading-relaxed">
-                                {t(student.roleTh, student.roleEn)}
-                              </p>
-                              <p className="text-[10px] font-semibold text-muted-foreground/75 flex items-center gap-1">
-                                <GraduationCap className="h-3.5 w-3.5 text-accent" />
-                                {t(student.campusTh, student.campusEn)}
-                              </p>
-                            </div>
-
-                            {/* ปุ่มดูรายละเอียดเพิ่มเติม - ใช้ button จริงแทน anchor เพื่อ accessibility */}
-                            <Button
-                              variant="link"
-                              className="p-0 h-auto justify-start font-semibold text-xs text-primary hover:text-accent hover:no-underline mt-2"
-                              onClick={() => {}}
-                            >
-                              {t("ดูรายละเอียดเพิ่มเติม", "More Detail")}
-                              <ArrowRight className="ml-1.5 h-3.5 w-3.5 transition-transform duration-300 group-hover:translate-x-1" />
-                            </Button>
-                          </div>
-                        </div>
+                          student={student}
+                          t={t}
+                        />
                       ))}
                     </div>
                   </div>
