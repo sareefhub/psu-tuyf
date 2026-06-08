@@ -26,19 +26,32 @@ export function SiteFooter() {
             <h3 className="text-sm font-semibold uppercase tracking-wide text-primary-foreground/90">
               {t("โครงการ", "Projects")}
             </h3>
+            {/* ลิงก์โครงการที่ถูกระงับการนำทางชั่วคราวด้วย e.preventDefault() เนื่องจากยังไม่มีหน้าข้อมูลย่อย */}
             <ul className="mt-4 space-y-2 text-sm text-primary-foreground/70">
               <li>
-                <a href="#mscd" className="transition-colors hover:text-accent">
+                <a
+                  href="#mscd"
+                  onClick={(e) => e.preventDefault()}
+                  className="transition-colors hover:text-accent"
+                >
                   MSCD
                 </a>
               </li>
               <li>
-                <a href="#mgss" className="transition-colors hover:text-accent">
+                <a
+                  href="#mgss"
+                  onClick={(e) => e.preventDefault()}
+                  className="transition-colors hover:text-accent"
+                >
                   MGSS
                 </a>
               </li>
               <li>
-                <a href="#algebra" className="transition-colors hover:text-accent">
+                <a
+                  href="#algebra"
+                  onClick={(e) => e.preventDefault()}
+                  className="transition-colors hover:text-accent"
+                >
                   Algebra Enrichment
                 </a>
               </li>

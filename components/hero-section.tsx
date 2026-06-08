@@ -16,7 +16,7 @@ export function HeroSection() {
             {t("คณะวิทยาศาสตร์และเทคโนโลยี · มอ. ปัตตานี", "Faculty of Science and Technology · PSU Pattani")}
           </span>
 
-          <h1 className="mt-6 text-balance text-5xl font-bold leading-none tracking-tight text-accent sm:text-6xl lg:text-7xl">
+          <h1 className="mt-6 text-balance text-5xl font-bold leading-none tracking-tight text-white sm:text-6xl lg:text-7xl">
             PSU-TUYF
           </h1>
 
