@@ -1,24 +1,6 @@
-import { SiteHeader } from "@/components/site-header"
-import { HeroSection } from "@/components/hero-section"
-import { ProgramsSection } from "@/components/programs-section"
-import { AboutSection } from "@/components/about-section"
-import { ProgramDetails } from "@/components/program-details"
-import { SiteFooter } from "@/components/site-footer"
-import { ScrollToTop } from "@/components/scroll-to-top"
+import HomePage from "./home/page"
 
+// แสดงผลหน้าหลัก (Root Page) โดยเรียกใช้ HomePage จากกลุ่มหน้าแรกที่จัดระเบียบใหม่
 export default function Home() {
-  return (
-    <div className="min-h-screen font-sans">
-      <SiteHeader />
-      <main>
-        <HeroSection />
-        <ProgramsSection />
-        <AboutSection />
-        <ProgramDetails />
-      </main>
-      <SiteFooter />
-      {/* ปุ่มเลื่อนขึ้นด้านบนพร้อมวงแหวนแสดงสถานะความก้าวหน้า */}
-      <ScrollToTop />
-    </div>
-  )
+  return <HomePage />
 }

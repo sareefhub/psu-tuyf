@@ -6,11 +6,11 @@ import { Button } from "@/components/ui/button"
 import { useT } from "@/components/language-context"
 // นำเข้า Image และภาพประกอบแบบ Static เพื่อประสิทธิภาพและการดึงขนาดสัดส่วนภาพที่แม่นยำ
 import Image from "next/image"
-import heroImg1 from "../../public/images/hero-section/psu-tuyf-1.png"
-import heroImg2 from "../../public/images/hero-section/psu-tuyf-2.png"
-import heroImg3 from "../../public/images/hero-section/psu-tuyf-3.png"
-import heroImg4 from "../../public/images/hero-section/psu-tuyf-4.png"
-import heroImg5 from "../../public/images/hero-section/psu-tuyf-5.png"
+import heroImg1 from "../../../../public/images/hero-section/psu-tuyf-1.png"
+import heroImg2 from "../../../../public/images/hero-section/psu-tuyf-2.png"
+import heroImg3 from "../../../../public/images/hero-section/psu-tuyf-3.png"
+import heroImg4 from "../../../../public/images/hero-section/psu-tuyf-4.png"
+import heroImg5 from "../../../../public/images/hero-section/psu-tuyf-5.png"
 
 // รายชื่อภาพสไลด์แสดงผลงานในอดีตของโครงการ PSU-TUYF (ใช้ตัวแปรภาพที่นำเข้าแบบ Static)
 const heroImages = [heroImg1, heroImg2, heroImg3, heroImg4, heroImg5]
