@@ -9,32 +9,31 @@ import { MgssOverview } from "./components/overview"
 // นำเข้าแท็บนำทางตัวกลาง (Shared TabNavigation Component)
 import { TabNavigation } from "@/components/tab-navigation"
 
-// นำเข้าคอมโพเนนต์เนื้อหาย่อยทั้ง 4 หมวดของหน้าโครงการ MGSS
-import { FundingSection } from "./components/funding"
-import { EligibilitySection } from "./components/eligibility"
-import { SelectionDirectory } from "./components/directory"
+// นำเข้าคอมโพเนนต์เนื้อหา 4 หัวข้อใหม่ของหน้าโครงการ MGSS
+import { RecipientsDirectory, GraduatedDirectory } from "./components/directory"
+import { PublicationsSection } from "./components/publications"
 import { AnnouncementsSection } from "./components/announcements"
 
-type TabId = "funding" | "eligibility" | "directory" | "announcements"
+type TabId = "recipients" | "graduated" | "publications" | "announcements"
 
 // คอมโพเนนต์ภายในสำหรับหน้าหลักของโครงการ MGSS
 function MgssLandingContent() {
   const { lang } = useLanguage()
-  const [activeTab, setActiveTab] = useState<TabId>("funding")
+  const [activeTab, setActiveTab] = useState<TabId>("recipients")
 
-  // ข้อมูลปุ่มเมนูแท็บนำทาง รองรับการแปลภาษาแบบกำหนดเองภายใน (เนื่องจากไม่มี Key ใน JSON)
+  // ข้อมูลปุ่มเมนูแท็บนำทาง 4 หัวข้อใหม่ รองรับการแปลภาษา TH/EN แบบไดนามิก
   const tabs = lang === "en"
     ? ([
-        { id: "funding", label: "Funding & Support" },
-        { id: "eligibility", label: "Eligibility Criteria" },
-        { id: "directory", label: "Scholars Directory" },
-        { id: "announcements", label: "Announcements & Forms" },
+        { id: "recipients", label: "Scholarship Recipients" },
+        { id: "graduated", label: "Graduated Scholars" },
+        { id: "publications", label: "Publication List" },
+        { id: "announcements", label: "Project Announcements" },
       ] as const)
     : ([
-        { id: "funding", label: "ทุนและค่าใช้จ่ายสนับสนุน" },
-        { id: "eligibility", label: "คุณสมบัติผู้สมัครรับทุน" },
-        { id: "directory", label: "ทำเนียบนักศึกษาทุน" },
-        { id: "announcements", label: "ประกาศและเอกสาร" },
+        { id: "recipients", label: "จำนวนนักเรียนที่ได้รับทุน" },
+        { id: "graduated", label: "จำนวนนักเรียนทุนที่สำเร็จการศึกษา" },
+        { id: "publications", label: "Publication List" },
+        { id: "announcements", label: "ประกาศของโครงการ" },
       ] as const)
 
   return (
@@ -54,9 +53,9 @@ function MgssLandingContent() {
 
       {/* แสดงเนื้อหารายละเอียดของหัวข้อแท็บที่กำลังเปิดใช้งาน */}
       <div className="transition-all duration-300">
-        {activeTab === "funding" && <FundingSection />}
-        {activeTab === "eligibility" && <EligibilitySection />}
-        {activeTab === "directory" && <SelectionDirectory />}
+        {activeTab === "recipients" && <RecipientsDirectory />}
+        {activeTab === "graduated" && <GraduatedDirectory />}
+        {activeTab === "publications" && <PublicationsSection />}
         {activeTab === "announcements" && <AnnouncementsSection />}
       </div>
     </MainLayout>
