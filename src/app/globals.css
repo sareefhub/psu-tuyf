@@ -109,8 +109,8 @@
   --font-size-3xs: 0.5625rem;  /* ประมาณ 9px  (ใช้กับ text-3xs) */
   --font-size-2xs: 0.625rem;   /* ประมาณ 10px (ใช้กับ text-2xs) */
   --font-size-xs: 0.75rem;     /* ประมาณ 12px (ใช้กับ text-xs)  */
-  --font-size-sm: 0.95rem;     /* ปรับเพิ่มจาก 0.875rem (14px) เป็น 0.95rem (15.2px) เพื่อให้ตัวหนังสือขนาดเล็กใหญ่ขึ้นตามที่ต้องการ */
-  --font-size-base: 1.0625rem; /* ปรับเพิ่มจาก 1rem (16px) เป็น 1.0625rem (17px) เพื่อรักษาความสมดุลของระดับตัวอักษร */
+  --font-size-sm: 1rem;         /* ประมาณ 16px (ใช้กับ text-sm)  */
+  --font-size-base: 1.125rem;  /* ประมาณ 18px (ใช้กับ text-base) */
   --font-size-xl: 1.25rem;     /* ประมาณ 20px (ใช้กับ text-xl)  */
   --font-size-2xl: 1.5rem;     /* ประมาณ 24px (ใช้กับ text-2xl) */
   --font-size-3xl: 1.875rem;   /* ประมาณ 30px (ใช้กับ text-3xl) */
