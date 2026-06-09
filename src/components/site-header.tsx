@@ -24,8 +24,8 @@ export function SiteHeader() {
       href: "/mscd",
       children: [
         { label: "B.Sc. Scholarships", href: "/mscd/bsc-scholarships" },
-        { label: "Student Improvement", href: "/mscd" },
-        { label: "Teacher Improvement", href: "/mscd" },
+        { label: "Student Improvement", href: "/mscd/student-improvement" },
+        { label: "Teacher Improvement", href: "/mscd/teacher-improvement" },
       ],
     },
     {

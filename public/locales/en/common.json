@@ -321,5 +321,176 @@
         }
       }
     }
+  },
+  "studentImprovement": {
+    "tabs": {
+      "activities": "Activities & Camps",
+      "stats": "Target Schools & Areas",
+      "eligibility": "Participant Eligibility",
+      "benefits": "Skills to Acquire",
+      "announcements": "Documents & Announcements"
+    },
+    "hero": {
+      "title": "Student Improvement",
+      "subtitle": "(High School)",
+      "desc": "Elevating mathematical knowledge and capabilities for high school students in Islamic private schools to strengthen preparedness and academic opportunities in higher education."
+    },
+    "overview": {
+      "title": "About Student Improvement Project",
+      "desc1": "This sub-project is designed to systematically develop mathematical skills for high school students in Islamic private schools in the three southern border provinces (Pattani, Yala, Narathiwat), where access to advanced academic opportunities can be limited.",
+      "desc2": "Key activities include organizing Mathematics Camps, problem-solving workshops, and analytical thinking exercises to build a solid foundation for future studies in science and technology fields."
+    },
+    "activities": {
+      "title": "Mathematics Camps & Workshops",
+      "desc": "Atmosphere and details of academic capacity building camps and creative thinking workshops.",
+      "camp1": {
+        "title": "Math Camp Generation 1",
+        "desc": "Intensive high school mathematics tutoring sessions paired with mathematics recreational games to foster positive attitudes."
+      },
+      "camp2": {
+        "title": "TCAS Preparation & Guidance Workshop",
+        "desc": "Analyzing applied mathematics examination papers and guiding students through science and engineering admissions paths."
+      }
+    },
+    "eligibility": {
+      "title": "Participant Eligibility Criteria",
+      "desc": "Basic eligibility details for secondary school students seeking to join the capacity building camps.",
+      "items": {
+        "item1": "Currently studying in high school (Grade 10 - 12 / M.4 - M.6) in the current academic year.",
+        "item2": "Enrolled in an Islamic private school in the three southern border provinces (Pattani, Yala, Narathiwat).",
+        "item3": "Studying in the Science-Mathematics track or a curriculum focused on science and technology.",
+        "item4": "Passionate about learning mathematics and maintaining good code of conduct.",
+        "item5": "Recommended or certified by a mathematics teacher from their school."
+      }
+    },
+    "benefits": {
+      "title": "Benefits & Skills Acquired",
+      "desc": "Key benefits and competencies cultivated through the camp activities.",
+      "items": {
+        "academic": {
+          "title": "Intensive Academic Knowledge",
+          "desc": "Acquire deeper understanding of high school mathematics, fast calculations, and logical thinking techniques."
+        },
+        "portfolio": {
+          "title": "Camp Participation Certificate",
+          "desc": "Students who complete the camp and pass evaluations will receive certificates to enrich their TCAS Portfolio."
+        },
+        "networking": {
+          "title": "Peer Networks & Friendship",
+          "desc": "Build strong connections with students from other schools in the southern region to exchange knowledge and experiences."
+        },
+        "materials": {
+          "title": "Free Materials & Tools",
+          "desc": "Receive mathematics summary booklets, exam sheets, and activity toolkits free of charge."
+        }
+      }
+    },
+    "announcements": {
+      "title": "Camps Announcements",
+      "desc": "Official announcements for registrations and selected participant lists for the capacity building camps.",
+      "read": "Read",
+      "download": "Download",
+      "noPdfTitle": "Document File Not Uploaded Yet",
+      "noPdfDesc": "Cannot load preview because the current file link is set to '#'. Please upload your PDF file and change the fileUrl variable to the actual path to enable the PDF viewer.",
+      "pdfReadyTitle": "Document Ready to View",
+      "pdfReadyDesc": "For the best viewing and zooming experience on mobile devices, please open the PDF file directly via the button below.",
+      "pdfOpenBtn": "Open Document (PDF)",
+      "footerHelp": "Student Improvement Project official publication · Print or download the full copy using your browser controls.",
+      "items": {
+        "item1": {
+          "title": "Call for Applications: Mathematics Capacity Building Camp 2024",
+          "date": "20 May 2024"
+        },
+        "item2": {
+          "title": "Announcing Qualified Participants for Math Camp Generation 1",
+          "date": "05 Jun 2024"
+        }
+      }
+    }
+  },
+  "teacherImprovement": {
+    "tabs": {
+      "activities": "Training Courses",
+      "stats": "Target Schools",
+      "eligibility": "Trainee Eligibility",
+      "benefits": "Support & Benefits",
+      "announcements": "Letters & Documents"
+    },
+    "hero": {
+      "title": "Teacher Improvement",
+      "subtitle": "(Training & Materials)",
+      "desc": "Promoting skills enhancement and the adoption of pedagogical innovations for mathematics teachers in secondary Islamic private schools."
+    },
+    "overview": {
+      "title": "About Teacher Improvement Project",
+      "desc1": "Teachers are the heart of learning. This sub-project focuses on developing professional teaching skills and modern mathematics pedagogy so secondary school teachers can apply them effectively in classrooms.",
+      "desc2": "By organizing academic workshops on Active Learning, integrating technology, and building Professional Learning Communities (PLCs), the project aims to form a strong and sustainable network of mathematics teachers."
+    },
+    "activities": {
+      "title": "Teacher Training Courses & Activities",
+      "desc": "Annual professional development curriculum and workshop schedule for mathematics teachers.",
+      "course1": {
+        "title": "Active Learning in Mathematics Classrooms",
+        "desc": "Focusing on classroom design through group activities, math board games, and GSP or GeoGebra tools."
+      },
+      "course2": {
+        "title": "Classroom Action Research & Modern Evaluations",
+        "desc": "Leveraging PLC processes to solve mathematics student learning gaps, combined with digital evaluation tools."
+      }
+    },
+    "eligibility": {
+      "title": "Trainee Eligibility Criteria",
+      "desc": "Basic requirements for school representative teachers wishing to participate in the training workshops.",
+      "items": {
+        "item1": "Currently teaching mathematics at high school level (Grade 10 - 12 / M.4 - M.6).",
+        "item2": "Affiliated with an Islamic private school in the target provinces (Pattani, Yala, Narathiwat).",
+        "item3": "Committed to improving classroom quality and able to attend the entire duration of the courses.",
+        "item4": "Willing to create new learning resources and implement them in their home school."
+      }
+    },
+    "benefits": {
+      "title": "Support & Benefits for Teachers",
+      "desc": "Benefits, allowances, and tools provided to teachers and participating schools.",
+      "items": {
+        "certificate": {
+          "title": "Training Certificate",
+          "desc": "Teachers who complete the required training hours will receive professional certificates of achievement."
+        },
+        "materials": {
+          "title": "Ready-to-use Toolkits & Manuals",
+          "desc": "Includes lesson plans, hand-made educational games, and evaluation tools for mathematics class."
+        },
+        "allowance": {
+          "title": "Travel & Living Allowances",
+          "desc": "Travel expenses and allowances supported for teachers traveling from rural or remote districts."
+        },
+        "network": {
+          "title": "Professional Mathematics Network",
+          "desc": "Dedicated channels to consult, share exam guides, and support peer teachers within the region."
+        }
+      }
+    },
+    "announcements": {
+      "title": "Training Announcements & Letters",
+      "desc": "Official invitation letters, detailed schedules, and accepted delegate lists for the teacher training courses.",
+      "read": "Read",
+      "download": "Download",
+      "noPdfTitle": "Document File Not Uploaded Yet",
+      "noPdfDesc": "Cannot load preview because the current file link is set to '#'. Please upload your PDF file and change the fileUrl variable to the actual path to enable the PDF viewer.",
+      "pdfReadyTitle": "Document Ready to View",
+      "pdfReadyDesc": "For the best viewing and zooming experience on mobile devices, please open the PDF file directly via the button below.",
+      "pdfOpenBtn": "Open Document (PDF)",
+      "footerHelp": "Teacher training invitation letter · Print or download the full copy using your browser controls.",
+      "items": {
+        "item1": {
+          "title": "Official Invitation: Mathematics Active Learning Workshop 2024",
+          "date": "10 May 2024"
+        },
+        "item2": {
+          "title": "Program Schedule & Course Syllabus for High School Mathematics Teacher Training",
+          "date": "18 May 2024"
+        }
+      }
+    }
   }
 }
