@@ -102,7 +102,7 @@ export function StudentImprovementSection() {
                     <BookOpen className="h-4 w-4 text-accent flex-none" />
                     {act.title}
                   </h5>
-                  <span className="inline-flex items-center gap-1 rounded-full bg-accent/10 px-2.5 py-0.5 text-[10px] font-bold text-accent whitespace-nowrap">
+                  <span className="inline-flex items-center gap-1 rounded-full bg-accent/10 px-2.5 py-0.5 text-2xs font-bold text-accent whitespace-nowrap">
                     <Calendar className="h-3 w-3" />
                     {act.schedule}
                   </span>
@@ -134,7 +134,7 @@ export function StudentImprovementSection() {
                 <h5 className="font-bold text-primary text-xs leading-snug hover:text-accent transition-colors cursor-pointer">
                   {doc.title}
                 </h5>
-                <p className="text-[10px] text-muted-foreground">{doc.date}</p>
+                <p className="text-2xs text-muted-foreground">{doc.date}</p>
               </div>
             </div>
           ))}

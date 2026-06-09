@@ -73,7 +73,7 @@ export function SelectionAnnouncements() {
                         <Calendar className="h-3.5 w-3.5" />
                         {t(`bscScholarships.announcements.items.${item.key}.date`)}
                       </span>
-                      <span className="bg-secondary px-2 py-0.5 rounded text-[10px] font-bold">
+                      <span className="bg-secondary px-2 py-0.5 rounded text-2xs font-bold">
                         PDF ({item.size})
                       </span>
                     </div>
@@ -111,9 +111,18 @@ export function SelectionAnnouncements() {
         {previewPdf && (
           <div
             className="fixed inset-0 bg-black/60 z-50 flex items-center justify-center p-4 backdrop-blur-xs animate-fade-in w-full cursor-default"
+            role="button"
+            tabIndex={0}
             onClick={(e) => {
               if (e.target === e.currentTarget) {
                 setPreviewPdf(null)
+              }
+            }}
+            onKeyDown={(e) => {
+              if (e.key === "Enter" || e.key === " " || e.key === "Escape") {
+                if (e.target === e.currentTarget) {
+                  setPreviewPdf(null)
+                }
               }
             }}
           >
@@ -195,7 +204,7 @@ export function SelectionAnnouncements() {
               </div>
 
               {/* ส่วนท้ายแสดงตัวช่วยผู้ใช้ */}
-              <div className="p-3 bg-secondary/30 border-t border-border/40 text-[10px] text-center text-muted-foreground">
+              <div className="p-3 bg-secondary/30 border-t border-border/40 text-2xs text-center text-muted-foreground">
                 {t("bscScholarships.announcements.footerHelp")}
               </div>
             </div>

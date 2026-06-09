@@ -91,11 +91,11 @@ export function AboutSection() {
               className="flex items-center justify-center gap-5 px-6 py-4 sm:py-2"
             >
               {/* ฝั่งซ้าย: ตัวเลขขนาดใหญ่หนาพิเศษ (ใช้ font-extrabold และขนาด 4xl/5xl ตามดีไซน์) */}
-              <div className="text-4xl md:text-5xl font-extrabold tracking-tight text-primary flex-shrink-0 min-w-[3.5rem] text-right">
+              <div className="text-4xl md:text-5xl font-extrabold tracking-tight text-primary shrink-0 min-w-14 text-right">
                 {stat.value}
               </div>
               {/* ฝั่งขวา: ข้อความอธิบายตัวอักษรเล็กชิดซ้าย (นำมาไว้เคียงข้างตัวเลขในแนวราบ) */}
-              <div className="text-left text-xs font-semibold text-muted-foreground leading-tight max-w-[140px]">
+              <div className="text-left text-xs font-semibold text-muted-foreground leading-tight max-w-35">
                 {stat.label}
               </div>
             </div>

@@ -21,7 +21,7 @@ export function ProgramCard({
   moreDetailText,
   ariaLabel,
   priority = false,
-}: ProgramCardProps) {
+}: Readonly<ProgramCardProps>) {
   return (
     <article className="relative group flex flex-col overflow-hidden rounded-xl border border-border/60 bg-card transition-all duration-300 hover:border-border hover:shadow-sm">
       {/* รูปภาพโครงการสไตล์สี่เหลี่ยมจัตุรัสและจัดวางแบบเต็มพื้นที่ (object-cover) */}

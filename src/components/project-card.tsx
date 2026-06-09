@@ -29,7 +29,7 @@ export function ProjectCard({
   moreDetailText,
   ariaLabel,
   priority = false,
-}: ProjectCardProps) {
+}: Readonly<ProjectCardProps>) {
   // วิเคราะห์สไตล์การแสดงผลของรูปภาพตามค่าที่ส่งเข้ามา
   const aspectClass = imageAspect === "square" ? "aspect-square" : "aspect-16/10"
   const fitClass = imageFit === "cover" ? "object-cover" : "object-contain p-4"
