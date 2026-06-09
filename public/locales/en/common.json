@@ -46,7 +46,7 @@
   },
   "programDetails": {
     "mscd": {
-      "title": "Mathematics for Sustainable Community Development Project",
+      "title": "About the Mathematics for Sustainable Community Development Project",
       "sub": "โครงการพัฒนาชุมชนอย่างยั่งยืนด้วยคณิตศาสตร์",
       "desc": "This project focuses on developing mathematical potential at various levels, including secondary school students, undergraduate students, and mathematics teachers in secondary schools. Its goal is to strengthen the foundational knowledge and essential skills needed for sustainable community development. The project is divided into three main components:",
       "items": [
@@ -332,13 +332,14 @@
     },
     "hero": {
       "title": "Student Improvement",
-      "subtitle": "(High School)",
+      "subtitle": "under PSU-TUYF Mathematics for Sustainable Community Development",
       "desc": "Elevating mathematical knowledge and capabilities for high school students in Islamic private schools to strengthen preparedness and academic opportunities in higher education."
     },
     "overview": {
       "title": "About Student Improvement Project",
-      "desc1": "This sub-project is designed to systematically develop mathematical skills for high school students in Islamic private schools in the three southern border provinces (Pattani, Yala, Narathiwat), where access to advanced academic opportunities can be limited.",
-      "desc2": "Key activities include organizing Mathematics Camps, problem-solving workshops, and analytical thinking exercises to build a solid foundation for future studies in science and technology fields."
+      "desc1": "The \"Student Improvement\" project is part of the larger initiative: PSU-TUYF Mathematics for Sustainable Community Development. It is run by the Department of Mathematics and Computer Science, Faculty of Science and Technology, Prince of Songkla University, Pattani Campus, with support from the PSU-TUYF Charitable Trust Fund. This 5-year project (initial phase 2021-2025) primarily targets students in private Islamic schools in the Southern Border Provinces (Yala, Pattani, Narathiwat) to elevate their mathematical capabilities and prepare them for their future education.",
+      "desc2": "The subprojects under \"Student Improvement\" consist of two main parts. First, the Intensive Training Program for Mathematical Excellence (Excellence Math Camp), formerly known as \"Pre-Olympics\", aims to develop advanced mathematical capabilities of high school students. It prepares them for national and international competitions while strengthening their mathematical processing skills. During 2023-2024, the project focused on preparation for the Mathematical Olympiad, and starting from 2025 onwards, it has expanded its scope to support various other mathematics competition stages.",
+      "desc3": "Another program is the Mobile Mathematics Project (Math Roadshow), which focuses specifically on preparing Grade 12 students in private Islamic schools in the Southern Border Provinces for higher education. Both subprojects reflect PSU-TUYF's commitment to creating educational opportunities and sustainably developing the potential of youth in the region."
     },
     "activities": {
       "title": "Mathematics Camps & Workshops",

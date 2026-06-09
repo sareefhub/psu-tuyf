@@ -20,6 +20,9 @@ export function StudentOverview() {
             <p className="text-sm leading-relaxed text-muted-foreground/90 text-pretty">
               {t("studentImprovement.overview.desc2")}
             </p>
+            <p className="text-sm leading-relaxed text-muted-foreground/90 text-pretty">
+              {t("studentImprovement.overview.desc3")}
+            </p>
           </div>
         </div>
       </div>
