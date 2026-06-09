@@ -17,9 +17,6 @@ export function TeacherOverview() {
             <p className="text-sm leading-relaxed text-muted-foreground/90 text-pretty">
               {t("teacherImprovement.overview.desc1")}
             </p>
-            <p className="text-sm leading-relaxed text-muted-foreground/90 text-pretty">
-              {t("teacherImprovement.overview.desc2")}
-            </p>
           </div>
         </div>
       </div>
