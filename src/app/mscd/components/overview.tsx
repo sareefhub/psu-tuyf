@@ -65,11 +65,11 @@ export function MscdOverview() {
     <section className="py-16 bg-background">
       <div className="mx-auto max-w-7xl px-6 space-y-12">
 
-        {/* ===== ส่วนที่ 1: เนื้อหาข้อความอธิบายโครงการหลักและโครงการย่อย (ย้ายขึ้นมาอยู่ข้างบนของการ์ด) ===== */}
-        <div className="space-y-6 max-w-4xl">
+        {/* ===== ส่วนที่ 1: เนื้อหาข้อความอธิบายโครงการหลักและโครงการย่อย (ปรับสไตล์ให้กลมกลืนกับธีม B.Sc. Scholarships) ===== */}
+        <div className="space-y-6">
 
           {/* หัวข้อหลักของโครงการ MSCD */}
-          <h2 className="text-xl font-bold text-primary leading-snug">
+          <h2 className="text-2xl font-bold text-primary leading-snug">
             {t("programDetails.mscd.title")}{" "}
             <span className="font-normal text-muted-foreground">
               ({t("programDetails.mscd.sub")})
@@ -77,20 +77,21 @@ export function MscdOverview() {
           </h2>
 
           {/* คำอธิบายภาพรวมโครงการ */}
-          <p className="text-sm leading-relaxed text-foreground/85">
+          <p className="text-sm leading-relaxed text-muted-foreground/90 text-pretty">
             {t("programDetails.mscd.desc")}
           </p>
 
           {/* รายละเอียดโครงการย่อยทั้ง 3 ข้อ */}
-          <div className="space-y-5">
+          <div className="space-y-6 border-l border-border/80 pl-6 mt-6">
             {subprojects.map((sub) => (
-              <div key={sub.id} className="space-y-1.5">
-                {/* หัวข้อโครงการย่อย — สีน้ำเงินเน้นชื่อ */}
-                <h3 className="text-sm font-bold text-primary leading-snug">
+              <div key={sub.id} className="space-y-2">
+                {/* หัวข้อโครงการย่อย */}
+                <h3 className="text-sm font-bold text-primary flex items-center gap-2">
+                  <span className="h-1.5 w-1.5 rounded-full bg-accent" />
                   {t(sub.titleKey)}
                 </h3>
-                {/* คำอธิบายโครงการย่อย — เยื้องซ้ายเล็กน้อยตามรูปต้นแบบ */}
-                <p className="pl-4 text-sm leading-relaxed text-foreground/80">
+                {/* คำอธิบายโครงการย่อย */}
+                <p className="pl-3.5 text-sm leading-relaxed text-muted-foreground/90 text-pretty">
                   {t(sub.descKey)}
                 </p>
               </div>
