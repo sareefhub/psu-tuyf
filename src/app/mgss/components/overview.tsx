@@ -19,21 +19,21 @@ export function MgssOverview() {
       id: "mgss-0",
       image: "/images/mgss/phd-student-hatyai.png",
       title: lang === "en" ? "Ph.D. Students (Hat Yai Campus)" : "นักศึกษาระดับปริญญาเอก (วิทยาเขตหาดใหญ่)",
-      href: "#",
+      href: "/mgss/phd-hatyai",
       priority: true, // โหลดรูปล่วงหน้าเพื่อความเร็วและแก้ไข LCP
     },
     {
       id: "mgss-1",
       image: "/images/mgss/master-student-hatyai.png",
       title: lang === "en" ? "M.Sc. Students (Hat Yai Campus)" : "นักศึกษาระดับปริญญาโท (วิทยาเขตหาดใหญ่)",
-      href: "#",
+      href: "/mgss/msc-hatyai",
       priority: true, // โหลดรูปล่วงหน้าเพื่อความเร็วและแก้ไข LCP
     },
     {
       id: "mgss-2",
       image: "/images/mgss/master-student-pattani.png",
       title: lang === "en" ? "M.Sc. Students (Pattani Campus)" : "นักศึกษาระดับปริญญาโท (วิทยาเขตปัตตานี)",
-      href: "#",
+      href: "/mgss/msc-pattani",
       priority: true, // โหลดรูปล่วงหน้าตามการแจ้งเตือน LCP ของบราวเซอร์
     },
   ]
