@@ -33,7 +33,7 @@ function BscScholarshipsContent() {
   ] as const
 
   return (
-    <MainLayout>
+    <MainLayout className="animate-fade-in">
       {/* ส่วนแบนเนอร์ด้านบนสุด */}
       <BscHero />
 

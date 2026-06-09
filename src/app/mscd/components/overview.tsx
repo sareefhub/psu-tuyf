@@ -68,10 +68,7 @@ export function MscdOverview() {
 
           {/* หัวข้อหลักของโครงการ MSCD */}
           <h2 className="text-2xl font-bold text-primary leading-snug">
-            {t("programDetails.mscd.title")}{" "}
-            <span className="font-normal text-muted-foreground">
-              ({t("programDetails.mscd.sub")})
-            </span>
+            {t("programDetails.mscd.title")}
           </h2>
 
           {/* คำอธิบายภาพรวมโครงการ */}
