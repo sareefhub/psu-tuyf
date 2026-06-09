@@ -4,53 +4,117 @@ import { useLanguage } from "@/components/language-context"
 import { MainLayout } from "@/layout/main-layout"
 import { StudentCard } from "@/components/student-card"
 
-// ข้อมูลนักศึกษาระดับปริญญาโท วิทยาเขตปัตตานี (M.Sc. Pattani)
+// ข้อมูลนักศึกษาระดับปริญญาโท วิทยาเขตปัตตานี (M.Sc. Pattani) ตามข้อมูลจริง
 const studentData = {
   th: [
     {
-      year: "ปีการศึกษา 2566",
-      groupTitle: "นักเรียนทุนไทย THAI STUDENT SCHOLARS 2023",
+      year: "ปีการศึกษา 2567",
+      groupTitle: "นักเรียนทุนปี 2024 (STUDENT SCHOLARS 2024)",
       students: [
-        { name: "นาย ซูไฮมี ดาโอ๊ะ", role: "นักศึกษาปริญญาโท ปีที่ 1", campus: "วิทยาเขตปัตตานี" }
+        {
+          name: "Fatima Hemna",
+          role: "รหัสนักศึกษา: 6620320705",
+          campus: "วิทยาเขตปัตตานี",
+          image: "/images/mgss/master-student-pattani/student-1.png"
+        },
+        {
+          name: "Fateehah Korlaeh",
+          role: "รหัสนักศึกษา: 6720320702",
+          campus: "วิทยาเขตปัตตานี",
+          image: "/images/mgss/master-student-pattani/student-2.png"
+        },
+        {
+          name: "Mr. Imam Muhyideen Sidiq",
+          role: "รหัสนักศึกษา: 6720320703",
+          campus: "วิทยาเขตปัตตานี",
+          image: "/images/mgss/master-student-pattani/student-3.png"
+        }
       ]
     },
     {
       year: "ปีการศึกษา 2565",
-      groupTitle: "นักเรียนทุนกัมพูชาและไทย CAMBODIAN & THAI STUDENT SCHOLARS 2022",
+      groupTitle: "นักเรียนทุนปี 2022 (STUDENT SCHOLARS 2022)",
       students: [
-        { name: "Miss Keo Sreymom", role: "นักศึกษาปริญญาโท ปีที่ 2", campus: "วิทยาเขตปัตตานี" },
-        { name: "นาย อับดุลเลาะ ลาเต๊ะ", role: "นักศึกษาปริญญาโท ปีที่ 2", campus: "วิทยาเขตปัตตานี" }
+        {
+          name: "Asma Yafad",
+          role: "รหัสนักศึกษา: 6620320703",
+          campus: "วิทยาเขตปัตตานี",
+          image: "/images/mgss/master-student-pattani/student-4.png"
+        },
+        {
+          name: "Palin Raktaow",
+          role: "รหัสนักศึกษา: 6620320702",
+          campus: "วิทยาเขตปัตตานี",
+          image: "/images/mgss/master-student-pattani/student-5.png"
+        }
       ]
     },
     {
       year: "ปีการศึกษา 2564",
-      groupTitle: "นักเรียนทุนกัมพูชา CAMBODIAN STUDENT SCHOLARS 2021",
+      groupTitle: "นักเรียนทุนปี 2021 (STUDENT SCHOLARS 2021)",
       students: [
-        { name: "Mr. Namoral Thy", role: "สำเร็จการศึกษา (ปี 2566)", campus: "วิทยาเขตปัตตานี" }
+        {
+          name: "Kritapon Chaikan",
+          role: "รหัสนักศึกษา: 6420320701",
+          campus: "วิทยาเขตปัตตานี",
+          image: "/images/mgss/master-student-pattani/student-6.png"
+        }
       ]
     }
   ],
   en: [
     {
-      year: "Academic Year 2023",
-      groupTitle: "THAI STUDENT SCHOLARS 2023",
+      year: "Academic Year 2024",
+      groupTitle: "STUDENT SCHOLARS 2024",
       students: [
-        { name: "Mr. Suhaimi Daoh", role: "1st Year Master's Student", campus: "Pattani Campus" }
+        {
+          name: "Fatima Hemna",
+          role: "Student ID: 6620320705",
+          campus: "Pattani Campus",
+          image: "/images/mgss/master-student-pattani/student-1.png"
+        },
+        {
+          name: "Fateehah Korlaeh",
+          role: "Student ID: 6720320702",
+          campus: "Pattani Campus",
+          image: "/images/mgss/master-student-pattani/student-2.png"
+        },
+        {
+          name: "Mr. Imam Muhyideen Sidiq",
+          role: "Student ID: 6720320703",
+          campus: "Pattani Campus",
+          image: "/images/mgss/master-student-pattani/student-3.png"
+        }
       ]
     },
     {
       year: "Academic Year 2022",
-      groupTitle: "CAMBODIAN & THAI STUDENT SCHOLARS 2022",
+      groupTitle: "STUDENT SCHOLARS 2022",
       students: [
-        { name: "Miss Keo Sreymom", role: "2nd Year Master's Student", campus: "Pattani Campus" },
-        { name: "Mr. Abdulloh Lateh", role: "2nd Year Master's Student", campus: "Pattani Campus" }
+        {
+          name: "Asma Yafad",
+          role: "Student ID: 6620320703",
+          campus: "Pattani Campus",
+          image: "/images/mgss/master-student-pattani/student-4.png"
+        },
+        {
+          name: "Palin Raktaow",
+          role: "Student ID: 6620320702",
+          campus: "Pattani Campus",
+          image: "/images/mgss/master-student-pattani/student-5.png"
+        }
       ]
     },
     {
       year: "Academic Year 2021",
-      groupTitle: "CAMBODIAN STUDENT SCHOLARS 2021",
+      groupTitle: "STUDENT SCHOLARS 2021",
       students: [
-        { name: "Mr. Namoral Thy", role: "Graduated (2023)", campus: "Pattani Campus" }
+        {
+          name: "Kritapon Chaikan",
+          role: "Student ID: 6420320701",
+          campus: "Pattani Campus",
+          image: "/images/mgss/master-student-pattani/student-6.png"
+        }
       ]
     }
   ]
@@ -94,7 +158,7 @@ export default function MscPattaniDirectoryPage() {
                     {yearGroup.groupTitle}
                   </span>
 
-                  {/* แสดงการ์ดในแบบ Grid */}
+                  {/* แสดงการ์ดในแบบ Grid ขนาด 4 คอลัมน์ */}
                   <div className="grid gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
                     {yearGroup.students.map((student) => (
                       <StudentCard
@@ -102,10 +166,11 @@ export default function MscPattaniDirectoryPage() {
                         name={student.name}
                         role={student.role}
                         campus={student.campus}
+                        image={student.image} // ส่งพาธรูปภาพของนักศึกษา
                         moreDetailText={lang === "en" ? "More Detail" : "ดูรายละเอียดเพิ่มเติม"}
                         photoPlaceholderText={lang === "en" ? "PHOTO" : "รูปภาพ"}
                         categoryBadge={lang === "en" ? "MGSS SCHOLAR" : "นักศึกษาทุน MGSS"}
-                        priority={yearGroup.year.includes("2566") || yearGroup.year.includes("2023")}
+                        priority={yearGroup.year.includes("2567") || yearGroup.year.includes("2024")} // เพิ่มความสำคัญในการโหลดรูปภาพสำหรับรุ่นปัจจุบัน
                       />
                     ))}
                   </div>

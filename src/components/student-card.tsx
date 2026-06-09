@@ -1,5 +1,6 @@
 "use client"
 
+import { useState } from "react"
 import { GraduationCap, ArrowRight, User } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import Image from "next/image"
@@ -37,11 +38,14 @@ export function StudentCard({
   priority = false,
   onDetailClick,
 }: StudentCardProps) {
+  // สถานะตรวจสอบการโหลดรูปภาพล้มเหลว
+  const [imgError, setImgError] = useState(false)
+
   return (
     <div className="group bg-card border border-border/50 rounded-2xl overflow-hidden shadow-xs hover:shadow-md hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between">
       {/* ส่วนแสดงรูปถ่ายนักศึกษา */}
       <div className="relative aspect-4/5 bg-linear-to-tr from-accent/5 via-primary/5 to-pink-500/5 flex flex-col items-center justify-center border-b border-border/40 overflow-hidden">
-        {image ? (
+        {image && !imgError ? (
           <Image
             src={image}
             alt={name}
@@ -49,6 +53,7 @@ export function StudentCard({
             sizes="(max-w: 640px) 100vw, (max-w: 768px) 50vw, (max-w: 1024px) 33vw, 25vw"
             className="object-cover group-hover:scale-105 transition-transform duration-500"
             priority={priority}
+            onError={() => setImgError(true)} // สลับไปใช้ placeholder เมื่อเกิดความผิดพลาดในการโหลดรูปภาพ
           />
         ) : (
           <>
