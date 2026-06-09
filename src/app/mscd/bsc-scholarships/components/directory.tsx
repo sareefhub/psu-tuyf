@@ -1,9 +1,7 @@
 "use client"
 
 import { useT } from "@/components/language-context"
-import { GraduationCap, ArrowRight, User } from "lucide-react"
-import { Button } from "@/components/ui/button"
-import Image from "next/image"
+import { StudentCard } from "@/components/student-card"
 
 // โครงสร้างข้อมูลรายชื่อนักเรียนทุน ที่แมปคีย์กับไฟล์แปลภาษา JSON
 const directoryData = [
@@ -65,82 +63,6 @@ const directoryData = [
   },
 ]
 
-// โครงสร้างของข้อมูลนักเรียนทุนแต่ละคน
-interface Student {
-  name: string
-  studentKey: string
-  image: string
-}
-
-// คอมโพเนนต์ย่อยสำหรับแสดงการ์ดรายละเอียดนักเรียนทุนแต่ละคน
-function StudentCard({
-  student,
-  yearKey,
-  groupKey,
-  t,
-}: Readonly<{
-  student: Student
-  yearKey: string
-  groupKey: string
-  t: (key: string) => string
-}>) {
-  return (
-    <div className="group bg-card border border-border/50 rounded-2xl overflow-hidden shadow-sm hover:shadow-md hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between">
-      {/* ภาพนักเรียนทุน */}
-      <div className="relative aspect-4/5 bg-linear-to-tr from-accent/5 via-primary/5 to-pink-500/5 flex flex-col items-center justify-center border-b border-border/40 overflow-hidden">
-        {student.image ? (
-          <Image
-            src={student.image}
-            alt={student.name}
-            fill
-            sizes="(max-width: 640px) 100vw, (max-width: 768px) 50vw, (max-width: 1024px) 33vw, 25vw"
-            className="object-cover group-hover:scale-105 transition-transform duration-500"
-            priority={yearKey === "y2566"} // โหลดภาพปีแรกแบบด่วนเพื่อช่วยลด LCP (Largest Contentful Paint)
-          />
-        ) : (
-          <>
-            <div className="absolute inset-0 bg-linear-to-b from-transparent to-black/5" />
-            <div className="relative z-10 flex flex-col items-center p-6 text-muted-foreground/60">
-              <div className="h-20 w-20 rounded-full bg-white/90 shadow-sm flex items-center justify-center text-primary/70 mb-3 group-hover:scale-105 transition-transform duration-300">
-                <User className="h-8 w-8 text-primary/70" />
-              </div>
-              <span className="text-[9px] font-bold uppercase tracking-widest text-primary/70 bg-white/70 px-2 py-0.5 rounded border border-border/40">
-                {t("bscScholarships.directory.photo")}
-              </span>
-            </div>
-          </>
-        )}
-      </div>
-
-      {/* รายละเอียดข้อมูลนักเรียนทุน */}
-      <div className="p-5 flex-1 flex flex-col justify-between space-y-4">
-        <div className="space-y-1.5">
-          <h4 className="font-bold text-primary text-sm leading-snug group-hover:text-accent transition-colors">
-            {student.name}
-          </h4>
-          <p className="text-xs text-muted-foreground/80 leading-relaxed">
-            {t(`bscScholarships.directory.years.${yearKey}.groups.${groupKey}.students.${student.studentKey}.role`)}
-          </p>
-          <p className="text-[10px] font-semibold text-muted-foreground/75 flex items-center gap-1">
-            <GraduationCap className="h-3.5 w-3.5 text-accent" />
-            {t(`bscScholarships.directory.years.${yearKey}.groups.${groupKey}.students.${student.studentKey}.campus`)}
-          </p>
-        </div>
-
-        {/* ปุ่มดูรายละเอียดเพิ่มเติม */}
-        <Button
-          variant="link"
-          className="p-0 h-auto justify-start font-semibold text-xs text-primary hover:text-accent hover:no-underline mt-2"
-          onClick={() => {}}
-        >
-          {t("bscScholarships.directory.moreDetail")}
-          <ArrowRight className="ml-1.5 h-3.5 w-3.5 transition-transform duration-300 group-hover:translate-x-1" />
-        </Button>
-      </div>
-    </div>
-  )
-}
-
 export function SelectionDirectory() {
   const t = useT()
 
@@ -177,15 +99,20 @@ export function SelectionDirectory() {
                       {t(`bscScholarships.directory.years.${yearGroup.yearKey}.groups.${group.groupKey}.title`)}
                     </span>
 
-                    {/* รายชื่อนักเรียนในกลุ่มนี้แสดงเป็น Grid */}
+                    {/* รายชื่อนักเรียนในกลุ่มนี้แสดงเป็น Grid ขนาด 4 คอลัมน์โดยใช้คอมโพเนนต์กลาง */}
                     <div className="grid gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
                       {group.students.map((student) => (
                         <StudentCard
                           key={student.name}
-                          student={student}
-                          yearKey={yearGroup.yearKey}
-                          groupKey={group.groupKey}
-                          t={t}
+                          name={student.name}
+                          image={student.image}
+                          role={t(`bscScholarships.directory.years.${yearGroup.yearKey}.groups.${group.groupKey}.students.${student.studentKey}.role`)}
+                          campus={t(`bscScholarships.directory.years.${yearGroup.yearKey}.groups.${group.groupKey}.students.${student.studentKey}.campus`)}
+                          moreDetailText={t("bscScholarships.directory.moreDetail")}
+                          photoPlaceholderText={t("bscScholarships.directory.photo")}
+                          categoryBadge={t("bscScholarships.directory.title")}
+                          priority={yearGroup.yearKey === "y2566"}
+                          onDetailClick={() => {}}
                         />
                       ))}
                     </div>

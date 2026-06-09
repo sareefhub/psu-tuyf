@@ -4,39 +4,105 @@ import { useLanguage } from "@/components/language-context"
 import { MainLayout } from "@/layout/main-layout"
 import { StudentCard } from "@/components/student-card"
 
-// ข้อมูลนักศึกษาระดับปริญญาเอก วิทยาเขตหาดใหญ่ (Ph.D. Hatyai)
+// ข้อมูลนักศึกษาระดับปริญญาเอก วิทยาเขตหาดใหญ่ (Ph.D. Hatyai) ตามข้อมูลจริง
 const studentData = {
   th: [
     {
-      year: "ปีการศึกษา 2566",
-      groupTitle: "นักเรียนทุนกัมพูชาและไทย CAMBODIAN & THAI STUDENT SCHOLARS 2023",
+      year: "ปีการศึกษา 2567",
+      groupTitle: "นักเรียนทุนปี 2024 (STUDENT SCHOLARS 2024)",
       students: [
-        { name: "Mr. Sokha Chan", role: "นักศึกษาปริญญาเอก ปีที่ 1", campus: "วิทยาเขตหาดใหญ่" },
-        { name: "นางสาว มารีนา สาและ", role: "นักศึกษาปริญญาเอก ปีที่ 1", campus: "วิทยาเขตหาดใหญ่" }
+        {
+          name: "Arbaz Jehan khan",
+          role: "รหัสนักศึกษา: 6710230007",
+          campus: "วิทยาเขตหาดใหญ่",
+          image: "/images/mgss/phd-student-hatyai/student-1.png"
+        }
       ]
     },
     {
-      year: "ปีการศึกษา 2565",
-      groupTitle: "นักเรียนทุนกัมพูชา CAMBODIAN STUDENT SCHOLARS 2022",
+      year: "ปีการศึกษา 2566",
+      groupTitle: "นักเรียนทุนปี 2023 (STUDENT SCHOLARS 2023)",
       students: [
-        { name: "Mr. Sopheak Vanna", role: "นักศึกษาปริญญาเอก ปีที่ 2", campus: "วิทยาเขตหาดใหญ่" }
+        {
+          name: "Pokpong Srimora",
+          role: "รหัสนักศึกษา: 6610230016",
+          campus: "วิทยาเขตหาดใหญ่",
+          image: "/images/mgss/phd-student-hatyai/student-2.png"
+        },
+        {
+          name: "Traiwat Intarawong",
+          role: "รหัสนักศึกษา: 6610230005",
+          campus: "วิทยาเขตหาดใหญ่",
+          image: "/images/mgss/phd-student-hatyai/student-3.png"
+        }
+      ]
+    },
+    {
+      year: "ปีการศึกษา 2564",
+      groupTitle: "นักเรียนทุนปี 2021 (STUDENT SCHOLARS 2021)",
+      students: [
+        {
+          name: "Krit Kanopthamakun",
+          role: "รหัสนักศึกษา: 6310230017",
+          campus: "วิทยาเขตหาดใหญ่",
+          image: "/images/mgss/phd-student-hatyai/student-4.png"
+        },
+        {
+          name: "Anusorn Simuen",
+          role: "รหัสนักศึกษา: 6410230005",
+          campus: "วิทยาเขตหาดใหญ่",
+          image: "/images/mgss/phd-student-hatyai/student-5.png"
+        }
       ]
     }
   ],
   en: [
     {
-      year: "Academic Year 2023",
-      groupTitle: "CAMBODIAN & THAI STUDENT SCHOLARS 2023",
+      year: "Academic Year 2024",
+      groupTitle: "STUDENT SCHOLARS 2024",
       students: [
-        { name: "Mr. Sokha Chan", role: "1st Year Doctoral Student", campus: "Hat Yai Campus" },
-        { name: "Miss Marina Salaeh", role: "1st Year Doctoral Student", campus: "Hat Yai Campus" }
+        {
+          name: "Arbaz Jehan khan",
+          role: "Student ID: 6710230007",
+          campus: "Hat Yai Campus",
+          image: "/images/mgss/phd-student-hatyai/student-1.png"
+        }
       ]
     },
     {
-      year: "Academic Year 2022",
-      groupTitle: "CAMBODIAN STUDENT SCHOLARS 2022",
+      year: "Academic Year 2023",
+      groupTitle: "STUDENT SCHOLARS 2023",
       students: [
-        { name: "Mr. Sopheak Vanna", role: "2nd Year Doctoral Student", campus: "Hat Yai Campus" }
+        {
+          name: "Pokpong Srimora",
+          role: "Student ID: 6610230016",
+          campus: "Hat Yai Campus",
+          image: "/images/mgss/phd-student-hatyai/student-2.png"
+        },
+        {
+          name: "Traiwat Intarawong",
+          role: "Student ID: 6610230005",
+          campus: "Hat Yai Campus",
+          image: "/images/mgss/phd-student-hatyai/student-3.png"
+        }
+      ]
+    },
+    {
+      year: "Academic Year 2021",
+      groupTitle: "STUDENT SCHOLARS 2021",
+      students: [
+        {
+          name: "Krit Kanopthamakun",
+          role: "Student ID: 6310230017",
+          campus: "Hat Yai Campus",
+          image: "/images/mgss/phd-student-hatyai/student-4.png"
+        },
+        {
+          name: "Anusorn Simuen",
+          role: "Student ID: 6410230005",
+          campus: "Hat Yai Campus",
+          image: "/images/mgss/phd-student-hatyai/student-5.png"
+        }
       ]
     }
   ]
@@ -88,10 +154,11 @@ export default function PhdHatyaiDirectoryPage() {
                         name={student.name}
                         role={student.role}
                         campus={student.campus}
+                        image={student.image} // ส่งพาธรูปภาพของนักศึกษา
                         moreDetailText={lang === "en" ? "More Detail" : "ดูรายละเอียดเพิ่มเติม"}
                         photoPlaceholderText={lang === "en" ? "PHOTO" : "รูปภาพ"}
                         categoryBadge={lang === "en" ? "MGSS SCHOLAR" : "นักศึกษาทุน MGSS"}
-                        priority={yearGroup.year.includes("2566") || yearGroup.year.includes("2023")}
+                        priority={yearGroup.year.includes("2567") || yearGroup.year.includes("2024")} // เพิ่มความสำคัญในการโหลดรูปภาพสำหรับรุ่นปัจจุบัน
                       />
                     ))}
                   </div>

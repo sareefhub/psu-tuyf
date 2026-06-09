@@ -42,7 +42,10 @@ export function StudentCard({
   const [imgError, setImgError] = useState(false)
 
   return (
-    <div className="group bg-card border border-border/50 rounded-2xl overflow-hidden shadow-xs hover:shadow-md hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between">
+    <div 
+      className="group bg-card border border-border/50 rounded-2xl overflow-hidden shadow-xs hover:shadow-md hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between cursor-pointer"
+      onClick={onDetailClick} // ผูกฟังก์ชันคลิกกับกล่องการ์ดหลักเพื่อเพิ่ม UX ในการนำทาง
+    >
       {/* ส่วนแสดงรูปถ่ายนักศึกษา */}
       <div className="relative aspect-4/5 bg-linear-to-tr from-accent/5 via-primary/5 to-pink-500/5 flex flex-col items-center justify-center border-b border-border/40 overflow-hidden">
         {image && !imgError ? (
@@ -91,7 +94,10 @@ export function StudentCard({
         <Button
           variant="link"
           className="p-0 h-auto justify-start font-semibold text-xs text-primary hover:text-accent hover:no-underline mt-2 cursor-pointer"
-          onClick={onDetailClick}
+          onClick={(e) => {
+            e.stopPropagation(); // ป้องกัน Event Bubbling ไปยัง onClick ของการ์ดหลัก
+            if (onDetailClick) onDetailClick();
+          }}
         >
           {moreDetailText}
           <ArrowRight className="ml-1.5 h-3.5 w-3.5 transition-transform duration-300 group-hover:translate-x-1" />

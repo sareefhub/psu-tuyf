@@ -4,51 +4,81 @@ import { useLanguage } from "@/components/language-context"
 import { MainLayout } from "@/layout/main-layout"
 import { StudentCard } from "@/components/student-card"
 
-// ข้อมูลนักศึกษาระดับปริญญาโท วิทยาเขตหาดใหญ่ (M.Sc. Hatyai)
+// ข้อมูลนักศึกษาระดับปริญญาโท วิทยาเขตหาดใหญ่ (M.Sc. Hatyai) ตามข้อมูลจริง
 const studentData = {
   th: [
     {
-      year: "ปีการศึกษา 2566",
-      groupTitle: "นักเรียนทุนกัมพูชา CAMBODIAN STUDENT SCHOLARS 2023",
+      year: "ปีการศึกษา 2567",
+      groupTitle: "นักเรียนทุนปี 2024 (STUDENT SCHOLARS 2024)",
       students: [
-        { name: "Miss Sophia Keo", role: "นักศึกษาปริญญาโท ปีที่ 1", campus: "วิทยาเขตหาดใหญ่" }
+        {
+          name: "Saowapak Makphon",
+          role: "รหัสนักศึกษา: 6610220020",
+          campus: "วิทยาเขตหาดใหญ่",
+          image: "/images/mgss/master-student-hatyai/student-1.png"
+        }
       ]
     },
     {
       year: "ปีการศึกษา 2565",
-      groupTitle: "นักเรียนทุนไทย THAI STUDENT SCHOLARS 2022",
+      groupTitle: "นักเรียนทุนปี 2022 (STUDENT SCHOLARS 2022)",
       students: [
-        { name: "นางสาว อานีซะห์ ยะโก๊ะ", role: "นักศึกษาปริญญาโท ปีที่ 2", campus: "วิทยาเขตหาดใหญ่" }
+        {
+          name: "Phitchayawee Sangjan",
+          role: "รหัสนักศึกษา: 6610220011",
+          campus: "วิทยาเขตหาดใหญ่",
+          image: "/images/mgss/master-student-hatyai/student-2.png"
+        }
       ]
     },
     {
       year: "ปีการศึกษา 2564",
-      groupTitle: "นักเรียนทุนไทย THAI STUDENT SCHOLARS 2021",
+      groupTitle: "นักเรียนทุนปี 2021 (STUDENT SCHOLARS 2021)",
       students: [
-        { name: "นางสาว ฟาติมะห์ ยูโซะ", role: "สำเร็จการศึกษา (ปี 2566)", campus: "วิทยาเขตหาดใหญ่" }
+        {
+          name: "Panupong Daengpradap",
+          role: "รหัสนักศึกษา: 6410220051",
+          campus: "วิทยาเขตหาดใหญ่",
+          image: "/images/mgss/master-student-hatyai/student-3.png"
+        }
       ]
     }
   ],
   en: [
     {
-      year: "Academic Year 2023",
-      groupTitle: "CAMBODIAN STUDENT SCHOLARS 2023",
+      year: "Academic Year 2024",
+      groupTitle: "STUDENT SCHOLARS 2024",
       students: [
-        { name: "Miss Sophia Keo", role: "1st Year Master's Student", campus: "Hat Yai Campus" }
+        {
+          name: "Saowapak Makphon",
+          role: "Student ID: 6610220020",
+          campus: "Hat Yai Campus",
+          image: "/images/mgss/master-student-hatyai/student-1.png"
+        }
       ]
     },
     {
       year: "Academic Year 2022",
-      groupTitle: "THAI STUDENT SCHOLARS 2022",
+      groupTitle: "STUDENT SCHOLARS 2022",
       students: [
-        { name: "Miss Aneesah Yakoh", role: "2nd Year Master's Student", campus: "Hat Yai Campus" }
+        {
+          name: "Phitchayawee Sangjan",
+          role: "Student ID: 6610220011",
+          campus: "Hat Yai Campus",
+          image: "/images/mgss/master-student-hatyai/student-2.png"
+        }
       ]
     },
     {
       year: "Academic Year 2021",
-      groupTitle: "THAI STUDENT SCHOLARS 2021",
+      groupTitle: "STUDENT SCHOLARS 2021",
       students: [
-        { name: "Miss Fatimah Yuso", role: "Graduated (2023)", campus: "Hat Yai Campus" }
+        {
+          name: "Panupong Daengpradap",
+          role: "Student ID: 6410220051",
+          campus: "Hat Yai Campus",
+          image: "/images/mgss/master-student-hatyai/student-3.png"
+        }
       ]
     }
   ]
@@ -100,10 +130,11 @@ export default function MscHatyaiDirectoryPage() {
                         name={student.name}
                         role={student.role}
                         campus={student.campus}
+                        image={student.image} // ส่งพาธรูปภาพของนักศึกษา
                         moreDetailText={lang === "en" ? "More Detail" : "ดูรายละเอียดเพิ่มเติม"}
                         photoPlaceholderText={lang === "en" ? "PHOTO" : "รูปภาพ"}
                         categoryBadge={lang === "en" ? "MGSS SCHOLAR" : "นักศึกษาทุน MGSS"}
-                        priority={yearGroup.year.includes("2566") || yearGroup.year.includes("2023")}
+                        priority={yearGroup.year.includes("2567") || yearGroup.year.includes("2024")} // เพิ่มความสำคัญในการโหลดรูปภาพสำหรับรุ่นปัจจุบัน
                       />
                     ))}
                   </div>
