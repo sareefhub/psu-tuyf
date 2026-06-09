@@ -27,8 +27,7 @@ export function SiteFooter() {
             <ul className="mt-4 space-y-2 text-sm text-primary-foreground/70">
               <li>
                 <a
-                  href="#mscd"
-                  onClick={(e) => e.preventDefault()}
+                  href="/mscd"
                   className="transition-colors hover:text-accent"
                 >
                   MSCD
@@ -36,8 +35,7 @@ export function SiteFooter() {
               </li>
               <li>
                 <a
-                  href="#mgss"
-                  onClick={(e) => e.preventDefault()}
+                  href="/mgss"
                   className="transition-colors hover:text-accent"
                 >
                   MGSS

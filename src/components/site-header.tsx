@@ -30,11 +30,11 @@ export function SiteHeader() {
     },
     {
       label: "MGSS",
-      href: "#mgss",
+      href: "/mgss",
       children: [
-        { label: "Ph.D. Student Hatyai", href: "#mgss-0" },
-        { label: "M.Sc. Student Hatyai", href: "#mgss-1" },
-        { label: "M.Sc. Students Pattani", href: "#mgss-2" },
+        { label: "Ph.D. Student Hatyai", href: "/mgss#mgss-0" },
+        { label: "M.Sc. Student Hatyai", href: "/mgss#mgss-1" },
+        { label: "M.Sc. Students Pattani", href: "/mgss#mgss-2" },
       ],
     },
     {

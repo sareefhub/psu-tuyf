@@ -60,7 +60,7 @@ export function ProgramsSection() {
               imageFit="contain"
               moreDetailText={t("programs.more_detail")}
               ariaLabel={t("programs.view_details_aria", { abbr: p.abbr })}
-              href={p.id === "mscd" ? "/mscd" : undefined}
+              href={p.id === "mscd" ? "/mscd" : p.id === "mgss" ? "/mgss" : undefined}
               priority={p.id === "mscd"}
             />
           ))}
