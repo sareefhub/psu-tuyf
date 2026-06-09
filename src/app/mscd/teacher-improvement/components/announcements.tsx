@@ -124,14 +124,13 @@ export function AnnouncementsSection() {
                 >
                   ปิดหน้าต่าง
                 </button>
-                <a
-                  href="#"
-                  onClick={(e) => e.preventDefault()}
-                  className="inline-flex items-center justify-center gap-1.5 px-6 py-2.5 text-xs font-bold text-white bg-accent hover:bg-accent/90 rounded-full shadow-sm shadow-accent/20 transition-all cursor-pointer text-center"
+                <button
+                  onClick={() => {}}
+                  className="inline-flex items-center justify-center gap-1.5 px-6 py-2.5 text-xs font-bold text-white bg-accent hover:bg-accent/90 rounded-full shadow-sm shadow-accent/20 transition-all cursor-pointer text-center border-none"
                 >
                   <ExternalLink className="h-3.5 w-3.5" />
                   <span>{t("teacherImprovement.announcements.pdfOpenBtn")}</span>
-                </a>
+                </button>
               </div>
 
               <p className="text-[10px] text-muted-foreground/70 text-center font-semibold pt-1">

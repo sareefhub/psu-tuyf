@@ -1,7 +1,7 @@
 "use client"
 
 import { useT } from "@/components/language-context"
-import { MapPin, BookOpen, Users, Building } from "lucide-react"
+import { MapPin, BookOpen, Building } from "lucide-react"
 
 export function StatsSection() {
   const t = useT()
