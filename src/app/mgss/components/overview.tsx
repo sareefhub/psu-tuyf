@@ -63,7 +63,7 @@ export function MgssOverview() {
           {/* แสดงรายชื่อหลักสูตร 3 หลักสูตร พร้อมสัญลักษณ์จุดกลมและหมายเลขข้อนำหน้า */}
           <div className="space-y-6 border-l border-border/80 pl-6 mt-6">
             {items.map((item, idx) => (
-              <div key={idx} className="space-y-2">
+              <div key={item} className="space-y-2">
                 {/* หัวข้อหลักสูตรตัวหนาสไตล์เดียวกับ MSCD */}
                 <h3 className="text-sm font-bold text-primary flex items-center gap-2">
                   <span className="h-1.5 w-1.5 rounded-full bg-accent" />

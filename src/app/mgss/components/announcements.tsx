@@ -194,7 +194,6 @@ export function AnnouncementsSection() {
           >
             <div
               className="bg-card border border-border w-full max-w-5xl rounded-3xl overflow-hidden shadow-2xl relative flex flex-col h-[80vh] sm:h-[85vh] animate-scale-in"
-              onClick={(e) => e.stopPropagation()}
             >
               {/* ส่วนหัวของป๊อปอัป */}
               <div className="p-4 border-b border-border/40 flex items-center justify-between bg-card text-foreground relative pr-12">
