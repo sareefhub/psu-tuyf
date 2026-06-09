@@ -1,9 +1,7 @@
 "use client"
 
 import { useT } from "@/components/language-context"
-import { ArrowRight } from "lucide-react"
-import Image from "next/image"
-import Link from "next/link"
+import { ProgramCard } from "@/components/program-card"
 
 // คอมโพเนนต์แสดงภาพรวมและวัตถุประสงค์หลักของโครงการ MSCD
 // — ส่วนบน: การ์ด 3 ใบ + ปุ่มดูรายละเอียด
@@ -106,42 +104,15 @@ export function MscdOverview() {
         {/* ===== ส่วนที่ 2: การ์ด 3 ใบพร้อมรูปภาพและปุ่มดูรายละเอียด (ย้ายมาอยู่ด้านล่าง) ===== */}
         <div className="grid gap-8 md:grid-cols-3">
           {cards.map((card) => (
-            <article
+            <ProgramCard
               key={card.id}
-              className="relative group flex flex-col overflow-hidden rounded-xl border border-border/60 bg-card transition-all duration-300 hover:border-border hover:shadow-sm"
-            >
-              {/* รูปภาพโครงการ */}
-              <div className="relative aspect-square w-full overflow-hidden bg-muted/20">
-                <Image
-                  src={card.image}
-                  alt={card.title}
-                  fill
-                  sizes="(max-width: 768px) 100vw, 33vw"
-                  className="object-cover transition-opacity duration-300 group-hover:opacity-90"
-                  priority={card.id === "scholarships"}
-                />
-              </div>
-
-              {/* หัวข้อและปุ่มดูรายละเอียด */}
-              <div className="flex flex-col p-6 space-y-4">
-                <h3 className="text-lg font-bold leading-snug text-primary transition-colors group-hover:text-accent">
-                  {card.title}
-                </h3>
-
-                {/* ปุ่มดูรายละเอียด */}
-                <div className="inline-flex items-center text-sm font-semibold text-primary group-hover:text-accent transition-colors">
-                  {t("programs.more_detail")}
-                  <ArrowRight className="ml-1.5 h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
-                </div>
-
-                {/* Link ล่องหนทับทั้งการ์ด รองรับทุกโครงการ */}
-                <Link
-                  href={getCardHref(card.id)}
-                  className="after:absolute after:inset-0 after:z-10"
-                  aria-label={t("programs.view_details_aria", { abbr: card.title })}
-                />
-              </div>
-            </article>
+              title={card.title}
+              image={card.image}
+              href={getCardHref(card.id)}
+              moreDetailText={t("programs.more_detail")}
+              ariaLabel={t("programs.view_details_aria", { abbr: card.title })}
+              priority={card.id === "scholarships"}
+            />
           ))}
         </div>
 
