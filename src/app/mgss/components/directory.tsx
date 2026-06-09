@@ -3,18 +3,44 @@
 import { useLanguage } from "@/components/language-context"
 import Image from "next/image"
 
-// ลิสต์เส้นทางรูปภาพสถิตินักศึกษาทุนปัจจุบัน (1, 2, 3)
+// นำเข้าไฟล์ภาพสถิติแบบ Static เพื่อใช้ประโยชน์ในการคำนวณอัตราส่วนภาพ ป้องกันปัญหา CLS
+import statsImg1 from "../../../../public/images/mgss/student-stats-1.png"
+import statsImg2 from "../../../../public/images/mgss/student-stats-2.png"
+import statsImg3 from "../../../../public/images/mgss/student-stats-3.png"
+import statsImg4 from "../../../../public/images/mgss/student-stats-4.png"
+import statsImg5 from "../../../../public/images/mgss/student-stats-5.png"
+import statsImg6 from "../../../../public/images/mgss/student-stats-6.png"
+
+// อาเรย์ข้อมูลรูปภาพสถิตินักศึกษาทุนปัจจุบัน (ใช้ภาพที่นำเข้าแบบ Static)
 const activeImages = [
-  "/images/mgss/student-stats-1.png",
-  "/images/mgss/student-stats-2.png",
-  "/images/mgss/student-stats-3.png"
+  {
+    src: statsImg1,
+    id: "active-stats-1",
+  },
+  {
+    src: statsImg2,
+    id: "active-stats-2",
+  },
+  {
+    src: statsImg3,
+    id: "active-stats-3",
+  },
 ] as const;
 
-// ลิสต์เส้นทางรูปภาพสถิตินักศึกษาทุนที่สำเร็จการศึกษา (4, 5, 6)
+// อาเรย์ข้อมูลรูปภาพสถิตินักศึกษาทุนที่สำเร็จการศึกษา (ใช้ภาพที่นำเข้าแบบ Static)
 const graduatedImages = [
-  "/images/mgss/student-stats-4.png",
-  "/images/mgss/student-stats-5.png",
-  "/images/mgss/student-stats-6.png"
+  {
+    src: statsImg4,
+    id: "graduated-stats-4",
+  },
+  {
+    src: statsImg5,
+    id: "graduated-stats-5",
+  },
+  {
+    src: statsImg6,
+    id: "graduated-stats-6",
+  },
 ] as const;
 
 // -----------------------------------------------------------------------------
@@ -38,22 +64,15 @@ export function RecipientsDirectory() {
           </p>
         </div>
 
-        {/* แสดงผลรูปภาพกราฟสถิตินักศึกษาทุนปัจจุบัน 1, 2, 3 เรียงกันในแนวตั้ง (Vertical Stack) เพื่อความเรียบร้อยและอ่านง่าย */}
-        <div className="space-y-10 max-w-4xl mx-auto">
-          {activeImages.map((src, index) => (
-            <div
-              key={src}
-              className="bg-card border border-border/40 rounded-3xl overflow-hidden shadow-xs hover:shadow-md transition-all duration-300 p-6 flex flex-col items-center"
-            >
-              <div className="relative w-full max-w-3xl aspect-[16/9]">
-                <Image
-                  src={src}
-                  alt={`Active Scholar Stats Chart ${index + 1}`}
-                  fill
-                  sizes="(max-w-4xl) 100vw, 800px"
-                  className="object-contain rounded-2xl"
-                />
-              </div>
+        {/* เลย์เอาต์แสดงภาพกราฟสถิติ 3 คอลัมน์แบบแบนและคลีน ตามดีไซน์สถิตินักเรียนทุนเดิม */}
+        <div className="grid gap-8 md:grid-cols-3">
+          {activeImages.map((image, index) => (
+            <div key={image.id} className="flex items-center justify-center overflow-hidden">
+              <Image
+                src={image.src}
+                alt={`Active Student Stats Chart ${index + 1}`}
+                className="w-full h-auto object-contain rounded-2xl"
+              />
             </div>
           ))}
         </div>
@@ -83,22 +102,15 @@ export function GraduatedDirectory() {
           </p>
         </div>
 
-        {/* แสดงผลรูปภาพกราฟสถิติผู้สำเร็จการศึกษา 4, 5, 6 เรียงกันในแนวตั้ง (Vertical Stack) เพื่อความเรียบร้อยและอ่านง่าย */}
-        <div className="space-y-10 max-w-4xl mx-auto">
-          {graduatedImages.map((src, index) => (
-            <div
-              key={src}
-              className="bg-card border border-border/40 rounded-3xl overflow-hidden shadow-xs hover:shadow-md transition-all duration-300 p-6 flex flex-col items-center"
-            >
-              <div className="relative w-full max-w-3xl aspect-[16/9]">
-                <Image
-                  src={src}
-                  alt={`Graduated Scholar Stats Chart ${index + 1}`}
-                  fill
-                  sizes="(max-w-4xl) 100vw, 800px"
-                  className="object-contain rounded-2xl"
-                />
-              </div>
+        {/* เลย์เอาต์แสดงภาพกราฟสถิติ 3 คอลัมน์แบบแบนและคลีน ตามดีไซน์สถิตินักเรียนทุนเดิม */}
+        <div className="grid gap-8 md:grid-cols-3">
+          {graduatedImages.map((image, index) => (
+            <div key={image.id} className="flex items-center justify-center overflow-hidden">
+              <Image
+                src={image.src}
+                alt={`Graduated Scholar Stats Chart ${index + 1}`}
+                className="w-full h-auto object-contain rounded-2xl"
+              />
             </div>
           ))}
         </div>
