@@ -19,7 +19,7 @@ export function MscdHero() {
         {/* ใช้ token text-primary-foreground แทน text-white เพื่อให้เปลี่ยนได้จากค่ากลาง */}
         <h1 className="text-balance text-3xl font-bold tracking-tight text-primary-foreground sm:text-4xl md:text-5xl lg:text-6xl leading-tight sm:leading-tight">
           <span className="block text-primary-foreground">
-            {t("programDetails.mscd.title")}
+            {t("programDetails.mscd.hero_title")}
           </span>
           <span className="block text-primary-foreground/80 text-lg sm:text-xl md:text-2xl lg:text-3xl font-normal mt-2 tracking-wide font-sans">
             ({t("programDetails.mscd.sub")})

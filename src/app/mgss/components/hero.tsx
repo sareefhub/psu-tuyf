@@ -18,7 +18,7 @@ export function MgssHero() {
       <div className="mx-auto max-w-7xl px-6 relative z-10">
         <h1 className="text-balance text-3xl font-bold tracking-tight text-primary-foreground sm:text-4xl md:text-5xl lg:text-6xl leading-tight sm:leading-tight">
           <span className="block text-primary-foreground">
-            {t("programDetails.mgss.title")}
+            {t("programDetails.mgss.hero_title")}
           </span>
           <span className="block text-primary-foreground/80 text-lg sm:text-xl md:text-2xl lg:text-3xl font-normal mt-2 tracking-wide font-sans">
             ({t("programDetails.mgss.sub")})

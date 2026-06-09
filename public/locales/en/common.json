@@ -47,6 +47,7 @@
   "programDetails": {
     "mscd": {
       "title": "About the Mathematics for Sustainable Community Development Project",
+      "hero_title": "Mathematics for Sustainable Community Development",
       "sub": "โครงการพัฒนาชุมชนอย่างยั่งยืนด้วยคณิตศาสตร์",
       "desc": "This project focuses on developing mathematical potential at various levels, including secondary school students, undergraduate students, and mathematics teachers in secondary schools. Its goal is to strengthen the foundational knowledge and essential skills needed for sustainable community development. The project is divided into three main components:",
       "items": [
@@ -70,14 +71,17 @@
       }
     },
     "mgss": {
-      "title": "Mathematical Graduated Students Supporting (MGSS) Project",
-      "sub": "โครงการสนับสนุนนักศึกษาระดับบัณฑิตศึกษาในสาขาคณิตศาสตร์",
-      "desc": "This project aims to promote and develop research and teaching in mathematics and applied mathematics. It receives funding to assist highly capable Thai and international students who are interested in advanced research and pursuing graduate studies in mathematics, statistics, and applied mathematics at PSU Hat Yai and Pattani campuses. Currently, the university offers three mathematics curricula:",
+      "title": "About the Mathematical Graduated Students Supporting (MGSS) Project",
+      "hero_title": "Mathematical Graduated Students Supporting Project",
+      "sub": "Mathematical Graduated Students Supporting Project : MGSS",
+      "desc": "This project focuses on supporting scholarships for graduate students in mathematics, and promoting and developing research, teaching, and learning in mathematics and applied mathematics. Funded by the PSU-TUYF Charitable Trust Fund for the project period 2021-2025 (2564-2568 BE), it assists high-potential Thai and international students interested in conducting advanced research and continuing their graduate studies in mathematics, statistics, and applied mathematics. Students enroll in graduate programs at the Department of Mathematics, Faculty of Science, Prince of Songkla University, Hat Yai Campus, and the Department of Mathematics and Computer Science, Faculty of Science and Technology, Prince of Songkla University, Pattani Campus.",
+      "stats_desc": "Since 2021, 14 students have been selected to receive the PSU-TUYF scholarship, currently pursuing their master's and doctoral degrees at the Pattani and Hat Yai campuses. Today, the university offers three mathematics graduate curricula:",
       "items": [
         "Doctor of Philosophy Program in Mathematics (Hat Yai Campus)",
         "Master of Science Program in Mathematics (Hat Yai Campus)",
         "Master of Science Program in Applied Mathematics and Mathematics Teaching Innovation (Pattani Campus)"
-      ]
+      ],
+      "future_desc": "Furthermore, the project aims to produce highly capable mathematicians who will serve as key forces in driving the sustainable development of the country."
     },
     "algebra": {
       "title": "Algebra Enrichment Project",
