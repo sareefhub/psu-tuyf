@@ -31,6 +31,12 @@ const programs = [
 export function ProgramsSection() {
   const t = useT()
 
+  const getProgramHref = (id: string) => {
+    if (id === "mscd") return "/mscd"
+    if (id === "mgss") return "/mgss"
+    return undefined
+  }
+
   return (
     <section
       id="programs"
@@ -60,7 +66,7 @@ export function ProgramsSection() {
               imageFit="contain"
               moreDetailText={t("programs.more_detail")}
               ariaLabel={t("programs.view_details_aria", { abbr: p.abbr })}
-              href={p.id === "mscd" ? "/mscd" : p.id === "mgss" ? "/mgss" : undefined}
+              href={getProgramHref(p.id)}
               priority={p.id === "mscd"}
             />
           ))}
