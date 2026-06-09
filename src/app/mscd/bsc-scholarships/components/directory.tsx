@@ -112,7 +112,6 @@ export function SelectionDirectory() {
                           photoPlaceholderText={t("bscScholarships.directory.photo")}
                           categoryBadge={t("bscScholarships.directory.title")}
                           priority={yearGroup.yearKey === "y2566"}
-                          onDetailClick={() => {}}
                         />
                       ))}
                     </div>

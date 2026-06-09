@@ -2,7 +2,6 @@
 
 import { useState } from "react"
 import { GraduationCap, ArrowRight, User } from "lucide-react"
-import { Button } from "@/components/ui/button"
 import Image from "next/image"
 
 // คำนิยามประเภทข้อมูล Props ของการ์ดนักเรียนทุนสากลกลาง
@@ -37,17 +36,18 @@ export function StudentCard({
   categoryBadge,
   priority = false,
   onDetailClick,
-}: StudentCardProps) {
+}: Readonly<StudentCardProps>) {
   // สถานะตรวจสอบการโหลดรูปภาพล้มเหลว
   const [imgError, setImgError] = useState(false)
 
+  // ผูกฟังก์ชันคลิกกับกล่องการ์ดหลักในรูปแบบปุ่มของ HTML เพื่อเพิ่ม UX ในการนำทาง
   return (
-    <div 
-      className="group bg-card border border-border/50 rounded-2xl overflow-hidden shadow-xs hover:shadow-md hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between cursor-pointer"
-      onClick={onDetailClick} // ผูกฟังก์ชันคลิกกับกล่องการ์ดหลักเพื่อเพิ่ม UX ในการนำทาง
+    <button 
+      className="group bg-card border border-border/50 rounded-2xl overflow-hidden shadow-xs hover:shadow-md hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between cursor-pointer text-left w-full focus:outline-hidden focus:ring-2 focus:ring-accent"
+      onClick={onDetailClick}
     >
       {/* ส่วนแสดงรูปถ่ายนักศึกษา */}
-      <div className="relative aspect-4/5 bg-linear-to-tr from-accent/5 via-primary/5 to-pink-500/5 flex flex-col items-center justify-center border-b border-border/40 overflow-hidden">
+      <div className="relative aspect-4/5 bg-linear-to-tr from-accent/5 via-primary/5 to-pink-500/5 flex flex-col items-center justify-center border-b border-border/40 overflow-hidden w-full">
         {image && !imgError ? (
           <Image
             src={image}
@@ -61,7 +61,7 @@ export function StudentCard({
         ) : (
           <>
             <div className="absolute inset-0 bg-linear-to-b from-transparent to-black/5" />
-            <div className="relative z-10 flex flex-col items-center p-6 text-muted-foreground/60">
+            <div className="relative z-10 flex flex-col items-center p-6 text-muted-foreground/60 w-full">
               <div className="h-20 w-20 rounded-full bg-white/90 shadow-sm flex items-center justify-center text-primary/70 mb-3 group-hover:scale-105 transition-transform duration-300">
                 <User className="h-8 w-8 text-primary/70" />
               </div>
@@ -76,7 +76,7 @@ export function StudentCard({
       </div>
 
       {/* ส่วนรายละเอียดข้อมูลผู้ได้รับทุน */}
-      <div className="p-5 flex-1 flex flex-col justify-between space-y-4">
+      <div className="p-5 flex-1 flex flex-col justify-between space-y-4 w-full">
         <div className="space-y-1.5">
           <h4 className="font-bold text-primary text-sm leading-snug group-hover:text-accent transition-colors duration-300">
             {name}
@@ -90,19 +90,12 @@ export function StudentCard({
           </p>
         </div>
 
-        {/* ปุ่มดูรายละเอียดเพิ่มเติมสไตล์ Link */}
-        <Button
-          variant="link"
-          className="p-0 h-auto justify-start font-semibold text-xs text-primary hover:text-accent hover:no-underline mt-2 cursor-pointer"
-          onClick={(e) => {
-            e.stopPropagation(); // ป้องกัน Event Bubbling ไปยัง onClick ของการ์ดหลัก
-            if (onDetailClick) onDetailClick();
-          }}
-        >
+        {/* ปุ่มดูรายละเอียดเพิ่มเติมสไตล์ Link (ใช้ span เพื่อความถูกต้องทางโครงสร้าง HTML5 ป้องกัน nested button) */}
+        <span className="inline-flex items-center p-0 h-auto justify-start font-semibold text-xs text-primary hover:text-accent hover:no-underline mt-2">
           {moreDetailText}
           <ArrowRight className="ml-1.5 h-3.5 w-3.5 transition-transform duration-300 group-hover:translate-x-1" />
-        </Button>
+        </span>
       </div>
-    </div>
+    </button>
   )
 }
