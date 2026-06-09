@@ -1,6 +1,6 @@
 "use client"
 
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import { useT } from "@/components/language-context"
 import { FileText, Download, Calendar, Eye, X, AlertTriangle } from "lucide-react"
 
@@ -27,6 +27,19 @@ export function SelectionAnnouncements() {
   const t = useT()
   const [previewPdf, setPreviewPdf] = useState<{ title: string; url: string } | null>(null)
 
+  useEffect(() => {
+    if (!previewPdf) return
+
+    const handleEsc = (event: KeyboardEvent) => {
+      if (event.key === "Escape") {
+        setPreviewPdf(null)
+      }
+    }
+
+    globalThis.addEventListener("keydown", handleEsc)
+    return () => globalThis.removeEventListener("keydown", handleEsc)
+  }, [previewPdf])
+
   // ฟังก์ชันช่วยจัดการเปิดอ่านเอกสาร PDF ให้เปิดผ่านตัวอ่านหลักของเบราว์เซอร์โดยตรง
   const handlePreview = (title: string, url: string) => {
     if (url === "#") {
@@ -35,7 +48,7 @@ export function SelectionAnnouncements() {
     }
 
     // เปิดไฟล์ PDF ในแท็บใหม่
-    window.open(url, "_blank", "noopener,noreferrer")
+    globalThis.open(url, "_blank", "noopener,noreferrer")
   }
 
   return (
@@ -109,20 +122,13 @@ export function SelectionAnnouncements() {
 
         {/* ================= กล่องหน้าต่างลอยเปิดอ่านเอกสาร (Popup Modal Overlay) ================= */}
         {previewPdf && (
-          <div
-            className="fixed inset-0 bg-black/60 z-50 flex items-center justify-center p-4 backdrop-blur-xs animate-fade-in w-full cursor-default"
-            role="button"
-            tabIndex={0}
+          <button
+            type="button"
+            aria-label="Close preview overlay"
+            className="fixed inset-0 bg-black/60 z-50 flex items-center justify-center p-4 backdrop-blur-xs animate-fade-in w-full cursor-default border-none"
             onClick={(e) => {
               if (e.target === e.currentTarget) {
                 setPreviewPdf(null)
-              }
-            }}
-            onKeyDown={(e) => {
-              if (e.key === "Enter" || e.key === " " || e.key === "Escape") {
-                if (e.target === e.currentTarget) {
-                  setPreviewPdf(null)
-                }
               }
             }}
           >
@@ -208,7 +214,7 @@ export function SelectionAnnouncements() {
                 {t("bscScholarships.announcements.footerHelp")}
               </div>
             </div>
-          </div>
+          </button>
         )}
       </div>
     </section>
