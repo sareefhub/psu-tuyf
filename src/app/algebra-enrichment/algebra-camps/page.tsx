@@ -1,12 +1,24 @@
 "use client"
 
+import { useState } from "react"
 import { useT } from "@/components/language-context"
 import { MainLayout } from "@/layout/main-layout"
+import { TabNavigation } from "@/components/tab-navigation"
+import { CampTarget, CampDetails, CampEligibility } from "./components/overview"
+
+type TabId = "target" | "details" | "eligibility"
 
 // คอมโพเนนต์แสดงหน้าของค่ายเสริมสร้างความเข้มแข็งทางพีชคณิต (Algebra Camps)
-// แสดงเฉพาะส่วนหัวข้อ Hero และไม่มีเนื้อหาในตอนนี้ตามข้อกำหนดของผู้ใช้
 export default function AlgebraCampsPage() {
   const t = useT()
+  const [activeTab, setActiveTab] = useState<TabId>("target")
+
+  // รายการคีย์ภาษาสำหรับปุ่มแท็บสลับแสดงข้อมูลของค่ายพีชคณิต (ดึงชื่อมาจาก locales JSON)
+  const tabs = [
+    { id: "target", key: "algebraCamps.overview.target.title" },
+    { id: "details", key: "algebraCamps.overview.details.title" },
+    { id: "eligibility", key: "algebraCamps.overview.eligibility.title" },
+  ] as const
 
   return (
     <MainLayout className="animate-fade-in">
@@ -34,14 +46,33 @@ export default function AlgebraCampsPage() {
         </div>
       </section>
 
-      {/* ส่วนเนื้อหาเปล่า (ยังไม่มีเนื้อหา) */}
-      <section className="mx-auto max-w-7xl px-6 py-20 text-center">
-        <div className="rounded-3xl border border-dashed border-border bg-card/50 p-12 backdrop-blur-xs">
-          <p className="text-muted-foreground italic text-sm">
-            {t("common.under_construction")}
-          </p>
+      {/* ข้อมูลแนะนำเบื้องต้นของค่ายพีชคณิต (แสดงด้านบนสุดเหนือแท็บเหมือนหน้าอื่นๆ) */}
+      <section className="py-16 bg-background">
+        <div className="mx-auto max-w-7xl px-6">
+          <div className="space-y-6">
+            <h2 className="text-2xl font-bold text-primary leading-snug">
+              {t("algebraCamps.overview.title")}
+            </h2>
+            <p className="text-sm leading-relaxed text-muted-foreground/90 text-pretty">
+              {t("algebraCamps.overview.desc")}
+            </p>
+          </div>
         </div>
       </section>
+
+      {/* เรียกใช้งานแถบนำทางสลับแท็บกลางในการเลือกแสดงผล */}
+      <TabNavigation
+        tabs={tabs.map((tab) => ({ id: tab.id, label: t(tab.key) }))}
+        activeTab={activeTab}
+        setActiveTab={(id) => setActiveTab(id as TabId)}
+      />
+
+      {/* แสดงเนื้อหาความถูกต้องตรงตามการเลือกของแต่ละแท็บ */}
+      <div className="transition-all duration-300">
+        {activeTab === "target" && <CampTarget />}
+        {activeTab === "details" && <CampDetails />}
+        {activeTab === "eligibility" && <CampEligibility />}
+      </div>
     </MainLayout>
   )
 }

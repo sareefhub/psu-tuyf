@@ -690,7 +690,65 @@
     "hero": {
       "title": "Algebra Enrichment Camps",
       "subtitle": "Algebra Camps",
-      "desc": "Organizes short-term camps to impart foundational knowledge and advanced concepts in algebra to secondary school students, covering topics like Set Theory, Logic, and Number Theory."
+      "desc": "Organizes short-term camps to transmit basic knowledge and advanced concepts in algebra to high school students, such as set theory, mathematical logic, and number theory."
+    },
+    "overview": {
+      "title": "Algebra Camps",
+      "desc": "Algebra Camps are short-term camps organized to provide deep knowledge and inspire junior and senior high school students with a special interest in algebra, aiming to attract highly interested students and strengthen their foundation in core algebra concepts.",
+      "target": {
+        "title": "Target Group",
+        "desc": "Main groups of trainees whom the project aims to support and develop in algebraic skills.",
+        "items": [
+          "Secondary school students with an interest in mathematics, especially in algebra.",
+          "Mathematical Olympiad students (Camp 1 and Camp 2) from all centers nationwide."
+        ]
+      },
+      "details": {
+        "title": "Camp Details",
+        "desc": "Format, scale of the short-term training camp, and core subjects trained during the camp.",
+        "items": [
+          "Short-term algebra camp for 20 selected students.",
+          "Training in fundamental algebra topics, such as set theory, mathematical logic, and number theory."
+        ]
+      },
+      "eligibility": {
+        "title": "Applicant Eligibility",
+        "desc": "Selection criteria and portfolio documents required for camp application.",
+        "subDesc": "Interested students must submit their portfolios through Google Forms, which should contain the following details:",
+        "items": [
+          "First name - Last name, age, and educational institution.",
+          "Extra-curricular and academic activities performed during studies.",
+          "Awards or certificates received related to mathematics.",
+          "Statement of purpose and motivation for joining the Algebra Camp."
+        ],
+        "note": "Note: The camp committee will evaluate the portfolios, and all applicants will undergo an interview for final selection."
+      }
+    },
+    "announcements": {
+      "title": "Announcements & News",
+      "desc": "Official announcements and application news for the Algebra Camps project.",
+      "read": "Read",
+      "download": "Download",
+      "noPdfTitle": "Document File Not Uploaded Yet",
+      "noPdfDesc": "Cannot load preview because the current file link is set to '#'. Please upload your PDF file and change the fileUrl variable to the actual path to enable the PDF viewer.",
+      "pdfReadyTitle": "Document Ready to View",
+      "pdfReadyDesc": "For the best viewing and zooming experience on mobile devices, please open the PDF file directly via the button below.",
+      "pdfOpenBtn": "Open Document (PDF)",
+      "footerHelp": "Official publication · Print or download the full copy using your browser controls.",
+      "items": {
+        "item1": {
+          "title": "Announcement on application opening for the Algebra Enrichment Camp for the 2024 academic year",
+          "date": "10 Apr 2024"
+        },
+        "item2": {
+          "title": "Announcement of candidates eligible for interview under the Algebra Camp for the 2024 academic year",
+          "date": "02 May 2024"
+        },
+        "item3": {
+          "title": "Announcement of selected camp participants under the Algebra Camp for the 2024 academic year",
+          "date": "12 May 2024"
+        }
+      }
     }
   },
   "algebraExchange": {
