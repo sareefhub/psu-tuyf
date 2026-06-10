@@ -1,0 +1,908 @@
+{
+  "nav": {
+    "home": "Home",
+    "programs": "Programs & Projects",
+    "about": "About PSU-TUYF",
+    "details": "Program Details",
+    "contact": "Contact"
+  },
+  "common": {
+    "project_title": "PSU-TUYF Project",
+    "academic_year": "Academic Year"
+  },
+  "hero": {
+    "badge": "Faculty of Science and Technology · PSU Pattani",
+    "desc_1": "Supporting mathematics education and research through the collaboration between Prince of Songkla University and the TUYF Charitable Trust Fund.",
+    "btn_view_all": "View All Projects",
+    "btn_about": "About the Project",
+    "img_alt": "PSU-TUYF project activity image"
+  },
+  "about": {
+    "badge": "About the Project",
+    "title": "Projects Supported by the PSU-TUYF Charitable Trust Fund",
+    "desc_1": "Since 2021, the Department of Mathematics and Computer Science, Faculty of Science and Technology, Prince of Songkla University, Pattani Campus, has been honored to receive significant support from the PSU-TUYF project — a collaboration between Prince of Songkla University and the TUYF Charitable Trust Fund.",
+    "desc_2": "These initiatives are dedicated to elevating the quality of education and research in mathematics. The department currently receives funding for three main projects.",
+    "stat_started": "Started",
+    "stat_projects": "Main Projects",
+    "stat_campuses": "Campuses"
+  },
+  "programs": {
+    "title": "Three Main Projects under PSU-TUYF",
+    "subtitle": "Projects dedicated to elevating the quality of education and research in mathematics.",
+    "more_detail": "More Detail",
+    "view_details_aria": "View details of {{abbr}} project",
+    "mscd": {
+      "title": "Mathematics for Sustainable Community Development",
+      "desc": "Developing mathematical potential at all levels — students, undergraduates, and teachers — to build a foundation for sustainable community development."
+    },
+    "mgss": {
+      "title": "Mathematical Graduated Students Supporting Project",
+      "desc": "Promoting research and teaching, with funding to support highly capable students in graduate-level studies."
+    },
+    "algebra": {
+      "title": "Algebra Enrichment Project",
+      "desc": "Enhancing algebra knowledge in Thailand and establishing a southern Algebra Center as a hub for learning and research."
+    }
+  },
+  "programDetails": {
+    "mscd": {
+      "title": "About the Mathematics for Sustainable Community Development Project",
+      "hero_title": "Mathematics for Sustainable Community Development",
+      "sub": "โครงการพัฒนาชุมชนอย่างยั่งยืนด้วยคณิตศาสตร์",
+      "desc": "This project focuses on developing mathematical potential at various levels, including secondary school students, undergraduate students, and mathematics teachers in secondary schools. Its goal is to strengthen the foundational knowledge and essential skills needed for sustainable community development. The project is divided into three main components:",
+      "items": [
+        "Scholarships for undergraduate students",
+        "Projects for developing secondary school students",
+        "Projects for developing secondary school mathematics teachers"
+      ],
+      "subprojects": {
+        "scholarships": {
+          "title": "1. Undergraduate Scholarships (B.Sc. Scholarships)",
+          "desc": "This first sub-project focuses on cultivating high-quality mathematics graduates to meet community needs. Scholarships are awarded to Thai and Cambodian students, all of whom will receive continuous support to develop their mathematical potential to prepare them for becoming mathematics teachers in Islamic schools in Southern Thailand, or returning to contribute to Cambodia's development."
+        },
+        "student": {
+          "title": "2. High School Student Development (Student Improve)",
+          "desc": "This sub-project aims to elevate the mathematical abilities of high school students in Islamic private schools in Yala, Pattani, and Narathiwat provinces to prepare them with higher capabilities for their future academic paths."
+        },
+        "teacher": {
+          "title": "3. Mathematics Teacher Training (Teacher Improve)",
+          "desc": "This final sub-project is crucial for improving the quality of mathematics teaching in private Islamic schools, focusing on reinforcing teachers' knowledge and active pedagogy skills to enable modern, effective classrooms."
+        }
+      }
+    },
+    "mgss": {
+      "title": "About the Mathematical Graduated Students Supporting (MGSS) Project",
+      "hero_title": "Mathematical Graduated Students Supporting Project",
+      "sub": "Mathematical Graduated Students Supporting Project : MGSS",
+      "desc": "This project focuses on supporting scholarships for graduate students in mathematics, and promoting and developing research, teaching, and learning in mathematics and applied mathematics. Funded by the PSU-TUYF Charitable Trust Fund for the project period 2021-2025 (2564-2568 BE), it assists high-potential Thai and international students interested in conducting advanced research and continuing their graduate studies in mathematics, statistics, and applied mathematics. Students enroll in graduate programs at the Department of Mathematics, Faculty of Science, Prince of Songkla University, Hat Yai Campus, and the Department of Mathematics and Computer Science, Faculty of Science and Technology, Prince of Songkla University, Pattani Campus.",
+      "stats_desc": "Since 2021, 14 students have been selected to receive the PSU-TUYF scholarship, currently pursuing their master's and doctoral degrees at the Pattani and Hat Yai campuses. Today, the university offers three mathematics graduate curricula:",
+      "items": [
+        "Doctor of Philosophy Program in Mathematics (Hat Yai Campus)",
+        "Master of Science Program in Mathematics (Hat Yai Campus)",
+        "Master of Science Program in Applied Mathematics and Mathematics Teaching Innovation (Pattani Campus)"
+      ],
+      "future_desc": "Furthermore, the project aims to produce highly capable mathematicians who will serve as key forces in driving the sustainable development of the country."
+    },
+    "algebra": {
+      "title": "Algebra Enrichment Project",
+      "sub": "โครงการเสริมสร้างความเข้มแข็งทางพีชคณิต",
+      "desc": "This project aims to promote and develop algebra education. Supported by the PSU-TUYF Charitable Trust Fund, the PSU-TUYF Algebra Enrichment Project (2024–2028) seeks to enhance knowledge and skills in algebra within Thailand and establish an Algebra Center in the southern region as a key hub for learning and research. The project consists of four sub-projects:",
+      "items": [
+        "Algebra Center: Established to be a center for knowledge exchange and to promote a deeper understanding of algebra.",
+        "Algebra Scholarship: Provides scholarships to highly skilled students in algebra.",
+        "Algebra Camps: Organizes short-term camps to impart foundational knowledge and advanced concepts in algebra to secondary school students, covering topics like Set Theory, Logic, and Number Theory.",
+        "Exchange Staff: Provides funding for Prince of Songkla University personnel to attend language training, study tours, and conduct research in algebra abroad."
+      ]
+    }
+  },
+  "footer": {
+    "dept": "Department of Mathematics and Computer Science, Faculty of Science and Technology, Prince of Songkla University.",
+    "projects": "Projects",
+    "contact": "Contact",
+    "campus": "Prince of Songkla University, Pattani Campus",
+    "copyright": "© {{year}} PSU-TUYF · The TUYF Charitable Trust Fund. All rights reserved."
+  },
+  "bscScholarships": {
+    "tabs": {
+      "stats": "Scholarship Statistics",
+      "directory": "Recipients Directory",
+      "eligibility": "Eligibility Criteria",
+      "obligations": "Obligations & Conditions",
+      "funding": "Scholarship Funding",
+      "announcements": "Announcements"
+    },
+    "hero": {
+      "title": "B.Sc. Scholarships",
+      "subtitle": "(Undergraduate)",
+      "desc": "Committed to cultivating high-quality mathematicians to meet societal needs by awarding scholarships to Thai and Cambodian undergraduate students for continuous capacity building."
+    },
+    "overview": {
+      "title": "About B.Sc. Scholarships Program",
+      "desc1": "The PSU-TUYF Scholarship Program is committed to cultivating high-quality mathematicians to meet societal needs by awarding scholarships to Thai and Cambodian undergraduate students. All scholarship recipients will receive continuous mathematical capacity building to prepare them for the future, whether becoming mathematics teachers in Islamic schools in Southern Thailand, or returning to contribute to the development of Cambodia.",
+      "desc2": "This project commenced in 2021 with support from the PSU-TUYF Charitable Trust Fund and will run until 2025. Currently, 12 students have been selected to receive this scholarship. The project continues to strive to build capable mathematicians to be a crucial driving force for the future development of both nations."
+    },
+    "statistics": {
+      "title": "Scholarship Student Statistics",
+      "desc": "Statistical report of B.Sc. Scholarships program participants",
+      "alt1": "Number of Graduated Scholarship Students",
+      "alt2": "Number of Scholarship Recipients by Nationality",
+      "alt3": "Number of Scholarship Recipients by Academic Year"
+    },
+    "timeline": {
+      "title": "Application Timeline",
+      "desc": "Key phases of the application, review, and selection process.",
+      "steps": {
+        "step1": {
+          "date": "April - May",
+          "title": "Application & Document Submission",
+          "desc": "Submit the scholarship application form along with latest academic transcripts and personal profile."
+        },
+        "step2": {
+          "date": "Early June",
+          "title": "Interview & Review Phase",
+          "desc": "List of qualified candidates announced, followed by interviews with the project selection committee."
+        },
+        "step3": {
+          "date": "Mid-June",
+          "title": "Final Announcement & Orientation",
+          "desc": "Announcement of scholarship recipients followed by the annual scholarship orientation."
+        }
+      }
+    },
+    "eligibility": {
+      "title": "Applicant Eligibility Criteria",
+      "desc": "Applicants must meet the following criteria to be eligible for the scholarship",
+      "items": {
+        "item1": "Applied for Faculty of Science and Technology admission in TCAS Round 1 (1/1 or 1/2 Portfolio) for Mathematics and Computer Science through one of the following projects:",
+        "item2": "Currently in Grade 12 (M.6) or graduated from an Islamic private school in the three southern border provinces (Pattani, Yala, Narathiwat).",
+        "item3": "Cumulative GPAX of at least 3.00, and a 5-semester average grade in Mathematics of at least 2.50.",
+        "item4": "In good physical and mental health, with no contagious or severe illnesses that obstruct studies.",
+        "item5": "Possess a passion for mathematics and a positive attitude towards education-related careers.",
+        "item6": "Responsible, possessing leadership qualities, local consciousness, and a desire to develop their hometown or community in the three southern border provinces.",
+        "item7": "Willing to comply with all terms and conditions set by the program."
+      },
+      "subItems1": [
+        "Special Admission Project for Faculty of Science and Technology",
+        "Southern Association of Private Schools Confederation Project",
+        "High Academic Achievement Student Admission Project (PSU)",
+        "Moral, Ethics, and Public Service Promotion Admission Project"
+      ]
+    },
+    "obligations": {
+      "title": "Obligations & Conditions for Recipients",
+      "desc": "Recipient conditions and requirements for students under the PSU-TUYF scholarship program",
+      "preamble": "Selected students must be eligible to study in the B.Sc. Mathematics & Computer Science program, Faculty of Science and Technology, PSU Pattani Campus, sign the agreement, and comply with these rules:",
+      "items": {
+        "item1": "Show diligence in studies and good conduct. In each semester, recipients must submit academic results and conduct certifications from their advisor, program chair, and department head according to the form specified by the scholarship project.",
+        "item2": "Register according to the program curriculum plan. Any deviation must be approved by the project committee. Academic performance must meet the following criteria:"
+      },
+      "subItems2": [
+        "GPA in each semester not less than 2.50",
+        "Cumulative GPAX not less than 2.50"
+      ]
+    },
+    "funding": {
+      "title": "Scholarship Funding & Allowances",
+      "desc": "Financial allowances and tuition funding details provided to recipients throughout the program",
+      "items": {
+        "tuition": {
+          "title": "Tuition Fees",
+          "desc": "Paid in full as actual expenses set by the university."
+        },
+        "allowance": {
+          "title": "Personal Allowance",
+          "desc": "6,000 THB/month."
+        },
+        "books": {
+          "title": "Books & Educational Materials",
+          "desc": "8,000 THB/year."
+        },
+        "presentation": {
+          "title": "Academic Presentation Support",
+          "desc": "20,000 THB throughout the curriculum for national or international conferences."
+        }
+      }
+    },
+    "directory": {
+      "title": "Scholarship Recipients Directory",
+      "desc": "Honorary list of B.Sc. Scholarships program recipients",
+      "photo": "Recipients Photo",
+      "moreDetail": "More Detail",
+      "years": {
+        "y2566": {
+          "label": "Scholarship Admitted Students Academic Year 2023 (2566)",
+          "groups": {
+            "g1": {
+              "title": "Cambodian Student Scholars 2021",
+              "students": {
+                "s1": {
+                  "role": "Scholar Student since , 2023",
+                  "campus": "Pattani Campus"
+                }
+              }
+            }
+          }
+        },
+        "y2565": {
+          "label": "Scholarship Admitted Students Academic Year 2022 (2565)",
+          "groups": {
+            "g1": {
+              "title": "Thai Student Scholars 2021",
+              "students": {
+                "s1": {
+                  "role": "2nd year student, 2022",
+                  "campus": "Pattani Campus"
+                },
+                "s2": {
+                  "role": "2nd year Student, 2022",
+                  "campus": "Pattani Campus"
+                },
+                "s3": {
+                  "role": "2nd year student, 2022",
+                  "campus": "Pattani Campus"
+                },
+                "s4": {
+                  "role": "2nd year student, 2022",
+                  "campus": "Pattani Campus"
+                },
+                "s5": {
+                  "role": "2nd year student, 2022",
+                  "campus": "Pattani Campus"
+                }
+              }
+            },
+            "g2": {
+              "title": "Cambodian Student Scholars 2022",
+              "students": {
+                "s1": {
+                  "role": "2nd year student, 2022",
+                  "campus": "Pattani Campus"
+                },
+                "s2": {
+                  "role": "2nd year Student, 2022",
+                  "campus": "Pattani Campus"
+                }
+              }
+            }
+          }
+        },
+        "y2564": {
+          "label": "Scholarship Admitted Students Academic Year 2021 (2564)",
+          "groups": {
+            "g1": {
+              "title": "Thai Student Scholars 2021",
+              "students": {
+                "s1": {
+                  "role": "3rd year student, 2021",
+                  "campus": "Pattani Campus"
+                },
+                "s2": {
+                  "role": "3rd year student, 2021",
+                  "campus": "Pattani Campus"
+                }
+              }
+            },
+            "g2": {
+              "title": "Cambodian Student Scholars 2021",
+              "students": {
+                "s1": {
+                  "role": "3rd year student, 2021",
+                  "campus": "Pattani Campus"
+                },
+                "s2": {
+                  "role": "3rd year student, 2021",
+                  "campus": "Pattani Campus"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "announcements": {
+      "title": "Project Announcements",
+      "desc": "Official announcements and selection results for B.Sc. Scholarships program",
+      "read": "Read",
+      "download": "Download",
+      "noPdfTitle": "Document File Not Uploaded Yet",
+      "noPdfDesc": "Cannot load preview because the current file link is set to '#'. Please upload your PDF file and change the fileUrl variable to the actual path to enable the PDF viewer.",
+      "pdfReadyTitle": "Document Ready to View",
+      "pdfReadyDesc": "For the best viewing and zooming experience on mobile devices, please open the PDF file directly via the button below.",
+      "pdfOpenBtn": "Open Document (PDF)",
+      "footerHelp": "Official project publication · Print or download the full copy using your browser controls.",
+      "items": {
+        "item1": {
+          "title": "B.Sc. Scholarships Application Announcement, Academic Year 2024",
+          "date": "12 Apr 2024"
+        },
+        "item2": {
+          "title": "List of Qualified Candidates for Scholarship Interviews, Academic Year 2024",
+          "date": "03 Jun 2024"
+        },
+        "item3": {
+          "title": "Final Announcement of Scholarship Recipients, Academic Year 2024",
+          "date": "15 Jun 2024"
+        }
+      }
+    }
+  },
+  "studentImprovement": {
+    "tabs": {
+      "activities": "Activities & Camps",
+      "stats": "Target Schools & Areas",
+      "eligibility": "Participant Eligibility",
+      "benefits": "Skills to Acquire",
+      "announcements": "Documents & Announcements"
+    },
+    "hero": {
+      "title": "Student Improvement",
+      "subtitle": "under PSU-TUYF Mathematics for Sustainable Community Development",
+      "desc": "Elevating mathematical knowledge and capabilities for high school students in Islamic private schools to strengthen preparedness and academic opportunities in higher education."
+    },
+    "overview": {
+      "title": "About Student Improvement Project",
+      "desc1": "The \"Student Improvement\" project is part of the larger initiative: PSU-TUYF Mathematics for Sustainable Community Development. It is run by the Department of Mathematics and Computer Science, Faculty of Science and Technology, Prince of Songkla University, Pattani Campus, with support from the PSU-TUYF Charitable Trust Fund. This 5-year project (initial phase 2021-2025) primarily targets students in private Islamic schools in the Southern Border Provinces (Yala, Pattani, Narathiwat) to elevate their mathematical capabilities and prepare them for their future education.",
+      "desc2": "The subprojects under \"Student Improvement\" consist of two main parts. First, the Intensive Training Program for Mathematical Excellence (Excellence Math Camp), formerly known as \"Pre-Olympics\", aims to develop advanced mathematical capabilities of high school students. It prepares them for national and international competitions while strengthening their mathematical processing skills. During 2023-2024, the project focused on preparation for the Mathematical Olympiad, and starting from 2025 onwards, it has expanded its scope to support various other mathematics competition stages.",
+      "desc3": "Another program is the Mobile Mathematics Project (Math Roadshow), which focuses specifically on preparing Grade 12 students in private Islamic schools in the Southern Border Provinces for higher education. Both subprojects reflect PSU-TUYF's commitment to creating educational opportunities and sustainably developing the potential of youth in the region."
+    },
+    "activities": {
+      "title": "Mathematics Camps & Workshops",
+      "desc": "Atmosphere and details of academic capacity building camps and creative thinking workshops.",
+      "camp1": {
+        "title": "Math Camp Generation 1",
+        "desc": "Intensive high school mathematics tutoring sessions paired with mathematics recreational games to foster positive attitudes."
+      },
+      "camp2": {
+        "title": "TCAS Preparation & Guidance Workshop",
+        "desc": "Analyzing applied mathematics examination papers and guiding students through science and engineering admissions paths."
+      }
+    },
+    "eligibility": {
+      "title": "Participant Eligibility Criteria",
+      "desc": "Basic eligibility details for secondary school students seeking to join the capacity building camps.",
+      "items": {
+        "item1": "Currently studying in high school (Grade 10 - 12 / M.4 - M.6) in the current academic year.",
+        "item2": "Enrolled in an Islamic private school in the three southern border provinces (Pattani, Yala, Narathiwat).",
+        "item3": "Studying in the Science-Mathematics track or a curriculum focused on science and technology.",
+        "item4": "Passionate about learning mathematics and maintaining good code of conduct.",
+        "item5": "Recommended or certified by a mathematics teacher from their school."
+      }
+    },
+    "benefits": {
+      "title": "Benefits & Skills Acquired",
+      "desc": "Key benefits and competencies cultivated through the camp activities.",
+      "items": {
+        "academic": {
+          "title": "Intensive Academic Knowledge",
+          "desc": "Acquire deeper understanding of high school mathematics, fast calculations, and logical thinking techniques."
+        },
+        "portfolio": {
+          "title": "Camp Participation Certificate",
+          "desc": "Students who complete the camp and pass evaluations will receive certificates to enrich their TCAS Portfolio."
+        },
+        "networking": {
+          "title": "Peer Networks & Friendship",
+          "desc": "Build strong connections with students from other schools in the southern region to exchange knowledge and experiences."
+        },
+        "materials": {
+          "title": "Free Materials & Tools",
+          "desc": "Receive mathematics summary booklets, exam sheets, and activity toolkits free of charge."
+        }
+      }
+    },
+    "announcements": {
+      "title": "Camps Announcements",
+      "desc": "Official announcements for registrations and selected participant lists for the capacity building camps.",
+      "read": "Read",
+      "download": "Download",
+      "noPdfTitle": "Document File Not Uploaded Yet",
+      "noPdfDesc": "Cannot load preview because the current file link is set to '#'. Please upload your PDF file and change the fileUrl variable to the actual path to enable the PDF viewer.",
+      "pdfReadyTitle": "Document Ready to View",
+      "pdfReadyDesc": "For the best viewing and zooming experience on mobile devices, please open the PDF file directly via the button below.",
+      "pdfOpenBtn": "Open Document (PDF)",
+      "footerHelp": "Student Improvement Project official publication · Print or download the full copy using your browser controls.",
+      "items": {
+        "item1": {
+          "title": "Call for Applications: Mathematics Capacity Building Camp 2024",
+          "date": "20 May 2024"
+        },
+        "item2": {
+          "title": "Announcing Qualified Participants for Math Camp Generation 1",
+          "date": "05 Jun 2024"
+        }
+      }
+    }
+  },
+  "teacherImprovement": {
+    "tabs": {
+      "activities": "Training Courses",
+      "stats": "Target Schools",
+      "eligibility": "Trainee Eligibility",
+      "benefits": "Support & Benefits",
+      "announcements": "Letters & Documents"
+    },
+    "hero": {
+      "title": "Teacher Improvement",
+      "subtitle": "under PSU-TUYF Mathematics for Sustainable Community Development",
+      "desc": "Promoting skills enhancement and the adoption of pedagogical innovations in mathematics for high school teachers in Islamic private schools."
+    },
+    "overview": {
+      "title": "About Teacher Improvement Project",
+      "desc1": "Prince of Songkla University has received funding support from the TUYF Charitable Trust Fund, Hong Kong Special Administrative Region, People's Republic of China, to support academic and research activities in the form of research grants, scholarships, and academic collaboration with various agencies or organizations in Asia. The Mathematics for Sustainable Community Development project, which is a sub-project under PSU-TUYF operated by the Department of Mathematics and Computer Science, Faculty of Science and Technology, has been approved for funding to organize a training project on mathematics instruction and pedagogy for teachers in private Islamic schools under the Office of the Private Education Commission in the three southern border provinces (Pattani, Yala, and Narathiwat) to enhance the teaching capabilities of mathematics teachers. Consequently, the Department of Mathematics and Computer Science is opening applications for mathematics teachers to participate in this training."
+    },
+    "activities": {
+      "title": "Teacher Training Courses & Activities",
+      "desc": "Annual professional development curriculum and workshop schedule for mathematics teachers.",
+      "course1": {
+        "title": "Active Learning in Mathematics Classrooms",
+        "desc": "Focusing on classroom design through group activities, math board games, and GSP or GeoGebra tools."
+      },
+      "course2": {
+        "title": "Classroom Action Research & Modern Evaluations",
+        "desc": "Leveraging PLC processes to solve mathematics student learning gaps, combined with digital evaluation tools."
+      }
+    },
+    "eligibility": {
+      "title": "Trainee Eligibility Criteria",
+      "desc": "Basic requirements for school representative teachers wishing to participate in the training workshops.",
+      "items": {
+        "item1": "Currently teaching mathematics at high school level (Grade 10 - 12 / M.4 - M.6).",
+        "item2": "Affiliated with an Islamic private school in the target provinces (Pattani, Yala, Narathiwat).",
+        "item3": "Committed to improving classroom quality and able to attend the entire duration of the courses.",
+        "item4": "Willing to create new learning resources and implement them in their home school."
+      }
+    },
+    "benefits": {
+      "title": "Support & Benefits for Teachers",
+      "desc": "Benefits, allowances, and tools provided to teachers and participating schools.",
+      "items": {
+        "certificate": {
+          "title": "Training Certificate",
+          "desc": "Teachers who complete the required training hours will receive professional certificates of achievement."
+        },
+        "materials": {
+          "title": "Ready-to-use Toolkits & Manuals",
+          "desc": "Includes lesson plans, hand-made educational games, and evaluation tools for mathematics class."
+        },
+        "allowance": {
+          "title": "Travel & Living Allowances",
+          "desc": "Travel expenses and allowances supported for teachers traveling from rural or remote districts."
+        },
+        "network": {
+          "title": "Professional Mathematics Network",
+          "desc": "Dedicated channels to consult, share exam guides, and support peer teachers within the region."
+        }
+      }
+    },
+    "announcements": {
+      "title": "Training Announcements & Letters",
+      "desc": "Official invitation letters, detailed schedules, and accepted delegate lists for the teacher training courses.",
+      "read": "Read",
+      "download": "Download",
+      "noPdfTitle": "Document File Not Uploaded Yet",
+      "noPdfDesc": "Cannot load preview because the current file link is set to '#'. Please upload your PDF file and change the fileUrl variable to the actual path to enable the PDF viewer.",
+      "pdfReadyTitle": "Document Ready to View",
+      "pdfReadyDesc": "For the best viewing and zooming experience on mobile devices, please open the PDF file directly via the button below.",
+      "pdfOpenBtn": "Open Document (PDF)",
+      "footerHelp": "Teacher training invitation letter · Print or download the full copy using your browser controls.",
+      "items": {
+        "item1": {
+          "title": "Official Invitation: Mathematics Active Learning Workshop 2024",
+          "date": "10 May 2024"
+        },
+        "item2": {
+          "title": "Program Schedule & Course Syllabus for High School Mathematics Teacher Training",
+          "date": "18 May 2024"
+        }
+      }
+    }
+  },
+  "algebraCenter": {
+    "hero": {
+      "title": "Southern Algebra Center",
+      "subtitle": "Algebra Center",
+      "desc": "Established to be a center for knowledge exchange and to promote a deeper understanding of algebra."
+    },
+    "tabs": {
+      "overview": "Overview",
+      "announcements": "Announcements"
+    },
+    "overview": {
+      "title": "Algebra Center",
+      "desc": "The Algebra Center is an organization under the Department of Mathematics and Computer Science, Faculty of Science and Technology. It is established to support and develop knowledge in algebra, and to promote instruction and research in related fields.",
+      "objectives": {
+        "title": "Objectives",
+        "desc": "Objectives of establishing the Algebra Center to support and develop research, as well as create academic cooperation networks.",
+        "items": [
+          "To promote and develop research in algebra, both theoretical and applied.",
+          "To develop academic cooperation networks at national and international levels.",
+          "To organize training, seminars, and academic activities for instructors, students, and teachers at various levels.",
+          "To provide academic services to the community and society on algebra-related topics."
+        ]
+      },
+      "missions": {
+        "title": "Core Mission",
+        "desc": "Core missions of the Algebra Center in research, personnel development, and promoting academic activities at national and international levels.",
+        "items": [
+          "Conduct research and develop knowledge in algebra, such as Abstract Algebra, Semigroups, Ring theory, etc.",
+          "Develop personnel in algebra.",
+          "Promote research publication in national and international journals.",
+          "Organize regional, national, and international academic conferences/seminars."
+        ]
+      },
+      "personnel": {
+        "title": "Personnel",
+        "desc": "Executive committee, working group, and personnel driving the research and operations of the Algebra Center.",
+        "items": [
+          {
+            "role": "Center Director",
+            "desc": "Responsible for overall administration and oversight."
+          },
+          {
+            "role": "Center Executive Committee",
+            "desc": "Faculty members/researchers specialized in algebra."
+          },
+          {
+            "role": "Coordinating Staff",
+            "desc": "Supports administration, documentation, and various activities."
+          },
+          {
+            "role": "Graduate Students",
+            "desc": "Research assistants supporting academic activities."
+          }
+        ]
+      },
+      "activities": {
+        "title": "Key Activities",
+        "desc": "Seminars, academic conferences, and activities promoting the exchange of algebra knowledge for the academic community.",
+        "items": [
+          "Organizing regional, national, and international academic conferences in algebra.",
+          "Organizing workshops for school teachers and university instructors.",
+          "Publishing journals or newsletters of the center.",
+          "Building collaborative research networks with scholars domestically and abroad."
+        ]
+      }
+    },
+    "announcements": {
+      "title": "Announcements & Publications",
+      "desc": "Follow news, seminar announcements, and official notices from the Southern Algebra Center.",
+      "read": "Read",
+      "download": "Download",
+      "noPdfTitle": "Document File Not Uploaded Yet",
+      "noPdfDesc": "Cannot load preview because the current file link is set to '#'. Please upload your PDF file and change the fileUrl variable to the actual path to enable the PDF viewer.",
+      "pdfReadyTitle": "Document Ready to View",
+      "pdfReadyDesc": "For the best viewing and zooming experience on mobile devices, please open the PDF file directly via the button below.",
+      "pdfOpenBtn": "Open Document (PDF)",
+      "footerHelp": "Official center publication · Print or download the full copy using your browser controls.",
+      "items": {
+        "item1": {
+          "title": "Announcement on the Establishment of the Southern Algebra Center and Executive Committee Appointment",
+          "date": "01 Jun 2024"
+        },
+        "item2": {
+          "title": "Invitation to the Academic Seminar on Abstract Algebra and Semigroups for Semester 1/2024",
+          "date": "10 Jun 2024"
+        }
+      }
+    }
+  },
+  "algebraScholarships": {
+    "hero": {
+      "title": "Undergraduate Scholarships in Algebra",
+      "subtitle": "Algebra Scholarships",
+      "desc": "Provides scholarships to highly skilled students in algebra."
+    },
+    "overview": {
+      "title": "Algebra Scholarships",
+      "desc": "Algebra Scholarships under the PSU-TUYF Algebra Enrichment Project aim to select and continuously support undergraduate students with outstanding academic records and mathematical talents in algebra to foster high-potential scholars and new researchers.",
+      "objectives": {
+        "title": "Objectives",
+        "desc": "Objectives of granting algebra scholarships to develop high-potential new researchers.",
+        "items": [
+          "To support and develop students with outstanding mathematical abilities, especially in algebra, to continue their studies at a higher level and become high-potential new researchers."
+        ]
+      },
+      "eligibility": {
+        "title": "Eligibility Criteria",
+        "desc": "Basic qualifications and academic criteria for algebra scholarship applicants.",
+        "items": [
+          "Graduated from high school or currently studying in Grade 12 (Science-Math or related program).",
+          "Minimum Cumulative Grade Point Average (GPAX) of 3.25.",
+          "Minimum grade average of 3.50 in Mathematics and English.",
+          "Demonstrated excellent and evident mathematical skills, e.g., winning a first prize in regional/national math competitions / passing at least Camp 2 of POSN in Mathematics / completing a mathematics project presented at an academic conference and receiving a presentation award of 'Good' level or higher, etc."
+        ]
+      },
+      "details": {
+        "title": "Scholarship Details",
+        "desc": "Funding rates, tuition support, living allowance, and exchange research travel grants.",
+        "items": [
+          {
+            "title": "Tuition Fees",
+            "desc": "Covers full tuition fees throughout the 4-year undergraduate study period."
+          },
+          {
+            "title": "Books & Study Supplies",
+            "desc": "5,000 THB/year"
+          },
+          {
+            "title": "Monthly Allowance",
+            "desc": "7,000 THB/month throughout the 4 years"
+          },
+          {
+            "title": "Research Exchange Grant",
+            "desc": "Travel and living expenses support for a 1-semester study abroad exchange, worth 250,000 THB."
+          },
+          {
+            "title": "Skill Development Grant",
+            "desc": "Grant for presenting research at mathematics conferences, worth 15,000 THB."
+          }
+        ]
+      },
+      "obligations": {
+        "title": "Obligations of Scholars",
+        "desc": "Academic requirements, course registrations, and research presentations during the scholarship.",
+        "items": [
+          "Maintain a Cumulative Grade Point Average (GPAX) of at least 3.25 at the end of each academic year.",
+          "Register for algebra-related courses (e.g., Principle of Mathematics, Set Theory, Semigroup Theory, Abstract Algebra, Linear Algebra, Group Theory, or Ring Theory) for at least 15 credits, earning a grade of B+ or higher in these courses.",
+          "Conduct an algebra research project under the supervision of a center advisor.",
+          "Present research at a national or international mathematics conference at least once before graduation.",
+          "Study or conduct research in algebra as an exchange student abroad for 1 semester during the 3rd or 4th year.",
+          "Must graduate within 4 academic years."
+        ]
+      },
+      "curriculum": {
+        "title": "Eligible Curriculums",
+        "desc": "Undergraduate mathematics programs that support the PSU-TUYF Algebra Scholarships.",
+        "items": [
+          "B.Sc. in Mathematics and Computer Science, Faculty of Science and Technology, Prince of Songkla University, Pattani Campus.",
+          "B.Sc. in Mathematics, Faculty of Science, Prince of Songkla University, Hat Yai Campus."
+        ]
+      }
+    },
+    "announcements": {
+      "title": "Announcements & News",
+      "desc": "Official announcements and application news for Algebra Scholarships.",
+      "read": "Read",
+      "download": "Download",
+      "noPdfTitle": "Document File Not Uploaded Yet",
+      "noPdfDesc": "Cannot load preview because the current file link is set to '#'. Please upload your PDF file and change the fileUrl variable to the actual path to enable the PDF viewer.",
+      "pdfReadyTitle": "Document Ready to View",
+      "pdfReadyDesc": "For the best viewing and zooming experience on mobile devices, please open the PDF file directly via the button below.",
+      "pdfOpenBtn": "Open Document (PDF)",
+      "footerHelp": "Official publication · Print or download the full copy using your browser controls.",
+      "items": {
+        "item1": {
+          "title": "Announcement on application opening for the Algebra Scholarships for the 2024 academic year",
+          "date": "12 Apr 2024"
+        },
+        "item2": {
+          "title": "Announcement of candidates eligible for interview under the Algebra Scholarships for the 2024 academic year",
+          "date": "03 Jun 2024"
+        },
+        "item3": {
+          "title": "Announcement of selected scholarship recipients under the Algebra Scholarships for the 2024 academic year",
+          "date": "15 Jun 2024"
+        }
+      }
+    }
+  },
+  "algebraCamps": {
+    "hero": {
+      "title": "Algebra Enrichment Camps",
+      "subtitle": "Algebra Camps",
+      "desc": "Organizes short-term camps to transmit basic knowledge and advanced concepts in algebra to high school students, such as set theory, mathematical logic, and number theory."
+    },
+    "overview": {
+      "title": "Algebra Camps",
+      "desc": "Algebra Camps are short-term camps organized to provide deep knowledge and inspire junior and senior high school students with a special interest in algebra, aiming to attract highly interested students and strengthen their foundation in core algebra concepts.",
+      "target": {
+        "title": "Target Group",
+        "desc": "Main groups of trainees whom the project aims to support and develop in algebraic skills.",
+        "items": [
+          "Secondary school students with an interest in mathematics, especially in algebra.",
+          "Mathematical Olympiad students (Camp 1 and Camp 2) from all centers nationwide."
+        ]
+      },
+      "details": {
+        "title": "Camp Details",
+        "desc": "Format, scale of the short-term training camp, and core subjects trained during the camp.",
+        "items": [
+          "Short-term algebra camp for 20 selected students.",
+          "Training in fundamental algebra topics, such as set theory, mathematical logic, and number theory."
+        ]
+      },
+      "eligibility": {
+        "title": "Applicant Eligibility",
+        "desc": "Selection criteria and portfolio documents required for camp application.",
+        "subDesc": "Interested students must submit their portfolios through Google Forms, which should contain the following details:",
+        "items": [
+          "First name - Last name, age, and educational institution.",
+          "Extra-curricular and academic activities performed during studies.",
+          "Awards or certificates received related to mathematics.",
+          "Statement of purpose and motivation for joining the Algebra Camp."
+        ],
+        "note": "Note: The camp committee will evaluate the portfolios, and all applicants will undergo an interview for final selection."
+      }
+    },
+    "announcements": {
+      "title": "Announcements & News",
+      "desc": "Official announcements and application news for the Algebra Camps project.",
+      "read": "Read",
+      "download": "Download",
+      "noPdfTitle": "Document File Not Uploaded Yet",
+      "noPdfDesc": "Cannot load preview because the current file link is set to '#'. Please upload your PDF file and change the fileUrl variable to the actual path to enable the PDF viewer.",
+      "pdfReadyTitle": "Document Ready to View",
+      "pdfReadyDesc": "For the best viewing and zooming experience on mobile devices, please open the PDF file directly via the button below.",
+      "pdfOpenBtn": "Open Document (PDF)",
+      "footerHelp": "Official publication · Print or download the full copy using your browser controls.",
+      "items": {
+        "item1": {
+          "title": "Announcement on application opening for the Algebra Enrichment Camp for the 2024 academic year",
+          "date": "10 Apr 2024"
+        },
+        "item2": {
+          "title": "Announcement of candidates eligible for interview under the Algebra Camp for the 2024 academic year",
+          "date": "02 May 2024"
+        },
+        "item3": {
+          "title": "Announcement of selected camp participants under the Algebra Camp for the 2024 academic year",
+          "date": "12 May 2024"
+        }
+      }
+    }
+  },
+  "algebraExchange": {
+    "hero": {
+      "title": "Staff Exchange & Research Grants",
+      "subtitle": "Exchange Staff",
+      "desc": "Provides funding for PSU staff to learn languages, observe study, and conduct algebra research abroad."
+    },
+    "overview": {
+      "title": "Staff Exchange & Research Grants (Exchange Staff)",
+      "desc": "This project aims to provide opportunities for faculty and staff members of Prince of Songkla University (PSU), Pattani and Hat Yai campuses, to gain international experience and enhance their algebra knowledge through study observation and research at leading global academic institutions.",
+      "activities": {
+        "title": "Project Activities",
+        "desc": "Staff exchange activities, teaching observation, and overseas study and research grants.",
+        "items": [
+          {
+            "title": "Algebra Teaching Observation Abroad",
+            "desc": "Staff members will visit and observe algebra teaching methodologies in secondary schools and universities abroad, such as in Hong Kong, China, USA, Europe, and Asia, to adapt modern knowledge and techniques for education development in Thailand."
+          },
+          {
+            "title": "Overseas Study and Research Grants for PSU Staff",
+            "desc": "Offers opportunities for staff from the Faculty of Science and Technology (PSU Pattani Campus) and the Faculty of Science (PSU Hat Yai Campus) to travel for algebra study or research for one academic semester in various Asian and European countries (e.g., Hong Kong, China, USA, Europe, Asia) to build academic networks and expertise."
+          }
+        ]
+      },
+      "requirements": {
+        "title": "Conditions & Notes",
+        "desc": "Specific conditions and important instructions for staff traveling abroad for study and research.",
+        "note": "Note: Staff intending to conduct research in China must successfully complete Chinese language courses before traveling."
+      }
+    }
+  },
+  "algebraEnrichment": {
+    "intro": "The PSU-TUYF Algebra Enrichment Project (2024–2028) is operated by the Department of Mathematics and Computer Science, Faculty of Science and Technology, Prince of Songkla University, with the support of the PSU-TUYF Charitable Trust Fund. It aims to elevate knowledge and capabilities in algebra within Thailand, and establish an Algebra Center in the southern region as a key hub for learning and research.",
+    "advisor": {
+      "title": "Project Advisory Committee",
+      "desc": "This project receives guidance and strategic support from an advisory committee consisting of leading professors and experts from both domestic and international institutions, working together to guide direction, approve grants, and monitor project progress to ensure the highest quality and efficiency."
+    },
+    "rationale": {
+      "title": "Rationale & Background",
+      "desc": "Algebra is the cornerstone of analytical thinking, systematic problem-solving, and innovation across fields like science, engineering, computer science, economics, and more. Understanding algebra not only builds necessary skills for advanced studies but also serves as a critical tool to evaluate data, predict outcomes, and solve complex real-world problems. This project was established to create opportunities and fulfill the advanced mathematical potential of Thai youth."
+    },
+    "objectives": {
+      "title": "Project Objectives",
+      "items": [
+        "Establish an knowledge exchange center and promote deep understanding in algebra.",
+        "Provide scholarships to undergraduate students with outstanding capabilities in algebra.",
+        "Organize short-term camps to impart foundational knowledge and advanced concepts in algebra to high school students, covering topics like Set Theory, Logic, and Number Theory.",
+        "Support Prince of Songkla University personnel with funding for language training, study tours, and algebra research abroad."
+      ]
+    },
+    "benefits": {
+      "title": "Expected Project Benefits",
+      "items": [
+        {
+          "title": "Elevating Algebra Research",
+          "desc": "To establish networks between domestic and international researchers."
+        },
+        {
+          "title": "Producing Specialized Graduates",
+          "desc": "Students can conduct algebra research under close academic supervision."
+        },
+        {
+          "title": "Enhancing Intensive Algebra Knowledge",
+          "desc": "Specifically provided to secondary school students."
+        },
+        {
+          "title": "Building a Strong Academic Community",
+          "desc": "Creating a dedicated space for exchanging research and expertise among algebra scholars."
+        }
+      ]
+    },
+    "subprojects": {
+      "title": "Sub-projects under Algebra Enrichment"
+    },
+    "center": {
+      "objective": "Establish a knowledge exchange center and promote deep understanding in algebra.",
+      "rationale": "The Southern Algebra Center was established to support advanced mathematics knowledge exchange, providing a space for sharing research and building academic networks to elevate Thai mathematics capabilities globally."
+    },
+    "scholarships": {
+      "objective": "Provide scholarships to undergraduate students with outstanding capabilities in algebra.",
+      "rationale": "Focuses on selecting and providing continuous funding to undergraduate students with outstanding academic results and skills in algebra, nurturing next-generation high-potential researchers."
+    },
+    "camps": {
+      "objective": "Organize short-term camps to impart foundational knowledge and advanced concepts in algebra to high school students, covering topics like Set Theory, Logic, and Number Theory.",
+      "rationale": "The Algebra Enrichment Camps aim to inspire and deliver advanced theoretical topics in a concise and understandable format, laying the deep academic foundations required for secondary school students."
+    },
+    "exchange": {
+      "objective": "Support Prince of Songkla University personnel with funding for language training, study tours, and algebra research abroad.",
+      "rationale": "Elevate research standards and academic staff capabilities through international exchange programs, promoting language learning, academic tours, and collaborative world-class research."
+    },
+    "outcomes": {
+      "title": "The PSU-TUYF Algebra Enrichment Project consists of 4 sub-projects",
+      "items": [
+        {
+          "title": "Southern Algebra Center",
+          "desc": "Established to be the first algebra hub in Southern Thailand, providing advice, consultation, and promoting research collaboration in algebra."
+        },
+        {
+          "title": "Undergraduate Scholarships",
+          "desc": "Awards scholarships to high-potential high school students to pursue undergraduate studies in mathematics with an emphasis on algebra at Prince of Songkla University (Pattani and Hat Yai campuses), along with supporting research presentations and overseas research opportunities."
+        },
+        {
+          "title": "Algebra Enrichment Camps",
+          "desc": "Organizes intensive short-term camps for secondary school students with a special interest in mathematics, particularly algebra, to reinforce their knowledge and deep conceptual understanding in algebra."
+        },
+        {
+          "title": "Exchange Staff & Overseas Research Grants",
+          "desc": "Supports Prince of Songkla University personnel to study tours or conduct research in algebra for one semester at leading universities abroad, such as China, USA, Europe, etc., and promotes necessary language acquisition."
+        }
+      ]
+    }
+  },
+  "aboutFund": {
+    "hero": {
+      "title": "PSU-TUYF Charitable Trust Fund",
+      "subtitle": "กองทุน PSU-TUYF Charitable Trust Fund",
+      "desc": "Fund supporting Prince of Songkla University academic and research activities."
+    },
+    "tabs": {
+      "history": "Background",
+      "objectives": "Fund Objectives"
+    },
+    "history": {
+      "title": "Background",
+      "desc": "Prince of Songkla University has received funding support from the TUYF Charitable Trust Fund, Hong Kong Special Administrative Region of the People's Republic of China, to support academic and research activities in the form of research grants and scholarships. A total of 4 projects have been supported over a period of 5 years (the first phase 2021-2025, totaling 55,622,276 Baht). To ensure the efficient operation of the fund, Prince of Songkla University has appointed the executive committee of the PSU-TUYF Charitable Trust Fund and signed a Donation Agreement with HSBC Trustee (Hong Kong) Limited, which is the governing body of the TUYF Charitable Trust Fund in the Hong Kong Special Administrative Region of the People's Republic of China."
+    },
+    "objectives": {
+      "title": "Fund Objectives",
+      "desc": "Objectives of the fund to support human resource development and research in the fields of oceanography, mathematics, and epidemiology in Asia.",
+      "items": [
+        "Support human resource development in oceanography, mathematics, and epidemiology in Asia through international curricula / training programs of Prince of Songkla University.",
+        "Promote and strengthen research activities in the three aforementioned disciplines.",
+        "Strengthen scientific networks of the three disciplines in Asia, with Prince of Songkla University serving as the coordinating center.",
+        "Support local and international communities in living lives connected to science in the three disciplines above."
+      ]
+    }
+  },
+  "contactPage": {
+    "hero": {
+      "title": "Contact Us",
+      "subtitle": "ติดต่อเรา",
+      "desc": "Contact channels for information inquiries and project coordination."
+    },
+    "address": {
+      "title": "Address",
+      "room": "Room 51B308",
+      "dept": "Department of Mathematics and Computer Science",
+      "faculty": "Faculty of Science and Technology",
+      "university": "Prince of Songkla University, Pattani Campus"
+    },
+    "email": {
+      "title": "Email",
+      "value": "algebra-center@psu.ac.th"
+    }
+  }
+}
