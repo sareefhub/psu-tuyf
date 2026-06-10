@@ -31,9 +31,11 @@ const programs = [
 export function ProgramsSection() {
   const t = useT()
 
+  // ดึงที่อยู่ลิงก์ตาม ID โครงการย่อย เพื่อนำทางผู้ใช้ไปยังหน้านั้นๆ
   const getProgramHref = (id: string) => {
     if (id === "mscd") return "/mscd"
     if (id === "mgss") return "/mgss"
+    if (id === "algebra") return "/algebra-enrichment" // ลิงก์ไปยังหน้าหลักของโครงการพีชคณิต
     return undefined
   }
 

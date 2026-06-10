@@ -39,12 +39,12 @@ export function SiteHeader() {
     },
     {
       label: "Algebra Enrichment",
-      href: "#algebra",
+      href: "/algebra-enrichment", // ลิงก์ไปยังหน้าหลักของโครงการพีชคณิต
       children: [
-        { label: "Algebra Center", href: "#algebra-0" },
-        { label: "Scholarships", href: "#algebra-1" },
-        { label: "Algebra Camps", href: "#algebra-2" },
-        { label: "Exchange Staff", href: "#algebra-3" },
+        { label: "Algebra Center", href: "/algebra-enrichment/algebra-center" }, // ลิงก์ไปยังศูนย์พีชคณิต
+        { label: "Scholarships", href: "/algebra-enrichment/scholarships" }, // ลิงก์ไปยังหน้ารายการทุน
+        { label: "Algebra Camps", href: "/algebra-enrichment/algebra-camps" }, // ลิงก์ไปยังค่ายคณิตศาสตร์
+        { label: "Exchange Staff", href: "/algebra-enrichment/exchange-staff" }, // ลิงก์ไปยังการแลกเปลี่ยนบุคลากร
       ],
     },
     { label: t("nav.about"), href: "#about" },

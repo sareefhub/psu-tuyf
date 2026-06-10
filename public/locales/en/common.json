@@ -496,5 +496,92 @@
         }
       }
     }
+  },
+  "algebraCenter": {
+    "hero": {
+      "title": "Southern Algebra Center",
+      "subtitle": "Algebra Center",
+      "desc": "Established to be a center for knowledge exchange and to promote a deeper understanding of algebra."
+    }
+  },
+  "algebraScholarships": {
+    "hero": {
+      "title": "Undergraduate Scholarships in Algebra",
+      "subtitle": "Algebra Scholarships",
+      "desc": "Provides scholarships to highly skilled students in algebra."
+    }
+  },
+  "algebraCamps": {
+    "hero": {
+      "title": "Algebra Enrichment Camps",
+      "subtitle": "Algebra Camps",
+      "desc": "Organizes short-term camps to impart foundational knowledge and advanced concepts in algebra to secondary school students, covering topics like Set Theory, Logic, and Number Theory."
+    }
+  },
+  "algebraExchange": {
+    "hero": {
+      "title": "Exchange Staff & Overseas Research Grants",
+      "subtitle": "Exchange Staff",
+      "desc": "Provides funding for Prince of Songkla University personnel to attend language training, study tours, and conduct research in algebra abroad."
+    }
+  },
+  "algebraEnrichment": {
+    "advisor": {
+      "title": "Project Advisory Committee",
+      "desc": "This project receives guidance and strategic support from an advisory committee consisting of leading professors and experts from both domestic and international institutions, working together to guide direction, approve grants, and monitor project progress to ensure the highest quality and efficiency."
+    },
+    "rationale": {
+      "title": "Rationale & Background",
+      "desc": "Algebra is the cornerstone of analytical thinking, systematic problem-solving, and innovation across fields like science, engineering, computer science, economics, and more. Understanding algebra not only builds necessary skills for advanced studies but also serves as a critical tool to evaluate data, predict outcomes, and solve complex real-world problems. This project was established to create opportunities and fulfill the advanced mathematical potential of Thai youth."
+    },
+    "objectives": {
+      "title": "Project Objectives",
+      "items": [
+        "Establish an knowledge exchange center and promote deep understanding in algebra.",
+        "Provide scholarships to undergraduate students with outstanding capabilities in algebra.",
+        "Organize short-term camps to impart foundational knowledge and advanced concepts in algebra to high school students, covering topics like Set Theory, Logic, and Number Theory.",
+        "Support Prince of Songkla University personnel with funding for language training, study tours, and algebra research abroad."
+      ]
+    },
+    "benefits": {
+      "title": "Expected Project Benefits",
+      "items": [
+        {
+          "title": "Elevating Algebra Research",
+          "desc": "To establish networks between domestic and international researchers."
+        },
+        {
+          "title": "Producing Specialized Graduates",
+          "desc": "Students can conduct algebra research under close academic supervision."
+        },
+        {
+          "title": "Enhancing Intensive Algebra Knowledge",
+          "desc": "Specifically provided to secondary school students."
+        },
+        {
+          "title": "Building a Strong Academic Community",
+          "desc": "Creating a dedicated space for exchanging research and expertise among algebra scholars."
+        }
+      ]
+    },
+    "subprojects": {
+      "title": "Sub-projects under Algebra Enrichment"
+    },
+    "center": {
+      "objective": "Establish a knowledge exchange center and promote deep understanding in algebra.",
+      "rationale": "The Southern Algebra Center was established to support advanced mathematics knowledge exchange, providing a space for sharing research and building academic networks to elevate Thai mathematics capabilities globally."
+    },
+    "scholarships": {
+      "objective": "Provide scholarships to undergraduate students with outstanding capabilities in algebra.",
+      "rationale": "Focuses on selecting and providing continuous funding to undergraduate students with outstanding academic results and skills in algebra, nurturing next-generation high-potential researchers."
+    },
+    "camps": {
+      "objective": "Organize short-term camps to impart foundational knowledge and advanced concepts in algebra to high school students, covering topics like Set Theory, Logic, and Number Theory.",
+      "rationale": "The Algebra Enrichment Camps aim to inspire and deliver advanced theoretical topics in a concise and understandable format, laying the deep academic foundations required for secondary school students."
+    },
+    "exchange": {
+      "objective": "Support Prince of Songkla University personnel with funding for language training, study tours, and algebra research abroad.",
+      "rationale": "Elevate research standards and academic staff capabilities through international exchange programs, promoting language learning, academic tours, and collaborative world-class research."
+    }
   }
 }
