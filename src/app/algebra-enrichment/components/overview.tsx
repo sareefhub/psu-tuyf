@@ -144,11 +144,6 @@ export function AlgebraOverview() {
             </div>
           </div>
 
-          {/* ข้อความบทสรุปปิดท้ายของโครงการย่อย */}
-          <p className="text-sm leading-relaxed text-muted-foreground/90 text-pretty pt-2">
-            {t("algebraEnrichment.outcomes.conclusion")}
-          </p>
-
         </div>
 
         {/* ===== เส้นคั่นระหว่างเนื้อหาหลักและการ์ดโครงการย่อย ===== */}
