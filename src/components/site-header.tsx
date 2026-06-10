@@ -47,7 +47,7 @@ export function SiteHeader() {
         { label: "Exchange Staff", href: "/algebra-enrichment/exchange-staff" }, // ลิงก์ไปยังการแลกเปลี่ยนบุคลากร
       ],
     },
-    { label: t("nav.about"), href: "#about" },
+    { label: t("nav.about"), href: "/about" },
     { label: t("nav.contact"), href: "#footer" },
   ]
 

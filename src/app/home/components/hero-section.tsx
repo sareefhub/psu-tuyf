@@ -74,7 +74,7 @@ export function HeroSection() {
               <ArrowRight className="ml-1 h-4 w-4" />
             </Button>
             <Button
-              render={<a href="#about" aria-label="About the project" />}
+              render={<a href="/about" aria-label="About the project" />}
               nativeButton={false}
               size="lg"
               variant="outline"

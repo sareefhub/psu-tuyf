@@ -859,8 +859,32 @@
           "title": "Exchange Staff & Overseas Research Grants",
           "desc": "Supports Prince of Songkla University personnel to study tours or conduct research in algebra for one semester at leading universities abroad, such as China, USA, Europe, etc., and promotes necessary language acquisition."
         }
-      ],
-      "conclusion": "Together, these projects will build a strong foundation for mathematical human resource development and sustainably elevate Thailand's academic capabilities in algebra to drive future innovation and development."
+      ]
+    }
+  },
+  "aboutFund": {
+    "hero": {
+      "title": "PSU-TUYF Charitable Trust Fund",
+      "subtitle": "กองทุน PSU-TUYF Charitable Trust Fund",
+      "desc": "Fund supporting Prince of Songkla University academic and research activities."
+    },
+    "tabs": {
+      "history": "Background",
+      "objectives": "Fund Objectives"
+    },
+    "history": {
+      "title": "Background",
+      "desc": "Prince of Songkla University has received funding support from the TUYF Charitable Trust Fund, Hong Kong Special Administrative Region of the People's Republic of China, to support academic and research activities in the form of research grants and scholarships. A total of 4 projects have been supported over a period of 5 years (the first phase 2021-2025, totaling 55,622,276 Baht). To ensure the efficient operation of the fund, Prince of Songkla University has appointed the executive committee of the PSU-TUYF Charitable Trust Fund and signed a Donation Agreement with HSBC Trustee (Hong Kong) Limited, which is the governing body of the TUYF Charitable Trust Fund in the Hong Kong Special Administrative Region of the People's Republic of China."
+    },
+    "objectives": {
+      "title": "Fund Objectives",
+      "desc": "Objectives of the fund to support human resource development and research in the fields of oceanography, mathematics, and epidemiology in Asia.",
+      "items": [
+        "Support human resource development in oceanography, mathematics, and epidemiology in Asia through international curricula / training programs of Prince of Songkla University.",
+        "Promote and strengthen research activities in the three aforementioned disciplines.",
+        "Strengthen scientific networks of the three disciplines in Asia, with Prince of Songkla University serving as the coordinating center.",
+        "Support local and international communities in living lives connected to science in the three disciplines above."
+      ]
     }
   }
 }
