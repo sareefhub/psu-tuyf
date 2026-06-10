@@ -21,15 +21,15 @@ export default function AlgebraScholarshipsPage() {
         <div className="mx-auto max-w-7xl px-6 relative z-10">
           <h1 className="text-balance text-3xl font-bold tracking-tight text-primary-foreground sm:text-4xl md:text-5xl lg:text-6xl leading-tight sm:leading-tight">
             <span className="block text-primary-foreground">
-              {t("algebraScholarships.hero.title", "ทุนการศึกษาระดับปริญญาตรี ด้านพีชคณิต")}
+              {t("algebraScholarships.hero.title")}
             </span>
             <span className="block text-primary-foreground/80 text-lg sm:text-xl md:text-2xl lg:text-3xl font-normal mt-2 tracking-wide font-sans">
-              ({t("algebraScholarships.hero.subtitle", "Algebra Scholarships")})
+              ({t("algebraScholarships.hero.subtitle")})
             </span>
           </h1>
 
           <p className="mt-6 max-w-3xl text-pretty text-sm font-light leading-relaxed text-primary-foreground/80 sm:text-base">
-            {t("algebraEnrichment.scholarships.objective", "ให้ทุนการศึกษาแก่นักศึกษาที่มีความรู้ ความสามารถโดดเด่นด้านพีชคณิต")}
+            {t("algebraEnrichment.scholarships.objective")}
           </p>
         </div>
       </section>
@@ -38,7 +38,7 @@ export default function AlgebraScholarshipsPage() {
       <section className="mx-auto max-w-7xl px-6 py-20 text-center">
         <div className="rounded-3xl border border-dashed border-border bg-card/50 p-12 backdrop-blur-xs">
           <p className="text-muted-foreground italic text-sm">
-            {t("common.under_construction", "อยู่ระหว่างการปรับปรุงเนื้อหา")}
+            {t("common.under_construction")}
           </p>
         </div>
       </section>
