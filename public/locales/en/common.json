@@ -502,6 +502,84 @@
       "title": "Southern Algebra Center",
       "subtitle": "Algebra Center",
       "desc": "Established to be a center for knowledge exchange and to promote a deeper understanding of algebra."
+    },
+    "tabs": {
+      "overview": "Overview",
+      "announcements": "Announcements"
+    },
+    "overview": {
+      "title": "Algebra Center",
+      "desc": "The Algebra Center is an organization under the Department of Mathematics and Computer Science, Faculty of Science and Technology. It is established to support and develop knowledge in algebra, and to promote instruction and research in related fields.",
+      "objectives": {
+        "title": "Objectives",
+        "items": [
+          "To promote and develop research in algebra, both theoretical and applied.",
+          "To develop academic cooperation networks at national and international levels.",
+          "To organize training, seminars, and academic activities for instructors, students, and teachers at various levels.",
+          "To provide academic services to the community and society on algebra-related topics."
+        ]
+      },
+      "missions": {
+        "title": "Core Mission",
+        "items": [
+          "Conduct research and develop knowledge in algebra, such as Abstract Algebra, Semigroups, Ring theory, etc.",
+          "Develop personnel in algebra.",
+          "Promote research publication in national and international journals.",
+          "Organize regional, national, and international academic conferences/seminars."
+        ]
+      },
+      "personnel": {
+        "title": "Personnel",
+        "items": [
+          {
+            "role": "Center Director",
+            "desc": "Responsible for overall administration and oversight."
+          },
+          {
+            "role": "Center Executive Committee",
+            "desc": "Faculty members/researchers specialized in algebra."
+          },
+          {
+            "role": "Coordinating Staff",
+            "desc": "Supports administration, documentation, and various activities."
+          },
+          {
+            "role": "Graduate Students",
+            "desc": "Research assistants supporting academic activities."
+          }
+        ]
+      },
+      "activities": {
+        "title": "Key Activities",
+        "items": [
+          "Organizing regional, national, and international academic conferences in algebra.",
+          "Organizing workshops for school teachers and university instructors.",
+          "Publishing journals or newsletters of the center.",
+          "Building collaborative research networks with scholars domestically and abroad."
+        ]
+      }
+    },
+    "announcements": {
+      "title": "Announcements & Publications",
+      "desc": "Follow news, seminar announcements, and official notices from the Southern Algebra Center.",
+      "read": "Read",
+      "download": "Download",
+      "noPdfTitle": "Document File Not Uploaded Yet",
+      "noPdfDesc": "Cannot load preview because the current file link is set to '#'. Please upload your PDF file and change the fileUrl variable to the actual path to enable the PDF viewer.",
+      "pdfReadyTitle": "Document Ready to View",
+      "pdfReadyDesc": "For the best viewing and zooming experience on mobile devices, please open the PDF file directly via the button below.",
+      "pdfOpenBtn": "Open Document (PDF)",
+      "footerHelp": "Official center publication · Print or download the full copy using your browser controls.",
+      "items": {
+        "item1": {
+          "title": "Announcement on the Establishment of the Southern Algebra Center and Executive Committee Appointment",
+          "date": "01 Jun 2024"
+        },
+        "item2": {
+          "title": "Invitation to the Academic Seminar on Abstract Algebra and Semigroups for Semester 1/2024",
+          "date": "10 Jun 2024"
+        }
+      }
     }
   },
   "algebraScholarships": {

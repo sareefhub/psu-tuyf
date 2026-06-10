@@ -1,12 +1,24 @@
 "use client"
 
+import { useState } from "react"
 import { useT } from "@/components/language-context"
 import { MainLayout } from "@/layout/main-layout"
+import { TabNavigation } from "@/components/tab-navigation"
+import { CenterOverview } from "./components/overview"
+import { CenterAnnouncements } from "./components/announcements"
+
+type TabId = "overview" | "announcements"
 
 // คอมโพเนนต์แสดงหน้าของศูนย์พีชคณิตภาคใต้ (Algebra Center)
-// แสดงเฉพาะส่วนหัวข้อ Hero และไม่มีเนื้อหาในตอนนี้ตามข้อกำหนดของผู้ใช้
 export default function AlgebraCenterPage() {
   const t = useT()
+  const [activeTab, setActiveTab] = useState<TabId>("overview")
+
+  // คีย์ตัวแปรแท็บนำทางจาก locales
+  const tabs = [
+    { id: "overview", key: "algebraCenter.tabs.overview" },
+    { id: "announcements", key: "algebraCenter.tabs.announcements" },
+  ] as const
 
   return (
     <MainLayout className="animate-fade-in">
@@ -34,14 +46,18 @@ export default function AlgebraCenterPage() {
         </div>
       </section>
 
-      {/* ส่วนเนื้อหาเปล่า (ยังไม่มีเนื้อหา) */}
-      <section className="mx-auto max-w-7xl px-6 py-20 text-center">
-        <div className="rounded-3xl border border-dashed border-border bg-card/50 p-12 backdrop-blur-xs">
-          <p className="text-muted-foreground italic text-sm">
-            {t("common.under_construction")}
-          </p>
-        </div>
-      </section>
+      {/* เรียกใช้งานแถบนำทางสลับแท็บการแสดงผล */}
+      <TabNavigation
+        tabs={tabs.map((tab) => ({ id: tab.id, label: t(tab.key) }))}
+        activeTab={activeTab}
+        setActiveTab={setActiveTab}
+      />
+
+      {/* แสดงผลเนื้อหาของหัวข้อที่ถูกสลับเปลี่ยน */}
+      <div className="transition-all duration-300">
+        {activeTab === "overview" && <CenterOverview />}
+        {activeTab === "announcements" && <CenterAnnouncements />}
+      </div>
     </MainLayout>
   )
 }
