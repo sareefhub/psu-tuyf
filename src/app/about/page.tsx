@@ -66,7 +66,7 @@ export default function AboutFundPage() {
           {/* รายละเอียดข้อความรูปแบบเดิม (ชิดซ้าย) */}
           <div className="space-y-6">
             <h2 className="text-2xl font-bold text-primary leading-snug">
-              {t("aboutFund.hero.title")}
+              {t("aboutFund.contentTitle")}
             </h2>
             <p className="text-sm leading-relaxed text-muted-foreground/90 text-pretty">
               {t("aboutFund.history.desc")}

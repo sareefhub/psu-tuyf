@@ -866,9 +866,11 @@
   "aboutFund": {
     "hero": {
       "title": "กองทุน PSU-TUYF Charitable Trust Fund",
-      "subtitle": "About PSU-TUYF Charitable Trust Fund",
+      "subtitle": "PSU-TUYF Charitable Trust Fund",
       "desc": "กองทุนเพื่อสนับสนุนการดำเนินกิจกรรมทางวิชาการและวิจัยของมหาวิทยาลัยสงขลานครินทร์"
     },
+    "contentTitle": "เกี่ยวกับกองทุน PSU-TUYF Charitable Trust Fund",
+
     "tabs": {
       "history": "ความเป็นมา",
       "objectives": "วัตถุประสงค์ของกองทุน"
