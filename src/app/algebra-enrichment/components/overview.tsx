@@ -170,6 +170,7 @@ export function AlgebraOverview() {
                 ariaLabel={t("programs.view_details_aria", { abbr: t(card.titleKey) })}
                 imageFit="contain"
                 imageBg="bg-white"
+                priority={card.id === "center"} // โหลดภาพตัวแรกสุดแบบล่วงหน้าเพื่อแก้ไขคำเตือน LCP
               />
             </div>
           ))}
