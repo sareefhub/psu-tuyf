@@ -123,28 +123,24 @@ export function AlgebraOverview() {
         <hr className="border-border/60" />
 
         {/* ===== ส่วนที่ 2: แสดงการ์ดโครงการย่อยทั้ง 4 โครงการย่อย เพื่อเชื่อมโยงไปยังรายละเอียดของแต่ละส่วน ===== */}
-        <div className="space-y-6">
-          <h3 className="text-lg font-bold text-primary">
-            {t("algebraEnrichment.subprojects.title")}
-          </h3>
-          
-          <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
-            {cards.map((card) => (
-              <div
-                key={card.id}
-                id={card.id}
-                className="scroll-mt-24 transition-all duration-300 hover:scale-[1.01]"
-              >
-                <ProgramCard
-                  title={t(card.titleKey)}
-                  image={card.image}
-                  href={card.href}
-                  moreDetailText={t("programs.more_detail")}
-                  ariaLabel={t("programs.view_details_aria", { abbr: t(card.titleKey) })}
-                />
-              </div>
-            ))}
-          </div>
+        <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
+          {cards.map((card) => (
+            <div
+              key={card.id}
+              id={card.id}
+              className="scroll-mt-24 transition-all duration-300 hover:scale-[1.01]"
+            >
+              <ProgramCard
+                title={t(card.titleKey)}
+                image={card.image}
+                href={card.href}
+                moreDetailText={t("programs.more_detail")}
+                ariaLabel={t("programs.view_details_aria", { abbr: t(card.titleKey) })}
+                imageFit="contain"
+                imageBg="bg-white"
+              />
+            </div>
+          ))}
         </div>
 
       </div>

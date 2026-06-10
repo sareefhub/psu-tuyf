@@ -10,6 +10,8 @@ interface ProgramCardProps {
   moreDetailText: string   // ข้อความปุ่มดูรายละเอียด เช่น "ดูรายละเอียด"
   ariaLabel?: string       // ข้อความอธิบายสำหรับผู้ใช้ Screen Reader
   priority?: boolean       // ลำดับความสำคัญในการโหลดภาพประกอบ (ค่าเริ่มต้น false)
+  imageFit?: "cover" | "contain" // เพิ่มเติม: ปรับลักษณะการแสดงผลรูปภาพ
+  imageBg?: string         // เพิ่มเติม: ปรับสีพื้นหลังของกล่องรูปภาพ
 }
 
 // คอมโพเนนต์การ์ดแสดงโครงการย่อยสไตล์สี่เหลี่ยมจัตุรัส (ProgramCard - การ์ดแบบที่ 2)
@@ -21,17 +23,20 @@ export function ProgramCard({
   moreDetailText,
   ariaLabel,
   priority = false,
+  imageFit = "cover",
+  imageBg = "bg-muted/20",
 }: Readonly<ProgramCardProps>) {
+  const fitClass = imageFit === "contain" ? "object-contain p-4" : "object-cover"
   return (
     <article className="relative group flex flex-col overflow-hidden rounded-xl border border-border/60 bg-card transition-all duration-300 hover:border-border hover:shadow-sm">
-      {/* รูปภาพโครงการสไตล์สี่เหลี่ยมจัตุรัสและจัดวางแบบเต็มพื้นที่ (object-cover) */}
-      <div className="relative aspect-square w-full overflow-hidden bg-muted/20">
+      {/* รูปภาพโครงการสไตล์สี่เหลี่ยมจัตุรัสและจัดวางตามที่กำหนด */}
+      <div className={`relative aspect-square w-full overflow-hidden ${imageBg}`}>
         <Image
           src={image}
           alt={title}
           fill
           sizes="(max-width: 768px) 100vw, 33vw"
-          className="object-cover transition-opacity duration-300 group-hover:opacity-90"
+          className={`${fitClass} transition-opacity duration-300 group-hover:opacity-90`}
           priority={priority}
         />
       </div>
