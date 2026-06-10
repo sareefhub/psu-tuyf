@@ -753,9 +753,32 @@
   },
   "algebraExchange": {
     "hero": {
-      "title": "Exchange Staff & Overseas Research Grants",
+      "title": "Staff Exchange & Research Grants",
       "subtitle": "Exchange Staff",
-      "desc": "Provides funding for Prince of Songkla University personnel to attend language training, study tours, and conduct research in algebra abroad."
+      "desc": "Provides funding for PSU staff to learn languages, observe study, and conduct algebra research abroad."
+    },
+    "overview": {
+      "title": "Staff Exchange & Research Grants (Exchange Staff)",
+      "desc": "This project aims to provide opportunities for faculty and staff members of Prince of Songkla University (PSU), Pattani and Hat Yai campuses, to gain international experience and enhance their algebra knowledge through study observation and research at leading global academic institutions.",
+      "activities": {
+        "title": "Project Activities",
+        "desc": "Staff exchange activities, teaching observation, and overseas study and research grants.",
+        "items": [
+          {
+            "title": "Algebra Teaching Observation Abroad",
+            "desc": "Staff members will visit and observe algebra teaching methodologies in secondary schools and universities abroad, such as in Hong Kong, China, USA, Europe, and Asia, to adapt modern knowledge and techniques for education development in Thailand."
+          },
+          {
+            "title": "Overseas Study and Research Grants for PSU Staff",
+            "desc": "Offers opportunities for staff from the Faculty of Science and Technology (PSU Pattani Campus) and the Faculty of Science (PSU Hat Yai Campus) to travel for algebra study or research for one academic semester in various Asian and European countries (e.g., Hong Kong, China, USA, Europe, Asia) to build academic networks and expertise."
+          }
+        ]
+      },
+      "requirements": {
+        "title": "Conditions & Notes",
+        "desc": "Specific conditions and important instructions for staff traveling abroad for study and research.",
+        "note": "Note: Staff intending to conduct research in China must successfully complete Chinese language courses before traveling."
+      }
     }
   },
   "algebraEnrichment": {

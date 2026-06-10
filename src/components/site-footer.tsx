@@ -43,8 +43,7 @@ export function SiteFooter() {
               </li>
               <li>
                 <a
-                  href="#algebra"
-                  onClick={(e) => e.preventDefault()}
+                  href="/algebra-enrichment"
                   className="transition-colors hover:text-accent"
                 >
                   Algebra Enrichment

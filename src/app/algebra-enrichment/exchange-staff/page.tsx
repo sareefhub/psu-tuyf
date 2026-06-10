@@ -1,12 +1,23 @@
 "use client"
 
+import { useState } from "react"
 import { useT } from "@/components/language-context"
 import { MainLayout } from "@/layout/main-layout"
+import { TabNavigation } from "@/components/tab-navigation"
+import { ExchangeActivities, ExchangeRequirements } from "./components/overview"
+
+type TabId = "activities" | "requirements"
 
 // คอมโพเนนต์แสดงหน้าของโครงการแลกเปลี่ยนบุคลากรและทุนวิจัยในต่างประเทศ (Exchange Staff)
-// แสดงเฉพาะส่วนหัวข้อ Hero และไม่มีเนื้อหาในตอนนี้ตามข้อกำหนดของผู้ใช้
 export default function AlgebraExchangeStaffPage() {
   const t = useT()
+  const [activeTab, setActiveTab] = useState<TabId>("activities")
+
+  // รายการคีย์ภาษาสำหรับปุ่มแท็บสลับแสดงข้อมูล (ดึงชื่อมาจาก locales JSON)
+  const tabs = [
+    { id: "activities", key: "algebraExchange.overview.activities.title" },
+    { id: "requirements", key: "algebraExchange.overview.requirements.title" },
+  ] as const
 
   return (
     <MainLayout className="animate-fade-in">
@@ -34,14 +45,32 @@ export default function AlgebraExchangeStaffPage() {
         </div>
       </section>
 
-      {/* ส่วนเนื้อหาเปล่า (ยังไม่มีเนื้อหา) */}
-      <section className="mx-auto max-w-7xl px-6 py-20 text-center">
-        <div className="rounded-3xl border border-dashed border-border bg-card/50 p-12 backdrop-blur-xs">
-          <p className="text-muted-foreground italic text-sm">
-            {t("common.under_construction")}
-          </p>
+      {/* ข้อมูลแนะนำเบื้องต้นของโครงการแลกเปลี่ยนบุคลากร (แสดงด้านบนสุดเหนือแท็บเหมือนหน้าอื่นๆ) */}
+      <section className="py-16 bg-background">
+        <div className="mx-auto max-w-7xl px-6">
+          <div className="space-y-6">
+            <h2 className="text-2xl font-bold text-primary leading-snug">
+              {t("algebraExchange.overview.title")}
+            </h2>
+            <p className="text-sm leading-relaxed text-muted-foreground/90 text-pretty">
+              {t("algebraExchange.overview.desc")}
+            </p>
+          </div>
         </div>
       </section>
+
+      {/* เรียกใช้งานแถบนำทางสลับแท็บกลางในการเลือกแสดงผล */}
+      <TabNavigation
+        tabs={tabs.map((tab) => ({ id: tab.id, label: t(tab.key) }))}
+        activeTab={activeTab}
+        setActiveTab={(id) => setActiveTab(id as TabId)}
+      />
+
+      {/* แสดงเนื้อหาความถูกต้องตรงตามการเลือกของแต่ละแท็บ */}
+      <div className="transition-all duration-300">
+        {activeTab === "activities" && <ExchangeActivities />}
+        {activeTab === "requirements" && <ExchangeRequirements />}
+      </div>
     </MainLayout>
   )
 }
