@@ -48,7 +48,7 @@ export function SiteHeader() {
       ],
     },
     { label: t("nav.about"), href: "/about" },
-    { label: t("nav.contact"), href: "#footer" },
+    { label: t("nav.contact"), href: "/contact" },
   ]
 
   // ฟังก์ชันคำนวณพาธจริงตามตำแหน่งหน้าปัจจุบัน

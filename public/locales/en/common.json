@@ -886,5 +886,23 @@
         "Support local and international communities in living lives connected to science in the three disciplines above."
       ]
     }
+  },
+  "contactPage": {
+    "hero": {
+      "title": "Contact Us",
+      "subtitle": "ติดต่อเรา",
+      "desc": "Contact channels for information inquiries and project coordination."
+    },
+    "address": {
+      "title": "Address",
+      "room": "Room 51B308",
+      "dept": "Department of Mathematics and Computer Science",
+      "faculty": "Faculty of Science and Technology",
+      "university": "Prince of Songkla University, Pattani Campus"
+    },
+    "email": {
+      "title": "Email",
+      "value": "algebra-center@psu.ac.th"
+    }
   }
 }
