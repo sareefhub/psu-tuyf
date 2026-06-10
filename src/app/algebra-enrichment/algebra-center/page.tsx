@@ -4,20 +4,28 @@ import { useState } from "react"
 import { useT } from "@/components/language-context"
 import { MainLayout } from "@/layout/main-layout"
 import { TabNavigation } from "@/components/tab-navigation"
-import { CenterOverview } from "./components/overview"
+import {
+  CenterObjectives,
+  CenterMissions,
+  CenterPersonnel,
+  CenterActivities,
+} from "./components/overview"
 import { CenterAnnouncements } from "./components/announcements"
 
-type TabId = "overview" | "announcements"
+type TabId = "objectives" | "missions" | "personnel" | "activities" | "announcements"
 
 // คอมโพเนนต์แสดงหน้าของศูนย์พีชคณิตภาคใต้ (Algebra Center)
 export default function AlgebraCenterPage() {
   const t = useT()
-  const [activeTab, setActiveTab] = useState<TabId>("overview")
+  const [activeTab, setActiveTab] = useState<TabId>("objectives")
 
-  // คีย์ตัวแปรแท็บนำทางจาก locales
+  // คีย์ตัวแปรแท็บนำทาง 5 แท็บหลักจาก locales JSON
   const tabs = [
-    { id: "overview", key: "algebraCenter.tabs.overview" },
-    { id: "announcements", key: "algebraCenter.tabs.announcements" },
+    { id: "objectives", key: "algebraCenter.overview.objectives.title" },
+    { id: "missions", key: "algebraCenter.overview.missions.title" },
+    { id: "personnel", key: "algebraCenter.overview.personnel.title" },
+    { id: "activities", key: "algebraCenter.overview.activities.title" },
+    { id: "announcements", key: "algebraCenter.announcements.title" },
   ] as const
 
   return (
@@ -46,16 +54,33 @@ export default function AlgebraCenterPage() {
         </div>
       </section>
 
+      {/* ข้อมูลแนะนำเบื้องต้นของศูนย์พีชคณิต (แสดงด้านบนสุดเหนือแท็บ) */}
+      <section className="py-16 bg-background">
+        <div className="mx-auto max-w-7xl px-6">
+          <div className="space-y-6">
+            <h2 className="text-2xl font-bold text-primary leading-snug">
+              {t("algebraCenter.overview.title")}
+            </h2>
+            <p className="text-sm leading-relaxed text-muted-foreground/90 text-pretty">
+              {t("algebraCenter.overview.desc")}
+            </p>
+          </div>
+        </div>
+      </section>
+
       {/* เรียกใช้งานแถบนำทางสลับแท็บการแสดงผล */}
       <TabNavigation
         tabs={tabs.map((tab) => ({ id: tab.id, label: t(tab.key) }))}
         activeTab={activeTab}
-        setActiveTab={setActiveTab}
+        setActiveTab={(id) => setActiveTab(id as TabId)}
       />
 
-      {/* แสดงผลเนื้อหาของหัวข้อที่ถูกสลับเปลี่ยน */}
+      {/* แสดงผลเนื้อหาของหัวข้อที่ถูกสลับเปลี่ยนตามการเลือกของแท็บ */}
       <div className="transition-all duration-300">
-        {activeTab === "overview" && <CenterOverview />}
+        {activeTab === "objectives" && <CenterObjectives />}
+        {activeTab === "missions" && <CenterMissions />}
+        {activeTab === "personnel" && <CenterPersonnel />}
+        {activeTab === "activities" && <CenterActivities />}
         {activeTab === "announcements" && <CenterAnnouncements />}
       </div>
     </MainLayout>

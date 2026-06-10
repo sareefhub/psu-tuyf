@@ -512,6 +512,7 @@
       "desc": "The Algebra Center is an organization under the Department of Mathematics and Computer Science, Faculty of Science and Technology. It is established to support and develop knowledge in algebra, and to promote instruction and research in related fields.",
       "objectives": {
         "title": "Objectives",
+        "desc": "Objectives of establishing the Algebra Center to support and develop research, as well as create academic cooperation networks.",
         "items": [
           "To promote and develop research in algebra, both theoretical and applied.",
           "To develop academic cooperation networks at national and international levels.",
@@ -521,6 +522,7 @@
       },
       "missions": {
         "title": "Core Mission",
+        "desc": "Core missions of the Algebra Center in research, personnel development, and promoting academic activities at national and international levels.",
         "items": [
           "Conduct research and develop knowledge in algebra, such as Abstract Algebra, Semigroups, Ring theory, etc.",
           "Develop personnel in algebra.",
@@ -530,6 +532,7 @@
       },
       "personnel": {
         "title": "Personnel",
+        "desc": "Executive committee, working group, and personnel driving the research and operations of the Algebra Center.",
         "items": [
           {
             "role": "Center Director",
@@ -551,6 +554,7 @@
       },
       "activities": {
         "title": "Key Activities",
+        "desc": "Seminars, academic conferences, and activities promoting the exchange of algebra knowledge for the academic community.",
         "items": [
           "Organizing regional, national, and international academic conferences in algebra.",
           "Organizing workshops for school teachers and university instructors.",
