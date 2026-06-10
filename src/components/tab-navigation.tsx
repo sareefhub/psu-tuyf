@@ -7,11 +7,11 @@ export interface TabItem {
 
 interface TabNavigationProps {
   /** รายการแท็บทั้งหมด (ประกอบด้วย id และข้อความ label ที่แปลภาษาแล้ว) */
-  tabs: readonly TabItem[] | TabItem[];
+  readonly tabs: readonly TabItem[] | TabItem[];
   /** id ของแท็บที่กำลังเปิดใช้งานในปัจจุบัน */
-  activeTab: string;
+  readonly activeTab: string;
   /** ฟังก์ชันสลับการเลือกแท็บ */
-  setActiveTab: (id: any) => void;
+  readonly setActiveTab: (id: any) => void;
 }
 
 // คอมโพเนนต์ตัวกลางสำหรับแถบนำทางแบบแท็บแคปซูล (Global Tab Bar Navigation)
