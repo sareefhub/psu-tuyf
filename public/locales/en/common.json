@@ -591,6 +591,99 @@
       "title": "Undergraduate Scholarships in Algebra",
       "subtitle": "Algebra Scholarships",
       "desc": "Provides scholarships to highly skilled students in algebra."
+    },
+    "overview": {
+      "title": "Algebra Scholarships",
+      "desc": "Algebra Scholarships under the PSU-TUYF Algebra Enrichment Project aim to select and continuously support undergraduate students with outstanding academic records and mathematical talents in algebra to foster high-potential scholars and new researchers.",
+      "objectives": {
+        "title": "Objectives",
+        "desc": "Objectives of granting algebra scholarships to develop high-potential new researchers.",
+        "items": [
+          "To support and develop students with outstanding mathematical abilities, especially in algebra, to continue their studies at a higher level and become high-potential new researchers."
+        ]
+      },
+      "eligibility": {
+        "title": "Eligibility Criteria",
+        "desc": "Basic qualifications and academic criteria for algebra scholarship applicants.",
+        "items": [
+          "Graduated from high school or currently studying in Grade 12 (Science-Math or related program).",
+          "Minimum Cumulative Grade Point Average (GPAX) of 3.25.",
+          "Minimum grade average of 3.50 in Mathematics and English.",
+          "Demonstrated excellent and evident mathematical skills, e.g., winning a first prize in regional/national math competitions / passing at least Camp 2 of POSN in Mathematics / completing a mathematics project presented at an academic conference and receiving a presentation award of 'Good' level or higher, etc."
+        ]
+      },
+      "details": {
+        "title": "Scholarship Details",
+        "desc": "Funding rates, tuition support, living allowance, and exchange research travel grants.",
+        "items": [
+          {
+            "title": "Tuition Fees",
+            "desc": "Covers full tuition fees throughout the 4-year undergraduate study period."
+          },
+          {
+            "title": "Books & Study Supplies",
+            "desc": "5,000 THB/year"
+          },
+          {
+            "title": "Monthly Allowance",
+            "desc": "7,000 THB/month throughout the 4 years"
+          },
+          {
+            "title": "Research Exchange Grant",
+            "desc": "Travel and living expenses support for a 1-semester study abroad exchange, worth 250,000 THB."
+          },
+          {
+            "title": "Skill Development Grant",
+            "desc": "Grant for presenting research at mathematics conferences, worth 15,000 THB."
+          }
+        ]
+      },
+      "obligations": {
+        "title": "Obligations of Scholars",
+        "desc": "Academic requirements, course registrations, and research presentations during the scholarship.",
+        "items": [
+          "Maintain a Cumulative Grade Point Average (GPAX) of at least 3.25 at the end of each academic year.",
+          "Register for algebra-related courses (e.g., Principle of Mathematics, Set Theory, Semigroup Theory, Abstract Algebra, Linear Algebra, Group Theory, or Ring Theory) for at least 15 credits, earning a grade of B+ or higher in these courses.",
+          "Conduct an algebra research project under the supervision of a center advisor.",
+          "Present research at a national or international mathematics conference at least once before graduation.",
+          "Study or conduct research in algebra as an exchange student abroad for 1 semester during the 3rd or 4th year.",
+          "Must graduate within 4 academic years."
+        ]
+      },
+      "curriculum": {
+        "title": "Eligible Curriculums",
+        "desc": "Undergraduate mathematics programs that support the PSU-TUYF Algebra Scholarships.",
+        "items": [
+          "B.Sc. in Mathematics and Computer Science, Faculty of Science and Technology, Prince of Songkla University, Pattani Campus.",
+          "B.Sc. in Mathematics, Faculty of Science, Prince of Songkla University, Hat Yai Campus."
+        ]
+      }
+    },
+    "announcements": {
+      "title": "Announcements & News",
+      "desc": "Official announcements and application news for Algebra Scholarships.",
+      "read": "Read",
+      "download": "Download",
+      "noPdfTitle": "Document File Not Uploaded Yet",
+      "noPdfDesc": "Cannot load preview because the current file link is set to '#'. Please upload your PDF file and change the fileUrl variable to the actual path to enable the PDF viewer.",
+      "pdfReadyTitle": "Document Ready to View",
+      "pdfReadyDesc": "For the best viewing and zooming experience on mobile devices, please open the PDF file directly via the button below.",
+      "pdfOpenBtn": "Open Document (PDF)",
+      "footerHelp": "Official publication · Print or download the full copy using your browser controls.",
+      "items": {
+        "item1": {
+          "title": "Announcement on application opening for the Algebra Scholarships for the 2024 academic year",
+          "date": "12 Apr 2024"
+        },
+        "item2": {
+          "title": "Announcement of candidates eligible for interview under the Algebra Scholarships for the 2024 academic year",
+          "date": "03 Jun 2024"
+        },
+        "item3": {
+          "title": "Announcement of selected scholarship recipients under the Algebra Scholarships for the 2024 academic year",
+          "date": "15 Jun 2024"
+        }
+      }
     }
   },
   "algebraCamps": {

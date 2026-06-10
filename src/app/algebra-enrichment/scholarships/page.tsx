@@ -1,12 +1,34 @@
 "use client"
 
+import { useState } from "react"
 import { useT } from "@/components/language-context"
 import { MainLayout } from "@/layout/main-layout"
+import { TabNavigation } from "@/components/tab-navigation"
+import {
+  ScholarshipObjectives,
+  ScholarshipEligibility,
+  ScholarshipDetails,
+  ScholarshipObligations,
+  ScholarshipCurriculum,
+} from "./components/overview"
+import { ScholarshipAnnouncements } from "./components/announcements"
+
+type TabId = "objectives" | "eligibility" | "details" | "obligations" | "curriculum" | "announcements"
 
 // คอมโพเนนต์แสดงหน้าของทุนการศึกษาระดับปริญญาตรี ด้านพีชคณิต (Algebra Scholarships)
-// แสดงเฉพาะส่วนหัวข้อ Hero และไม่มีเนื้อหาในตอนนี้ตามข้อกำหนดของผู้ใช้
 export default function AlgebraScholarshipsPage() {
   const t = useT()
+  const [activeTab, setActiveTab] = useState<TabId>("objectives")
+
+  // รายการคีย์ภาษาสำหรับปุ่มแท็บสลับแสดงข้อมูล (ดึงชื่อมาจาก locales JSON)
+  const tabs = [
+    { id: "objectives", key: "algebraScholarships.overview.objectives.title" },
+    { id: "eligibility", key: "algebraScholarships.overview.eligibility.title" },
+    { id: "details", key: "algebraScholarships.overview.details.title" },
+    { id: "obligations", key: "algebraScholarships.overview.obligations.title" },
+    { id: "curriculum", key: "algebraScholarships.overview.curriculum.title" },
+    { id: "announcements", key: "algebraScholarships.announcements.title" },
+  ] as const
 
   return (
     <MainLayout className="animate-fade-in">
@@ -34,14 +56,36 @@ export default function AlgebraScholarshipsPage() {
         </div>
       </section>
 
-      {/* ส่วนเนื้อหาเปล่า (ยังไม่มีเนื้อหา) */}
-      <section className="mx-auto max-w-7xl px-6 py-20 text-center">
-        <div className="rounded-3xl border border-dashed border-border bg-card/50 p-12 backdrop-blur-xs">
-          <p className="text-muted-foreground italic text-sm">
-            {t("common.under_construction")}
-          </p>
+      {/* ข้อมูลแนะนำเบื้องต้นของทุนการศึกษาด้านพีชคณิต (แสดงด้านบนสุดเหนือแท็บเหมือนหน้าศูนย์พีชคณิต) */}
+      <section className="py-16 bg-background">
+        <div className="mx-auto max-w-7xl px-6">
+          <div className="space-y-6">
+            <h2 className="text-2xl font-bold text-primary leading-snug">
+              {t("algebraScholarships.overview.title")}
+            </h2>
+            <p className="text-sm leading-relaxed text-muted-foreground/90 text-pretty">
+              {t("algebraScholarships.overview.desc")}
+            </p>
+          </div>
         </div>
       </section>
+
+      {/* เรียกใช้งานแถบนำทางสลับแท็บกลางในการเลือกแสดงผล */}
+      <TabNavigation
+        tabs={tabs.map((tab) => ({ id: tab.id, label: t(tab.key) }))}
+        activeTab={activeTab}
+        setActiveTab={(id) => setActiveTab(id as TabId)}
+      />
+
+      {/* แสดงเนื้อหาความถูกต้องตรงตามการเลือกของแต่ละแท็บ */}
+      <div className="transition-all duration-300">
+        {activeTab === "objectives" && <ScholarshipObjectives />}
+        {activeTab === "eligibility" && <ScholarshipEligibility />}
+        {activeTab === "details" && <ScholarshipDetails />}
+        {activeTab === "obligations" && <ScholarshipObligations />}
+        {activeTab === "curriculum" && <ScholarshipCurriculum />}
+        {activeTab === "announcements" && <ScholarshipAnnouncements />}
+      </div>
     </MainLayout>
   )
 }
