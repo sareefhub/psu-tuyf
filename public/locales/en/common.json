@@ -583,6 +583,28 @@
     "exchange": {
       "objective": "Support Prince of Songkla University personnel with funding for language training, study tours, and algebra research abroad.",
       "rationale": "Elevate research standards and academic staff capabilities through international exchange programs, promoting language learning, academic tours, and collaborative world-class research."
+    },
+    "outcomes": {
+      "title": "The PSU-TUYF Algebra Enrichment Project consists of 4 sub-projects",
+      "items": [
+        {
+          "title": "Southern Algebra Center",
+          "desc": "Established to be the first algebra hub in Southern Thailand, providing advice, consultation, and promoting research collaboration in algebra."
+        },
+        {
+          "title": "Undergraduate Scholarships",
+          "desc": "Awards scholarships to high-potential high school students to pursue undergraduate studies in mathematics with an emphasis on algebra at Prince of Songkla University (Pattani and Hat Yai campuses), along with supporting research presentations and overseas research opportunities."
+        },
+        {
+          "title": "Algebra Enrichment Camps",
+          "desc": "Organizes intensive short-term camps for secondary school students with a special interest in mathematics, particularly algebra, to reinforce their knowledge and deep conceptual understanding in algebra."
+        },
+        {
+          "title": "Exchange Staff & Overseas Research Grants",
+          "desc": "Supports Prince of Songkla University personnel to study tours or conduct research in algebra for one semester at leading universities abroad, such as China, USA, Europe, etc., and promotes necessary language acquisition."
+        }
+      ],
+      "conclusion": "Together, these projects will build a strong foundation for mathematical human resource development and sustainably elevate Thailand's academic capabilities in algebra to drive future innovation and development."
     }
   }
 }

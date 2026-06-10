@@ -18,6 +18,12 @@ export function AlgebraOverview() {
     desc: string
   }>
 
+  // ดึงรายละเอียดผลลัพธ์ของโครงการย่อยทั้ง 4 จากระบบแปลภาษา (i18n)
+  const outcomes = t("algebraEnrichment.outcomes.items", { returnObjects: true }) as Array<{
+    title: string
+    desc: string
+  }>
+
   // ข้อมูลโครงการย่อยทั้ง 4 สำหรับสร้างการ์ดลิงก์นำทาง
   const cards = [
     {
@@ -116,6 +122,32 @@ export function AlgebraOverview() {
               ))}
             </div>
           </div>
+
+          {/* ส่วนรายละเอียดโครงการย่อย (4 โครงการย่อย) ตามคำแนะนำและรูปภาพที่ส่งเข้ามา */}
+          <div className="space-y-3 pt-2">
+            <h3 className="text-lg font-bold text-primary">
+              {t("algebraEnrichment.outcomes.title")}
+            </h3>
+            {/* แสดงรายละเอียดโดยมีขีดเส้นข้างซ้ายและจัดรูปจุดกลมนำหัวข้อย่อย */}
+            <div className="space-y-6 border-l border-border/80 pl-6 mt-3">
+              {outcomes.map((item, idx) => (
+                <div key={item.title} className="space-y-2">
+                  <h4 className="text-sm font-bold text-primary flex items-center gap-2">
+                    <span className="h-1.5 w-1.5 rounded-full bg-accent" />
+                    {idx + 1}. {item.title}
+                  </h4>
+                  <p className="pl-3.5 text-sm leading-relaxed text-muted-foreground/90 text-pretty">
+                    {item.desc}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* ข้อความบทสรุปปิดท้ายของโครงการย่อย */}
+          <p className="text-sm leading-relaxed text-muted-foreground/90 text-pretty pt-2">
+            {t("algebraEnrichment.outcomes.conclusion")}
+          </p>
 
         </div>
 
