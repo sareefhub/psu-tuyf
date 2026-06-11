@@ -906,5 +906,43 @@
       "title": "Email",
       "value": "algebra-center@psu.ac.th"
     }
+  },
+  "excellenceMathCamp": {
+    "hero": {
+      "title": "Excellence Math Camp",
+      "subtitle": "Intensive Training Program for Mathematical Excellence under the support of the TUYF Charitable Trust Fund"
+    },
+    "overview": {
+      "title": "Intensive Training Program for Mathematical Excellence (Excellence Math Camp)",
+      "desc1": "The Intensive Training Program for Mathematical Excellence (Excellence Math Camp), formerly known as \"Pre-Olympics\", focuses on developing advanced mathematical capabilities for high school students. It prepares them for national and international mathematics competitions while strengthening their mathematical processing skills. During 2023-2024, the project focused primarily on preparing students for the Mathematical Olympiad stage. From 2025 onwards, the project has expanded its scope to support various other mathematics competition stages.",
+      "desc2": "Participants will receive intensive tutoring from experts, practice solving complex and diverse problems, and build networks of students with similar interests in mathematics. This program is free of charge, supporting lunch, dinner, snacks, and accommodation throughout the 10 days of training to allow students to focus fully on learning and self-development."
+    },
+    "years": {
+      "emc2026": "Excellence Math Camp 2026",
+      "emc2025": "Excellence Math Camp 2025",
+      "pom2024": "Pre-Olympics Math 2024",
+      "pom2023": "Pre-Olympics Math 2023"
+    }
+  },
+  "mathSanchon": {
+    "hero": {
+      "title": "Math Roadshow",
+      "subtitle": "Mobile Mathematics Project under the support of the TUYF Charitable Trust Fund"
+    },
+    "overview": {
+      "title": "Mobile Mathematics Project (Math Roadshow)",
+      "desc1": "The Mobile Mathematics Project (Math Roadshow) is operated by the Department of Mathematics and Computer Science, Faculty of Science and Technology, Prince of Songkla University, Pattani Campus, supported by the PSU-TUYF Charitable Trust Fund. It is committed to elevating mathematics education for students in private Islamic schools in the Southern Border Provinces (Pattani, Yala, and Narathiwat).",
+      "desc2": "These private Islamic schools play a vital role in educating Muslim youth, often integrating religious studies into the general curriculum. However, a key challenge is the shortage of specialized mathematics teachers, which prevents students from fully developing their mathematical potential.",
+      "desc3": "Prince of Songkla University recognizes this necessity and has established the Mobile Mathematics Project (Math Roadshow). The project aims to reduce educational gaps by directly sending mathematics experts from Prince of Songkla University, Pattani Campus, to organize training workshops and provide mathematics tutorial sessions for students directly at schools.",
+      "objectivesTitle": "Core Objectives of the Project",
+      "obj1": "To promote and develop students in private Islamic schools to acquire mathematical process skills and positive attitudes towards mathematics.",
+      "obj2": "To improve mathematics academic achievements of students in private Islamic schools.",
+      "obj3": "This project will help strengthen mathematical capabilities for students, opening opportunities for them to develop knowledge and abilities continuously and to their full potential in the future."
+    },
+    "years": {
+      "ms2025": "Math Roadshow 2025",
+      "ms2024": "Math Roadshow 2024",
+      "ms2023": "Math Roadshow 2023"
+    }
   }
 }

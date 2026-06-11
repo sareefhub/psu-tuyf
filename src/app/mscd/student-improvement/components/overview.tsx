@@ -44,7 +44,7 @@ export function StudentOverview() {
           <ProgramCard
             title="Math สัญจร"
             image="/images/mscd/student-improvement/match-sanchon.png"
-            href="#"
+            href="/mscd/student-improvement/math-sanchon"
             moreDetailText={t("programs.more_detail")}
             imageFit="contain"
             imageBg="bg-white dark:bg-muted/10"
