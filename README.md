@@ -1,3 +1,5 @@
+![PSU-TUYF Website Preview](public/images/website-psu-tuyf.png)
+
 # 🎓 โครงการ PSU-TUYF (Prince of Songkla University - TUYF Charitable Trust Fund Website)
 
 เว็บไซต์อย่างเป็นทางการของ **โครงการ PSU-TUYF** ซึ่งเป็นโครงการยกระดับคุณภาพการศึกษาและการวิจัยในสาขาคณิตศาสตร์ ภายใต้ความร่วมมือระหว่าง **มหาวิทยาลัยสงขลานครินทร์ (ม.อ.)** และ **กองทุนการกุศล TUYF (TUYF Charitable Trust Fund)**
@@ -33,34 +35,34 @@
 
 ```markdown
 src/
-├── app/                  # หน้าเพจหลักและ Routing ทั้งหมดของเว็บไซต์ (App Router)
-│   ├── home/             # หน้าแรก (Home Page)
-│   │   ├── components/   # UI Component ที่ใช้เฉพาะหน้า Home เท่านั้น (Colocation)
-│   │   └── page.tsx      # ไฟล์หลักของหน้าแรก
-│   ├── mscd/             # โครงการพัฒนาชุมชนอย่างยั่งยืนด้วยคณิตศาสตร์
-│   │   ├── components/   # UI Component ที่ใช้ร่วมกันเฉพาะในส่วนของ mscd
-│   │   └── page.tsx
-│   ├── mgss/             # โครงการสนับสนุนนักศึกษาระดับบัณฑิตศึกษา
-│   ├── algebra-enrichment/ # โครงการเสริมสร้างความเข้มแข็งทางพีชคณิต
-│   ├── about/            # เกี่ยวกับโครงการ PSU-TUYF
-│   ├── contact/          # ข้อมูลการติดต่อ
-│   ├── layout.tsx        # Root Layout หลักของระบบ (ครอบคลุมทุกหน้า)
-│   └── globals.css       # สไตล์รวมของระบบ (CSS Global)
+├── 📁 app/
+│   ├── 📁 home/
+│   │   ├── 📁 components/
+│   │   └── 📄 page.tsx
+│   ├── 📁 mscd/
+│   │   ├── 📁 components/
+│   │   └── 📄 page.tsx
+│   ├── 📁 mgss/
+│   ├── 📁 algebra-enrichment/
+│   ├── 📁 about/
+│   ├── 📁 contact/
+│   ├── 📄 layout.tsx
+│   └── 📄 globals.css
 │
-├── components/           # ส่วนประกอบ UI ที่นำกลับมาใช้ใหม่ข้ามหน้าอื่น ๆ ได้ (Shared Components)
-│   ├── ui/               # UI Elements พื้นฐานระดับล่าง เช่น ปุ่ม (button.tsx)
-│   ├── project-card.tsx  # การ์ดแสดงผลโครงการ/หลักสูตร
-│   ├── language-context.tsx # ระบบสลับภาษาของเว็บไซต์
-│   ├── scroll-to-top.tsx    # ปุ่มด่วนสำหรับเลื่อนหน้าจอกลับขึ้นด้านบน
-│   ├── site-header.tsx      # ส่วนหัวแสดงเมนูนำทางของเว็บไซต์
-│   └── site-footer.tsx      # ส่วนท้ายแสดงข้อมูลการติดต่อและลิขสิทธิ์
+├── 📁 components/
+│   ├── 📁 ui/
+│   ├── 📄 project-card.tsx
+│   ├── 📄 language-context.tsx
+│   ├── 📄 scroll-to-top.tsx
+│   ├── 📄 site-header.tsx
+│   └── 📄 site-footer.tsx
 │
-├── layout/               # โครงร่างสำหรับครอบหน้าเว็บเพื่อลดความซ้ำซ้อนของโค้ด (Layout Wrapper)
-│   └── main-layout.tsx   # เลย์เอาต์กลางที่รวบรวม SiteHeader, SiteFooter, และ ScrollToTop
+├── 📁 layout/
+│   └── 📄 main-layout.tsx
 │
-└── lib/                  # การตั้งค่าระบบ และฟังก์ชันตัวช่วย (Non-UI Configs)
-    ├── i18n.ts           # คอนฟิกจัดการระบบแปลสองภาษา (TH/EN)
-    └── utils.ts          # ฟังก์ชันช่วยเหลือทั่วไป (เช่น ฟังก์ชันรวม Class CSS)
+└── 📁 lib/
+    ├── 📄 i18n.ts
+    └── 📄 utils.ts
 ```
 
 ---
