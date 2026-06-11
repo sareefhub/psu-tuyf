@@ -36,14 +36,14 @@ export function StudentOverview() {
           <ProgramCard
             title="Excellence Math Camp"
             image="/images/mscd/student-improvement/excellence-match-camp.png"
-            href="#"
+            href="/mscd/student-improvement/excellence-math-camp"
             moreDetailText={t("programs.more_detail")}
             imageFit="contain"
             imageBg="bg-white dark:bg-muted/10"
           />
           <ProgramCard
             title="Math สัญจร"
-            image="/images/mscd/student-improvement/match-sj.png"
+            image="/images/mscd/student-improvement/match-sanchon.png"
             href="#"
             moreDetailText={t("programs.more_detail")}
             imageFit="contain"
