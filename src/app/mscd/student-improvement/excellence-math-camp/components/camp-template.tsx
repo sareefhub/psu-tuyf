@@ -1,6 +1,7 @@
 "use client"
 
 import { useState, useEffect } from "react"
+import Image from "next/image"
 import { useT } from "@/components/language-context"
 import { MainLayout } from "@/layout/main-layout"
 import { TabNavigation } from "@/components/tab-navigation"
@@ -337,9 +338,12 @@ function PostTestScores({ translationKey, images = [] }: Readonly<{ translationK
           <div className={`grid gap-8 ${getGridClass(visibleCount)} mx-auto`}>
             {images.map((src, index) => (
               <div key={src} className="flex justify-center w-full animate-fade-in">
-                <img 
+                <Image 
                   src={src} 
                   alt={`ตารางคะแนน Post-Test แผ่นที่ ${index + 1}`}
+                  width={800}
+                  height={600}
+                  sizes="(max-width: 768px) 100vw, 50vw"
                   className="w-full h-auto object-contain rounded-3xl shadow-sm border border-border/50"
                 />
               </div>
@@ -374,10 +378,12 @@ function ActivitiesGallery({ translationKey, images = [] }: Readonly<{ translati
                 key={src} 
                 className="group aspect-4/3 bg-secondary/35 rounded-3xl overflow-hidden border border-border/50 hover:border-accent/40 hover:shadow-xs transition-all duration-300 flex items-center justify-center relative"
               >
-                <img 
+                <Image 
                   src={src} 
                   alt={`ภาพกิจกรรมที่ ${index + 1}`}
-                  className="absolute inset-0 w-full h-full object-cover transition-opacity duration-300"
+                  fill
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                  className="object-cover transition-opacity duration-300 group-hover:opacity-90"
                 />
               </div>
             ))}
