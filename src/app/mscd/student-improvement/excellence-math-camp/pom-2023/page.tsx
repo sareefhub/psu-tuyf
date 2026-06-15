@@ -59,31 +59,41 @@ function PomOverview() {
   )
 }
 
-// 3. แท็บวัตถุประสงค์ (Objectives Section)
+// 3. แท็บวัตถุประสงค์ (Objectives Section - คุม UX/UI เหมือนหน้าตัวอย่าง bsc-scholarships)
 function ObjectivesSection() {
   const t = useT()
   const objectives = t("pom2023.objectivesList", { returnObjects: true }) as string[]
 
   return (
-    <section className="py-10 bg-background">
+    <section className="py-10 bg-background animate-fade-in">
       <div className="mx-auto max-w-7xl px-6">
-        <div className="text-center max-w-2xl mx-auto mb-12 space-y-3">
+        {/* หัวข้อสไตล์เดียวกับ bsc-scholarships */}
+        <div className="text-center max-w-2xl mx-auto mb-16 space-y-3">
           <h2 className="text-balance text-2xl font-bold tracking-tight text-primary sm:text-3xl">
             {t("pom2023.tabs.objectives")}
           </h2>
+          <p className="text-sm text-muted-foreground/80">
+            วัตถุประสงค์หลักของโครงการอบรมเข้มเพื่อเตรียมความพร้อมสอบคัดเลือก สอวน.
+          </p>
         </div>
-        <div className="max-w-4xl mx-auto border border-border/60 rounded-3xl p-6 sm:p-8 bg-card shadow-xs">
-          <div className="space-y-6 border-l border-accent/40 pl-6 ml-2">
-            {objectives.map((obj, index) => (
-              <div key={index} className="relative space-y-1">
-                {/* จุดสัญลักษณ์วงกลมบนเส้น Timeline */}
-                <span className="absolute -left-[31px] top-1.5 h-3.5 w-3.5 rounded-full bg-accent border-2 border-background" />
-                <p className="text-sm md:text-base leading-relaxed text-muted-foreground/90 text-pretty font-medium">
+
+        {/* เลย์เอาต์แสดงผลวัตถุประสงค์ในรูปแบบการ์ด Grid 2 คอลัมน์ */}
+        <div className="grid gap-6 md:grid-cols-2 max-w-4xl mx-auto">
+          {objectives.map((obj, index) => (
+            <div
+              key={index}
+              className="bg-card border border-border/50 rounded-2xl p-6 shadow-sm space-y-3 hover:border-accent/30 transition-all"
+            >
+              <div className="flex gap-3 items-start">
+                <span className="h-6 w-6 rounded-full bg-accent/10 flex items-center justify-center text-xs font-bold text-accent shrink-0">
+                  {index + 1}
+                </span>
+                <p className="text-xs text-foreground/90 leading-relaxed font-semibold">
                   {obj}
                 </p>
               </div>
-            ))}
-          </div>
+            </div>
+          ))}
         </div>
       </div>
     </section>
