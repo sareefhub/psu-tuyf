@@ -294,16 +294,23 @@ function PomAnnouncements({ translationKey, announcements }: Readonly<{ translat
 // 6. แท็บคะแนน Post-Test สูงสุด
 function PostTestScores({ translationKey, imageFolder }: Readonly<{ translationKey: string; imageFolder: string }>) {
   const t = useT()
-  // สร้าง State เก็บสถานะความผิดพลาดในการโหลดรูปภาพ (มี 2 รูป)
-  const [imageErrors, setImageErrors] = useState<boolean[]>([false, false])
+  // สร้าง State เก็บสถานะความผิดพลาดในการโหลดรูปภาพ (รองรับสูงสุด 3 รูป)
+  const [imageErrors, setImageErrors] = useState<boolean[]>([false, false, false])
   const images = [
     `/images/mscd/student-improvement/excellence-match-camp/${imageFolder}/post-test-1.png`,
     `/images/mscd/student-improvement/excellence-match-camp/${imageFolder}/post-test-2.png`,
+    `/images/mscd/student-improvement/excellence-match-camp/${imageFolder}/post-test-3.png`,
   ]
 
   // นับจำนวนรูปภาพที่โหลดได้สำเร็จ
   const visibleCount = images.filter((_, idx) => !imageErrors[idx]).length
-  const hasOnlyOneImage = visibleCount === 1
+
+  // คลาสการจัด Layout ของ Grid ตามจำนวนรูปภาพที่แสดงผลได้จริง
+  const getGridClass = (count: number) => {
+    if (count === 1) return "max-w-2xl grid-cols-1"
+    if (count === 2) return "max-w-5xl md:grid-cols-2"
+    return "max-w-7xl md:grid-cols-3" // สำหรับ 3 รูป
+  }
 
   return (
     <section className="py-10 bg-background animate-fade-in">
@@ -317,8 +324,8 @@ function PostTestScores({ translationKey, imageFolder }: Readonly<{ translationK
           </p>
         </div>
 
-        {/* หากเหลือเพียง 1 รูป ให้ใช้ grid-cols-1 ร่วมกับ max-w-2xl และ mx-auto เพื่อจัดรูปให้อยู่ตรงกลางอย่างสวยงาม */}
-        <div className={`grid gap-8 ${hasOnlyOneImage ? 'max-w-2xl grid-cols-1' : 'max-w-5xl md:grid-cols-2'} mx-auto`}>
+        {/* ปรับ Grid คลาสอย่างสมดุลตามจำนวนรูปภาพที่โหลดผ่าน */}
+        <div className={`grid gap-8 ${getGridClass(visibleCount)} mx-auto`}>
           {images.map((src, index) => {
             // หากรูปเกิด Error จะไม่ Render wrapper div ลงใน DOM เพื่อให้ CSS Grid จัดกึ่งกลางได้ถูกต้อง
             if (imageErrors[index]) return null
