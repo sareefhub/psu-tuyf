@@ -92,7 +92,7 @@ export default function ExcellenceMathCampPage() {
             <ProgramCard
               title={t("excellenceMathCamp.years.pom2023")}
               image="/images/mscd/student-improvement/excellence-match-camp/pom-2023.png"
-              href="#"
+              href="/mscd/student-improvement/excellence-math-camp/pom-2023"
               moreDetailText={t("programs.more_detail")}
               imageFit="contain"
               imageBg="bg-white dark:bg-muted/10"

@@ -944,5 +944,35 @@
       "ms2024": "Math Roadshow 2024",
       "ms2023": "Math Roadshow 2023"
     }
+  },
+  "pom2023": {
+    "title": "Intensive Training Project for POSN Exam Preparation in Mathematics (PSU-TUYF Pre-Olympic Math) 2023",
+    "subtitle": "Under PSU-TUYF: Mathematics for Sustainable Community Development",
+    "desc1": "The \"Pre Olympics\" Mathematics Project (PSU-TUYF: Mathematics for Sustainable Community Development 2023) is organized by the Department of Mathematics and Computer Science, Faculty of Science and Technology, Prince of Songkla University, Pattani Campus. This project stems from the recognition of the importance of promoting Thai youth with high potential in science and mathematics, particularly in the Southern Border Provinces. This aligns with the mission of the Promotion of Academic Olympiads and Development of Science Education Foundation (POSN) to develop high school students' potential to be ready as Thailand's representatives in international Olympiad competitions.",
+    "desc2": "The primary problem this project addresses is that students in private Islamic schools in the three southern border provinces (the main target group) have limited opportunities to access additional mathematics training for POSN selection exams. Furthermore, these schools lack mathematics teachers specialized in Olympiad mathematics, resulting in limited success rate and POSN Camp 1 participation. This situation restricts the potential development of youth in this region.",
+    "desc3": "Consequently, the Department of Mathematics and Computer Science recognizes the necessity of organizing training to prepare students for the POSN selection exam. Supported by the Mathematics for Sustainable Community Development project under PSU-TUYF, this initiative will increase opportunities for students in private Islamic schools in the Southern Border Provinces to fully develop their mathematical abilities and skills, leading to an increase in the number of students passing and participating in the POSN academic Olympiad project in the future.",
+    "tabs": {
+      "objectives": "Objectives",
+      "schedule": "Project Schedule",
+      "announcement": "Announcements",
+      "postTest": "Top Post-Test Scores",
+      "gallery": "Activities Gallery"
+    },
+    "objectivesList": [
+      "To prepare students with mathematical potential for the selection examination into Camp 1 of the POSN Academic Olympiad Foundation (Mathematics Division).",
+      "To promote and develop students in the three southern border provinces to have enhanced mathematical process skills."
+    ],
+    "scheduleList": [
+      { "date": "March 31, 2023", "detail": "Deadline for application submission (for students)" },
+      { "date": "April 10, 2023", "detail": "Announcement of qualified students (80 students and 40 reserves)" },
+      { "date": "April 30, 2023", "detail": "Deadline for enrollment confirmation (for qualified students)" },
+      { "date": "May 5, 2023", "detail": "Announcement of reserve list (if any vacancy occurs)" },
+      { "date": "May 12, 2023", "detail": "Student registration for training" },
+      { "date": "May 12 – 21, 2023", "detail": "Intensive training sessions" },
+      { "date": "May - June 2023", "detail": "Project summary meeting" }
+    ],
+    "announcementTitle": "Project Announcements",
+    "postTestTitle": "Top Post-Test Performers",
+    "galleryTitle": "Training Activities Gallery"
   }
 }
