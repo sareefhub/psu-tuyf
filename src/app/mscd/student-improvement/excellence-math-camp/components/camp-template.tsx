@@ -21,7 +21,7 @@ interface CampTemplateProps {
 }
 
 // 1. ส่วนแบนเนอร์ Hero ด้านบนสุดของเทมเพลต (คุมธีมเดียวกับ BscHero)
-function PomHero({ year, translationKey }: { year: string; translationKey: string }) {
+function PomHero({ year, translationKey }: Readonly<{ year: string; translationKey: string }>) {
   const t = useT()
 
   return (
@@ -44,7 +44,7 @@ function PomHero({ year, translationKey }: { year: string; translationKey: strin
 }
 
 // 2. ส่วนข้อมูลภาพรวมโครงการ (คุมธีมเดียวกับ ProjectOverview ใน bsc-scholarships)
-function PomOverview({ translationKey }: { translationKey: string }) {
+function PomOverview({ translationKey }: Readonly<{ translationKey: string }>) {
   const t = useT()
 
   return (
@@ -72,7 +72,7 @@ function PomOverview({ translationKey }: { translationKey: string }) {
 }
 
 // 3. แท็บวัตถุประสงค์ (Objectives Section)
-function ObjectivesSection({ translationKey }: { translationKey: string }) {
+function ObjectivesSection({ translationKey }: Readonly<{ translationKey: string }>) {
   const t = useT()
   const objectives = t(`${translationKey}.objectivesList`, { returnObjects: true }) as string[]
 
@@ -91,7 +91,7 @@ function ObjectivesSection({ translationKey }: { translationKey: string }) {
         <div className="grid gap-6 md:grid-cols-2 max-w-4xl mx-auto">
           {objectives.map((obj, index) => (
             <div
-              key={index}
+              key={obj}
               className="bg-card border border-border/50 rounded-2xl p-6 shadow-sm space-y-3 hover:border-accent/30 transition-all"
             >
               <div className="flex gap-3 items-start">
@@ -111,7 +111,7 @@ function ObjectivesSection({ translationKey }: { translationKey: string }) {
 }
 
 // 4. แท็บตารางดำเนินการตลอดทั้งโครงการ (Schedule Timeline)
-function ScheduleTimeline({ translationKey }: { translationKey: string }) {
+function ScheduleTimeline({ translationKey }: Readonly<{ translationKey: string }>) {
   const t = useT()
   const schedule = t(`${translationKey}.scheduleList`, { returnObjects: true }) as Array<{ date: string; detail: string }>
 
@@ -128,8 +128,8 @@ function ScheduleTimeline({ translationKey }: { translationKey: string }) {
         </div>
 
         <div className="relative border-l-2 border-accent/25 pl-8 ml-4 sm:ml-6 space-y-10">
-          {schedule.map((item, index) => (
-            <div key={index} className="relative">
+          {schedule.map((item) => (
+            <div key={`${item.date}-${item.detail}`} className="relative">
               <span className="absolute -left-10.25 top-1 flex h-6 w-6 items-center justify-center rounded-full bg-background border-2 border-accent">
                 <span className="h-2 w-2 rounded-full bg-accent" />
               </span>
@@ -150,7 +150,7 @@ function ScheduleTimeline({ translationKey }: { translationKey: string }) {
 }
 
 // 5. แท็บประกาศ (Announcements Section)
-function PomAnnouncements({ translationKey, announcements }: { translationKey: string; announcements: readonly AnnouncementItem[] }) {
+function PomAnnouncements({ translationKey, announcements }: Readonly<{ translationKey: string; announcements: readonly AnnouncementItem[] }>) {
   const t = useT()
   const [previewPdf, setPreviewPdf] = useState<{ title: string; url: string } | null>(null)
 
@@ -186,9 +186,9 @@ function PomAnnouncements({ translationKey, announcements }: { translationKey: s
 
         <div className="max-w-4xl mx-auto border border-border/60 rounded-3xl overflow-hidden bg-card shadow-xs">
           <div className="divide-y divide-border/40">
-            {announcements.map((item, index) => (
+            {announcements.map((item) => (
               <div
-                key={index}
+                key={item.title}
                 className="p-5 sm:p-6 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 hover:bg-secondary/30 transition-colors group"
               >
                 <div className="flex gap-4 items-start">
@@ -292,7 +292,7 @@ function PomAnnouncements({ translationKey, announcements }: { translationKey: s
 }
 
 // 6. แท็บคะแนน Post-Test สูงสุด
-function PostTestScores({ imageFolder }: { imageFolder: string }) {
+function PostTestScores({ imageFolder }: Readonly<{ imageFolder: string }>) {
   // สร้าง State เก็บสถานะความผิดพลาดในการโหลดรูปภาพ (มี 2 รูป)
   const [imageErrors, setImageErrors] = useState<boolean[]>([false, false])
   const images = [
@@ -314,7 +314,7 @@ function PostTestScores({ imageFolder }: { imageFolder: string }) {
             if (imageErrors[index]) return null
 
             return (
-              <div key={index} className="flex justify-center w-full animate-fade-in">
+              <div key={src} className="flex justify-center w-full animate-fade-in">
                 <img 
                   src={src} 
                   alt={`ตารางคะแนน Post-Test แผ่นที่ ${index + 1}`}
@@ -335,7 +335,7 @@ function PostTestScores({ imageFolder }: { imageFolder: string }) {
 }
 
 // 7. แท็บภาพกิจกรรม
-function ActivitiesGallery({ translationKey, imageFolder }: { translationKey: string; imageFolder: string }) {
+function ActivitiesGallery({ translationKey, imageFolder }: Readonly<{ translationKey: string; imageFolder: string }>) {
   const t = useT()
 
   const images = [
@@ -362,7 +362,7 @@ function ActivitiesGallery({ translationKey, imageFolder }: { translationKey: st
         <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 max-w-5xl mx-auto">
           {images.map((src, index) => (
             <div 
-              key={index} 
+              key={src} 
               className="group aspect-4/3 bg-secondary/35 rounded-3xl overflow-hidden border border-border/50 hover:border-accent/40 hover:shadow-xs transition-all duration-300 flex items-center justify-center relative"
             >
               <img 
