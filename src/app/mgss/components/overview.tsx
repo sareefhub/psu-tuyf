@@ -12,29 +12,28 @@ export function MgssOverview() {
   // ดึงลิสต์รายชื่อหลักสูตรคณิตศาสตร์ 3 หลักสูตรจากระบบแปลภาษา (Array Localization)
   const items = t("programDetails.mgss.items", { returnObjects: true }) as string[]
 
-  // ข้อมูลการ์ดนักศึกษาทุนทั้ง 3 หลักสูตร
-  // ระบุ ID ให้ตรงกับ Anchor Links เมนูนำทางด้านบนระบบ (Ph.D. Hatyai -> M.Sc. Hatyai -> M.Sc. Pattani)
+  // ข้อมูลการ์ดนักศึกษาทุนทั้ง 3 หลักสูตร เรียงลำดับจากซ้ายไปขวา: ป.โท ปัตตานี -> ป.โท หาดใหญ่ -> ป.เอก หาดใหญ่
   const cards = [
     {
       id: "mgss-0",
-      image: "/images/mgss/phd-student-hatyai.png",
-      title: lang === "en" ? "Ph.D. Students (Hat Yai Campus)" : "นักศึกษาระดับปริญญาเอก (วิทยาเขตหาดใหญ่)",
-      href: "/mgss/phd-hatyai",
-      priority: true, // โหลดรูปล่วงหน้าเพื่อความเร็วและแก้ไข LCP
+      image: "/images/mgss/master-student-pattani.png",
+      title: lang === "en" ? "M.Sc. Students (Pattani Campus)" : "นักศึกษาระดับปริญญาโท (วิทยาเขตปัตตานี)",
+      href: "/mgss/msc-pattani",
+      priority: true, // โหลดรูปปัตตานีล่วงหน้าเพื่อเพิ่มประสิทธิภาพความเร็ว (LCP)
     },
     {
       id: "mgss-1",
       image: "/images/mgss/master-student-hatyai.png",
       title: lang === "en" ? "M.Sc. Students (Hat Yai Campus)" : "นักศึกษาระดับปริญญาโท (วิทยาเขตหาดใหญ่)",
       href: "/mgss/msc-hatyai",
-      priority: true, // โหลดรูปล่วงหน้าเพื่อความเร็วและแก้ไข LCP
+      priority: true, // โหลดรูปหาดใหญ่ล่วงหน้าเพื่อลดความล่าช้าในการโหลดหน้าเว็บ
     },
     {
       id: "mgss-2",
-      image: "/images/mgss/master-student-pattani.png",
-      title: lang === "en" ? "M.Sc. Students (Pattani Campus)" : "นักศึกษาระดับปริญญาโท (วิทยาเขตปัตตานี)",
-      href: "/mgss/msc-pattani",
-      priority: true, // โหลดรูปล่วงหน้าตามการแจ้งเตือน LCP ของบราวเซอร์
+      image: "/images/mgss/phd-student-hatyai.png",
+      title: lang === "en" ? "Ph.D. Students (Hat Yai Campus)" : "นักศึกษาระดับปริญญาเอก (วิทยาเขตหาดใหญ่)",
+      href: "/mgss/phd-hatyai",
+      priority: true, // โหลดรูปหาดใหญ่ล่วงหน้าเพื่อลดความล่าช้าในการโหลดหน้าเว็บ
     },
   ]
 
