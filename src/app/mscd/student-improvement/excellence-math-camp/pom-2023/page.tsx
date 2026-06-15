@@ -218,7 +218,7 @@ function PomAnnouncements() {
                     className="inline-flex items-center justify-center gap-1.5 rounded-full border border-border bg-background px-4 py-2 text-xs font-bold text-primary hover:bg-secondary transition-all shadow-xs cursor-pointer"
                   >
                     <Eye className="h-3.5 w-3.5" />
-                    อ่านประกาศ
+                    เปิดอ่าน
                   </button>
                   <a
                     href={item.fileUrl}
