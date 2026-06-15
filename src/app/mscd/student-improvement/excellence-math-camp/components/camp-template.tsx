@@ -22,9 +22,18 @@ interface CampTemplateProps {
   readonly galleryImages?: readonly string[];
 }
 
-// 1. ส่วนแบนเนอร์ Hero ด้านบนสุดของเทมเพลต (คุมธีมเดียวกับ BscHero)
+// 1. ส่วนแบนเนอร์ Hero ด้านบนสุดของเทมเพลต (คุมธีมเดียวกับ MscdHero/StudentHero)
 function PomHero({ year, translationKey }: Readonly<{ year: string; translationKey: string }>) {
   const t = useT()
+
+  // แยกชื่อภาษาอังกฤษในวงเล็บออกมาเพื่อจัดสัดส่วนและขนาดตัวอักษรใหม่
+  const titleFull = t(`${translationKey}.title`)
+  const title = titleFull.includes(" (") ? titleFull.split(" (")[0] : titleFull
+
+  let subtitle = ""
+  if (titleFull.includes(" (")) {
+    subtitle = `(${titleFull.split(" (")[1]}`
+  }
 
   return (
     <section className="bg-primary text-primary-foreground relative overflow-hidden py-16 lg:py-20 animate-fade-in">
@@ -34,12 +43,18 @@ function PomHero({ year, translationKey }: Readonly<{ year: string; translationK
       <div className="mx-auto max-w-7xl px-6 relative z-10">
         <h1 className="text-balance text-3xl font-bold tracking-tight text-primary-foreground sm:text-4xl md:text-5xl lg:text-6xl leading-tight sm:leading-tight">
           <span className="block text-primary-foreground">
-            {t(`${translationKey}.title`)}
+            {title}
           </span>
-          <span className="block text-primary-foreground/80 text-lg sm:text-xl md:text-2xl lg:text-3xl font-normal mt-2 tracking-wide font-sans">
-            {t(`${translationKey}.subtitle`)}
-          </span>
+          {subtitle && (
+            <span className="block text-primary-foreground/80 text-lg sm:text-xl md:text-2xl lg:text-3xl font-normal mt-2 tracking-wide font-sans">
+              {subtitle}
+            </span>
+          )}
         </h1>
+
+        <p className="mt-6 max-w-3xl text-pretty text-sm font-medium leading-relaxed text-primary-foreground sm:text-base">
+          {t(`${translationKey}.subtitle`)}
+        </p>
       </div>
     </section>
   )
