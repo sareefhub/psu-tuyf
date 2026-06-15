@@ -100,32 +100,38 @@ function ObjectivesSection() {
   )
 }
 
-// 4. แท็บตารางดำเนินการตลอดทั้งโครงการ (Schedule Timeline)
+// 4. แท็บตารางดำเนินการตลอดทั้งโครงการ (Schedule Timeline - คุม UX/UI เหมือนหน้าตัวอย่าง bsc-scholarships)
 function ScheduleTimeline() {
   const t = useT()
   const schedule = t("pom2023.scheduleList", { returnObjects: true }) as Array<{ date: string; detail: string }>
 
   return (
-    <section className="py-10 bg-background">
-      <div className="mx-auto max-w-7xl px-6">
+    <section className="py-10 bg-background animate-fade-in">
+      <div className="mx-auto max-w-4xl px-6">
         <div className="text-center max-w-2xl mx-auto mb-12 space-y-3">
           <h2 className="text-balance text-2xl font-bold tracking-tight text-primary sm:text-3xl">
             {t("pom2023.tabs.schedule")}
           </h2>
+          <p className="text-sm text-muted-foreground/80">
+            ขั้นตอนการสมัครเข้าร่วมโครงการและการดำเนินงานอบรมตลอดหลักสูตร
+          </p>
         </div>
-        <div className="max-w-4xl mx-auto relative border-l border-border/80 ml-3 sm:ml-auto pl-8 space-y-8 py-2">
+
+        {/* เส้นนำสายตาของ Timeline คุมธีมเดียวกับ SelectionTimeline */}
+        <div className="relative border-l-2 border-accent/25 pl-8 ml-4 sm:ml-6 space-y-10">
           {schedule.map((item, index) => (
             <div key={index} className="relative">
-              {/* วงกลมระบุจุดในแนวตั้ง */}
-              <span className="absolute -left-[39px] top-1.5 h-4 w-4 rounded-full bg-primary border-4 border-background dark:border-card" />
-              
-              <div className="space-y-1.5 bg-secondary/30 p-5 rounded-2xl border border-border/40 hover:border-border transition-colors duration-200 shadow-2xs">
-                <span className="inline-block text-xs font-bold text-accent uppercase tracking-wider">
+              {/* วงกลมระบุจุดเชื่อมในสไตล์ B.Sc. Scholarships */}
+              <span className="absolute -left-10.25 top-1 flex h-6 w-6 items-center justify-center rounded-full bg-background border-2 border-accent">
+                <span className="h-2 w-2 rounded-full bg-accent" />
+              </span>
+              <div>
+                <span className="text-xs font-bold text-accent uppercase tracking-wider block">
                   {item.date}
                 </span>
-                <h4 className="text-sm md:text-base font-semibold text-primary">
+                <h3 className="text-base font-bold text-primary mt-1 leading-relaxed">
                   {item.detail}
-                </h4>
+                </h3>
               </div>
             </div>
           ))}
