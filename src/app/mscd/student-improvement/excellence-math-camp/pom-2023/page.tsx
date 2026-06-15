@@ -318,66 +318,62 @@ function PostTestScores() {
 function ActivitiesGallery() {
   const t = useT()
 
+  // รายการรูปภาพกิจกรรม 6 ภาพในอัลบั้ม
+  const images = [
+    "/images/mscd/student-improvement/excellence-match-camp/pom-2023-gallery-1.png",
+    "/images/mscd/student-improvement/excellence-match-camp/pom-2023-gallery-2.png",
+    "/images/mscd/student-improvement/excellence-match-camp/pom-2023-gallery-3.png",
+    "/images/mscd/student-improvement/excellence-match-camp/pom-2023-gallery-4.png",
+    "/images/mscd/student-improvement/excellence-match-camp/pom-2023-gallery-5.png",
+    "/images/mscd/student-improvement/excellence-match-camp/pom-2023-gallery-6.png",
+  ]
+
   return (
-    <section className="py-10 bg-background">
+    <section className="py-10 bg-background animate-fade-in">
       <div className="mx-auto max-w-7xl px-6">
         <div className="text-center max-w-2xl mx-auto mb-12 space-y-3">
           <h2 className="text-balance text-2xl font-bold tracking-tight text-primary sm:text-3xl">
             {t("pom2023.galleryTitle")}
           </h2>
           <p className="text-sm text-muted-foreground/80">
-            ประมวลภาพกิจกรรมการเรียนการสอน การอบรมเข้ม และการรับเกียรติบัตรของผู้เข้าร่วมอบรม
+            ประมวลภาพกิจกรรมการอบรมเข้มเตรียมสอบ สอวน. วิชาคณิตศาสตร์ ประจำปี 2566
           </p>
         </div>
 
-        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 max-w-5xl mx-auto pt-4">
-          {/* การ์ดภาพ 1 */}
-          <div className="group border border-border/60 rounded-3xl overflow-hidden hover:border-accent/40 hover:shadow-xs transition-all duration-300">
-            <div className="h-48 bg-slate-200 dark:bg-muted/20 relative flex items-center justify-center">
-              <ImageIcon className="h-12 w-12 text-slate-400 dark:text-slate-600 group-hover:scale-110 transition-transform duration-300" />
-              <div className="absolute inset-0 bg-primary/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                <span className="text-xs font-semibold bg-primary/95 text-primary-foreground px-3 py-1.5 rounded-full border border-border/40">
-                  ดูภาพขนาดเต็ม
+        {/* แกลลอรีรูปภาพแบบ Grid 3 คอลัมน์ ไม่มีคำอธิบายใดๆ */}
+        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 max-w-5xl mx-auto">
+          {images.map((src, index) => (
+            <div 
+              key={index} 
+              className="group aspect-4/3 bg-secondary/35 rounded-3xl overflow-hidden border border-border/50 hover:border-accent/40 hover:shadow-xs transition-all duration-300 flex items-center justify-center relative"
+            >
+              <img 
+                src={src} 
+                alt={`ภาพกิจกรรมที่ ${index + 1}`}
+                className="absolute inset-0 w-full h-full object-cover opacity-0 transition-opacity duration-300"
+                onError={(e) => {
+                  // ซ่อนรูปภาพถ้ารูปยังไม่พร้อมในโฟลเดอร์ เพื่อป้องกันรูปเสีย
+                  e.currentTarget.style.display = 'none';
+                }}
+                onLoad={(e) => {
+                  // แสดงรูปและซ่อนไอคอนด้านหลังเมื่อรูปโหลดสำเร็จ
+                  e.currentTarget.classList.remove('opacity-0');
+                  e.currentTarget.classList.add('opacity-100');
+                  const icon = e.currentTarget.parentElement?.querySelector('.gallery-placeholder-icon');
+                  if (icon) {
+                    (icon as HTMLElement).style.display = 'none';
+                  }
+                }}
+              />
+              {/* แสดงไอคอนรูปภาพเป็นสัญญลักษณ์ placeholder เมื่อไม่มีรูปจริง */}
+              <div className="gallery-placeholder-icon flex flex-col items-center gap-2 text-muted-foreground/60 p-4 text-center">
+                <ImageIcon className="h-10 w-10 text-slate-400 dark:text-slate-600" />
+                <span className="text-[10px] font-mono select-none">
+                  pom-2023-gallery-{index + 1}.png
                 </span>
               </div>
             </div>
-            <div className="p-4 bg-card">
-              <h4 className="text-sm font-bold text-primary mb-1">บรรยากาศการบรรยายคณิตศาสตร์โอลิมปิก</h4>
-              <p className="text-xs text-muted-foreground">การฝึกฝนโจทย์พีชคณิตและเรขาคณิตขั้นสูงโดยอาจารย์ผู้เชี่ยวชาญ</p>
-            </div>
-          </div>
-
-          {/* การ์ดภาพ 2 */}
-          <div className="group border border-border/60 rounded-3xl overflow-hidden hover:border-accent/40 hover:shadow-xs transition-all duration-300">
-            <div className="h-48 bg-slate-200 dark:bg-muted/20 relative flex items-center justify-center">
-              <ImageIcon className="h-12 w-12 text-slate-400 dark:text-slate-600 group-hover:scale-110 transition-transform duration-300" />
-              <div className="absolute inset-0 bg-primary/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                <span className="text-xs font-semibold bg-primary/95 text-primary-foreground px-3 py-1.5 rounded-full border border-border/40">
-                  ดูภาพขนาดเต็ม
-                </span>
-              </div>
-            </div>
-            <div className="p-4 bg-card">
-              <h4 className="text-sm font-bold text-primary mb-1">กิจกรรมกลุ่มระดมความคิดและโจทย์ปัญหา</h4>
-              <p className="text-xs text-muted-foreground">นักเรียนร่วมกันแลกเปลี่ยนแนวทางการพิสูจน์โจทย์และเทคนิคการแก้ปัญหา</p>
-            </div>
-          </div>
-
-          {/* การ์ดภาพ 3 */}
-          <div className="group border border-border/60 rounded-3xl overflow-hidden hover:border-accent/40 hover:shadow-xs transition-all duration-300">
-            <div className="h-48 bg-slate-200 dark:bg-muted/20 relative flex items-center justify-center">
-              <ImageIcon className="h-12 w-12 text-slate-400 dark:text-slate-600 group-hover:scale-110 transition-transform duration-300" />
-              <div className="absolute inset-0 bg-primary/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                <span className="text-xs font-semibold bg-primary/95 text-primary-foreground px-3 py-1.5 rounded-full border border-border/40">
-                  ดูภาพขนาดเต็ม
-                </span>
-              </div>
-            </div>
-            <div className="p-4 bg-card">
-              <h4 className="text-sm font-bold text-primary mb-1">พิธีปิดและมอบเกียรติบัตรผู้เข้าร่วมอบรม</h4>
-              <p className="text-xs text-muted-foreground">ความยินดีและความสำเร็จในการจบค่ายเตรียมความพร้อม สอวน. ค่าย 1</p>
-            </div>
-          </div>
+          ))}
         </div>
       </div>
     </section>
