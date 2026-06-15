@@ -4,12 +4,12 @@ import { useLanguage } from "@/components/language-context"
 import Image from "next/image"
 
 // นำเข้าไฟล์ภาพสถิติแบบ Static เพื่อใช้ประโยชน์ในการคำนวณอัตราส่วนภาพ ป้องกันปัญหา CLS
-import statsImg1 from "../../../../public/images/mgss/student-stats-1.png"
-import statsImg2 from "../../../../public/images/mgss/student-stats-2.png"
-import statsImg3 from "../../../../public/images/mgss/student-stats-3.png"
-import statsImg4 from "../../../../public/images/mgss/student-stats-4.png"
-import statsImg5 from "../../../../public/images/mgss/student-stats-5.png"
-import statsImg6 from "../../../../public/images/mgss/student-stats-6.png"
+import statsImg1 from "../../../../../public/images/mgss/student-stats-1.png"
+import statsImg2 from "../../../../../public/images/mgss/student-stats-2.png"
+import statsImg3 from "../../../../../public/images/mgss/student-stats-3.png"
+import statsImg4 from "../../../../../public/images/mgss/student-stats-4.png"
+import statsImg5 from "../../../../../public/images/mgss/student-stats-5.png"
+import statsImg6 from "../../../../../public/images/mgss/student-stats-6.png"
 
 // อาเรย์ข้อมูลรูปภาพสถิตินักศึกษาทุนปัจจุบัน (ใช้ภาพที่นำเข้าแบบ Static)
 const activeImages = [

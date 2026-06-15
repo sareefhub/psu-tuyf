@@ -3,9 +3,9 @@
 import { useT } from "@/components/language-context"
 // นำเข้า Image และไฟล์ภาพสถิติแบบ Static เพื่อใช้ประโยชน์ในการคำนวณอัตราส่วนภาพ ป้องกันปัญหา CLS
 import Image from "next/image"
-import statsImg1 from "../../../../../public/images/mscd/bsc-scholarships/scholarship-student-stats-1.png"
-import statsImg2 from "../../../../../public/images/mscd/bsc-scholarships/scholarship-student-stats-2.png"
-import statsImg3 from "../../../../../public/images/mscd/bsc-scholarships/scholarship-student-stats-3.png"
+import statsImg1 from "../../../../../../public/images/mscd/bsc-scholarships/scholarship-student-stats-1.png"
+import statsImg2 from "../../../../../../public/images/mscd/bsc-scholarships/scholarship-student-stats-2.png"
+import statsImg3 from "../../../../../../public/images/mscd/bsc-scholarships/scholarship-student-stats-3.png"
 
 export function SelectionStatistics() {
   const t = useT()
