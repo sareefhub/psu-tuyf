@@ -1034,5 +1034,35 @@
     "announcementTitle": "Project Announcements",
     "postTestTitle": "Top Post-Test Performers",
     "galleryTitle": "Training Activities Gallery"
+  },
+  "emc2026": {
+    "title": "Intensive Training Project for Excellence in Mathematics (Excellence Math Camp) 2026",
+    "subtitle": "Under PSU-TUYF: Mathematics for Sustainable Community Development",
+    "desc1": "The Intensive Training Project for Excellence in Mathematics (Excellence Math Camp) under the concept \"PSU-TUYF: Mathematics for Sustainable Community Development\" is organized by the Department of Mathematics and Computer Science, Faculty of Science and Technology, Prince of Songkla University, Pattani Campus.",
+    "desc2": "This project focuses on developing advanced mathematical potential for students in private Islamic schools in the three Southern Border Provinces (Yala, Pattani, Narathiwat) who are entering grades 8 - 11 (M.2 - M.5) in the academic year 2026, to prepare them for both national and international mathematics competitions and strengthen mathematical process skills.",
+    "desc3": "Participants will receive intensive tutoring from experts, practice complex and diverse problems, and build a network of peer students sharing the same interest in mathematics. The project is free of charge, supporting lunch, dinner, snacks, and accommodation throughout the 10 days of training.",
+    "tabs": {
+      "objectives": "Objectives",
+      "schedule": "Project Schedule",
+      "announcement": "Announcements",
+      "postTest": "Top Post-Test Scores",
+      "gallery": "Activities Gallery"
+    },
+    "objectivesList": [
+      "To prepare students with mathematical potential for participating in national and international mathematics competitions.",
+      "To promote and develop students in the three southern border provinces to have enhanced mathematical process skills."
+    ],
+    "scheduleList": [
+      { "date": "March 29, 2026", "detail": "Deadline for application submission (for students)" },
+      { "date": "March 31, 2026", "detail": "Announcement of qualified students (40 students and 10 reserves)" },
+      { "date": "April 2, 2026", "detail": "Deadline for enrollment confirmation (for qualified students)" },
+      { "date": "April 3, 2026", "detail": "Announcement of qualified students in reserve list (if any vacancy occurs)" },
+      { "date": "April 17, 2026", "detail": "Student registration for training" },
+      { "date": "April 17 – 26, 2026", "detail": "Intensive training sessions" },
+      { "date": "April - May 2026", "detail": "Project summary meeting" }
+    ],
+    "announcementTitle": "Project Announcements",
+    "postTestTitle": "Top Post-Test Performers",
+    "galleryTitle": "Training Activities Gallery"
   }
 }
