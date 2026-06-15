@@ -297,8 +297,6 @@ function PomAnnouncements({ translationKey, announcements }: Readonly<{ translat
 function PostTestScores({ translationKey, images = [] }: Readonly<{ translationKey: string; images?: readonly string[] }>) {
   const t = useT()
 
-  if (images.length === 0) return null
-
   const visibleCount = images.length
 
   // คลาสการจัด Layout ของ Grid ตามจำนวนรูปภาพที่แสดงผลได้จริง
@@ -320,18 +318,19 @@ function PostTestScores({ translationKey, images = [] }: Readonly<{ translationK
           </p>
         </div>
 
-        {/* ปรับ Grid คลาสอย่างสมดุลตามจำนวนรูปภาพที่มีอยู่จริง */}
-        <div className={`grid gap-8 ${getGridClass(visibleCount)} mx-auto`}>
-          {images.map((src, index) => (
-            <div key={src} className="flex justify-center w-full animate-fade-in">
-              <img 
-                src={src} 
-                alt={`ตารางคะแนน Post-Test แผ่นที่ ${index + 1}`}
-                className="w-full h-auto object-contain rounded-3xl shadow-sm border border-border/50"
-              />
-            </div>
-          ))}
-        </div>
+        {visibleCount > 0 && (
+          <div className={`grid gap-8 ${getGridClass(visibleCount)} mx-auto`}>
+            {images.map((src, index) => (
+              <div key={src} className="flex justify-center w-full animate-fade-in">
+                <img 
+                  src={src} 
+                  alt={`ตารางคะแนน Post-Test แผ่นที่ ${index + 1}`}
+                  className="w-full h-auto object-contain rounded-3xl shadow-sm border border-border/50"
+                />
+              </div>
+            ))}
+          </div>
+        )}
       </div>
     </section>
   )
@@ -340,8 +339,6 @@ function PostTestScores({ translationKey, images = [] }: Readonly<{ translationK
 // 7. แท็บภาพกิจกรรม
 function ActivitiesGallery({ translationKey, images = [] }: Readonly<{ translationKey: string; images?: readonly string[] }>) {
   const t = useT()
-
-  if (images.length === 0) return null
 
   return (
     <section className="py-10 bg-background animate-fade-in">
@@ -355,20 +352,22 @@ function ActivitiesGallery({ translationKey, images = [] }: Readonly<{ translati
           </p>
         </div>
 
-        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 max-w-5xl mx-auto">
-          {images.map((src, index) => (
-            <div 
-              key={src} 
-              className="group aspect-4/3 bg-secondary/35 rounded-3xl overflow-hidden border border-border/50 hover:border-accent/40 hover:shadow-xs transition-all duration-300 flex items-center justify-center relative"
-            >
-              <img 
-                src={src} 
-                alt={`ภาพกิจกรรมที่ ${index + 1}`}
-                className="absolute inset-0 w-full h-full object-cover transition-opacity duration-300"
-              />
-            </div>
-          ))}
-        </div>
+        {images.length > 0 && (
+          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 max-w-5xl mx-auto">
+            {images.map((src, index) => (
+              <div 
+                key={src} 
+                className="group aspect-4/3 bg-secondary/35 rounded-3xl overflow-hidden border border-border/50 hover:border-accent/40 hover:shadow-xs transition-all duration-300 flex items-center justify-center relative"
+              >
+                <img 
+                  src={src} 
+                  alt={`ภาพกิจกรรมที่ ${index + 1}`}
+                  className="absolute inset-0 w-full h-full object-cover transition-opacity duration-300"
+                />
+              </div>
+            ))}
+          </div>
+        )}
       </div>
     </section>
   )
@@ -383,8 +382,8 @@ export function CampTemplate({ year, translationKey, imageFolder, announcements,
     { id: "objectives", key: `${translationKey}.tabs.objectives` },
     { id: "schedule", key: `${translationKey}.tabs.schedule` },
     { id: "announcement", key: `${translationKey}.tabs.announcement` },
-    ...(postTestImages.length > 0 ? [{ id: "postTest" as const, key: `${translationKey}.tabs.postTest` }] : []),
-    ...(galleryImages.length > 0 ? [{ id: "gallery" as const, key: `${translationKey}.tabs.gallery` }] : []),
+    { id: "postTest", key: `${translationKey}.tabs.postTest` },
+    { id: "gallery", key: `${translationKey}.tabs.gallery` },
   ] as const
 
   return (
@@ -404,10 +403,10 @@ export function CampTemplate({ year, translationKey, imageFolder, announcements,
         {activeTab === "announcement" && (
           <PomAnnouncements translationKey={translationKey} announcements={announcements} />
         )}
-        {activeTab === "postTest" && postTestImages.length > 0 && (
+        {activeTab === "postTest" && (
           <PostTestScores translationKey={translationKey} images={postTestImages} />
         )}
-        {activeTab === "gallery" && galleryImages.length > 0 && (
+        {activeTab === "gallery" && (
           <ActivitiesGallery translationKey={translationKey} images={galleryImages} />
         )}
       </div>
