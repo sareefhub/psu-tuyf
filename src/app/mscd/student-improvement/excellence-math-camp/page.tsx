@@ -68,7 +68,7 @@ export default function ExcellenceMathCampPage() {
             <ProgramCard
               title={t("excellenceMathCamp.years.emc2026")}
               image="/images/mscd/student-improvement/excellence-match-camp/emc-2026.png"
-              href="#"
+              href="/mscd/student-improvement/excellence-math-camp/emc-2026"
               moreDetailText={t("programs.more_detail")}
               imageFit="contain"
               imageBg="bg-white dark:bg-muted/10"
@@ -76,7 +76,7 @@ export default function ExcellenceMathCampPage() {
             <ProgramCard
               title={t("excellenceMathCamp.years.emc2025")}
               image="/images/mscd/student-improvement/excellence-match-camp/emc-2025.png"
-              href="#"
+              href="/mscd/student-improvement/excellence-math-camp/emc-2025"
               moreDetailText={t("programs.more_detail")}
               imageFit="contain"
               imageBg="bg-white dark:bg-muted/10"
@@ -84,7 +84,7 @@ export default function ExcellenceMathCampPage() {
             <ProgramCard
               title={t("excellenceMathCamp.years.pom2024")}
               image="/images/mscd/student-improvement/excellence-match-camp/pom-2024.png"
-              href="#"
+              href="/mscd/student-improvement/excellence-math-camp/pom-2024"
               moreDetailText={t("programs.more_detail")}
               imageFit="contain"
               imageBg="bg-white dark:bg-muted/10"
