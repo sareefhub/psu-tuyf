@@ -295,19 +295,29 @@ function PomAnnouncements() {
 
 // 6. แท็บคะแนน Post-Test สูงสุด (Post-Test Scores Section)
 function PostTestScores() {
+  const images = [
+    "/images/mscd/student-improvement/excellence-match-camp/pom-2023/post-test-1.png",
+    "/images/mscd/student-improvement/excellence-match-camp/pom-2023/post-test-2.png",
+  ]
+
   return (
     <section className="py-10 bg-background animate-fade-in">
-      <div className="mx-auto max-w-7xl px-6 flex justify-center">
-        <div className="max-w-4xl w-full flex justify-center">
-          <img 
-            src="/images/mscd/student-improvement/excellence-match-camp/pom-2023-posttest.png" 
-            alt="ตารางคะแนน Post-Test"
-            className="w-full h-auto object-contain rounded-3xl shadow-sm border border-border/50"
-            onError={(e) => {
-              // ซ่อนภาพเพื่อป้องกันการแสดงรูปพังหากยังไม่มีไฟล์ภาพอยู่ในโฟลเดอร์
-              e.currentTarget.style.display = 'none';
-            }}
-          />
+      <div className="mx-auto max-w-7xl px-6">
+        {/* แสดงผลรูปภาพคะแนน Post-Test 2 รูปในแบบ Grid 2 คอลัมน์ (หรือแนวตั้งบนอุปกรณ์มือถือ) */}
+        <div className="grid gap-8 md:grid-cols-2 max-w-5xl mx-auto">
+          {images.map((src, index) => (
+            <div key={index} className="flex justify-center w-full">
+              <img 
+                src={src} 
+                alt={`ตารางคะแนน Post-Test แผ่นที่ ${index + 1}`}
+                className="w-full h-auto object-contain rounded-3xl shadow-sm border border-border/50"
+                onError={(e) => {
+                  // ซ่อนภาพเพื่อป้องกันการแสดงรูปพังหากยังไม่มีไฟล์ภาพอยู่ในโฟลเดอร์
+                  e.currentTarget.style.display = 'none';
+                }}
+              />
+            </div>
+          ))}
         </div>
       </div>
     </section>
