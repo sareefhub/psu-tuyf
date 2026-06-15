@@ -1064,5 +1064,64 @@
     "announcementTitle": "Project Announcements",
     "postTestTitle": "Top Post-Test Performers",
     "galleryTitle": "Training Activities Gallery"
+  },
+  "ms2023": {
+    "title": "Mobile Mathematics Project (Math Roadshow) 2023",
+    "subtitle": "Under PSU-TUYF: Mathematics for Sustainable Community Development",
+    "desc1": "The Mobile Mathematics Project (Math Roadshow) is operated by the Department of Mathematics and Computer Science, Faculty of Science and Technology, Prince of Songkla University, Pattani Campus, supported by the PSU-TUYF Charitable Trust Fund. It is committed to elevating mathematics education for students in private Islamic schools in the Southern Border Provinces (Pattani, Yala, and Narathiwat).",
+    "desc2": "These private Islamic schools play a vital role in educating Muslim youth, often integrating religious studies into the general curriculum. However, a key challenge is the shortage of specialized mathematics teachers, which prevents students from fully developing their mathematical potential.",
+    "desc3": "Prince of Songkla University recognizes this necessity and has established the Mobile Mathematics Project (Math Roadshow). The project aims to reduce educational gaps by directly sending mathematics experts from Prince of Songkla University, Pattani Campus, to organize training workshops and provide mathematics tutorial sessions for students directly at schools.",
+    "tabs": {
+      "overview": "Overview",
+      "info": "Project Info",
+      "staff": "Working Committee",
+      "announcement": "Announcements",
+      "gallery": "Activities Gallery"
+    },
+    "objectivesTitle": "Core Objectives of the Project",
+    "objectivesList": [
+      "To promote and develop students in private Islamic schools to acquire mathematical process skills and positive attitudes towards mathematics.",
+      "To improve mathematics academic achievements of students in private Islamic schools."
+    ],
+    "timeLocationTitle": "Date & Venue",
+    "timeLocationDetail": "At selected schools participating in the Mobile Mathematics Project (Math Roadshow) during Semester 1/2023 (Academic Year 2566)",
+    "participantsTitle": "Participants",
+    "participantsDetail": "Grade 12 (M.6) students in Semester 1/2566 of private Islamic schools under the Office of the Private Education Commission in the Southern Border Provinces (Pattani, Yala, and Narathiwat), totaling no less than 400 students.",
+    "expectedOutcomesTitle": "Expected Outcomes",
+    "expectedOutcomesList": [
+      "Students achieve higher academic performance in mathematics.",
+      "Students gain better mathematical knowledge to score well in various examinations.",
+      "Students possess knowledge, characteristics, and desired competencies according to the Basic Education Core Curriculum."
+    ],
+    "speakersTitle": "Speakers",
+    "speakersList": [
+      "Assoc. Prof. Dr. Aniruth Phon-on",
+      "Assoc. Prof. Dr. Areeyut Sama-ae",
+      "Asst. Prof. Dr. Nifatmah Makaje",
+      "Asst. Prof. Dr. Areena Hasanee",
+      "Asst. Prof. Dr. Noorin Deureh",
+      "Asst. Prof. Dr. Kittisak Thinpan",
+      "Asst. Prof. Dr. Saufee Busaman",
+      "Asst. Prof. Dr. Kittiya Khongkrapan",
+      "Dr. Chadapim Potaphanlert",
+      "Dr. Siriprapa Rittirak",
+      "Assoc. Prof. Dr. Phakhwan Riyapan"
+    ],
+    "committeesTitle": "Working Committee",
+    "committeesList": [
+      "Assoc. Prof. Dr. Aniruth Phon-on",
+      "Assoc. Prof. Dr. Areeyut Sama-ae",
+      "Asst. Prof. Dr. Nifatmah Makaje",
+      "Asst. Prof. Dr. Areena Hasanee",
+      "Asst. Prof. Dr. Kittisak Thinpan",
+      "Asst. Prof. Dr. Saufee Busaman",
+      "Asst. Prof. Dr. Chadapim Potaphanlert",
+      "Asst. Prof. Dr. Siriprapa Rittirak",
+      "Asst. Prof. Dr. Kittiya Khongkrapan",
+      "Asst. Prof. Dr. Noorin Deureh",
+      "Assoc. Prof. Dr. Phakhwan Riyapan"
+    ],
+    "announcementTitle": "Project Announcements",
+    "galleryTitle": "Mobile Mathematics Gallery"
   }
 }

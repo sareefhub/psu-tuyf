@@ -109,7 +109,7 @@ export default function MathSanchonPage() {
             <ProgramCard
               title={t("mathSanchon.years.ms2023")}
               image="/images/mscd/student-improvement/match-sanchon/ms-2023.png"
-              href="#"
+              href="/mscd/student-improvement/math-sanchon/ms-2023"
               moreDetailText={t("programs.more_detail")}
             />
           </div>
