@@ -18,6 +18,8 @@ interface CampTemplateProps {
   readonly translationKey: string;
   readonly imageFolder: string;
   readonly announcements: readonly AnnouncementItem[];
+  readonly postTestImages?: readonly string[];
+  readonly galleryImages?: readonly string[];
 }
 
 // 1. ส่วนแบนเนอร์ Hero ด้านบนสุดของเทมเพลต (คุมธีมเดียวกับ BscHero)
@@ -292,24 +294,18 @@ function PomAnnouncements({ translationKey, announcements }: Readonly<{ translat
 }
 
 // 6. แท็บคะแนน Post-Test สูงสุด
-function PostTestScores({ translationKey, imageFolder }: Readonly<{ translationKey: string; imageFolder: string }>) {
+function PostTestScores({ translationKey, images = [] }: Readonly<{ translationKey: string; images?: readonly string[] }>) {
   const t = useT()
-  // สร้าง State เก็บสถานะความผิดพลาดในการโหลดรูปภาพ (รองรับสูงสุด 3 รูป)
-  const [imageErrors, setImageErrors] = useState<boolean[]>([false, false, false])
-  const images = [
-    `/images/mscd/student-improvement/excellence-match-camp/${imageFolder}/post-test-1.png`,
-    `/images/mscd/student-improvement/excellence-match-camp/${imageFolder}/post-test-2.png`,
-    `/images/mscd/student-improvement/excellence-match-camp/${imageFolder}/post-test-3.png`,
-  ]
 
-  // นับจำนวนรูปภาพที่โหลดได้สำเร็จ
-  const visibleCount = images.filter((_, idx) => !imageErrors[idx]).length
+  if (images.length === 0) return null
+
+  const visibleCount = images.length
 
   // คลาสการจัด Layout ของ Grid ตามจำนวนรูปภาพที่แสดงผลได้จริง
   const getGridClass = (count: number) => {
     if (count === 1) return "max-w-2xl grid-cols-1"
     if (count === 2) return "max-w-5xl md:grid-cols-2"
-    return "max-w-7xl md:grid-cols-3" // สำหรับ 3 รูป
+    return "max-w-7xl md:grid-cols-3"
   }
 
   return (
@@ -324,27 +320,17 @@ function PostTestScores({ translationKey, imageFolder }: Readonly<{ translationK
           </p>
         </div>
 
-        {/* ปรับ Grid คลาสอย่างสมดุลตามจำนวนรูปภาพที่โหลดผ่าน */}
+        {/* ปรับ Grid คลาสอย่างสมดุลตามจำนวนรูปภาพที่มีอยู่จริง */}
         <div className={`grid gap-8 ${getGridClass(visibleCount)} mx-auto`}>
-          {images.map((src, index) => {
-            // หากรูปเกิด Error จะไม่ Render wrapper div ลงใน DOM เพื่อให้ CSS Grid จัดกึ่งกลางได้ถูกต้อง
-            if (imageErrors[index]) return null
-
-            return (
-              <div key={src} className="flex justify-center w-full animate-fade-in">
-                <img 
-                  src={src} 
-                  alt={`ตารางคะแนน Post-Test แผ่นที่ ${index + 1}`}
-                  className="w-full h-auto object-contain rounded-3xl shadow-sm border border-border/50"
-                  onError={() => {
-                    const newErrors = [...imageErrors]
-                    newErrors[index] = true
-                    setImageErrors(newErrors)
-                  }}
-                />
-              </div>
-            )
-          })}
+          {images.map((src, index) => (
+            <div key={src} className="flex justify-center w-full animate-fade-in">
+              <img 
+                src={src} 
+                alt={`ตารางคะแนน Post-Test แผ่นที่ ${index + 1}`}
+                className="w-full h-auto object-contain rounded-3xl shadow-sm border border-border/50"
+              />
+            </div>
+          ))}
         </div>
       </div>
     </section>
@@ -352,17 +338,10 @@ function PostTestScores({ translationKey, imageFolder }: Readonly<{ translationK
 }
 
 // 7. แท็บภาพกิจกรรม
-function ActivitiesGallery({ translationKey, imageFolder }: Readonly<{ translationKey: string; imageFolder: string }>) {
+function ActivitiesGallery({ translationKey, images = [] }: Readonly<{ translationKey: string; images?: readonly string[] }>) {
   const t = useT()
 
-  const images = [
-    `/images/mscd/student-improvement/excellence-match-camp/${imageFolder}-gallery-1.png`,
-    `/images/mscd/student-improvement/excellence-match-camp/${imageFolder}-gallery-2.png`,
-    `/images/mscd/student-improvement/excellence-match-camp/${imageFolder}-gallery-3.png`,
-    `/images/mscd/student-improvement/excellence-match-camp/${imageFolder}-gallery-4.png`,
-    `/images/mscd/student-improvement/excellence-match-camp/${imageFolder}-gallery-5.png`,
-    `/images/mscd/student-improvement/excellence-match-camp/${imageFolder}-gallery-6.png`,
-  ]
+  if (images.length === 0) return null
 
   return (
     <section className="py-10 bg-background animate-fade-in">
@@ -385,25 +364,8 @@ function ActivitiesGallery({ translationKey, imageFolder }: Readonly<{ translati
               <img 
                 src={src} 
                 alt={`ภาพกิจกรรมที่ ${index + 1}`}
-                className="absolute inset-0 w-full h-full object-cover opacity-0 transition-opacity duration-300"
-                onError={(e) => {
-                  e.currentTarget.style.display = 'none';
-                }}
-                onLoad={(e) => {
-                  e.currentTarget.classList.remove('opacity-0');
-                  e.currentTarget.classList.add('opacity-100');
-                  const icon = e.currentTarget.parentElement?.querySelector('.gallery-placeholder-icon');
-                  if (icon) {
-                    (icon as HTMLElement).style.display = 'none';
-                  }
-                }}
+                className="absolute inset-0 w-full h-full object-cover transition-opacity duration-300"
               />
-              <div className="gallery-placeholder-icon flex flex-col items-center gap-2 text-muted-foreground/60 p-4 text-center">
-                <ImageIcon className="h-10 w-10 text-slate-400 dark:text-slate-600" />
-                <span className="text-[10px] font-mono select-none">
-                  {imageFolder}-gallery-{index + 1}.png
-                </span>
-              </div>
             </div>
           ))}
         </div>
@@ -413,7 +375,7 @@ function ActivitiesGallery({ translationKey, imageFolder }: Readonly<{ translati
 }
 
 // 8. คอมโพเนนต์หลักที่ทำหน้าที่รวมศูนย์และประมวลผล (Template Controller)
-export function CampTemplate({ year, translationKey, imageFolder, announcements }: CampTemplateProps) {
+export function CampTemplate({ year, translationKey, imageFolder, announcements, postTestImages = [], galleryImages = [] }: CampTemplateProps) {
   const t = useT()
   const [activeTab, setActiveTab] = useState<"objectives" | "schedule" | "announcement" | "postTest" | "gallery">("objectives")
 
@@ -421,8 +383,8 @@ export function CampTemplate({ year, translationKey, imageFolder, announcements 
     { id: "objectives", key: `${translationKey}.tabs.objectives` },
     { id: "schedule", key: `${translationKey}.tabs.schedule` },
     { id: "announcement", key: `${translationKey}.tabs.announcement` },
-    { id: "postTest", key: `${translationKey}.tabs.postTest` },
-    { id: "gallery", key: `${translationKey}.tabs.gallery` },
+    ...(postTestImages.length > 0 ? [{ id: "postTest" as const, key: `${translationKey}.tabs.postTest` }] : []),
+    ...(galleryImages.length > 0 ? [{ id: "gallery" as const, key: `${translationKey}.tabs.gallery` }] : []),
   ] as const
 
   return (
@@ -442,11 +404,11 @@ export function CampTemplate({ year, translationKey, imageFolder, announcements 
         {activeTab === "announcement" && (
           <PomAnnouncements translationKey={translationKey} announcements={announcements} />
         )}
-        {activeTab === "postTest" && (
-          <PostTestScores translationKey={translationKey} imageFolder={imageFolder} />
+        {activeTab === "postTest" && postTestImages.length > 0 && (
+          <PostTestScores translationKey={translationKey} images={postTestImages} />
         )}
-        {activeTab === "gallery" && (
-          <ActivitiesGallery translationKey={translationKey} imageFolder={imageFolder} />
+        {activeTab === "gallery" && galleryImages.length > 0 && (
+          <ActivitiesGallery translationKey={translationKey} images={galleryImages} />
         )}
       </div>
     </MainLayout>

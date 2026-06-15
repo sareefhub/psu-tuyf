@@ -18,6 +18,13 @@ const announcementsData = [
   }
 ] as const
 
+// รายชื่อรูปคะแนน Post-Test ที่มีอยู่จริงในระบบ (มี 3 รูป)
+const postTestImages = [
+  "/images/mscd/student-improvement/excellence-match-camp/emc-2026/post-test-1.png",
+  "/images/mscd/student-improvement/excellence-match-camp/emc-2026/post-test-2.png",
+  "/images/mscd/student-improvement/excellence-match-camp/emc-2026/post-test-3.png",
+] as const
+
 // แสดงผลหน้ารายละเอียดของปี 2026 (2569) โดยส่งคอนฟิกไปประมวลผลที่คอมโพเนนต์ตัวกลาง
 export default function ExcellenceMathCamp2026Page() {
   return (
@@ -26,6 +33,7 @@ export default function ExcellenceMathCamp2026Page() {
       translationKey="emc2026"
       imageFolder="emc-2026"
       announcements={announcementsData}
+      postTestImages={postTestImages}
     />
   )
 }

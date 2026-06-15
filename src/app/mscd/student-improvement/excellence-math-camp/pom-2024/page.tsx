@@ -18,6 +18,11 @@ const announcementsData = [
   }
 ] as const
 
+// รายชื่อรูปคะแนน Post-Test ที่มีอยู่จริงในระบบ (มี 1 รูป)
+const postTestImages = [
+  "/images/mscd/student-improvement/excellence-match-camp/pom-2024/post-test-1.png",
+] as const
+
 // แสดงผลหน้าหลักโดยส่งค่าคอนฟิกปี 2024 ไปให้เทมเพลตตัวกลางประมวลผล
 export default function PreOlympics2024Page() {
   return (
@@ -26,6 +31,7 @@ export default function PreOlympics2024Page() {
       translationKey="pom2024"
       imageFolder="pom-2024"
       announcements={announcementsData}
+      postTestImages={postTestImages}
     />
   )
 }
