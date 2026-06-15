@@ -295,106 +295,20 @@ function PomAnnouncements() {
 
 // 6. แท็บคะแนน Post-Test สูงสุด (Post-Test Scores Section)
 function PostTestScores() {
-  const t = useT()
-
   return (
-    <section className="py-10 bg-background">
-      <div className="mx-auto max-w-7xl px-6">
-        <div className="text-center max-w-2xl mx-auto mb-12 space-y-3">
-          <h2 className="text-balance text-2xl font-bold tracking-tight text-primary sm:text-3xl">
-            {t("pom2023.postTestTitle")}
-          </h2>
-          <p className="text-sm text-muted-foreground/80">
-            รายชื่อนักเรียนที่มีผลคะแนนสอบวัดความรู้หลังการอบรม (Post-Test) ดีเยี่ยมสูงสุดของโครงการ
-          </p>
+    <section className="py-10 bg-background animate-fade-in">
+      <div className="mx-auto max-w-7xl px-6 flex justify-center">
+        <div className="max-w-4xl w-full flex justify-center">
+          <img 
+            src="/images/mscd/student-improvement/excellence-match-camp/pom-2023-posttest.png" 
+            alt="ตารางคะแนน Post-Test"
+            className="w-full h-auto object-contain rounded-3xl shadow-sm border border-border/50"
+            onError={(e) => {
+              // ซ่อนภาพเพื่อป้องกันการแสดงรูปพังหากยังไม่มีไฟล์ภาพอยู่ในโฟลเดอร์
+              e.currentTarget.style.display = 'none';
+            }}
+          />
         </div>
-
-        {/* โครงสร้าง Top 3 Podium แท่นรับรางวัลจำลองความพรีเมียม */}
-        <div className="grid gap-6 md:grid-cols-3 max-w-3xl mx-auto pt-6 pb-6">
-          
-          {/* อันดับ 2 */}
-          <div className="order-2 md:order-1 flex flex-col items-center justify-end">
-            <div className="bg-slate-50 dark:bg-muted/15 border border-border/80 rounded-3xl p-5 w-full text-center space-y-3 relative hover:border-accent/40 transition-colors duration-200">
-              <span className="absolute -top-4 left-1/2 -translate-x-1/2 flex h-8 w-8 items-center justify-center rounded-full bg-slate-300 dark:bg-slate-400 text-slate-800 font-bold border-2 border-background text-sm">
-                2
-              </span>
-              <div className="pt-2">
-                <GraduationCap className="h-8 w-8 mx-auto text-slate-400" />
-                <h4 className="font-bold text-primary text-sm mt-2">นายอับดุลเลาะห์ มะยูโซะ</h4>
-                <p className="text-xs text-muted-foreground">โรงเรียนธรรมวิทยามูลนิธิ</p>
-              </div>
-              <div className="bg-slate-200/50 dark:bg-muted/30 py-1.5 rounded-lg">
-                <span className="text-xs font-semibold text-slate-600 dark:text-slate-300">คะแนน: 92 / 100</span>
-              </div>
-            </div>
-          </div>
-
-          {/* อันดับ 1 */}
-          <div className="order-1 md:order-2 flex flex-col items-center justify-end">
-            <div className="bg-amber-500/5 dark:bg-amber-500/10 border-2 border-amber-500/30 rounded-3xl p-6 w-full text-center space-y-3 relative hover:border-amber-500/50 transition-colors duration-200 scale-105 shadow-xs">
-              <span className="absolute -top-5 left-1/2 -translate-x-1/2 flex h-10 w-10 items-center justify-center rounded-full bg-amber-500 text-white font-bold border-2 border-background text-base shadow-sm animate-pulse">
-                1
-              </span>
-              <div className="pt-2">
-                <Trophy className="h-10 w-10 mx-auto text-amber-500" />
-                <h4 className="font-bold text-primary text-base mt-2">นางสาวมารียะห์ สะอะ</h4>
-                <p className="text-xs text-muted-foreground">โรงเรียนบูรณวิทยามูลนิธิ</p>
-              </div>
-              <div className="bg-amber-500/15 dark:bg-amber-500/20 py-2 rounded-lg">
-                <span className="text-sm font-bold text-amber-600 dark:text-amber-400">คะแนน: 96 / 100</span>
-              </div>
-            </div>
-          </div>
-
-          {/* อันดับ 3 */}
-          <div className="order-3 flex flex-col items-center justify-end">
-            <div className="bg-slate-50 dark:bg-muted/15 border border-border/80 rounded-3xl p-5 w-full text-center space-y-3 relative hover:border-accent/40 transition-colors duration-200">
-              <span className="absolute -top-4 left-1/2 -translate-x-1/2 flex h-8 w-8 items-center justify-center rounded-full bg-amber-700/80 text-white font-bold border-2 border-background text-sm">
-                3
-              </span>
-              <div className="pt-2">
-                <GraduationCap className="h-8 w-8 mx-auto text-amber-700/65" />
-                <h4 className="font-bold text-primary text-sm mt-2">นายมูฮัมหมัด อาลี</h4>
-                <p className="text-xs text-muted-foreground">โรงเรียนส่งเสริมศาสนาวิทยา</p>
-              </div>
-              <div className="bg-slate-200/50 dark:bg-muted/30 py-1.5 rounded-lg">
-                <span className="text-xs font-semibold text-slate-600 dark:text-slate-300">คะแนน: 89 / 100</span>
-              </div>
-            </div>
-          </div>
-
-        </div>
-
-        {/* ตารางคะแนนผู้ได้รับคะแนนสูงสุดรายอื่นๆ */}
-        <div className="max-w-4xl mx-auto border border-border/60 rounded-3xl overflow-hidden bg-card shadow-xs mt-6">
-          <div className="overflow-x-auto">
-            <table className="min-w-full divide-y divide-border/60">
-              <thead className="bg-slate-50 dark:bg-muted/20">
-                <tr>
-                  <th className="px-6 py-3.5 text-left text-xs font-bold text-muted-foreground uppercase tracking-wider">อันดับ</th>
-                  <th className="px-6 py-3.5 text-left text-xs font-bold text-muted-foreground uppercase tracking-wider">รายชื่อนักเรียน</th>
-                  <th className="px-6 py-3.5 text-left text-xs font-bold text-muted-foreground uppercase tracking-wider">โรงเรียน</th>
-                  <th className="px-6 py-3.5 text-right text-xs font-bold text-muted-foreground uppercase tracking-wider">คะแนน</th>
-                </tr>
-              </thead>
-              <tbody className="bg-card divide-y divide-border/40 text-sm">
-                <tr className="hover:bg-secondary/20 transition-colors">
-                  <td className="px-6 py-4 whitespace-nowrap font-medium text-primary">4</td>
-                  <td className="px-6 py-4 whitespace-nowrap text-muted-foreground">นางสาวฟาติมะห์ แวสะมะ</td>
-                  <td className="px-6 py-4 whitespace-nowrap text-muted-foreground">โรงเรียนสตรีอิสลามวิทยามูลนิธิ</td>
-                  <td className="px-6 py-4 whitespace-nowrap text-right font-semibold text-primary">85 / 100</td>
-                </tr>
-                <tr className="hover:bg-secondary/20 transition-colors">
-                  <td className="px-6 py-4 whitespace-nowrap font-medium text-primary">5</td>
-                  <td className="px-6 py-4 whitespace-nowrap text-muted-foreground">นายอับดุลวาฮับ สาและ</td>
-                  <td className="px-6 py-4 whitespace-nowrap text-muted-foreground">โรงเรียนพัฒนาวิทยา</td>
-                  <td className="px-6 py-4 whitespace-nowrap text-right font-semibold text-primary">82 / 100</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-        </div>
-
       </div>
     </section>
   )
