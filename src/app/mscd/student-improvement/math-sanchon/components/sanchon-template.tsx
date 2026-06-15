@@ -1,11 +1,10 @@
 "use client"
 
 import { useState, useEffect } from "react"
-import Image from "next/image"
 import { useT } from "@/components/language-context"
 import { MainLayout } from "@/layout/main-layout"
 import { TabNavigation } from "@/components/tab-navigation"
-import { FileText, Download, Calendar, Eye, X, AlertTriangle, Users, BookOpen, GraduationCap, MapPin, Award, CheckCircle, Image as ImageIcon } from "lucide-react"
+import { FileText, Download, Calendar, Eye, X, AlertTriangle, Users, GraduationCap, MapPin, Award } from "lucide-react"
 
 export interface SanchonAnnouncementItem {
   readonly title: string;
@@ -345,11 +344,17 @@ function SanchonAnnouncements({ translationKey, announcements }: Readonly<{ tran
         </div>
 
         {previewPdf && (
-          <button
-            type="button"
-            className="fixed inset-0 bg-black/60 z-50 flex items-center justify-center p-4 backdrop-blur-xs animate-fade-in w-full cursor-default border-none"
+          <div
+            role="button"
+            tabIndex={0}
+            className="fixed inset-0 bg-black/60 z-50 flex items-center justify-center p-4 backdrop-blur-xs animate-fade-in w-full cursor-default outline-none"
             onClick={(e) => {
               if (e.target === e.currentTarget) {
+                setPreviewPdf(null)
+              }
+            }}
+            onKeyDown={(e) => {
+              if (e.key === "Enter" || e.key === " ") {
                 setPreviewPdf(null)
               }
             }}
@@ -390,7 +395,7 @@ function SanchonAnnouncements({ translationKey, announcements }: Readonly<{ tran
                 การกดปุ่ม ESC จะเป็นการปิดหน้าต่างนำทางแสดงตัวอย่าง PDF นี้โดยอัตโนมัติ
               </div>
             </div>
-          </button>
+          </div>
         )}
       </div>
     </section>
