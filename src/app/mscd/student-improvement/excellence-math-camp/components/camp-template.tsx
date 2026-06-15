@@ -292,7 +292,8 @@ function PomAnnouncements({ translationKey, announcements }: Readonly<{ translat
 }
 
 // 6. แท็บคะแนน Post-Test สูงสุด
-function PostTestScores({ imageFolder }: Readonly<{ imageFolder: string }>) {
+function PostTestScores({ translationKey, imageFolder }: Readonly<{ translationKey: string; imageFolder: string }>) {
+  const t = useT()
   // สร้าง State เก็บสถานะความผิดพลาดในการโหลดรูปภาพ (มี 2 รูป)
   const [imageErrors, setImageErrors] = useState<boolean[]>([false, false])
   const images = [
@@ -307,6 +308,15 @@ function PostTestScores({ imageFolder }: Readonly<{ imageFolder: string }>) {
   return (
     <section className="py-10 bg-background animate-fade-in">
       <div className="mx-auto max-w-7xl px-6">
+        <div className="text-center max-w-2xl mx-auto mb-12 space-y-3">
+          <h2 className="text-balance text-2xl font-bold tracking-tight text-primary sm:text-3xl">
+            {t(`${translationKey}.tabs.postTest`)}
+          </h2>
+          <p className="text-sm text-muted-foreground/80">
+            ตารางคะแนนผลการทดสอบหลังการอบรม (Post-Test) ของนักเรียนที่เข้าร่วมโครงการ
+          </p>
+        </div>
+
         {/* หากเหลือเพียง 1 รูป ให้ใช้ grid-cols-1 ร่วมกับ max-w-2xl และ mx-auto เพื่อจัดรูปให้อยู่ตรงกลางอย่างสวยงาม */}
         <div className={`grid gap-8 ${hasOnlyOneImage ? 'max-w-2xl grid-cols-1' : 'max-w-5xl md:grid-cols-2'} mx-auto`}>
           {images.map((src, index) => {
@@ -425,7 +435,9 @@ export function CampTemplate({ year, translationKey, imageFolder, announcements 
         {activeTab === "announcement" && (
           <PomAnnouncements translationKey={translationKey} announcements={announcements} />
         )}
-        {activeTab === "postTest" && <PostTestScores imageFolder={imageFolder} />}
+        {activeTab === "postTest" && (
+          <PostTestScores translationKey={translationKey} imageFolder={imageFolder} />
+        )}
         {activeTab === "gallery" && (
           <ActivitiesGallery translationKey={translationKey} imageFolder={imageFolder} />
         )}
