@@ -5,10 +5,10 @@ import { SanchonTemplate } from "../components/sanchon-template"
 // ข้อมูลกำหนดการ/ประกาศแยกตามแต่ละโรงเรียนของปี 2567 (2024)
 const announcements2024 = [
   {
-    title: "โครงการอบรมคณิตศาสตร์สัญจร ประจำปี 2567",
+    title: "ประชาสัมพันธ์โครงการอบรมคณิตศาสตร์สัญจร 2567",
     date: "กรกฎาคม 2567",
-    size: "250 KB",
-    fileUrl: "#",
+    size: "192 KB",
+    fileUrl: "/documents/mscd/student-improvement/match-sanchon/ms-2024/ประชาสัมพันธ์โครงการอบรมคณิตศาสตร์สัญจร-2567.pdf",
   },
 ] as const
 

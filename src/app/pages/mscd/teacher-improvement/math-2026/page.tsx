@@ -6,9 +6,21 @@ import { TeacherTrainingTemplate } from "../components/teacher-training-template
 const announcements2026 = [
   {
     title: "โครงการอบรมครูคณิตศาสตร์ ประจำปี 2569",
+    date: "กุมภาพันธ์ 2569",
+    size: "254 KB",
+    fileUrl: "/documents/mscd/teacher-improvement/mathematics-teacher-training/mtt-2026/โครงการอบรมครูคณิตศาสตร์-2569.pdf",
+  },
+  {
+    title: "ใบสมัครเข้าอบรมครูคณิตศาสตร์",
+    date: "กุมภาพันธ์ 2569",
+    size: "142 KB",
+    fileUrl: "/documents/mscd/teacher-improvement/mathematics-teacher-training/mtt-2026/ใบสมัครเข้าอบรมครูคณิตศาสตร์.pdf",
+  },
+  {
+    title: "ประกาศรายชื่อผู้มีสิทธิ์เข้าอบรม",
     date: "เมษายน 2569",
-    size: "250 KB",
-    fileUrl: "#",
+    size: "138 KB",
+    fileUrl: "/documents/mscd/teacher-improvement/mathematics-teacher-training/mtt-2026/ประกาศรายชื่อผู้มีสิทธิ์เข้าอบรม.pdf",
   },
 ] as const
 

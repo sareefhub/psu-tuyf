@@ -8,18 +8,28 @@ import { FileText, Download, Calendar, Eye, X, AlertTriangle } from "lucide-reac
 const announcementsData = [
   {
     key: "item1",
-    size: "125 KB",
-    fileUrl: "/documents/bsc-announcement-1.pdf",
+    size: "260 KB",
+    fileUrl: "/documents/mscd/bsc-scholarships/ประกาศรับสมัครทุนการศึกษา-2565-รอบที่2.pdf",
   },
   {
     key: "item2",
-    size: "98 KB",
-    fileUrl: "/documents/bsc-announcement-2.pdf",
+    size: "235 KB",
+    fileUrl: "/documents/mscd/bsc-scholarships/ประกาศรับสมัครทุนการศึกษา-2565.pdf",
   },
   {
     key: "item3",
-    size: "112 KB",
-    fileUrl: "/documents/bsc-announcement-3.pdf",
+    size: "148 KB",
+    fileUrl: "/documents/mscd/bsc-scholarships/ประกาศผลการคัดเลือกนักเรียนเพื่อรับทุนการศึกษา-2565.pdf",
+  },
+  {
+    key: "item4",
+    size: "240 KB",
+    fileUrl: "/documents/mscd/bsc-scholarships/ประกาศรับสมัครทุนการศึกษา-2564.pdf",
+  },
+  {
+    key: "item5",
+    size: "145 KB",
+    fileUrl: "/documents/mscd/bsc-scholarships/ประกาศผลการคัดเลือกนักเรียนเพื่อรับทุนการศึกษา-2564.pdf",
   },
 ]
 

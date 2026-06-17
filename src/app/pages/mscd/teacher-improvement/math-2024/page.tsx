@@ -5,10 +5,22 @@ import { TeacherTrainingTemplate } from "../components/teacher-training-template
 // ข้อมูลกำหนดการ/ประกาศของปี 2567 (2024)
 const announcements2024 = [
   {
-    title: "โครงการอบรมครูคณิตศาสตร์ ประจำปี 2567",
+    title: "ประกาศเเละใบรับสมัครอบรมครูคณิตศาสตร์ 2567",
+    date: "สิงหาคม 2567",
+    size: "248 KB",
+    fileUrl: "/documents/mscd/teacher-improvement/mathematics-teacher-training/mtt-2024/ประกาศเเละใบรับสมัคร-2567.pdf",
+  },
+  {
+    title: "หนังสือเชิญส่งผู้แทนครูเข้าร่วมการอบรม",
+    date: "กันยายน 2567",
+    size: "155 KB",
+    fileUrl: "/documents/mscd/teacher-improvement/mathematics-teacher-training/mtt-2024/หนังสือเชิญ.pdf",
+  },
+  {
+    title: "ประกาศรายชื่อคุณครูที่ผ่านการคัดเลือกเข้ารับการอบรม",
     date: "ตุลาคม 2567",
-    size: "250 KB",
-    fileUrl: "#",
+    size: "138 KB",
+    fileUrl: "/documents/mscd/teacher-improvement/mathematics-teacher-training/mtt-2024/ประกาศรายชื่อคุณครูที่ผ่านการคัดเลือก.pdf",
   },
 ] as const
 

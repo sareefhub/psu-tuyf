@@ -5,17 +5,41 @@ import { CampTemplate } from "../components/camp-template"
 // ข้อมูลประกาศข่าวสารสำหรับโครงการปี 2567 (2024)
 const announcementsData = [
   {
-    title: "ประกาศรายชื่อนักเรียนที่มีสิทธิ์เข้าร่วมโครงการอบรม (40 คน และตัวสำรอง 10 คน)",
-    date: "6 พฤษภาคม 2567",
-    size: "142 KB",
-    fileUrl: "#", // ลิงก์ตัวอย่างสำหรับประกาศ
+    title: "รายละเอียดโครงการค่าย Pre-Olympics Math 2024",
+    date: "10 มีนาคม 2567",
+    size: "245 KB",
+    fileUrl: "/documents/mscd/student-improvement/excellence-match-camp/pom-2024/รายละเอียดโครงการ.pdf",
   },
   {
-    title: "ประกาศรายละเอียดการรับสมัครนักเรียนเข้าร่วมค่าย Pre-Olympics Math ประจำปี 2567",
+    title: "รายละเอียดการสมัครสำหรับนักเรียน",
     date: "10 มีนาคม 2567",
-    size: "115 KB",
-    fileUrl: "#", // ลิงก์ตัวอย่างสำหรับประกาศ
-  }
+    size: "135 KB",
+    fileUrl: "/documents/mscd/student-improvement/excellence-match-camp/pom-2024/รายละเอียดการสมัครสำหรับนักเรียน.pdf",
+  },
+  {
+    title: "รายละเอียดการสมัครสำหรับครูผู้ประสานงาน",
+    date: "10 มีนาคม 2567",
+    size: "128 KB",
+    fileUrl: "/documents/mscd/student-improvement/excellence-match-camp/pom-2024/รายละเอียดการสมัครสำหรับครูผู้ประสานงาน.pdf",
+  },
+  {
+    title: "ประกาศรายชื่อผู้มีสิทธิ์เข้าอบรม (40 คน และตัวสำรอง 10 คน)",
+    date: "6 พฤษภาคม 2567",
+    size: "142 KB",
+    fileUrl: "/documents/mscd/student-improvement/excellence-match-camp/pom-2024/ประกาศรายชื่อผู้มีสิทธิ์เข้าอบรม.pdf",
+  },
+  {
+    title: "ประกาศเรียกลำดับสำรองผู้มีสิทธิ์เข้าอบรม",
+    date: "12 พฤษภาคม 2567",
+    size: "118 KB",
+    fileUrl: "/documents/mscd/student-improvement/excellence-match-camp/pom-2024/ประกาศเรียกลำดับสำรองผู้มีสิทธิ์เข้าอบรม.pdf",
+  },
+  {
+    title: "ข้อปฏิบัติสำหรับนักเรียนที่เข้าร่วมโครงการ",
+    date: "18 พฤษภาคม 2567",
+    size: "130 KB",
+    fileUrl: "/documents/mscd/student-improvement/excellence-match-camp/pom-2024/ข้อปฏิบัติสำหรับนักเรียนที่เข้าร่วมโครงการ.pdf",
+  },
 ] as const
 
 // รายชื่อรูปคะแนน Post-Test ที่มีอยู่จริงในระบบ (มี 1 รูป)

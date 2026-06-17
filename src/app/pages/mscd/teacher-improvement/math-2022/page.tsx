@@ -5,10 +5,16 @@ import { TeacherTrainingTemplate } from "../components/teacher-training-template
 // ข้อมูลกำหนดการ/ประกาศของปี 2565 (2022)
 const announcements2022 = [
   {
-    title: "โครงการอบรมครูคณิตศาสตร์ ประจำปี 2565",
+    title: "รายละเอียดโครงการอบรมครูคณิตศาสตร์ 2565",
     date: "ตุลาคม 2565",
-    size: "250 KB",
-    fileUrl: "#",
+    size: "245 KB",
+    fileUrl: "/documents/mscd/teacher-improvement/mathematics-teacher-training/mtt-2022/รายละเอียดโครงการ.pdf",
+  },
+  {
+    title: "ผลประเมินการอบรมครูคณิตศาสตร์",
+    date: "ธันวาคม 2565",
+    size: "165 KB",
+    fileUrl: "/documents/mscd/teacher-improvement/mathematics-teacher-training/mtt-2022/ผลประเมินอบรมครู.pdf",
   },
 ] as const
 

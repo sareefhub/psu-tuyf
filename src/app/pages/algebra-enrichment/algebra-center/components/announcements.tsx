@@ -8,13 +8,13 @@ import { FileText, Download, Calendar, Eye, X, AlertTriangle } from "lucide-reac
 const announcementsData = [
   {
     key: "item1",
-    size: "145 KB",
-    fileUrl: "#", // ใช้ # เป็นค่าจำลองไว้จนกว่าจะมีไฟล์เอกสารจริงอัปโหลดเข้ามา
+    size: "262 KB",
+    fileUrl: "/documents/algebra-enrichment/algebra-center/รายละเอียดประกาศรับสมัครงาน.pdf",
   },
   {
     key: "item2",
-    size: "128 KB",
-    fileUrl: "#",
+    size: "154 KB",
+    fileUrl: "/documents/algebra-enrichment/algebra-center/ใบสมัครงาน.pdf",
   },
 ]
 

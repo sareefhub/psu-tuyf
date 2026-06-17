@@ -5,17 +5,29 @@ import { CampTemplate } from "../components/camp-template"
 // ข้อมูลประกาศข่าวสารสำหรับโครงการ Excellence Math Camp 2025 (ปี 2568)
 const announcementsData = [
   {
-    title: "ประกาศรายชื่อนักเรียนที่มีสิทธิ์เข้าร่วมโครงการอบรม (รับ 40 คน และสำรอง 10 คน)",
-    date: "29 เมษายน 2568",
-    size: "145 KB",
-    fileUrl: "#", // ลิงก์ตัวอย่างสำหรับประกาศ
+    title: "รายละเอียดโครงการค่าย Excellence Math Camp 2025",
+    date: "1 มีนาคม 2568",
+    size: "245 KB",
+    fileUrl: "/documents/mscd/student-improvement/excellence-match-camp/emc-2025/รายละเอียดโครงการ.pdf",
   },
   {
-    title: "ประกาศรายละเอียดการรับสมัครนักเรียนเข้าร่วมค่าย Excellence Math Camp ประจำปี 2568",
-    date: "1 มีนาคม 2568",
-    size: "120 KB",
-    fileUrl: "#", // ลิงก์ตัวอย่างสำหรับประกาศ
-  }
+    title: "ประกาศรายชื่อผู้มีสิทธิ์เข้าอบรม (รับ 40 คน และสำรอง 10 คน)",
+    date: "29 เมษายน 2568",
+    size: "145 KB",
+    fileUrl: "/documents/mscd/student-improvement/excellence-match-camp/emc-2025/ประกาศรายชื่อผู้มีสิทธิ์เข้าอบรม.pdf",
+  },
+  {
+    title: "ประกาศเรียกลำดับสำรองผู้มีสิทธิ์เข้าอบรม",
+    date: "5 พฤษภาคม 2568",
+    size: "115 KB",
+    fileUrl: "/documents/mscd/student-improvement/excellence-match-camp/emc-2025/ประกาศเรียกลำดับสำรองผู้มีสิทธิ์เข้าอบรม.pdf",
+  },
+  {
+    title: "ข้อปฏิบัติสำหรับนักเรียนที่เข้าร่วมโครงการ",
+    date: "10 พฤษภาคม 2568",
+    size: "132 KB",
+    fileUrl: "/documents/mscd/student-improvement/excellence-match-camp/emc-2025/ข้อปฏิบัติสำหรับนักเรียนที่เข้าร่วมโครงการ.pdf",
+  },
 ] as const
 
 // รายชื่อรูปคะแนน Post-Test ที่มีอยู่จริงในระบบ (มี 3 รูป)

@@ -312,16 +312,24 @@
       "footerHelp": "Official project publication · Print or download the full copy using your browser controls.",
       "items": {
         "item1": {
-          "title": "B.Sc. Scholarships Application Announcement, Academic Year 2024",
-          "date": "12 Apr 2024"
+          "title": "B.Sc. Scholarships Application Announcement (Round 2), Academic Year 2022",
+          "date": "10 May 2022"
         },
         "item2": {
-          "title": "List of Qualified Candidates for Scholarship Interviews, Academic Year 2024",
-          "date": "03 Jun 2024"
+          "title": "B.Sc. Scholarships Application Announcement, Academic Year 2022",
+          "date": "15 Mar 2022"
         },
         "item3": {
-          "title": "Final Announcement of Scholarship Recipients, Academic Year 2024",
-          "date": "15 Jun 2024"
+          "title": "Final Announcement of Scholarship Recipients, Academic Year 2022",
+          "date": "15 Jun 2022"
+        },
+        "item4": {
+          "title": "B.Sc. Scholarships Application Announcement, Academic Year 2021",
+          "date": "20 Apr 2021"
+        },
+        "item5": {
+          "title": "Final Announcement of Scholarship Recipients, Academic Year 2021",
+          "date": "25 Jun 2021"
         }
       }
     }
@@ -576,12 +584,12 @@
       "footerHelp": "Official center publication · Print or download the full copy using your browser controls.",
       "items": {
         "item1": {
-          "title": "Announcement on the Establishment of the Southern Algebra Center and Executive Committee Appointment",
-          "date": "01 Jun 2024"
+          "title": "Job Application Announcement Details",
+          "date": "17 Jun 2026"
         },
         "item2": {
-          "title": "Invitation to the Academic Seminar on Abstract Algebra and Semigroups for Semester 1/2024",
-          "date": "10 Jun 2024"
+          "title": "Job Application Form",
+          "date": "17 Jun 2026"
         }
       }
     }
@@ -676,10 +684,14 @@
           "date": "12 Apr 2024"
         },
         "item2": {
+          "title": "Application Form for the Algebra Scholarships for the 2024 academic year",
+          "date": "12 Apr 2024"
+        },
+        "item3": {
           "title": "Announcement of candidates eligible for interview under the Algebra Scholarships for the 2024 academic year",
           "date": "03 Jun 2024"
         },
-        "item3": {
+        "item4": {
           "title": "Announcement of selected scholarship recipients under the Algebra Scholarships for the 2024 academic year",
           "date": "15 Jun 2024"
         }
