@@ -97,13 +97,13 @@ export default function MathSanchonPage() {
             <ProgramCard
               title={t("mathSanchon.years.ms2025")}
               image="/images/mscd/student-improvement/match-sanchon/ms-2025.png"
-              href="#"
+              href="/mscd/student-improvement/math-sanchon/ms-2025"
               moreDetailText={t("programs.more_detail")}
             />
             <ProgramCard
               title={t("mathSanchon.years.ms2024")}
               image="/images/mscd/student-improvement/match-sanchon/ms-2024.png"
-              href="#"
+              href="/mscd/student-improvement/math-sanchon/ms-2024"
               moreDetailText={t("programs.more_detail")}
             />
             <ProgramCard

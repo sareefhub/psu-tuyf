@@ -139,7 +139,7 @@ function SanchonInfo({ translationKey }: Readonly<{ translationKey: string }>) {
               <h3 className="font-bold text-primary text-sm sm:text-base">
                 {t(`${translationKey}.timeLocationTitle`)}
               </h3>
-              <p className="text-xs text-muted-foreground leading-relaxed">
+              <p className="text-xs text-muted-foreground leading-relaxed whitespace-pre-line">
                 {t(`${translationKey}.timeLocationDetail`)}
               </p>
             </div>
@@ -154,7 +154,7 @@ function SanchonInfo({ translationKey }: Readonly<{ translationKey: string }>) {
               <h3 className="font-bold text-primary text-sm sm:text-base">
                 {t(`${translationKey}.participantsTitle`)}
               </h3>
-              <p className="text-xs text-muted-foreground leading-relaxed">
+              <p className="text-xs text-muted-foreground leading-relaxed whitespace-pre-line">
                 {t(`${translationKey}.participantsDetail`)}
               </p>
             </div>
