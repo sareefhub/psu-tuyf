@@ -99,12 +99,17 @@ export function CenterAnnouncements() {
                     {t("algebraCenter.announcements.read")}
                   </button>
 
-                  {/* ปุ่มที่ 2: ลิงก์ดาวน์โหลดตรงเปิดแท็บใหม่ */}
+                  {/* ปุ่มที่ 2: ลิงก์ดาวน์โหลดตรง */}
                   <a
                     href={item.fileUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center justify-center gap-1.5 rounded-full bg-primary text-primary-foreground px-4 py-2 text-xs font-bold hover:bg-primary/90 transition-all shadow-sm"
+                    download
+                    onClick={(e) => {
+                      if (item.fileUrl === "#") {
+                        e.preventDefault()
+                        handlePreview(t(`algebraCenter.announcements.items.${item.key}.title`), item.fileUrl)
+                      }
+                    }}
+                    className="inline-flex items-center justify-center gap-1.5 rounded-full bg-primary text-primary-foreground px-4 py-2 text-xs font-bold hover:bg-primary/90 transition-all shadow-sm cursor-pointer"
                   >
                     <Download className="h-3.5 w-3.5" />
                     {t("algebraCenter.announcements.download")}

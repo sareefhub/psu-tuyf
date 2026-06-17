@@ -221,13 +221,14 @@ export function SharedAnnouncements({ translationKey, announcements }: { readonl
                   </button>
                   <a
                     href={item.fileUrl}
+                    download
                     onClick={(e) => {
                       if (item.fileUrl === "#") {
                         e.preventDefault()
                         handlePreview(item.title, item.fileUrl)
                       }
                     }}
-                    className="inline-flex items-center justify-center gap-1.5 rounded-full bg-primary text-primary-foreground px-4 py-2 text-xs font-bold hover:bg-primary/90 transition-all shadow-xs"
+                    className="inline-flex items-center justify-center gap-1.5 rounded-full bg-primary text-primary-foreground px-4 py-2 text-xs font-bold hover:bg-primary/90 transition-all shadow-xs cursor-pointer"
                   >
                     <Download className="h-3.5 w-3.5" />
                     ดาวน์โหลด
