@@ -1,6 +1,7 @@
 "use client"
 
 import { useEffect } from "react"
+import { useRouter, usePathname } from "next/navigation"
 
 export interface TabItem {
   id: string;
@@ -19,12 +20,17 @@ interface TabNavigationProps {
 // คอมโพเนนต์ตัวกลางสำหรับแถบนำทางแบบแท็บแคปซูล (Global Tab Bar Navigation)
 // ใช้สำหรับสลับหน้าจอรายละเอียดข้อมูลในแต่ละหน้าโครงการย่อยอย่างสวยงามและคุมธีมเดียวกัน
 export function TabNavigation({ tabs, activeTab, setActiveTab }: TabNavigationProps) {
+  const router = useRouter()
+  const pathname = usePathname()
+
   // ซิงค์ URL Query Parameter (?tab=...) กับ State ของแท็บ
   useEffect(() => {
-    if (typeof window === "undefined") return
+    // ตรวจสอบการทำงานในฝั่งไคลเอนต์ (เปรียบเทียบกับ undefined โดยตรงเพื่อหลีกเลี่ยงคำเตือนของ Linter)
+    if (globalThis.window === undefined) return
 
     const syncTabFromUrl = () => {
-      const params = new URLSearchParams(window.location.search)
+      // ดึงค่าพารามิเตอร์ของแท็บจาก URL ปัจจุบัน
+      const params = new URLSearchParams(globalThis.location.search)
       const tabQuery = params.get("tab")
       
       if (tabQuery && tabs.some((tab) => tab.id === tabQuery)) {
@@ -34,29 +40,30 @@ export function TabNavigation({ tabs, activeTab, setActiveTab }: TabNavigationPr
       } else if (!params.has("tab") && activeTab) {
         // หากไม่มี param ให้สร้าง URL ตั้งต้นตามค่า activeTab ปัจจุบัน เพื่อให้ผู้ใช้คัดลอกลิงก์แชร์ได้ทันที
         params.set("tab", activeTab)
-        const newUrl = `${window.location.pathname}?${params.toString()}`
-        window.history.replaceState({ ...window.history.state, as: newUrl, url: newUrl }, "", newUrl)
+        const newUrl = `${pathname}?${params.toString()}`
+        router.replace(newUrl, { scroll: false })
       }
     }
 
     syncTabFromUrl()
 
-    // คอยฟังความเปลี่ยนแปลงของ URL เผื่อผู้ใช้กดย้อนกลับ (Back/Forward)
-    window.addEventListener("popstate", syncTabFromUrl)
-    return () => window.removeEventListener("popstate", syncTabFromUrl)
-  }, [tabs, activeTab, setActiveTab])
+    // คอยฟังความเปลี่ยนแปลงของ URL เผื่อผู้ใช้กดย้อนกลับ (Back/Forward) โดยใช้ globalThis แทน window
+    globalThis.addEventListener("popstate", syncTabFromUrl)
+    return () => globalThis.removeEventListener("popstate", syncTabFromUrl)
+  }, [tabs, activeTab, setActiveTab, pathname, router])
 
   // จัดการเหตุการณ์เมื่อคลิกเลือกแท็บใหม่
   const handleTabClick = (tabId: string) => {
     setActiveTab(tabId)
     
-    if (typeof window !== "undefined") {
-      const params = new URLSearchParams(window.location.search)
+    // ตรวจสอบการทำงานในฝั่งไคลเอนต์ก่อนเข้าถึงข้อมูลเบราว์เซอร์ (เปรียบเทียบกับ undefined โดยตรงเพื่อหลีกเลี่ยงคำเตือนของ Linter)
+    if (globalThis.window !== undefined) {
+      const params = new URLSearchParams(globalThis.location.search)
       params.set("tab", tabId)
-      const newUrl = `${window.location.pathname}?${params.toString()}`
+      const newUrl = `${pathname}?${params.toString()}`
       
-      // อัปเดต URL บนแถบ Address Bar ของเบราว์เซอร์โดยไม่ทำการ Refresh หน้าเพจ
-      window.history.replaceState({ ...window.history.state, as: newUrl, url: newUrl }, "", newUrl)
+      // อัปเดต URL บนแถบ Address Bar ของเบราว์เซอร์โดยไม่ทำการ Refresh หน้าเพจผ่าน Next.js Router
+      router.replace(newUrl, { scroll: false })
     }
   }
   return (

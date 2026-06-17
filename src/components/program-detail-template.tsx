@@ -239,22 +239,15 @@ export function SharedAnnouncements({ translationKey, announcements }: { readonl
         </div>
 
         {previewPdf && (
-          <div
-            role="button"
-            tabIndex={0}
-            className="fixed inset-0 bg-black/60 z-50 flex items-center justify-center p-4 backdrop-blur-xs animate-fade-in w-full cursor-default outline-none"
-            onClick={(e) => {
-              if (e.target === e.currentTarget) {
-                setPreviewPdf(null)
-              }
-            }}
-            onKeyDown={(e) => {
-              if (e.key === "Enter" || e.key === " ") {
-                setPreviewPdf(null)
-              }
-            }}
-          >
-            <div className="bg-card border border-border w-full max-w-5xl rounded-3xl overflow-hidden shadow-2xl relative flex flex-col h-[80vh] sm:h-[85vh] animate-scale-in">
+          <div className="fixed inset-0 z-50 flex items-center justify-center p-4 animate-fade-in w-full">
+            {/* ปุ่มฉากหลังโปร่งแสงสำหรับคลิกปิดหน้าต่างพรีวิวเอกสาร PDF */}
+            <button
+              type="button"
+              className="absolute inset-0 bg-black/60 backdrop-blur-xs w-full h-full cursor-default border-none outline-none"
+              onClick={() => setPreviewPdf(null)}
+              aria-label="ปิดหน้าต่างพรีวิวเอกสาร"
+            />
+            <div className="bg-card border border-border w-full max-w-5xl rounded-3xl overflow-hidden shadow-2xl relative flex flex-col h-[80vh] sm:h-[85vh] animate-scale-in z-10">
               <div className="p-4 border-b border-border/40 flex items-center justify-between bg-card text-foreground relative pr-12">
                 <div className="flex items-center gap-3 max-w-[85%]">
                   <div className="h-8 w-8 rounded-lg bg-red-500/10 flex items-center justify-center text-red-500 shrink-0">
