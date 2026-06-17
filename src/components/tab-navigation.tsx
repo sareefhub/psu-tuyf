@@ -1,7 +1,6 @@
 "use client"
 
 import { useEffect } from "react"
-import { useRouter, usePathname } from "next/navigation"
 
 export interface TabItem {
   id: string;
@@ -20,9 +19,6 @@ interface TabNavigationProps {
 // คอมโพเนนต์ตัวกลางสำหรับแถบนำทางแบบแท็บแคปซูล (Global Tab Bar Navigation)
 // ใช้สำหรับสลับหน้าจอรายละเอียดข้อมูลในแต่ละหน้าโครงการย่อยอย่างสวยงามและคุมธีมเดียวกัน
 export function TabNavigation({ tabs, activeTab, setActiveTab }: TabNavigationProps) {
-  const router = useRouter()
-  const pathname = usePathname()
-
   // ซิงค์ URL Query Parameter (?tab=...) กับ State ของแท็บ
   useEffect(() => {
     // ตรวจสอบการทำงานในฝั่งไคลเอนต์ (เปรียบเทียบกับ undefined โดยตรงเพื่อหลีกเลี่ยงคำเตือนของ Linter)
@@ -40,17 +36,17 @@ export function TabNavigation({ tabs, activeTab, setActiveTab }: TabNavigationPr
       } else if (!params.has("tab") && activeTab) {
         // หากไม่มี param ให้สร้าง URL ตั้งต้นตามค่า activeTab ปัจจุบัน เพื่อให้ผู้ใช้คัดลอกลิงก์แชร์ได้ทันที
         params.set("tab", activeTab)
-        const newUrl = `${pathname}?${params.toString()}`
-        router.replace(newUrl, { scroll: false })
+        const newUrl = `${globalThis.location.pathname}?${params.toString()}`
+        globalThis.history.replaceState({ ...globalThis.history.state, as: newUrl, url: newUrl }, "", newUrl)
       }
     }
 
     syncTabFromUrl()
 
-    // คอยฟังความเปลี่ยนแปลงของ URL เผื่อผู้ใช้กดย้อนกลับ (Back/Forward) โดยใช้ globalThis แทน window
+    // คอยฟังความเปลี่ยนแปลงของ URL เผื่อผู้ใช้กดย้อนกลับ (Back/Forward)
     globalThis.addEventListener("popstate", syncTabFromUrl)
     return () => globalThis.removeEventListener("popstate", syncTabFromUrl)
-  }, [tabs, activeTab, setActiveTab, pathname, router])
+  }, [tabs, activeTab, setActiveTab])
 
   // จัดการเหตุการณ์เมื่อคลิกเลือกแท็บใหม่
   const handleTabClick = (tabId: string) => {
@@ -60,10 +56,10 @@ export function TabNavigation({ tabs, activeTab, setActiveTab }: TabNavigationPr
     if (globalThis.window !== undefined) {
       const params = new URLSearchParams(globalThis.location.search)
       params.set("tab", tabId)
-      const newUrl = `${pathname}?${params.toString()}`
+      const newUrl = `${globalThis.location.pathname}?${params.toString()}`
       
-      // อัปเดต URL บนแถบ Address Bar ของเบราว์เซอร์โดยไม่ทำการ Refresh หน้าเพจผ่าน Next.js Router
-      router.replace(newUrl, { scroll: false })
+      // อัปเดต URL บนแถบ Address Bar ของเบราว์เซอร์อย่างเงียบและลื่นไหลโดยไม่กระตุกและไม่ Refresh
+      globalThis.history.replaceState({ ...globalThis.history.state, as: newUrl, url: newUrl }, "", newUrl)
     }
   }
   return (
