@@ -122,18 +122,16 @@ function ObjectivesSection({ translationKey }: Readonly<{ translationKey: string
   )
 }
 
-// 4. แท็บข้อมูลโครงการ (วันเวลา สถานที่ ผู้เข้าร่วม และผลที่คาดว่าจะได้รับ)
+// 4. ส่วนแสดงข้อมูลการอบรม (วันเวลา สถานที่ และผู้เข้าร่วมโครงการ)
 function SanchonInfo({ translationKey }: Readonly<{ translationKey: string }>) {
   const t = useT()
-  const outcomes = t(`${translationKey}.expectedOutcomesList`, { returnObjects: true }) as string[]
 
   return (
     <section className="py-10 bg-background animate-fade-in">
-      <div className="mx-auto max-w-6xl px-6 space-y-12">
-        {/* แผงข้อมูลวันเวลา สถานที่ และผู้เข้าร่วม */}
+      <div className="mx-auto max-w-6xl px-6">
         <div className="grid gap-8 md:grid-cols-2">
           {/* ข้อมูลการจัดอบรม */}
-          <div className="bg-card border border-border/50 rounded-3xl p-6 shadow-xs flex gap-4">
+          <div className="bg-card border border-border/50 rounded-3xl p-6 shadow-xs flex gap-4 hover:border-primary/30 transition-all duration-300">
             <div className="h-10 w-10 rounded-xl bg-primary/10 flex items-center justify-center text-primary shrink-0">
               <MapPin className="h-5 w-5" />
             </div>
@@ -148,7 +146,7 @@ function SanchonInfo({ translationKey }: Readonly<{ translationKey: string }>) {
           </div>
 
           {/* ข้อมูลกลุ่มเป้าหมาย */}
-          <div className="bg-card border border-border/50 rounded-3xl p-6 shadow-xs flex gap-4">
+          <div className="bg-card border border-border/50 rounded-3xl p-6 shadow-xs flex gap-4 hover:border-accent/30 transition-all duration-300">
             <div className="h-10 w-10 rounded-xl bg-accent/10 flex items-center justify-center text-accent shrink-0">
               <Users className="h-5 w-5" />
             </div>
@@ -162,8 +160,19 @@ function SanchonInfo({ translationKey }: Readonly<{ translationKey: string }>) {
             </div>
           </div>
         </div>
+      </div>
+    </section>
+  )
+}
 
-        {/* ข้อมูลผลที่คาดว่าจะได้รับ */}
+// 5. ส่วนแสดงผลลัพธ์/ผลที่คาดว่าจะได้รับ
+function SanchonOutcomes({ translationKey }: Readonly<{ translationKey: string }>) {
+  const t = useT()
+  const outcomes = t(`${translationKey}.expectedOutcomesList`, { returnObjects: true }) as string[]
+
+  return (
+    <section className="py-10 bg-background animate-fade-in">
+      <div className="mx-auto max-w-6xl px-6">
         <div className="bg-card border border-border/50 rounded-3xl p-8 shadow-xs space-y-6">
           <div className="flex items-center gap-3">
             <div className="h-10 w-10 rounded-xl bg-emerald-500/10 flex items-center justify-center text-emerald-600">
@@ -194,7 +203,7 @@ function SanchonInfo({ translationKey }: Readonly<{ translationKey: string }>) {
   )
 }
 
-// 5. แท็บคณะทำงาน (วิทยากร และคณะกรรมการดำเนินงาน)
+// 6. ส่วนแสดงคณะทำงาน (วิทยากร และคณะกรรมการดำเนินงาน)
 function SanchonStaff({ translationKey }: Readonly<{ translationKey: string }>) {
   const t = useT()
   const speakers = t(`${translationKey}.speakersList`, { returnObjects: true }) as string[]
@@ -251,7 +260,7 @@ function SanchonStaff({ translationKey }: Readonly<{ translationKey: string }>) 
   )
 }
 
-// 6. แท็บประกาศรายโรงเรียน (Announcements Section)
+// 9. แท็บประกาศรายโรงเรียน (Announcements Section)
 function SanchonAnnouncements({ translationKey, announcements }: Readonly<{ translationKey: string; announcements: readonly SanchonAnnouncementItem[] }>) {
   const t = useT()
   const [previewPdf, setPreviewPdf] = useState<{ title: string; url: string } | null>(null)
@@ -402,7 +411,7 @@ function SanchonAnnouncements({ translationKey, announcements }: Readonly<{ tran
   )
 }
 
-// 7. แท็บภาพกิจกรรม (Gallery)
+// 10. แท็บภาพกิจกรรม (Gallery)
 function SanchonGallery({ translationKey }: Readonly<{ translationKey: string }>) {
   const t = useT()
 
@@ -422,15 +431,23 @@ function SanchonGallery({ translationKey }: Readonly<{ translationKey: string }>
   )
 }
 
-// 8. คอมโพเนนต์หลักควบคุม Template (SanchonTemplate Controller)
+// 11. คอมโพเนนต์หลักควบคุม Template (SanchonTemplate Controller)
 export function SanchonTemplate({ year, translationKey, imageFolder, announcements, galleryImages = [] }: SanchonTemplateProps) {
   const t = useT()
-  const [activeTab, setActiveTab] = useState<"overview" | "info" | "staff" | "announcement" | "gallery">("overview")
+  const [activeTab, setActiveTab] = useState<
+    | "objectives"
+    | "info"
+    | "outcomes"
+    | "staff"
+    | "announcement"
+    | "gallery"
+  >("objectives")
 
-  // แสดงรายการแท็บครบถ้วนทั้ง 5 แท็บตามปกติ
+  // แสดงรายการแท็บครบถ้วนทั้ง 6 แท็บตามที่ได้รับการรวบรวมข้อมูล
   const tabs = [
-    { id: "overview" as const, key: `${translationKey}.tabs.overview` },
+    { id: "objectives" as const, key: `${translationKey}.tabs.objectives` },
     { id: "info" as const, key: `${translationKey}.tabs.info` },
+    { id: "outcomes" as const, key: `${translationKey}.tabs.outcomes` },
     { id: "staff" as const, key: `${translationKey}.tabs.staff` },
     { id: "announcement" as const, key: `${translationKey}.tabs.announcement` },
     { id: "gallery" as const, key: `${translationKey}.tabs.gallery` },
@@ -448,8 +465,9 @@ export function SanchonTemplate({ year, translationKey, imageFolder, announcemen
       />
 
       <div className="transition-all duration-300 pb-12">
-        {activeTab === "overview" && <ObjectivesSection translationKey={translationKey} />}
+        {activeTab === "objectives" && <ObjectivesSection translationKey={translationKey} />}
         {activeTab === "info" && <SanchonInfo translationKey={translationKey} />}
+        {activeTab === "outcomes" && <SanchonOutcomes translationKey={translationKey} />}
         {activeTab === "staff" && <SanchonStaff translationKey={translationKey} />}
         {activeTab === "announcement" && (
           <SanchonAnnouncements translationKey={translationKey} announcements={announcements} />

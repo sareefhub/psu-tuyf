@@ -1072,11 +1072,12 @@
     "desc2": "These private Islamic schools play a vital role in educating Muslim youth, often integrating religious studies into the general curriculum. However, a key challenge is the shortage of specialized mathematics teachers, which prevents students from fully developing their mathematical potential.",
     "desc3": "Prince of Songkla University recognizes this necessity and has established the Mobile Mathematics Project (Math Roadshow). The project aims to reduce educational gaps by directly sending mathematics experts from Prince of Songkla University, Pattani Campus, to organize training workshops and provide mathematics tutorial sessions for students directly at schools.",
     "tabs": {
-      "overview": "Overview",
-      "info": "Project Info",
+      "objectives": "Objectives",
+      "info": "Training Info",
+      "outcomes": "Expected Outcomes",
       "staff": "Working Committee",
       "announcement": "Announcements",
-      "gallery": "Activities Gallery"
+      "gallery": "Activity Photos"
     },
     "objectivesTitle": "Core Objectives of the Project",
     "objectivesList": [
