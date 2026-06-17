@@ -27,11 +27,11 @@ export function TeacherOverview() {
 
         {/* ===== ส่วนที่ 2: การ์ดโครงการอบรมแต่ละปีการศึกษาแสดงในรูปแบบ Grid 3 คอลัมน์ (ขยายขนาดรูปภาพขึ้น 4% เพื่อซ่อนขอบกรอบสีฟ้าที่ติดมากับตัวไฟล์ภาพจริง) ===== */}
         <div className="grid gap-8 md:grid-cols-3 w-full [&_img]:scale-[1.04]">
-          {/* แสดงการ์ดสำหรับแต่ละปีการศึกษา (ใช้ไฟล์ภาพใหม่จากการปรับปรุงโฟลเดอร์) */}
+          {/* แสดงการ์ดสำหรับแต่ละปีการศึกษา เรียงลำดับจากใหม่สุดไปเก่าสุด */}
           <ProgramCard
-            title="Math 2022"
-            image="/images/mscd/teacher-improvement/mathematics-teacher-training/mtt-2022.png"
-            href="/mscd/teacher-improvement/math-2022"
+            title="Math 2026"
+            image="/images/mscd/teacher-improvement/mathematics-teacher-training/mtt-2026.png"
+            href="#"
             moreDetailText={t("programs.more_detail")}
           />
           <ProgramCard
@@ -41,9 +41,9 @@ export function TeacherOverview() {
             moreDetailText={t("programs.more_detail")}
           />
           <ProgramCard
-            title="Math 2026"
-            image="/images/mscd/teacher-improvement/mathematics-teacher-training/mtt-2026.png"
-            href="#"
+            title="Math 2022"
+            image="/images/mscd/teacher-improvement/mathematics-teacher-training/mtt-2022.png"
+            href="/mscd/teacher-improvement/math-2022"
             moreDetailText={t("programs.more_detail")}
           />
         </div>
