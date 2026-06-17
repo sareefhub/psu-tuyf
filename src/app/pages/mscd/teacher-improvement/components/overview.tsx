@@ -37,7 +37,7 @@ export function TeacherOverview() {
           <ProgramCard
             title="Math 2024"
             image="/images/mscd/teacher-improvement/mathematics-teacher-training/mtt-2024.png"
-            href="#"
+            href="/mscd/teacher-improvement/math-2024"
             moreDetailText={t("programs.more_detail")}
           />
           <ProgramCard

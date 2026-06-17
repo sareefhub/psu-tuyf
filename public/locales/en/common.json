@@ -1270,5 +1270,38 @@
     ],
     "announcementTitle": "Project Announcements",
     "galleryTitle": "Activity Photos"
+  },
+  "mtt2024": {
+    "title": "Mathematics Teacher Training Project 2024",
+    "subtitle": "Under PSU-TUYF: Mathematics for Sustainable Community Development",
+    "desc1": "Prince of Songkla University received budget support from the TUYF Charitable Trust Fund, Hong Kong Special Administrative Region, People's Republic of China, to support academic and research activities in the form of research grants, scholarships, and academic cooperation with various agencies or organizations in Asia.",
+    "desc2": "The Mathematics for Sustainable Community Development project, a sub-project under PSU-TUYF operated by the Department of Mathematics and Computer Science, Faculty of Science and Technology, has been approved for budget support to organize a training project on mathematics teaching and learning for teachers in private Islamic schools under the Office of the Private Education Commission in the Southern Border Provinces (Pattani, Yala, and Narathiwat) to upgrade the teaching capability of mathematics teachers. Therefore, the Department of Mathematics and Computer Science is open for applications from teachers to participate in this training.",
+    "tabs": {
+      "objectives": "Objectives",
+      "schedule": "Date & Venue",
+      "participants": "Participants",
+      "benefits": "Terms & Benefits",
+      "announcement": "Announcements",
+      "gallery": "Activity Photos"
+    },
+    "objectivesTitle": "Core Objectives of the Project",
+    "objectivesList": [
+      "To increase mathematical experience for mathematics teachers.",
+      "To allow mathematics teachers to meet and learn from each other.",
+      "To develop mathematics teaching personnel in schools.",
+      "To collect problems and obstacles in teaching secondary mathematics and seek guidelines to solve them."
+    ],
+    "timeLocationTitle": "Date & Venue",
+    "timeLocationDetail": "21-25 October 2024 at the Faculty of Science and Technology, Prince of Songkla University, Pattani Campus.",
+    "participantsTitle": "Participants",
+    "participantsDetail": "Mathematics teachers in private Islamic schools under the Office of the Private Education Commission in the Southern Border Provinces (Pattani, Yala, and Narathiwat), totaling 30 participants.",
+    "benefitsTitle": "Terms & Benefits for Participants",
+    "benefitsList": [
+      "Free accommodation along with lunch and dinner for all 5 days of training.",
+      "Flat-rate travel allowance of 400 Baht per person.",
+      "Participants must attend the entire training duration and will receive a certificate of completion."
+    ],
+    "announcementTitle": "Project Announcements",
+    "galleryTitle": "Activity Photos"
   }
 }
