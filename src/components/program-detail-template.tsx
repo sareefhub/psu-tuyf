@@ -211,10 +211,10 @@ export function SharedAnnouncements({ translationKey, announcements }: { readonl
                   </div>
                 </div>
 
-                <div className="flex items-center gap-2 self-end sm:self-center">
+                <div className="flex items-center gap-2 self-end sm:self-center shrink-0">
                   <button
                     onClick={() => handlePreview(item.title, item.fileUrl)}
-                    className="inline-flex items-center justify-center gap-1.5 rounded-full border border-border bg-background px-4 py-2 text-xs font-bold text-primary hover:bg-secondary transition-all shadow-xs cursor-pointer"
+                    className="inline-flex items-center justify-center gap-1.5 rounded-full border border-border bg-background px-4 py-2 text-xs font-bold text-primary hover:bg-secondary transition-all shadow-xs cursor-pointer whitespace-nowrap"
                   >
                     <Eye className="h-3.5 w-3.5" />
                     เปิดอ่าน
@@ -228,7 +228,7 @@ export function SharedAnnouncements({ translationKey, announcements }: { readonl
                         handlePreview(item.title, item.fileUrl)
                       }
                     }}
-                    className="inline-flex items-center justify-center gap-1.5 rounded-full bg-primary text-primary-foreground px-4 py-2 text-xs font-bold hover:bg-primary/90 transition-all shadow-xs cursor-pointer"
+                    className="inline-flex items-center justify-center gap-1.5 rounded-full bg-primary text-primary-foreground px-4 py-2 text-xs font-bold hover:bg-primary/90 transition-all shadow-xs cursor-pointer whitespace-nowrap"
                   >
                     <Download className="h-3.5 w-3.5" />
                     ดาวน์โหลด

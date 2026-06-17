@@ -89,11 +89,11 @@ export function CenterAnnouncements() {
                 </div>
 
                 {/* กลุ่มปุ่มดาวน์โหลดหรือเปิดไฟล์ป๊อปอัปด้านขวา */}
-                <div className="flex items-center gap-2 self-end sm:self-center">
+                <div className="flex items-center gap-2 self-end sm:self-center shrink-0">
                   {/* ปุ่มที่ 1: เปิดดูตัวอย่างใน Modal */}
                   <button
                     onClick={() => handlePreview(t(`algebraCenter.announcements.items.${item.key}.title`), item.fileUrl)}
-                    className="inline-flex items-center justify-center gap-1.5 rounded-full border border-border bg-background px-4 py-2 text-xs font-bold text-primary hover:bg-secondary transition-all shadow-sm cursor-pointer"
+                    className="inline-flex items-center justify-center gap-1.5 rounded-full border border-border bg-background px-4 py-2 text-xs font-bold text-primary hover:bg-secondary transition-all shadow-sm cursor-pointer whitespace-nowrap"
                   >
                     <Eye className="h-3.5 w-3.5" />
                     {t("algebraCenter.announcements.read")}
@@ -109,7 +109,7 @@ export function CenterAnnouncements() {
                         handlePreview(t(`algebraCenter.announcements.items.${item.key}.title`), item.fileUrl)
                       }
                     }}
-                    className="inline-flex items-center justify-center gap-1.5 rounded-full bg-primary text-primary-foreground px-4 py-2 text-xs font-bold hover:bg-primary/90 transition-all shadow-sm cursor-pointer"
+                    className="inline-flex items-center justify-center gap-1.5 rounded-full bg-primary text-primary-foreground px-4 py-2 text-xs font-bold hover:bg-primary/90 transition-all shadow-sm cursor-pointer whitespace-nowrap"
                   >
                     <Download className="h-3.5 w-3.5" />
                     {t("algebraCenter.announcements.download")}
