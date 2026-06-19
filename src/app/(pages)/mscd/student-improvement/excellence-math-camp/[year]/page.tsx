@@ -1,5 +1,5 @@
 import { CampTemplate } from "../components/camp-template"
-import { excellenceCampsData } from "@/data/excellence-math-camp"
+import { excellenceCampsData } from "@/data/pages/excellence-camp"
 import { notFound } from "next/navigation"
 
 // ฟังก์ชันระบุค่า Parameter สำหรับการสร้างหน้าเพจแบบ Static (Static Generation Optimization)
