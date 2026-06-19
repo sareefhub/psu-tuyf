@@ -4,34 +4,7 @@ import { useEffect, useState } from "react"
 import { useT } from "@/components/language-context"
 import { FileText, Download, Calendar, Eye, X, AlertTriangle } from "lucide-react"
 
-// ข้อมูลประกาศเอกสาร PDF ของโครงการ พร้อมคีย์คำแปลจาก JSON
-const announcementsData = [
-  {
-    key: "item1",
-    size: "260 KB",
-    fileUrl: "/documents/mscd/bsc-scholarships/ประกาศรับสมัครทุนการศึกษา-2565-รอบที่2.pdf",
-  },
-  {
-    key: "item2",
-    size: "235 KB",
-    fileUrl: "/documents/mscd/bsc-scholarships/ประกาศรับสมัครทุนการศึกษา-2565.pdf",
-  },
-  {
-    key: "item3",
-    size: "148 KB",
-    fileUrl: "/documents/mscd/bsc-scholarships/ประกาศผลการคัดเลือกนักเรียนเพื่อรับทุนการศึกษา-2565.pdf",
-  },
-  {
-    key: "item4",
-    size: "240 KB",
-    fileUrl: "/documents/mscd/bsc-scholarships/ประกาศรับสมัครทุนการศึกษา-2564.pdf",
-  },
-  {
-    key: "item5",
-    size: "145 KB",
-    fileUrl: "/documents/mscd/bsc-scholarships/ประกาศผลการคัดเลือกนักเรียนเพื่อรับทุนการศึกษา-2564.pdf",
-  },
-]
+import { bscAnnouncementsData } from "@/data/pages/mscd/bsc-scholarships"
 
 export function SelectionAnnouncements() {
   const t = useT()
@@ -77,7 +50,7 @@ export function SelectionAnnouncements() {
         {/* รายการแถวแสดงเอกสารประกาศ */}
         <div className="max-w-4xl mx-auto border border-border/60 rounded-3xl overflow-hidden bg-card shadow-sm">
           <div className="divide-y divide-border/40">
-            {announcementsData.map((item) => (
+            {bscAnnouncementsData.map((item) => (
               <div
                 key={item.fileUrl}
                 className="p-5 sm:p-6 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 hover:bg-secondary/30 transition-colors group"

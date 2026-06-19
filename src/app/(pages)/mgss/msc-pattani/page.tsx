@@ -4,125 +4,12 @@ import { useLanguage } from "@/components/language-context"
 import { MainLayout } from "@/layout/main-layout"
 import { StudentCard } from "@/components/student-card"
 
-// ข้อมูลนักศึกษาระดับปริญญาโท วิทยาเขตปัตตานี (M.Sc. Pattani) ตามข้อมูลจริง
-const studentData = {
-  th: [
-    {
-      year: "ปีการศึกษา 2567",
-      groupTitle: "นักเรียนทุนปี 2024 (STUDENT SCHOLARS 2024)",
-      students: [
-        {
-          name: "Fatima Hemna",
-          role: "รหัสนักศึกษา: 6620320705",
-          campus: "วิทยาเขตปัตตานี",
-          image: "/images/mgss/master-student-pattani/student-1.png"
-        },
-        {
-          name: "Fateehah Korlaeh",
-          role: "รหัสนักศึกษา: 6720320702",
-          campus: "วิทยาเขตปัตตานี",
-          image: "/images/mgss/master-student-pattani/student-2.png"
-        },
-        {
-          name: "Mr. Imam Muhyideen Sidiq",
-          role: "รหัสนักศึกษา: 6720320703",
-          campus: "วิทยาเขตปัตตานี",
-          image: "/images/mgss/master-student-pattani/student-3.png"
-        }
-      ]
-    },
-    {
-      year: "ปีการศึกษา 2565",
-      groupTitle: "นักเรียนทุนปี 2022 (STUDENT SCHOLARS 2022)",
-      students: [
-        {
-          name: "Asma Yafad",
-          role: "รหัสนักศึกษา: 6620320703",
-          campus: "วิทยาเขตปัตตานี",
-          image: "/images/mgss/master-student-pattani/student-4.png"
-        },
-        {
-          name: "Palin Raktaow",
-          role: "รหัสนักศึกษา: 6620320702",
-          campus: "วิทยาเขตปัตตานี",
-          image: "/images/mgss/master-student-pattani/student-5.png"
-        }
-      ]
-    },
-    {
-      year: "ปีการศึกษา 2564",
-      groupTitle: "นักเรียนทุนปี 2021 (STUDENT SCHOLARS 2021)",
-      students: [
-        {
-          name: "Kritapon Chaikan",
-          role: "รหัสนักศึกษา: 6420320701",
-          campus: "วิทยาเขตปัตตานี",
-          image: "/images/mgss/master-student-pattani/student-6.png"
-        }
-      ]
-    }
-  ],
-  en: [
-    {
-      year: "Academic Year 2024",
-      groupTitle: "STUDENT SCHOLARS 2024",
-      students: [
-        {
-          name: "Fatima Hemna",
-          role: "Student ID: 6620320705",
-          campus: "Pattani Campus",
-          image: "/images/mgss/master-student-pattani/student-1.png"
-        },
-        {
-          name: "Fateehah Korlaeh",
-          role: "Student ID: 6720320702",
-          campus: "Pattani Campus",
-          image: "/images/mgss/master-student-pattani/student-2.png"
-        },
-        {
-          name: "Mr. Imam Muhyideen Sidiq",
-          role: "Student ID: 6720320703",
-          campus: "Pattani Campus",
-          image: "/images/mgss/master-student-pattani/student-3.png"
-        }
-      ]
-    },
-    {
-      year: "Academic Year 2022",
-      groupTitle: "STUDENT SCHOLARS 2022",
-      students: [
-        {
-          name: "Asma Yafad",
-          role: "Student ID: 6620320703",
-          campus: "Pattani Campus",
-          image: "/images/mgss/master-student-pattani/student-4.png"
-        },
-        {
-          name: "Palin Raktaow",
-          role: "Student ID: 6620320702",
-          campus: "Pattani Campus",
-          image: "/images/mgss/master-student-pattani/student-5.png"
-        }
-      ]
-    },
-    {
-      year: "Academic Year 2021",
-      groupTitle: "STUDENT SCHOLARS 2021",
-      students: [
-        {
-          name: "Kritapon Chaikan",
-          role: "Student ID: 6420320701",
-          campus: "Pattani Campus",
-          image: "/images/mgss/master-student-pattani/student-6.png"
-        }
-      ]
-    }
-  ]
-};
+import { mscPattaniData } from "@/data/pages/mgss/student-directory"
 
 export default function MscPattaniDirectoryPage() {
   const { lang } = useLanguage();
-  const currentData = studentData[lang] || studentData.th;
+  // ดึงข้อมูลทำเนียบนักศึกษาจากไฟล์ข้อมูลกลางแยกตามภาษา
+  const currentData = mscPattaniData[lang] || mscPattaniData.th;
 
   return (
     <MainLayout className="animate-fade-in">

@@ -4,89 +4,12 @@ import { useLanguage } from "@/components/language-context"
 import { MainLayout } from "@/layout/main-layout"
 import { StudentCard } from "@/components/student-card"
 
-// ข้อมูลนักศึกษาระดับปริญญาโท วิทยาเขตหาดใหญ่ (M.Sc. Hatyai) ตามข้อมูลจริง
-const studentData = {
-  th: [
-    {
-      year: "ปีการศึกษา 2567",
-      groupTitle: "นักเรียนทุนปี 2024 (STUDENT SCHOLARS 2024)",
-      students: [
-        {
-          name: "Saowapak Makphon",
-          role: "รหัสนักศึกษา: 6610220020",
-          campus: "วิทยาเขตหาดใหญ่",
-          image: "/images/mgss/master-student-hatyai/student-1.png"
-        }
-      ]
-    },
-    {
-      year: "ปีการศึกษา 2565",
-      groupTitle: "นักเรียนทุนปี 2022 (STUDENT SCHOLARS 2022)",
-      students: [
-        {
-          name: "Phitchayawee Sangjan",
-          role: "รหัสนักศึกษา: 6610220011",
-          campus: "วิทยาเขตหาดใหญ่",
-          image: "/images/mgss/master-student-hatyai/student-2.png"
-        }
-      ]
-    },
-    {
-      year: "ปีการศึกษา 2564",
-      groupTitle: "นักเรียนทุนปี 2021 (STUDENT SCHOLARS 2021)",
-      students: [
-        {
-          name: "Panupong Daengpradap",
-          role: "รหัสนักศึกษา: 6410220051",
-          campus: "วิทยาเขตหาดใหญ่",
-          image: "/images/mgss/master-student-hatyai/student-3.png"
-        }
-      ]
-    }
-  ],
-  en: [
-    {
-      year: "Academic Year 2024",
-      groupTitle: "STUDENT SCHOLARS 2024",
-      students: [
-        {
-          name: "Saowapak Makphon",
-          role: "Student ID: 6610220020",
-          campus: "Hat Yai Campus",
-          image: "/images/mgss/master-student-hatyai/student-1.png"
-        }
-      ]
-    },
-    {
-      year: "Academic Year 2022",
-      groupTitle: "STUDENT SCHOLARS 2022",
-      students: [
-        {
-          name: "Phitchayawee Sangjan",
-          role: "Student ID: 6610220011",
-          campus: "Hat Yai Campus",
-          image: "/images/mgss/master-student-hatyai/student-2.png"
-        }
-      ]
-    },
-    {
-      year: "Academic Year 2021",
-      groupTitle: "STUDENT SCHOLARS 2021",
-      students: [
-        {
-          name: "Panupong Daengpradap",
-          role: "Student ID: 6410220051",
-          campus: "Hat Yai Campus",
-          image: "/images/mgss/master-student-hatyai/student-3.png"
-        }
-      ]
-    }
-  ]
-};
+import { mscHatyaiData } from "@/data/pages/mgss/student-directory"
 
 export default function MscHatyaiDirectoryPage() {
   const { lang } = useLanguage();
-  const currentData = studentData[lang] || studentData.th;
+  // ดึงข้อมูลทำเนียบนักศึกษาจากไฟล์ข้อมูลกลางแยกตามภาษา
+  const currentData = mscHatyaiData[lang] || mscHatyaiData.th;
 
   return (
     <MainLayout className="animate-fade-in">

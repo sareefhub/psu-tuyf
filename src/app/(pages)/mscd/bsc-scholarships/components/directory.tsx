@@ -3,65 +3,7 @@
 import { useT } from "@/components/language-context"
 import { StudentCard } from "@/components/student-card"
 
-// โครงสร้างข้อมูลรายชื่อนักเรียนทุน ที่แมปคีย์กับไฟล์แปลภาษา JSON
-const directoryData = [
-  {
-    yearKey: "y2566",
-    groups: [
-      {
-        groupKey: "g1",
-        students: [
-          {
-            name: "Miss SOPHOUN YOUK",
-            studentKey: "s1",
-            image: "/images/mscd/bsc-scholarships/student-1.png",
-          },
-        ],
-      },
-    ],
-  },
-  {
-    yearKey: "y2565",
-    groups: [
-      {
-        groupKey: "g1",
-        students: [
-          { name: "Mr. Faruk Waede", studentKey: "s1", image: "/images/mscd/bsc-scholarships/student-2.png" },
-          { name: "Miss Inasnee Rattanawongsawas", studentKey: "s2", image: "/images/mscd/bsc-scholarships/student-3.png" },
-          { name: "Miss Fatimah Mahae", studentKey: "s3", image: "/images/mscd/bsc-scholarships/student-4.png" },
-          { name: "Miss Nirania Waedaya", studentKey: "s4", image: "/images/mscd/bsc-scholarships/student-5.png" },
-          { name: "Miss Sufianee Abu", studentKey: "s5", image: "/images/mscd/bsc-scholarships/student-6.png" },
-        ],
-      },
-      {
-        groupKey: "g2",
-        students: [
-          { name: "Miss Liza Thea", studentKey: "s1", image: "/images/mscd/bsc-scholarships/student-7.png" },
-          { name: "Mr. Chhavy Chorn", studentKey: "s2", image: "/images/mscd/bsc-scholarships/student-8.png" },
-        ],
-      },
-    ],
-  },
-  {
-    yearKey: "y2564",
-    groups: [
-      {
-        groupKey: "g1",
-        students: [
-          { name: "Miss Rusmee Binmaming", studentKey: "s1", image: "/images/mscd/bsc-scholarships/student-9.png" },
-          { name: "Mr. Affan Yahyoh", studentKey: "s2", image: "/images/mscd/bsc-scholarships/student-10.png" },
-        ],
-      },
-      {
-        groupKey: "g2",
-        students: [
-          { name: "Mr. Namoral Thy", studentKey: "s1", image: "/images/mscd/bsc-scholarships/student-11.png" },
-          { name: "Miss Layya Meak", studentKey: "s2", image: "/images/mscd/bsc-scholarships/student-12.png" },
-        ],
-      },
-    ],
-  },
-]
+import { bscDirectoryData } from "@/data/pages/mscd/bsc-scholarships"
 
 export function SelectionDirectory() {
   const t = useT()
@@ -81,7 +23,7 @@ export function SelectionDirectory() {
 
         {/* รายการแบ่งตามปีการศึกษา */}
         <div className="space-y-20">
-          {directoryData.map((yearGroup) => (
+          {bscDirectoryData.map((yearGroup) => (
             <div key={yearGroup.yearKey} className="space-y-12">
               {/* แถบปีการศึกษาแบ่งส่วนชัดเจน */}
               <div className="border-b border-border/80 pb-3">

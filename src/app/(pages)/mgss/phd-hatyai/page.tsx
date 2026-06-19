@@ -4,113 +4,12 @@ import { useLanguage } from "@/components/language-context"
 import { MainLayout } from "@/layout/main-layout"
 import { StudentCard } from "@/components/student-card"
 
-// ข้อมูลนักศึกษาระดับปริญญาเอก วิทยาเขตหาดใหญ่ (Ph.D. Hatyai) ตามข้อมูลจริง
-const studentData = {
-  th: [
-    {
-      year: "ปีการศึกษา 2567",
-      groupTitle: "นักเรียนทุนปี 2024 (STUDENT SCHOLARS 2024)",
-      students: [
-        {
-          name: "Arbaz Jehan khan",
-          role: "รหัสนักศึกษา: 6710230007",
-          campus: "วิทยาเขตหาดใหญ่",
-          image: "/images/mgss/phd-student-hatyai/student-1.png"
-        }
-      ]
-    },
-    {
-      year: "ปีการศึกษา 2566",
-      groupTitle: "นักเรียนทุนปี 2023 (STUDENT SCHOLARS 2023)",
-      students: [
-        {
-          name: "Pokpong Srimora",
-          role: "รหัสนักศึกษา: 6610230016",
-          campus: "วิทยาเขตหาดใหญ่",
-          image: "/images/mgss/phd-student-hatyai/student-2.png"
-        },
-        {
-          name: "Traiwat Intarawong",
-          role: "รหัสนักศึกษา: 6610230005",
-          campus: "วิทยาเขตหาดใหญ่",
-          image: "/images/mgss/phd-student-hatyai/student-3.png"
-        }
-      ]
-    },
-    {
-      year: "ปีการศึกษา 2564",
-      groupTitle: "นักเรียนทุนปี 2021 (STUDENT SCHOLARS 2021)",
-      students: [
-        {
-          name: "Krit Kanopthamakun",
-          role: "รหัสนักศึกษา: 6310230017",
-          campus: "วิทยาเขตหาดใหญ่",
-          image: "/images/mgss/phd-student-hatyai/student-4.png"
-        },
-        {
-          name: "Anusorn Simuen",
-          role: "รหัสนักศึกษา: 6410230005",
-          campus: "วิทยาเขตหาดใหญ่",
-          image: "/images/mgss/phd-student-hatyai/student-5.png"
-        }
-      ]
-    }
-  ],
-  en: [
-    {
-      year: "Academic Year 2024",
-      groupTitle: "STUDENT SCHOLARS 2024",
-      students: [
-        {
-          name: "Arbaz Jehan khan",
-          role: "Student ID: 6710230007",
-          campus: "Hat Yai Campus",
-          image: "/images/mgss/phd-student-hatyai/student-1.png"
-        }
-      ]
-    },
-    {
-      year: "Academic Year 2023",
-      groupTitle: "STUDENT SCHOLARS 2023",
-      students: [
-        {
-          name: "Pokpong Srimora",
-          role: "Student ID: 6610230016",
-          campus: "Hat Yai Campus",
-          image: "/images/mgss/phd-student-hatyai/student-2.png"
-        },
-        {
-          name: "Traiwat Intarawong",
-          role: "Student ID: 6610230005",
-          campus: "Hat Yai Campus",
-          image: "/images/mgss/phd-student-hatyai/student-3.png"
-        }
-      ]
-    },
-    {
-      year: "Academic Year 2021",
-      groupTitle: "STUDENT SCHOLARS 2021",
-      students: [
-        {
-          name: "Krit Kanopthamakun",
-          role: "Student ID: 6310230017",
-          campus: "Hat Yai Campus",
-          image: "/images/mgss/phd-student-hatyai/student-4.png"
-        },
-        {
-          name: "Anusorn Simuen",
-          role: "Student ID: 6410230005",
-          campus: "Hat Yai Campus",
-          image: "/images/mgss/phd-student-hatyai/student-5.png"
-        }
-      ]
-    }
-  ]
-};
+import { phdHatyaiData } from "@/data/pages/mgss/student-directory"
 
 export default function PhdHatyaiDirectoryPage() {
   const { lang } = useLanguage();
-  const currentData = studentData[lang] || studentData.th;
+  // ดึงข้อมูลทำเนียบนักศึกษาจากไฟล์ข้อมูลกลางแยกตามภาษา
+  const currentData = phdHatyaiData[lang] || phdHatyaiData.th;
 
   return (
     <MainLayout className="animate-fade-in">
