@@ -160,7 +160,7 @@ function SanchonStaff({ translationKey }: Readonly<{ translationKey: string }>) 
 }
 
 // 4. คอมโพเนนต์หลักควบคุม Template (SanchonTemplate Controller)
-export function SanchonTemplate({ year, translationKey, announcements }: SanchonTemplateProps) {
+export function SanchonTemplate({ year, translationKey, announcements, galleryImages = [] }: SanchonTemplateProps) {
   // กำหนดโครงร่างแท็บที่จะส่งไปให้ Component ส่วนกลางประมวลผล
   const tabs = [
     {
@@ -191,7 +191,7 @@ export function SanchonTemplate({ year, translationKey, announcements }: Sanchon
     {
       id: "gallery",
       labelKey: `${translationKey}.tabs.gallery`,
-      component: <SharedGallery translationKey={translationKey} />,
+      component: <SharedGallery translationKey={translationKey} images={galleryImages} />,
     },
   ] as const
 

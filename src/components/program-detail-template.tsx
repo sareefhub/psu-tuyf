@@ -4,7 +4,8 @@ import { useState, useEffect, type ReactNode } from "react"
 import { useT } from "@/components/language-context"
 import { MainLayout } from "@/layout/main-layout"
 import { TabNavigation } from "@/components/tab-navigation"
-import { FileText, Download, Calendar, Eye, X, AlertTriangle } from "lucide-react"
+import { FileText, Download, Calendar, Eye, X, AlertTriangle, ChevronLeft, ChevronRight } from "lucide-react"
+import Image from "next/image"
 
 export interface SharedAnnouncementItem {
   readonly title: string;
@@ -291,22 +292,125 @@ export function SharedAnnouncements({ translationKey, announcements }: { readonl
   )
 }
 
-// 5. แท็บภาพกิจกรรม (Gallery Section)
-export function SharedGallery({ translationKey }: { readonly translationKey: string }) {
+// 5. แท็บภาพกิจกรรม (Gallery Section) พร้อมระบบแบ่งหน้า (Pagination)
+export interface SharedGalleryProps {
+  readonly translationKey: string;
+  readonly images?: readonly string[];
+  readonly itemsPerPage?: number;
+}
+
+export function SharedGallery({ translationKey, images = [], itemsPerPage = 9 }: SharedGalleryProps) {
   const t = useT()
   const title = t(`${translationKey}.galleryTitle`)
+  const [currentPage, setCurrentPage] = useState(1)
+
+  // รีเซ็ตกลับไปหน้าแรกเมื่อรายการรูปภาพเปลี่ยนแปลง
+  useEffect(() => {
+    setCurrentPage(1)
+  }, [images])
+
+  if (!images || images.length === 0) {
+    return (
+      <section className="py-10 bg-background animate-fade-in">
+        <div className="mx-auto max-w-7xl px-6 text-center text-muted-foreground/60">
+          <p>ไม่มีรูปภาพกิจกรรมแสดงผลในขณะนี้</p>
+        </div>
+      </section>
+    )
+  }
+
+  // คำนวณการแบ่งหน้า (Pagination)
+  const totalPages = Math.ceil(images.length / itemsPerPage)
+  const startIndex = (currentPage - 1) * itemsPerPage
+  const currentImages = images.slice(startIndex, startIndex + itemsPerPage)
+
+  function handlePageChange(pageNumber: number) {
+    setCurrentPage(pageNumber)
+    
+    // เลื่อนหน้าจอกลับมาที่ส่วนหัวข้อแกลเลอรีอย่างนุ่มนวล
+    const gallerySection = document.getElementById("gallery-section")
+    if (gallerySection) {
+      gallerySection.scrollIntoView({ behavior: "smooth", block: "start" })
+    }
+  }
 
   return (
-    <section className="py-10 bg-background animate-fade-in">
+    <section id="gallery-section" className="py-10 bg-background animate-fade-in scroll-mt-20">
       <div className="mx-auto max-w-7xl px-6">
         <div className="text-center max-w-2xl mx-auto mb-12 space-y-3">
           <h2 className="text-balance text-2xl font-bold tracking-tight text-primary sm:text-3xl">
             {title && title !== `${translationKey}.galleryTitle` ? title : "ภาพกิจกรรม"}
           </h2>
           <p className="text-sm text-muted-foreground/80">
-            ภาพบรรยากาศความประทับใจของการดำเนินกิจกรรมของโครงการ
+            {t(`${translationKey}.galleryDesc`, { defaultValue: "ภาพบรรยากาศความประทับใจของการดำเนินกิจกรรมของโครงการ" })}
           </p>
         </div>
+
+        {/* แสดงผลรูปภาพในหน้าปัจจุบัน (Grid Layout) */}
+        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 max-w-5xl mx-auto">
+          {currentImages.map((src, index) => {
+            const globalIndex = startIndex + index
+            return (
+              <div 
+                key={src} 
+                className="group aspect-4/3 bg-secondary/35 rounded-3xl overflow-hidden border border-border/50 hover:border-accent/40 hover:shadow-xs transition-all duration-300 flex items-center justify-center relative"
+              >
+                <Image 
+                  src={src} 
+                  alt={`ภาพกิจกรรมที่ ${globalIndex + 1}`}
+                  fill
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                  className="object-cover transition-all duration-300 group-hover:scale-105 group-hover:opacity-90"
+                />
+              </div>
+            )
+          })}
+        </div>
+
+        {/* แผงควบคุมการแบ่งหน้า (Pagination Controls) */}
+        {totalPages > 1 && (
+          <div className="flex items-center justify-center gap-2 mt-12 animate-fade-in">
+            {/* ปุ่มเปลี่ยนไปหน้าก่อนหน้า */}
+            <button
+              onClick={() => handlePageChange(Math.max(currentPage - 1, 1))}
+              disabled={currentPage === 1}
+              className="inline-flex h-10 w-10 items-center justify-center rounded-xl border border-border bg-card text-muted-foreground hover:bg-secondary hover:text-primary transition-all disabled:opacity-40 disabled:hover:bg-card disabled:hover:text-muted-foreground cursor-pointer disabled:cursor-not-allowed"
+              aria-label="หน้าก่อนหน้า"
+            >
+              <ChevronLeft className="h-4.5 w-4.5" />
+            </button>
+
+            {/* หมายเลขหน้าเลือกสลับ */}
+            <div className="flex items-center gap-1.5">
+              {Array.from({ length: totalPages }, (_, i) => i + 1).map((page) => {
+                const isActive = currentPage === page
+                return (
+                  <button
+                    key={page}
+                    onClick={() => handlePageChange(page)}
+                    className={`inline-flex h-10 w-10 items-center justify-center rounded-xl text-sm font-bold transition-all cursor-pointer ${
+                      isActive
+                        ? "bg-primary text-primary-foreground shadow-sm shadow-primary/20 scale-105"
+                        : "border border-border bg-card hover:bg-secondary text-primary"
+                    }`}
+                  >
+                    {page}
+                  </button>
+                )
+              })}
+            </div>
+
+            {/* ปุ่มเปลี่ยนไปหน้าถัดไป */}
+            <button
+              onClick={() => handlePageChange(Math.min(currentPage + 1, totalPages))}
+              disabled={currentPage === totalPages}
+              className="inline-flex h-10 w-10 items-center justify-center rounded-xl border border-border bg-card text-muted-foreground hover:bg-secondary hover:text-primary transition-all disabled:opacity-40 disabled:hover:bg-card disabled:hover:text-muted-foreground cursor-pointer disabled:cursor-not-allowed"
+              aria-label="หน้าถัดไป"
+            >
+              <ChevronRight className="h-4.5 w-4.5" />
+            </button>
+          </div>
+        )}
       </div>
     </section>
   )

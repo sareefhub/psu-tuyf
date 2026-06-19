@@ -2,7 +2,7 @@
 
 import Image from "next/image"
 import { useT } from "@/components/language-context"
-import { ProgramDetailTemplate, SharedObjectives, SharedAnnouncements } from "@/components/program-detail-template"
+import { ProgramDetailTemplate, SharedObjectives, SharedAnnouncements, SharedGallery } from "@/components/program-detail-template"
 
 // อินเตอร์เฟซสำหรับข้อมูลประกาศของโครงการค่ายคณิตศาสตร์เข้ม
 export interface AnnouncementItem {
@@ -106,44 +106,7 @@ function PostTestScores({ translationKey, images = [] }: Readonly<{ translationK
   )
 }
 
-// 3. แท็บภาพบรรยากาศการทำกิจกรรมการเรียนรู้ในค่าย
-function ActivitiesGallery({ translationKey, images = [] }: Readonly<{ translationKey: string; images?: readonly string[] }>) {
-  const t = useT()
 
-  return (
-    <section className="py-10 bg-background animate-fade-in">
-      <div className="mx-auto max-w-7xl px-6">
-        <div className="text-center max-w-2xl mx-auto mb-12 space-y-3">
-          <h2 className="text-balance text-2xl font-bold tracking-tight text-primary sm:text-3xl">
-            {t(`${translationKey}.galleryTitle`)}
-          </h2>
-          <p className="text-sm text-muted-foreground/80">
-            {t(`${translationKey}.galleryDesc`, { defaultValue: `ประมวลภาพกิจกรรมการอบรมเข้มเตรียมสอบ สอวน. วิชาคณิตศาสตร์` })}
-          </p>
-        </div>
-
-        {images.length > 0 && (
-          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 max-w-5xl mx-auto">
-            {images.map((src, index) => (
-              <div 
-                key={src} 
-                className="group aspect-4/3 bg-secondary/35 rounded-3xl overflow-hidden border border-border/50 hover:border-accent/40 hover:shadow-xs transition-all duration-300 flex items-center justify-center relative"
-              >
-                <Image 
-                  src={src} 
-                  alt={`ภาพกิจกรรมที่ ${index + 1}`}
-                  fill
-                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                  className="object-cover transition-opacity duration-300 group-hover:opacity-90"
-                />
-              </div>
-            ))}
-          </div>
-        )}
-      </div>
-    </section>
-  )
-}
 
 // 4. คอมโพเนนต์หลักที่ทำหน้าที่ควบคุมการสลับแท็บรายละเอียดค่าย (CampTemplate Controller)
 export function CampTemplate({ year, translationKey, announcements, postTestImages = [], galleryImages = [] }: CampTemplateProps) {
@@ -172,7 +135,7 @@ export function CampTemplate({ year, translationKey, announcements, postTestImag
     {
       id: "gallery",
       labelKey: `${translationKey}.tabs.gallery`,
-      component: <ActivitiesGallery translationKey={translationKey} images={galleryImages} />,
+      component: <SharedGallery translationKey={translationKey} images={galleryImages} />,
     },
   ] as const
 
