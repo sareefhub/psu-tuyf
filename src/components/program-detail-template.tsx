@@ -7,7 +7,7 @@ import { TabNavigation } from "@/components/tab-navigation"
 import { FileText, Download, Calendar, Eye, X, AlertTriangle, ChevronLeft, ChevronRight } from "lucide-react"
 import Image from "next/image"
 import { getImagesAction } from "@/lib/cloudinary-actions"
-import { getOptimizedImageUrl } from "@/lib/cloudinary"
+import { getOptimizedImageUrl } from "@/lib/cloudinary-client"
 
 export interface SharedAnnouncementItem {
   readonly title: string;
