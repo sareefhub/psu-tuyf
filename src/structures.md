@@ -6,7 +6,7 @@
 src/
 ├── app/                  # โครงสร้างหน้าเพจและระบบ Routing ทั้งหมดของ Next.js (App Router)
 │   ├── api/              # ส่วนจัดการ API endpoints ต่างๆ หลังบ้าน
-│   ├── pages/            # หน้าเพจเนื้อหาหลักของเว็บไซต์ (จัดหมวดหมู่แยกเพื่อความสะอาดเรียบร้อย)
+│   ├── (pages)/          # กลุ่มของหน้าเพจเนื้อหาหลักของเว็บไซต์ (Route Group ปรากฏเป็น URL ตรงๆ โดยไม่ต้องระบุชื่อโฟลเดอร์นี้)
 │   │   ├── about/        # หน้าเกี่ยวกับเรา (About Page)
 │   │   ├── algebra-enrichment/ # หน้าโครงการพัฒนาการเรียนการสอนพีชคณิต
 │   │   ├── contact/      # หน้าติดต่อเรา (Contact Page)
@@ -20,7 +20,7 @@ src/
 │   ├── globals.css       # สไตล์ชีทส่วนกลางของระบบ (Global CSS)
 │   ├── layout.tsx        # Root Layout ตัวหลักสุดของเว็บไซต์ (กำหนดแท็ก HTML/Body)
 │   ├── manifest.ts       # ไฟล์ตั้งค่า Web App Manifest (SEO/PWA)
-│   ├── page.tsx          # ไฟล์ Root Page แรกสุด (ทำหน้าที่ดึง HomePage จาก pages/home มาแสดง)
+│   ├── page.tsx          # ไฟล์ Root Page แรกสุด (ทำหน้าที่ดึง HomePage จาก (pages)/home มาแสดง)
 │   ├── robots.ts         # ไฟล์ตั้งค่าแนวทางให้บราวเซอร์และ Search Engine (SEO Robots)
 │   └── sitemap.ts        # ไฟล์สร้างแผนผังเว็บไซต์แบบ Dynamic (SEO Sitemap)
 │
@@ -43,9 +43,9 @@ src/
 ---
 
 ## 📌 สรุปหลักการจัดวางง่าย ๆ
-1. **ใช้เฉพาะหน้า:** ให้วางไว้ในโฟลเดอร์ `components` ของหน้าที่ใช้เท่านั้น เช่น `app/pages/home/components/`
+1. **ใช้เฉพาะหน้า:** ให้วางไว้ในโฟลเดอร์ `components` ของหน้าที่ใช้เท่านั้น เช่น `app/(pages)/home/components/`
 2. **ใช้ร่วมกันหลายหน้า:** ให้ย้ายมาไว้ใน `components/` หรือ `components/ui/` ส่วนกลาง
-3. **การเข้าหน้าเพจหลัก:** การกำหนดเส้นทาง URL หลักของหน้าเพจ (เช่น `/about`, `/contact`) จะถูกควบคุมผ่านการตั้งค่า `rewrites` ใน `next.config.mjs` เพื่อส่งต่อไปดึงไฟล์แสดงผลจาก `src/app/pages/...` หลังบ้านโดยที่ URL ด้านหน้าไม่เปลี่ยนแปลงและเข้าได้ตามปกติ
+3. **การเข้าหน้าเพจหลัก:** การกำหนดเส้นทาง URL หลักของหน้าเพจ (เช่น `/about`, `/contact`) จะถูกนำทางโดยตรงผ่านโครงสร้าง Route Group `src/app/(pages)/...` ของ Next.js ซึ่ง URL จะแสดงเป็นระเบียบตามธรรมชาติ โดยไม่จำเป็นต้องใช้เงื่อนไข Rewrite ในไฟล์ตั้งค่า `next.config.mjs`
 4. **ใช้ Path Alias นำเข้าไฟล์:** ใช้ `@/` ในการเรียกใช้งานเพื่อให้อ่านง่ายและเป็นระบบ Clean Code เช่น:
    ```typescript
    import { MainLayout } from '@/layout/main-layout';
