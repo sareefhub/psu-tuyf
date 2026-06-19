@@ -185,7 +185,7 @@ export function SharedAnnouncements({ translationKey, announcements }: { readonl
           </p>
         </div>
 
-        <div className="max-w-4xl mx-auto border border-border/60 rounded-3xl overflow-hidden bg-card shadow-xs">
+        <div className="border border-border/60 rounded-3xl overflow-hidden bg-card shadow-xs">
           <div className="divide-y divide-border/40">
             {announcements.map((item) => (
               <div
