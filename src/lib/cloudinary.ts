@@ -49,31 +49,62 @@ export function getOptimizedImageUrl(
  * ดึงรายการรูปภาพทั้งหมดจากโฟลเดอร์ที่ระบุใน Cloudinary (ทำงานเฉพาะฝั่ง Server)
  * 
  * @param folder ชื่อโฟลเดอร์ใน Cloudinary ที่เก็บรูป เช่น 'psu-tuyf-uploads'
- * @param maxResults จำนวนรูปภาพสูงสุดที่จะแสดง (ค่าเริ่มต้นคือ 20 รูป)
+ * @param maxResults จำนวนรูปภาพสูงสุดที่จะแสดง (หากไม่ได้ระบุ หรือระบุค่าน้อยกว่าเท่ากับ 0 จะดึงรูปภาพทั้งหมดที่มีในโฟลเดอร์)
  */
 export async function getImagesFromFolder(
   folder: string = 'psu-tuyf-uploads',
-  maxResults: number = 20
+  maxResults?: number
 ): Promise<CloudinaryFetchResult> {
   try {
-    const result = await cloudinary.search
-      .expression(`folder:${folder}`)
-      .sort_by('created_at', 'desc') // เรียงลำดับรูปภาพที่อัปโหลดใหม่ล่าสุดขึ้นก่อน
-      .max_results(maxResults)
-      .execute();
+    let allResources: CloudinaryResource[] = [];
+    let nextCursor: string | undefined = undefined;
+    let hasMore = true;
+    const limitPerRequest = 500; // Cloudinary Search API จำกัดสูงสุด 500 รูปต่อคำขอ
 
-    const resources: CloudinaryResource[] = result.resources.map((resource: any) => ({
-      publicId: resource.public_id,
-      secureUrl: resource.secure_url,
-      format: resource.format,
-      width: resource.width,
-      height: resource.height,
-      createdAt: resource.created_at,
-    }));
+    while (hasMore) {
+      let query = cloudinary.search
+        .expression(`folder:${folder}`)
+        .sort_by('created_at', 'desc'); // เรียงลำดับรูปภาพที่อัปโหลดล่าสุดขึ้นก่อน
+
+      // คำนวณขีดจำกัดสำหรับการร้องขอแต่ละครั้ง
+      if (maxResults && maxResults > 0) {
+        const remaining = maxResults - allResources.length;
+        if (remaining <= 0) break;
+        query = query.max_results(Math.min(remaining, limitPerRequest));
+      } else {
+        query = query.max_results(limitPerRequest);
+      }
+
+      // หากมี nextCursor ให้ส่งค่าเพื่อขอข้อมูลในหน้าถัดไป
+      if (nextCursor) {
+        query = query.next_cursor(nextCursor);
+      }
+
+      const result = await query.execute();
+
+      const resources: CloudinaryResource[] = result.resources.map((resource: any) => ({
+        publicId: resource.public_id,
+        secureUrl: resource.secure_url,
+        format: resource.format,
+        width: resource.width,
+        height: resource.height,
+        createdAt: resource.created_at,
+      }));
+
+      allResources = allResources.concat(resources);
+      nextCursor = result.next_cursor;
+
+      // ตรวจสอบเงื่อนไขการวนลูปดึงข้อมูลต่อ
+      if (!nextCursor) {
+        hasMore = false;
+      } else if (maxResults && maxResults > 0 && allResources.length >= maxResults) {
+        hasMore = false;
+      }
+    }
 
     return {
       success: true,
-      resources: resources,
+      resources: allResources,
     };
   } catch (error) {
     console.error('❌ [Cloudinary Error] เกิดข้อผิดพลาดในการดึงข้อมูลรูปภาพ:', error);

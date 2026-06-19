@@ -36,7 +36,7 @@ export function SharedGallery({
     let isMounted = true
     setIsLoading(true)
 
-    getImagesAction(imageFolder, 100)
+    getImagesAction(imageFolder)
       .then((result) => {
         if (!isMounted) return
         if (result.success && result.resources && result.resources.length > 0) {
