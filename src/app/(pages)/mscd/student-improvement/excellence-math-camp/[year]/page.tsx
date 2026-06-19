@@ -1,7 +1,6 @@
 import { CampTemplate } from "../components/camp-template"
 import { excellenceCampsData } from "@/data/pages/mscd/student-improvement/excellence-math-camp"
 import { notFound } from "next/navigation"
-import { getImagesFromFolder } from "@/lib/cloudinary"
 
 // กำหนด Revalidation ทุก ๆ 1 ชั่วโมง เพื่อไม่ให้ดึงข้อมูลจาก Cloudinary บ่อยเกินไป แต่รูปภาพยังคงอัปเดต
 export const revalidate = 3600;
@@ -28,18 +27,6 @@ export default async function ExcellenceMathCampDynamicPage({ params }: PageProp
     notFound()
   }
 
-  // กำหนดเส้นทางโฟลเดอร์เต็มรูปแบบของ Cloudinary (เช่น psu-tuyf/mscd/student-improvement/excellence-match-camp/pom-2023)
-  const cloudinaryFolderPath = `psu-tuyf/mscd/student-improvement/excellence-match-camp/${campData.imageFolder}`
-
-  // ดึงรายการรูปภาพทั้งหมดจากโฟลเดอร์ของค่ายนี้บน Cloudinary (ปรับเพิ่มเป็นสูงสุด 100 รูป เพื่อให้แสดงภาพได้ครบถ้วน)
-  const cloudImagesResult = await getImagesFromFolder(cloudinaryFolderPath, 100)
-
-  // หากดึงรูปภาพจาก Cloudinary สำเร็จและมีรูปภาพอยู่ในโฟลเดอร์ ให้ดึง URL มาแสดงผล
-  // หากไม่มีหรือดึงล้มเหลว ให้ใช้ข้อมูลรูปภาพสำรองจากไฟล์จำลองข้อมูลเดิม
-  const galleryImages = cloudImagesResult.success && cloudImagesResult.resources && cloudImagesResult.resources.length > 0
-    ? cloudImagesResult.resources.map((img) => img.secureUrl)
-    : (campData.galleryImages || [])
-
   return (
     <CampTemplate
       year={campData.year}
@@ -47,7 +34,7 @@ export default async function ExcellenceMathCampDynamicPage({ params }: PageProp
       imageFolder={campData.imageFolder}
       announcements={campData.announcements}
       postTestImages={campData.postTestImages}
-      galleryImages={galleryImages}
+      fallbackGalleryImages={campData.galleryImages || []}
     />
   )
 }

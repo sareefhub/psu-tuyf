@@ -6,6 +6,8 @@ import { MainLayout } from "@/layout/main-layout"
 import { TabNavigation } from "@/components/tab-navigation"
 import { FileText, Download, Calendar, Eye, X, AlertTriangle, ChevronLeft, ChevronRight } from "lucide-react"
 import Image from "next/image"
+import { getImagesAction } from "@/lib/cloudinary-actions"
+import { getOptimizedImageUrl } from "@/lib/cloudinary"
 
 export interface SharedAnnouncementItem {
   readonly title: string;
@@ -292,24 +294,86 @@ export function SharedAnnouncements({ translationKey, announcements }: { readonl
   )
 }
 
-// 5. แท็บภาพกิจกรรม (Gallery Section) พร้อมระบบแบ่งหน้า (Pagination)
+// 5. แท็บภาพกิจกรรม (Gallery Section) พร้อมระบบแบ่งหน้า (Pagination) และระบบโหลดจากคลาวด์ในตัว
 export interface SharedGalleryProps {
   readonly translationKey: string;
   readonly images?: readonly string[];
+  readonly imageFolder?: string; // ระบุพาธโฟลเดอร์ภาพ เช่น 'psu-tuyf/mscd/student-improvement/excellence-match-camp/pom-2023'
   readonly itemsPerPage?: number;
 }
 
-export function SharedGallery({ translationKey, images = [], itemsPerPage = 9 }: SharedGalleryProps) {
+export function SharedGallery({ translationKey, images = [], imageFolder, itemsPerPage = 9 }: SharedGalleryProps) {
   const t = useT()
   const title = t(`${translationKey}.galleryTitle`)
   const [currentPage, setCurrentPage] = useState(1)
+  const [galleryImages, setGalleryImages] = useState<readonly string[]>(images)
+  const [isLoading, setIsLoading] = useState(false)
+
+  // ดึงข้อมูลรูปภาพจาก Cloudinary หลังเมาท์คอมโพเนนต์หากมีการระบุ imageFolder
+  useEffect(() => {
+    if (!imageFolder) {
+      setGalleryImages(images)
+      return
+    }
+
+    let isMounted = true
+    setIsLoading(true)
+
+    getImagesAction(imageFolder, 100)
+      .then((result) => {
+        if (!isMounted) return
+        if (result.success && result.resources && result.resources.length > 0) {
+          const optimizedUrls = result.resources.map((img) => getOptimizedImageUrl(img.publicId))
+          setGalleryImages(optimizedUrls)
+        } else {
+          setGalleryImages(images)
+        }
+      })
+      .catch((err) => {
+        console.error("Failed to load Cloudinary images centrally:", err)
+        if (isMounted) setGalleryImages(images)
+      })
+      .finally(() => {
+        if (isMounted) setIsLoading(false)
+      })
+
+    return () => {
+      isMounted = false
+    }
+  }, [imageFolder, images])
 
   // รีเซ็ตกลับไปหน้าแรกเมื่อรายการรูปภาพเปลี่ยนแปลง
   useEffect(() => {
     setCurrentPage(1)
-  }, [images])
+  }, [galleryImages])
 
-  if (!images || images.length === 0) {
+  // แสดงตัวโหลดแบบพัลส์กระพริบระหว่างดึงภาพจาก Cloudinary
+  if (isLoading) {
+    return (
+      <section className="py-10 bg-background animate-fade-in scroll-mt-20">
+        <div className="mx-auto max-w-7xl px-6">
+          <div className="text-center max-w-2xl mx-auto mb-12 space-y-3">
+            <h2 className="text-balance text-2xl font-bold tracking-tight text-primary sm:text-3xl">
+              {title && title !== `${translationKey}.galleryTitle` ? title : "ภาพกิจกรรม"}
+            </h2>
+            <p className="text-sm text-muted-foreground/80">
+              กำลังดาวน์โหลดข้อมูลรูปภาพ...
+            </p>
+          </div>
+          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 animate-pulse">
+            {Array.from({ length: 6 }).map((_, i) => (
+              <div
+                key={i}
+                className="aspect-4/3 bg-secondary/35 rounded-3xl border border-border/50"
+              />
+            ))}
+          </div>
+        </div>
+      </section>
+    )
+  }
+
+  if (!galleryImages || galleryImages.length === 0) {
     return (
       <section className="py-10 bg-background animate-fade-in">
         <div className="mx-auto max-w-7xl px-6 text-center text-muted-foreground/60">
@@ -320,9 +384,9 @@ export function SharedGallery({ translationKey, images = [], itemsPerPage = 9 }:
   }
 
   // คำนวณการแบ่งหน้า (Pagination)
-  const totalPages = Math.ceil(images.length / itemsPerPage)
+  const totalPages = Math.ceil(galleryImages.length / itemsPerPage)
   const startIndex = (currentPage - 1) * itemsPerPage
-  const currentImages = images.slice(startIndex, startIndex + itemsPerPage)
+  const currentImages = galleryImages.slice(startIndex, startIndex + itemsPerPage)
 
   // คำนวณช่วงเลขหน้าแบบมีจุดไข่ปลา (...) เพื่อความสะอาดตาและการใช้งานระยะยาว
   const getPaginationRange = () => {

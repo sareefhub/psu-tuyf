@@ -19,7 +19,7 @@ interface CampTemplateProps {
   readonly imageFolder: string;
   readonly announcements: readonly AnnouncementItem[];
   readonly postTestImages?: readonly string[];
-  readonly galleryImages?: readonly string[];
+  readonly fallbackGalleryImages: readonly string[];
 }
 
 // 1. แท็บตารางดำเนินการตลอดทั้งโครงการ (Schedule Timeline)
@@ -106,10 +106,15 @@ function PostTestScores({ translationKey, images = [] }: Readonly<{ translationK
   )
 }
 
-
-
-// 4. คอมโพเนนต์หลักที่ทำหน้าที่ควบคุมการสลับแท็บรายละเอียดค่าย (CampTemplate Controller)
-export function CampTemplate({ year, translationKey, announcements, postTestImages = [], galleryImages = [] }: CampTemplateProps) {
+// 3. คอมโพเนนต์หลักที่ทำหน้าที่ควบคุมการสลับแท็บรายละเอียดค่าย (CampTemplate Controller)
+export function CampTemplate({
+  year,
+  translationKey,
+  imageFolder,
+  announcements,
+  postTestImages = [],
+  fallbackGalleryImages,
+}: Readonly<CampTemplateProps>) {
   // กำหนดโครงร่างแท็บที่จะส่งไปให้ Component ส่วนกลางประมวลผล
   const tabs = [
     {
@@ -135,7 +140,13 @@ export function CampTemplate({ year, translationKey, announcements, postTestImag
     {
       id: "gallery",
       labelKey: `${translationKey}.tabs.gallery`,
-      component: <SharedGallery translationKey={translationKey} images={galleryImages} />,
+      component: (
+        <SharedGallery
+          translationKey={translationKey}
+          imageFolder={`psu-tuyf/mscd/student-improvement/excellence-match-camp/${imageFolder}`}
+          images={fallbackGalleryImages}
+        />
+      ),
     },
   ] as const
 
