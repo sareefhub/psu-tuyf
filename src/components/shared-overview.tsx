@@ -18,7 +18,7 @@ export function SharedOverview({
         <div className="space-y-6">
           <div className="space-y-4">
             <h2 className="text-2xl font-bold text-primary">
-              ข้อมูลโครงการเบื้องต้น
+              {t("ข้อมูลโครงการเบื้องต้น", "Project Overview")}
             </h2>
             <div className="space-y-4 text-sm leading-relaxed text-muted-foreground/90 text-pretty">
               {keys.map((key) => {

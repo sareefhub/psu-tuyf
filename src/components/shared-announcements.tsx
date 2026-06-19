@@ -49,10 +49,10 @@ export function SharedAnnouncements({
       <div className="mx-auto max-w-7xl px-6">
         <div className="text-center max-w-2xl mx-auto mb-12 space-y-3">
           <h2 className="text-balance text-2xl font-bold tracking-tight text-primary sm:text-3xl">
-            {title && title !== `${translationKey}.announcementTitle` ? title : "ประกาศโครงการ"}
+            {title && title !== `${translationKey}.announcementTitle` ? title : t("ประกาศโครงการ", "Announcements")}
           </h2>
           <p className="text-sm text-muted-foreground/80">
-            เอกสารกำหนดการและประกาศหัวข้อแยกรายโรงเรียนและการอบรม
+            {t("เอกสารกำหนดการและประกาศหัวข้อแยกรายโรงเรียนและการอบรม", "Schedules, documents and announcements categorized by schools and training tracks")}
           </p>
         </div>
 
@@ -89,7 +89,7 @@ export function SharedAnnouncements({
                     className="inline-flex items-center justify-center gap-1.5 rounded-full border border-border bg-background px-4 py-2 text-xs font-bold text-primary hover:bg-secondary transition-all shadow-xs cursor-pointer whitespace-nowrap"
                   >
                     <Eye className="h-3.5 w-3.5" />
-                    เปิดอ่าน
+                    {t("เปิดอ่าน", "Read")}
                   </button>
                   <a
                     href={item.fileUrl}
@@ -103,7 +103,7 @@ export function SharedAnnouncements({
                     className="inline-flex items-center justify-center gap-1.5 rounded-full bg-primary text-primary-foreground px-4 py-2 text-xs font-bold hover:bg-primary/90 transition-all shadow-xs cursor-pointer whitespace-nowrap"
                   >
                     <Download className="h-3.5 w-3.5" />
-                    ดาวน์โหลด
+                    {t("ดาวน์โหลด", "Download")}
                   </a>
                 </div>
               </div>
@@ -118,7 +118,7 @@ export function SharedAnnouncements({
               type="button"
               className="absolute inset-0 bg-black/60 backdrop-blur-xs w-full h-full cursor-default border-none outline-none"
               onClick={() => setPreviewPdf(null)}
-              aria-label="ปิดหน้าต่างพรีวิวเอกสาร"
+              aria-label={t("ปิดหน้าต่างพรีวิวเอกสาร", "Close document preview")}
             />
             <div className="bg-card border border-border w-full max-w-5xl rounded-3xl overflow-hidden shadow-2xl relative flex flex-col h-[80vh] sm:h-[85vh] animate-scale-in z-10">
               <div className="p-4 border-b border-border/40 flex items-center justify-between bg-card text-foreground relative pr-12">
@@ -144,16 +144,16 @@ export function SharedAnnouncements({
                     <AlertTriangle className="h-6 w-6" />
                   </div>
                   <h4 className="font-bold text-primary text-base">
-                    ไม่สามารถโหลดไฟล์เอกสารได้
+                    {t("ไม่สามารถโหลดไฟล์เอกสารได้", "Unable to load document")}
                   </h4>
                   <p className="text-xs text-muted-foreground leading-relaxed">
-                    ขณะนี้เอกสารดังกล่าวเป็นเวอร์ชันตัวอย่าง หรือลิงก์การดาวน์โหลดชั่วคราวถูกยกเลิกแล้ว กรุณาติดต่อหน่วยงานผู้รับผิดชอบโครงการเพื่อรับข้อมูลเพิ่มเติม
+                    {t("ขณะนี้เอกสารดังกล่าวเป็นเวอร์ชันตัวอย่าง หรือลิงก์การดาวน์โหลดชั่วคราวถูกยกเลิกแล้ว กรุณาติดต่อหน่วยงานผู้รับผิดชอบโครงการเพื่อรับข้อมูลเพิ่มเติม", "This document is currently a preview version, or the temporary download link has expired. Please contact the project coordinator for more details.")}
                   </p>
                 </div>
               </div>
 
               <div className="p-3 bg-secondary/30 border-t border-border/40 text-2xs text-center text-muted-foreground">
-                การกดปุ่ม ESC จะเป็นการปิดหน้าต่างนำทางแสดงตัวอย่าง PDF นี้โดยอัตโนมัติ
+                {t("การกดปุ่ม ESC จะเป็นการปิดหน้าต่างนำทางแสดงตัวอย่าง PDF นี้โดยอัตโนมัติ", "Pressing the ESC key will automatically close this PDF preview window.")}
               </div>
             </div>
           </div>

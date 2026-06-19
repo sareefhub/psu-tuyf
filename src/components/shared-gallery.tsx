@@ -71,10 +71,10 @@ export function SharedGallery({
         <div className="mx-auto max-w-7xl px-6">
           <div className="text-center max-w-2xl mx-auto mb-12 space-y-3">
             <h2 className="text-balance text-2xl font-bold tracking-tight text-primary sm:text-3xl">
-              {title && title !== `${translationKey}.galleryTitle` ? title : "ภาพกิจกรรม"}
+              {title && title !== `${translationKey}.galleryTitle` ? title : t("ภาพกิจกรรม", "Photos")}
             </h2>
             <p className="text-sm text-muted-foreground/80">
-              กำลังดาวน์โหลดข้อมูลรูปภาพ...
+              {t("กำลังดาวน์โหลดข้อมูลรูปภาพ...", "Downloading images...")}
             </p>
           </div>
           <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 animate-pulse">
@@ -94,7 +94,7 @@ export function SharedGallery({
     return (
       <section className="py-10 bg-background animate-fade-in">
         <div className="mx-auto max-w-7xl px-6 text-center text-muted-foreground/60">
-          <p>ไม่มีรูปภาพกิจกรรมแสดงผลในขณะนี้</p>
+          <p>{t("ไม่มีรูปภาพกิจกรรมแสดงผลในขณะนี้", "No photos available at the moment.")}</p>
         </div>
       </section>
     )
@@ -163,10 +163,10 @@ export function SharedGallery({
       <div className="mx-auto max-w-7xl px-6">
         <div className="text-center max-w-2xl mx-auto mb-12 space-y-3">
           <h2 className="text-balance text-2xl font-bold tracking-tight text-primary sm:text-3xl">
-            {title && title !== `${translationKey}.galleryTitle` ? title : "ภาพกิจกรรม"}
+            {title && title !== `${translationKey}.galleryTitle` ? title : t("ภาพกิจกรรม", "Photos")}
           </h2>
           <p className="text-sm text-muted-foreground/80">
-            {t(`${translationKey}.galleryDesc`, { defaultValue: "ภาพบรรยากาศความประทับใจของการดำเนินกิจกรรมของโครงการ" })}
+            {t(`${translationKey}.galleryDesc`, { defaultValue: t("ภาพบรรยากาศความประทับใจของการดำเนินกิจกรรมของโครงการ", "Atmospheric photos of the project's activities") })}
           </p>
         </div>
 

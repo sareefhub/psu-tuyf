@@ -55,12 +55,13 @@ export function useLanguage() {
  * 2. แบบใหม่ (Key-based JSON): t("nav.home")
  */
 export function useT() {
-  const { t, i18n: i18nInstance } = useTranslation("common")
+  const { t } = useTranslation("common")
+  const { lang } = useLanguage()
 
   return function translate(keyOrTh: any, enOrOptions?: any, options?: any): any {
     // หากส่งสองพารามิเตอร์และตัวที่สองไม่ใช่ object จะถือว่าเป็นแบบดั้งเดิม (Inline Translation)
     if (enOrOptions !== undefined && typeof enOrOptions !== "object") {
-      return i18nInstance.language === "en" ? enOrOptions : keyOrTh
+      return lang === "en" ? enOrOptions : keyOrTh
     }
     // แบบคีย์ JSON
     if (typeof keyOrTh === "string") {

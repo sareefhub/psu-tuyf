@@ -35,7 +35,7 @@ function ScheduleTimeline({ translationKey }: Readonly<{ translationKey: string 
             {t(`${translationKey}.tabs.schedule`)}
           </h2>
           <p className="text-sm text-muted-foreground/80">
-            ขั้นตอนการสมัครเข้าร่วมโครงการและการดำเนินงานอบรมตลอดหลักสูตร
+            {t("ขั้นตอนการสมัครเข้าร่วมโครงการและการดำเนินงานอบรมตลอดหลักสูตร", "Application process and training program operations throughout the course")}
           </p>
         </div>
 
@@ -81,7 +81,7 @@ function PostTestScores({ translationKey, images = [] }: Readonly<{ translationK
             {t(`${translationKey}.tabs.postTest`)}
           </h2>
           <p className="text-sm text-muted-foreground/80">
-            ตารางคะแนนผลการทดสอบหลังการอบรม (Post-Test) ของนักเรียนที่เข้าร่วมโครงการ
+            {t("ตารางคะแนนผลการทดสอบหลังการอบรม (Post-Test) ของนักเรียนที่เข้าร่วมโครงการ", "Post-test score table of participating students")}
           </p>
         </div>
 
@@ -91,7 +91,7 @@ function PostTestScores({ translationKey, images = [] }: Readonly<{ translationK
               <div key={src} className="flex justify-center w-full animate-fade-in">
                 <Image 
                   src={src} 
-                  alt={`ตารางคะแนน Post-Test แผ่นที่ ${index + 1}`}
+                  alt={t(`ตารางคะแนน Post-Test แผ่นที่ ${index + 1}`, `Post-Test Score Sheet ${index + 1}`)}
                   width={800}
                   height={600}
                   sizes="(max-width: 768px) 100vw, 50vw"

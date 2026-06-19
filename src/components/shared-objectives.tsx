@@ -18,10 +18,10 @@ export function SharedObjectives({
       <div className="mx-auto max-w-7xl px-6">
         <div className="text-center max-w-2xl mx-auto mb-12 space-y-3">
           <h2 className="text-balance text-2xl font-bold tracking-tight text-primary sm:text-3xl">
-            {title && title !== `${translationKey}.objectivesTitle` ? title : "วัตถุประสงค์หลักของโครงการ"}
+            {title && title !== `${translationKey}.objectivesTitle` ? title : t("วัตถุประสงค์หลักของโครงการ", "Main Objectives")}
           </h2>
           <p className="text-sm text-muted-foreground/80">
-            วัตถุประสงค์ที่มุ่งเน้นเพื่อยกระดับทักษะและการพัฒนาการศึกษาของโครงการ
+            {t("วัตถุประสงค์ที่มุ่งเน้นเพื่อยกระดับทักษะและการพัฒนาการศึกษาของโครงการ", "Objectives focusing on skill enhancement and educational development of the project")}
           </p>
         </div>
 
