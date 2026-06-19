@@ -25,7 +25,7 @@ export function ExchangeActivities() {
         </div>
 
         {/* เลย์เอาต์แสดงกิจกรรมในโครงการ 2 กิจกรรมหลัก */}
-        <div className="max-w-4xl mx-auto space-y-6">
+        <div className="space-y-6">
           {items.map((item, index) => (
             <div
               key={item.title}
@@ -72,7 +72,7 @@ export function ExchangeRequirements() {
           </p>
         </div>
 
-        <div className="max-w-4xl mx-auto">
+        <div>
           {/* กล่องหมายเหตุ Alert Box สีเหลืองอำพันแบบหรูหรา */}
           <div className="bg-amber-500/5 border border-amber-500/20 rounded-2xl p-6 flex gap-4 items-start shadow-xs">
             <AlertCircle className="h-5 w-5 text-amber-500 shrink-0 mt-0.5" />

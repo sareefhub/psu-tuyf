@@ -22,7 +22,7 @@ export function CampTarget() {
         </div>
 
         {/* เลย์เอาต์แสดงผลข้อมูลกลุ่มเป้าหมาย */}
-        <div className="space-y-4">
+        <div className="grid gap-4 md:grid-cols-2">
           {items.map((item, index) => (
             <div
               key={item}
@@ -63,7 +63,7 @@ export function CampDetails() {
         </div>
 
         {/* เลย์เอาต์แสดงรายละเอียดการจัดค่าย */}
-        <div className="space-y-4">
+        <div className="grid gap-4 md:grid-cols-2">
           {items.map((item, index) => (
             <div
               key={item}
