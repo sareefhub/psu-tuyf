@@ -324,6 +324,49 @@ export function SharedGallery({ translationKey, images = [], itemsPerPage = 9 }:
   const startIndex = (currentPage - 1) * itemsPerPage
   const currentImages = images.slice(startIndex, startIndex + itemsPerPage)
 
+  // คำนวณช่วงเลขหน้าแบบมีจุดไข่ปลา (...) เพื่อความสะอาดตาและการใช้งานระยะยาว
+  const getPaginationRange = () => {
+    const range: (number | string)[] = []
+    const delta = 1 // แสดงผลขนาบข้างซ้าย-ขวาจากหน้าปัจจุบันอย่างละ 1 หน้า
+
+    if (totalPages <= 5) {
+      for (let i = 1; i <= totalPages; i++) {
+        range.push(i)
+      }
+      return range
+    }
+
+    // แสดงหน้าแรกเสมอ
+    range.push(1)
+
+    const left = currentPage - delta
+    const right = currentPage + delta
+
+    // ใส่จุดไข่ปลาซ้ายหากห่างมากกว่า 2 หน้า
+    if (left > 2) {
+      range.push("...")
+    }
+
+    // วนลูปหน้าปัจจุบันและหน้าขนาบข้าง
+    const start = Math.max(2, left)
+    const end = Math.min(totalPages - 1, right)
+    for (let i = start; i <= end; i++) {
+      range.push(i)
+    }
+
+    // ใส่จุดไข่ปลาขวาหากห่างมากกว่า 2 หน้า
+    if (right < totalPages - 1) {
+      range.push("...")
+    }
+
+    // แสดงหน้าสุดท้ายเสมอ
+    if (totalPages > 1) {
+      range.push(totalPages)
+    }
+
+    return range
+  }
+
   function handlePageChange(pageNumber: number) {
     setCurrentPage(pageNumber)
     
@@ -367,48 +410,59 @@ export function SharedGallery({ translationKey, images = [], itemsPerPage = 9 }:
           })}
         </div>
 
-        {/* แผงควบคุมการแบ่งหน้า (Pagination Controls) */}
+        {/* แผงควบคุมการแบ่งหน้า (Pagination Controls) ที่ได้รับการออกแบบใหม่ตามรูปตัวอย่าง */}
         {totalPages > 1 && (
-          <div className="flex items-center justify-center gap-2 mt-12 animate-fade-in">
-            {/* ปุ่มเปลี่ยนไปหน้าก่อนหน้า */}
-            <button
-              onClick={() => handlePageChange(Math.max(currentPage - 1, 1))}
-              disabled={currentPage === 1}
-              className="inline-flex h-10 w-10 items-center justify-center rounded-xl border border-border bg-card text-muted-foreground hover:bg-secondary hover:text-primary transition-all disabled:opacity-40 disabled:hover:bg-card disabled:hover:text-muted-foreground cursor-pointer disabled:cursor-not-allowed"
-              aria-label="หน้าก่อนหน้า"
-            >
-              <ChevronLeft className="h-4.5 w-4.5" />
-            </button>
+          <div className="flex justify-center mt-12 animate-fade-in">
+            <div className="inline-flex items-center gap-1 bg-card border border-border/60 shadow-xs rounded-xl p-1">
+              {/* ปุ่มเปลี่ยนไปหน้าก่อนหน้า */}
+              <button
+                onClick={() => handlePageChange(Math.max(currentPage - 1, 1))}
+                disabled={currentPage === 1}
+                className="inline-flex h-9 w-9 items-center justify-center rounded-lg text-muted-foreground hover:bg-secondary hover:text-primary transition-colors disabled:opacity-30 disabled:hover:bg-transparent cursor-pointer disabled:cursor-not-allowed"
+                aria-label="หน้าก่อนหน้า"
+              >
+                <ChevronLeft className="h-4 w-4" />
+              </button>
 
-            {/* หมายเลขหน้าเลือกสลับ */}
-            <div className="flex items-center gap-1.5">
-              {Array.from({ length: totalPages }, (_, i) => i + 1).map((page) => {
+              {/* หมายเลขหน้าสลับและจุดไข่ปลา */}
+              {getPaginationRange().map((page, index) => {
+                if (page === "...") {
+                  return (
+                    <span
+                      key={`ellipsis-${index}`}
+                      className="inline-flex h-9 w-9 items-center justify-center text-sm text-muted-foreground/50 select-none font-medium"
+                    >
+                      ...
+                    </span>
+                  )
+                }
+
                 const isActive = currentPage === page
                 return (
                   <button
                     key={page}
-                    onClick={() => handlePageChange(page)}
-                    className={`inline-flex h-10 w-10 items-center justify-center rounded-xl text-sm font-bold transition-all cursor-pointer ${
+                    onClick={() => handlePageChange(Number(page))}
+                    className={`inline-flex h-9 w-9 items-center justify-center rounded-lg text-xs font-bold transition-all duration-200 cursor-pointer ${
                       isActive
-                        ? "bg-primary text-primary-foreground shadow-sm shadow-primary/20 scale-105"
-                        : "border border-border bg-card hover:bg-secondary text-primary"
+                        ? "bg-primary text-primary-foreground shadow-xs font-bold"
+                        : "text-muted-foreground hover:bg-secondary hover:text-primary"
                     }`}
                   >
                     {page}
                   </button>
                 )
               })}
-            </div>
 
-            {/* ปุ่มเปลี่ยนไปหน้าถัดไป */}
-            <button
-              onClick={() => handlePageChange(Math.min(currentPage + 1, totalPages))}
-              disabled={currentPage === totalPages}
-              className="inline-flex h-10 w-10 items-center justify-center rounded-xl border border-border bg-card text-muted-foreground hover:bg-secondary hover:text-primary transition-all disabled:opacity-40 disabled:hover:bg-card disabled:hover:text-muted-foreground cursor-pointer disabled:cursor-not-allowed"
-              aria-label="หน้าถัดไป"
-            >
-              <ChevronRight className="h-4.5 w-4.5" />
-            </button>
+              {/* ปุ่มเปลี่ยนไปหน้าถัดไป */}
+              <button
+                onClick={() => handlePageChange(Math.min(currentPage + 1, totalPages))}
+                disabled={currentPage === totalPages}
+                className="inline-flex h-9 w-9 items-center justify-center rounded-lg text-muted-foreground hover:bg-secondary hover:text-primary transition-colors disabled:opacity-30 disabled:hover:bg-transparent cursor-pointer disabled:cursor-not-allowed"
+                aria-label="หน้าถัดไป"
+              >
+                <ChevronRight className="h-4 w-4" />
+              </button>
+            </div>
           </div>
         )}
       </div>
