@@ -27,7 +27,7 @@ function SanchonInfo({ translationKey }: Readonly<{ translationKey: string }>) {
 
   return (
     <section className="py-10 bg-background animate-fade-in">
-      <div className="mx-auto max-w-6xl px-6">
+      <div className="mx-auto max-w-7xl px-6">
         <div className="grid gap-8 md:grid-cols-2">
           {/* ข้อมูลการจัดอบรม */}
           <div className="bg-card border border-border/50 rounded-3xl p-6 shadow-xs flex gap-4 hover:border-primary/30 transition-all duration-300">
@@ -71,7 +71,7 @@ function SanchonOutcomes({ translationKey }: Readonly<{ translationKey: string }
 
   return (
     <section className="py-10 bg-background animate-fade-in">
-      <div className="mx-auto max-w-6xl px-6">
+      <div className="mx-auto max-w-7xl px-6">
         <div className="bg-card border border-border/50 rounded-3xl p-8 shadow-xs space-y-6">
           <div className="flex items-center gap-3">
             <div className="h-10 w-10 rounded-xl bg-emerald-500/10 flex items-center justify-center text-emerald-600">

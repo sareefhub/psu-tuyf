@@ -123,7 +123,7 @@ export function SharedObjectives({ translationKey }: { readonly translationKey: 
           </p>
         </div>
 
-        <div className="grid gap-6 md:grid-cols-2 max-w-4xl mx-auto">
+        <div className="grid gap-6 md:grid-cols-2">
           {objectives.map((obj, index) => (
             <div
               key={obj}
@@ -347,7 +347,7 @@ export function SharedGallery({ translationKey, images = [], itemsPerPage = 9 }:
         </div>
 
         {/* แสดงผลรูปภาพในหน้าปัจจุบัน (Grid Layout) */}
-        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 max-w-5xl mx-auto">
+        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {currentImages.map((src, index) => {
             const globalIndex = startIndex + index
             return (

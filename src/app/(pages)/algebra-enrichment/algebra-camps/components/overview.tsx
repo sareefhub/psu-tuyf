@@ -22,7 +22,7 @@ export function CampTarget() {
         </div>
 
         {/* เลย์เอาต์แสดงผลข้อมูลกลุ่มเป้าหมาย */}
-        <div className="max-w-4xl mx-auto space-y-4">
+        <div className="space-y-4">
           {items.map((item, index) => (
             <div
               key={item}
@@ -63,7 +63,7 @@ export function CampDetails() {
         </div>
 
         {/* เลย์เอาต์แสดงรายละเอียดการจัดค่าย */}
-        <div className="max-w-4xl mx-auto space-y-4">
+        <div className="space-y-4">
           {items.map((item, index) => (
             <div
               key={item}
@@ -101,7 +101,7 @@ export function CampEligibility() {
           </p>
         </div>
 
-        <div className="max-w-4xl mx-auto space-y-6">
+        <div className="space-y-6">
           {/* คำนำเสนอการส่งแฟ้มสะสมผลงาน */}
           <div className="bg-card border border-border/40 rounded-3xl p-6 md:p-8 shadow-xs space-y-6">
             <h3 className="text-sm font-bold text-primary">

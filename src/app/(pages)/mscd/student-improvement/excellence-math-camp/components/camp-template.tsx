@@ -68,8 +68,8 @@ function PostTestScores({ translationKey, images = [] }: Readonly<{ translationK
 
   // เลือกคลาสการจัดหน้ากริดของภาพคะแนนตามจำนวนรูปภาพที่ปรากฏจริง
   const getGridClass = (count: number) => {
-    if (count === 1) return "max-w-2xl grid-cols-1"
-    if (count === 2) return "max-w-5xl md:grid-cols-2"
+    if (count === 1) return "max-w-7xl grid-cols-1"
+    if (count === 2) return "max-w-7xl md:grid-cols-2"
     return "max-w-7xl md:grid-cols-3"
   }
 

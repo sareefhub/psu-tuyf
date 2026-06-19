@@ -27,7 +27,7 @@ function TeacherTimeLocation({ translationKey }: Readonly<{ translationKey: stri
 
   return (
     <section className="py-10 bg-background animate-fade-in">
-      <div className="mx-auto max-w-3xl px-6">
+      <div className="mx-auto max-w-7xl px-6">
         <div className="bg-card border border-border/50 rounded-3xl p-8 shadow-xs flex gap-5 hover:border-primary/30 transition-all duration-300">
           <div className="h-12 w-12 rounded-2xl bg-primary/10 flex items-center justify-center text-primary shrink-0">
             <MapPin className="h-6 w-6" />
@@ -52,7 +52,7 @@ function TeacherParticipants({ translationKey }: Readonly<{ translationKey: stri
 
   return (
     <section className="py-10 bg-background animate-fade-in">
-      <div className="mx-auto max-w-3xl px-6">
+      <div className="mx-auto max-w-7xl px-6">
         <div className="bg-card border border-border/50 rounded-3xl p-8 shadow-xs flex gap-5 hover:border-accent/30 transition-all duration-300">
           <div className="h-12 w-12 rounded-2xl bg-accent/10 flex items-center justify-center text-accent shrink-0">
             <Users className="h-6 w-6" />
@@ -78,7 +78,7 @@ function TeacherBenefits({ translationKey }: Readonly<{ translationKey: string }
 
   return (
     <section className="py-10 bg-background animate-fade-in">
-      <div className="mx-auto max-w-4xl px-6">
+      <div className="mx-auto max-w-7xl px-6">
         <div className="bg-card border border-border/50 rounded-3xl p-8 shadow-xs space-y-6">
           <div className="flex items-center gap-3">
             <div className="h-10 w-10 rounded-xl bg-emerald-500/10 flex items-center justify-center text-emerald-600">
