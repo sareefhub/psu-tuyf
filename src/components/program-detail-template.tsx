@@ -126,7 +126,7 @@ export function SharedObjectives({ translationKey }: { readonly translationKey: 
           {objectives.map((obj, index) => (
             <div
               key={obj}
-              className="bg-card border border-border/50 rounded-2xl p-6 shadow-xs space-y-3 hover:border-accent/30 hover:-translate-y-0.5 transition-all duration-300"
+              className="bg-card border border-border/50 rounded-2xl p-6 shadow-xs space-y-3 hover:border-accent/30 transition-all duration-300"
             >
               <div className="flex gap-4 items-start">
                 <span className="h-7 w-7 rounded-xl bg-accent/10 flex items-center justify-center text-xs font-bold text-accent shrink-0">
