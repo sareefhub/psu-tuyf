@@ -418,10 +418,11 @@ export function SharedGallery({ translationKey, images = [], itemsPerPage = 9 }:
               <button
                 onClick={() => handlePageChange(Math.max(currentPage - 1, 1))}
                 disabled={currentPage === 1}
-                className="inline-flex h-9 w-9 items-center justify-center rounded-lg text-muted-foreground hover:bg-secondary hover:text-primary transition-colors disabled:opacity-30 disabled:hover:bg-transparent cursor-pointer disabled:cursor-not-allowed"
+                className="inline-flex h-9 w-9 sm:w-auto sm:px-3 items-center justify-center rounded-lg text-muted-foreground hover:bg-secondary hover:text-primary transition-colors disabled:opacity-30 disabled:hover:bg-transparent cursor-pointer disabled:cursor-not-allowed text-xs font-bold gap-1"
                 aria-label="หน้าก่อนหน้า"
               >
-                <ChevronLeft className="h-4 w-4" />
+                <ChevronLeft className="h-4 w-4 shrink-0" />
+                <span className="hidden sm:inline">{t("ก่อนหน้า", "Previous")}</span>
               </button>
 
               {/* หมายเลขหน้าสลับและจุดไข่ปลา */}
@@ -457,10 +458,11 @@ export function SharedGallery({ translationKey, images = [], itemsPerPage = 9 }:
               <button
                 onClick={() => handlePageChange(Math.min(currentPage + 1, totalPages))}
                 disabled={currentPage === totalPages}
-                className="inline-flex h-9 w-9 items-center justify-center rounded-lg text-muted-foreground hover:bg-secondary hover:text-primary transition-colors disabled:opacity-30 disabled:hover:bg-transparent cursor-pointer disabled:cursor-not-allowed"
+                className="inline-flex h-9 w-9 sm:w-auto sm:px-3 items-center justify-center rounded-lg text-muted-foreground hover:bg-secondary hover:text-primary transition-colors disabled:opacity-30 disabled:hover:bg-transparent cursor-pointer disabled:cursor-not-allowed text-xs font-bold gap-1"
                 aria-label="หน้าถัดไป"
               >
-                <ChevronRight className="h-4 w-4" />
+                <span className="hidden sm:inline">{t("ถัดไป", "Next")}</span>
+                <ChevronRight className="h-4 w-4 shrink-0" />
               </button>
             </div>
           </div>
