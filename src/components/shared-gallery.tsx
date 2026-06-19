@@ -78,9 +78,9 @@ export function SharedGallery({
             </p>
           </div>
           <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 animate-pulse">
-            {Array.from({ length: 6 }).map((_, i) => (
+            {["skeleton-1", "skeleton-2", "skeleton-3", "skeleton-4", "skeleton-5", "skeleton-6"].map((id) => (
               <div
-                key={i}
+                key={id}
                 className="aspect-4/3 bg-secondary/35 rounded-3xl border border-border/50"
               />
             ))}
