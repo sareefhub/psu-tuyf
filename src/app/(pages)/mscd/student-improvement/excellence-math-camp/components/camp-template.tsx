@@ -145,6 +145,7 @@ export function CampTemplate({
           translationKey={translationKey}
           imageFolder={`psu-tuyf/mscd/student-improvement/excellence-match-camp/${imageFolder}`}
           images={fallbackGalleryImages}
+          sortOrder="asc"
         />
       ),
     },
