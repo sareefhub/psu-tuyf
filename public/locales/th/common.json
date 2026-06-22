@@ -1,4 +1,17 @@
 {
+  "schools": {
+    "azizstan-foundation-school": "รร.มูลนิธิอซิซสถาน",
+    "chongraksat-wittaya-school": "รร.จงรักสัตย์วิทยา",
+    "darussalam-school": "รร.ดารุสสาลาม",
+    "phatna-witya-school": "รร.พัฒนาวิทยา",
+    "sasnupatam-school": "รร.ศาสนูปถัมภ์",
+    "sassamukkee-school": "รร.ศาสนสามัคคี",
+    "thamavitya-mulniti-school": "รร.ธรรมวิทยามูลนิธิ",
+    "attarkiah-islamiah-institute-school": "รร.อัตตัรกียะฮ์อิสลามียะฮ์",
+    "lalorvitya-school": "รร.ลัลลอวิทยา",
+    "prasan-wittaya-mulniti-school": "รร.ประสานวิทยามูลนิธิ",
+    "srifarida-baru-witya-school": "รร.ศรีฟารีดาบารูวิทยา"
+  },
   "nav": {
     "home": "หน้าแรก",
     "programs": "หลักสูตร/โครงการ",

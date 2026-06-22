@@ -1,4 +1,17 @@
 {
+  "schools": {
+    "azizstan-foundation-school": "Azizstan Foundation School",
+    "chongraksat-wittaya-school": "Chongraksat Wittaya School",
+    "darussalam-school": "Darussalam School",
+    "phatna-witya-school": "Phatna Witya School",
+    "sasnupatam-school": "Sasnupatam School",
+    "sassamukkee-school": "Sassamukkee School",
+    "thamavitya-mulniti-school": "Thamavitya Mulniti School",
+    "attarkiah-islamiah-institute-school": "Attarkiah Islamiah Institute School",
+    "lalorvitya-school": "Lalorvitya School",
+    "prasan-wittaya-mulniti-school": "Prasan Wittaya Mulniti School",
+    "srifarida-baru-witya-school": "Srifarida Baru Witya School"
+  },
   "nav": {
     "home": "Home",
     "programs": "Programs & Projects",

@@ -49,6 +49,10 @@ export function SharedGallery({
       "sasnupatam-school": "รร.ศาสนูปถัมภ์",
       "sassamukkee-school": "รร.ศาสนสามัคคี",
       "thamavitya-mulniti-school": "รร.ธรรมวิทยามูลนิธิ",
+      "attarkiah-islamiah-institute-school": "รร.อัตตัรกียะฮ์อิสลามียะฮ์",
+      "lalorvitya-school": "รร.ลัลลอวิทยา",
+      "prasan-wittaya-mulniti-school": "รร.ประสานวิทยามูลนิธิ",
+      "srifarida-baru-witya-school": "รร.ศรีฟารีดาบารูวิทยา",
     }
 
     const mappingEn: Record<string, string> = {
@@ -59,6 +63,10 @@ export function SharedGallery({
       "sasnupatam-school": "Sasnupatam School",
       "sassamukkee-school": "Sassamukkee School",
       "thamavitya-mulniti-school": "Thamavitya Mulniti School",
+      "attarkiah-islamiah-institute-school": "Attarkiah Islamiah Institute School",
+      "lalorvitya-school": "Lalorvitya School",
+      "prasan-wittaya-mulniti-school": "Prasan Wittaya Mulniti School",
+      "srifarida-baru-witya-school": "Srifarida Baru Witya School",
     }
 
     const mapping = isEn ? mappingEn : mappingTh
