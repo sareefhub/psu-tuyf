@@ -42,7 +42,8 @@ function ScheduleTimeline({ translationKey }: Readonly<{ translationKey: string 
         <div className="relative border-l-2 border-accent/25 pl-8 ml-4 sm:ml-6 space-y-10">
           {schedule.map((item) => (
             <div key={`${item.date}-${item.detail}`} className="relative">
-              <span className="absolute -left-10.25 top-1 flex h-6 w-6 items-center justify-center rounded-full bg-background border-2 border-accent">
+              {/* จุดกลมนำสายตาบนไทม์ไลน์ จัดตำแหน่งให้อยู่กึ่งกลางเส้นพอดี โดยคำนวณระยะเยื้องซ้าย -left-[45px] */}
+              <span className="absolute -left-[45px] top-1 flex h-6 w-6 items-center justify-center rounded-full bg-background border-2 border-accent">
                 <span className="h-2 w-2 rounded-full bg-accent" />
               </span>
               <div>
