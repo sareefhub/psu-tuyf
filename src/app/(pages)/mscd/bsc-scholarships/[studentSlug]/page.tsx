@@ -85,7 +85,7 @@ export default function StudentDetailPage({ params }: PageProps) {
 
   return (
     <MainLayout className="animate-fade-in">
-      <div className="mx-auto max-w-5xl px-6 pt-8 space-y-8 pb-16">
+      <div className="mx-auto max-w-7xl px-6 pt-8 space-y-8 pb-16">
         
         {/* ปุ่มย้อนกลับสไตล์พรีเมียมคุมโทนระบบ */}
         <button
