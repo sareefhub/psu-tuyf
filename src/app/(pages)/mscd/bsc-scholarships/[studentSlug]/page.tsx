@@ -170,12 +170,12 @@ export default function StudentDetailPage({ params }: PageProps) {
                       </h3>
 
                       {/* รายละเอียดกิจกรรม */}
-                      <p className="text-sm text-muted-foreground/90 leading-relaxed whitespace-pre-line max-w-3xl">
+                      <p className="text-sm text-muted-foreground/90 leading-relaxed whitespace-pre-line">
                         {actDesc}
                       </p>
 
                       {/* ช่องร่างสำหรับจัดวางรูปภาพกิจกรรมแบบ Clean Grid */}
-                      <div className="grid gap-4 sm:grid-cols-2 mt-6 max-w-3xl">
+                      <div className="grid gap-4 sm:grid-cols-2 mt-6">
                         {[1, 2].map((num) => (
                           <div 
                             key={num} 
