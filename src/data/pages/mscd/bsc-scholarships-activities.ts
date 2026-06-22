@@ -21,7 +21,7 @@ export const bscStudentsActivitiesData: Record<string, StudentProfile> = {
   "sophoun-youk": {
     slug: "sophoun-youk",
     name: {
-      th: "Sophoun Youk (โสภณ ยุก)",
+      th: "Sophoun Youk",
       en: "Sophoun Youk",
     },
     image: "/images/mscd/bsc-scholarships/student-1.png",
