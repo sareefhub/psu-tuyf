@@ -154,36 +154,44 @@ export default function StudentDetailPage({ params }: PageProps) {
                 return (
                   <div key={`${actTitle}-${index}`} className="relative group animate-fade-in">
                     {/* จุดกลมนำสายตาแบบไทม์ไลน์ (Timeline Node) */}
-                    <span className="absolute -left-[35px] sm:-left-[43px] top-1 flex h-6 w-6 items-center justify-center rounded-full bg-background border-2 border-accent group-hover:border-primary transition-colors duration-300 shadow-2xs">
-                      <span className="h-2 w-2 rounded-full bg-accent group-hover:bg-primary transition-colors duration-300" />
+                    <span className="absolute -left-[38px] sm:-left-[46px] top-6 flex h-7 w-7 items-center justify-center rounded-full bg-background border-2 border-accent/40 shadow-xs ring-4 ring-background group-hover:border-accent transition-all duration-300">
+                      <span className="h-2.5 w-2.5 rounded-full bg-accent group-hover:scale-110 transition-transform duration-300" />
                     </span>
 
-                    <div className="space-y-4">
-                      {/* วันที่ของกิจกรรม */}
-                      <span className="text-xs font-bold text-accent uppercase tracking-wider block">
-                        {actDate}
-                      </span>
+                    <div className="bg-card border border-border/50 rounded-3xl p-6 sm:p-8 shadow-2xs hover:shadow-xs hover:border-accent/30 transition-all duration-300 space-y-4">
+                      {/* แถบด้านบน: วันที่กิจกรรม */}
+                      <div className="flex flex-wrap items-center gap-2">
+                        <span className="inline-flex items-center gap-1.5 text-xs font-bold text-accent bg-accent/8 px-3 py-1.5 rounded-xl border border-accent/15 tracking-wide">
+                          <Calendar className="h-3.5 w-3.5" />
+                          {actDate}
+                        </span>
+                      </div>
                       
                       {/* ชื่อกิจกรรม */}
-                      <h3 className="text-lg font-bold text-primary leading-relaxed group-hover:text-accent transition-colors duration-300">
+                      <h3 className="text-lg sm:text-xl font-extrabold text-primary leading-snug group-hover:text-accent transition-colors duration-300">
                         {actTitle}
                       </h3>
 
                       {/* รายละเอียดกิจกรรม */}
-                      <p className="text-sm text-muted-foreground/90 leading-relaxed whitespace-pre-line">
+                      <p className="text-sm sm:text-base text-muted-foreground/80 leading-relaxed whitespace-pre-line">
                         {actDesc}
                       </p>
 
                       {/* ช่องร่างสำหรับจัดวางรูปภาพกิจกรรมแบบ Clean Grid */}
-                      <div className="grid gap-4 sm:grid-cols-2 mt-6">
+                      <div className="grid gap-4 sm:grid-cols-2 pt-2">
                         {[1, 2].map((num) => (
                           <div 
                             key={num} 
-                            className="aspect-video rounded-2xl border border-dashed border-border/60 bg-secondary/10 flex flex-col items-center justify-center text-muted-foreground/45 p-6 hover:bg-secondary/20 hover:border-accent/30 transition-all duration-300 select-none"
+                            className="group/img aspect-video rounded-2xl border-2 border-dashed border-border/60 bg-gradient-to-br from-secondary/15 via-secondary/5 to-transparent flex flex-col items-center justify-center p-6 hover:bg-secondary/10 hover:border-accent/40 hover:shadow-2xs transition-all duration-300 select-none cursor-pointer"
                           >
-                            <FileImage className="h-6 w-6 mb-2 text-accent/40" />
-                            <span className="text-[10px] font-bold tracking-wider uppercase text-primary/60">
+                            <div className="p-3.5 rounded-full bg-background border border-border/40 shadow-3xs text-accent/50 group-hover/img:scale-110 group-hover/img:text-accent transition-all duration-300 mb-3">
+                              <FileImage className="h-6 w-6" />
+                            </div>
+                            <span className="text-xs font-bold text-primary/75 tracking-wider uppercase group-hover/img:text-accent transition-colors duration-300">
                               {t("รูปภาพกิจกรรม", "Activity Photo")}
+                            </span>
+                            <span className="text-[10px] text-muted-foreground/60 mt-1 font-light">
+                              {t("อยู่ระหว่างดำเนินการจัดเก็บ", "Photo collection in progress")}
                             </span>
                           </div>
                         ))}
