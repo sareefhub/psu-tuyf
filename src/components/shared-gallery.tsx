@@ -37,40 +37,13 @@ export function SharedGallery({
   const [selectedFolder, setSelectedFolder] = useState<string | null>(null)
   const [isLoading, setIsLoading] = useState(false)
 
-  // พจนานุกรมชื่อย่อโรงเรียนภาษาไทยและภาษาอังกฤษเพื่อแสดงในแถบตัวกรอง
+  // ดึงชื่อย่อโรงเรียนจากไฟล์คำแปลภาษา (common.json) ตามมาตรฐานระบบ i18n
   const getSchoolName = (folder: string): string => {
-    const isEn = lang === "en"
-    
-    const mappingTh: Record<string, string> = {
-      "azizstan-foundation-school": "รร.มูลนิธิอซิซสถาน",
-      "chongraksat-wittaya-school": "รร.จงรักสัตย์วิทยา",
-      "darussalam-school": "รร.ดารุสสาลาม",
-      "phatna-witya-school": "รร.พัฒนาวิทยา",
-      "sasnupatam-school": "รร.ศาสนูปถัมภ์",
-      "sassamukkee-school": "รร.ศาสนสามัคคี",
-      "thamavitya-mulniti-school": "รร.ธรรมวิทยามูลนิธิ",
-      "attarkiah-islamiah-institute-school": "รร.อัตตัรกียะฮ์อิสลามียะฮ์",
-      "lalorvitya-school": "รร.ลัลลอวิทยา",
-      "prasan-wittaya-mulniti-school": "รร.ประสานวิทยามูลนิธิ",
-      "srifarida-baru-witya-school": "รร.ศรีฟารีดาบารูวิทยา",
-    }
-
-    const mappingEn: Record<string, string> = {
-      "azizstan-foundation-school": "Azizstan Foundation School",
-      "chongraksat-wittaya-school": "Chongraksat Wittaya School",
-      "darussalam-school": "Darussalam School",
-      "phatna-witya-school": "Phatna Witya School",
-      "sasnupatam-school": "Sasnupatam School",
-      "sassamukkee-school": "Sassamukkee School",
-      "thamavitya-mulniti-school": "Thamavitya Mulniti School",
-      "attarkiah-islamiah-institute-school": "Attarkiah Islamiah Institute School",
-      "lalorvitya-school": "Lalorvitya School",
-      "prasan-wittaya-mulniti-school": "Prasan Wittaya Mulniti School",
-      "srifarida-baru-witya-school": "Srifarida Baru Witya School",
-    }
-
-    const mapping = isEn ? mappingEn : mappingTh
-    return mapping[folder.toLowerCase()] || folder.replace(/-/g, " ").replace(/\b\w/g, (c) => c.toUpperCase())
+    const key = `schools.${folder.toLowerCase()}`
+    const translated = t(key)
+    return translated && translated !== key
+      ? translated
+      : folder.replace(/-/g, " ").replace(/\b\w/g, (c) => c.toUpperCase())
   }
 
   // ดึงข้อมูลรูปภาพจาก Cloudinary หลังเมาท์คอมโพเนนต์หากมีการระบุ imageFolder
