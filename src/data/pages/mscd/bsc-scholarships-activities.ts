@@ -24,7 +24,7 @@ export const bscStudentsActivitiesData: Record<string, StudentProfile> = {
       th: "Sophoun Youk",
       en: "Sophoun Youk",
     },
-    image: "/images/mscd/bsc-scholarships/student-1.png",
+    image: "/images/mscd/bsc-scholarships/sophoun-youk/profile.png",
     role: {
       th: "นักเรียนทุนป.ตรี (กัมพูชา)",
       en: "Undergraduate Scholarship Student (Cambodian)",
