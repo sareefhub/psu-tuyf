@@ -143,7 +143,7 @@ export default function StudentDetailPage({ params }: PageProps) {
         </div>
 
         {/* รายการกิจกรรมย่อยของนักเรียนทุนแบบเส้นการเดินทาง (Clean Timeline Layout) */}
-        <div className="px-2 sm:px-6">
+        <div>
           {studentProfile.activities.length > 0 ? (
             <div className="relative border-l-2 border-accent/25 pl-6 sm:pl-8 ml-4 sm:ml-6 space-y-12">
               {studentProfile.activities.map((activity, index) => {
