@@ -7,11 +7,17 @@ import Image from "next/image"
 import { getImagesAction } from "@/lib/cloudinary-actions"
 import { getOptimizedImageUrl } from "@/lib/cloudinary-client"
 
+export interface GalleryItem {
+  readonly url: string;
+  readonly subfolder: string | null;
+}
+
 export interface SharedGalleryProps {
   readonly translationKey: string;
   readonly images?: readonly string[];
   readonly imageFolder?: string; // ระบุพาธโฟลเดอร์ภาพ เช่น 'psu-tuyf/mscd/student-improvement/excellence-match-camp/pom-2023'
   readonly itemsPerPage?: number;
+  readonly sortOrder?: 'asc' | 'desc'; // ตัวเลือกเพิ่มเติมสำหรับการเรียงลำดับรูปภาพ
 }
 
 export function SharedGallery({
@@ -19,17 +25,37 @@ export function SharedGallery({
   images = [],
   imageFolder,
   itemsPerPage = 9,
+  sortOrder = 'desc',
 }: Readonly<SharedGalleryProps>) {
   const t = useT()
   const title = t(`${translationKey}.galleryTitle`)
   const [currentPage, setCurrentPage] = useState(1)
-  const [galleryImages, setGalleryImages] = useState<readonly string[]>(images)
+  const [galleryItems, setGalleryItems] = useState<readonly GalleryItem[]>(
+    images.map((url) => ({ url, subfolder: null }))
+  )
+  const [selectedFolder, setSelectedFolder] = useState<string | null>(null)
   const [isLoading, setIsLoading] = useState(false)
+  const [errorMsg, setErrorMsg] = useState<string | null>(null)
+
+  // พจนานุกรมชื่อย่อโรงเรียนภาษาไทยเพื่อแสดงในแถบตัวกรอง
+  const getSchoolName = (folder: string): string => {
+    const mapping: Record<string, string> = {
+      "azizstan-foundation-school": "รร.มูลนิธิอซิซสถาน",
+      "chongraksat-wittaya-school": "รร.จงรักสัตย์วิทยา",
+      "darussalam-school": "รร.ดารุสสาลาม",
+      "phatna-witya-school": "รร.พัฒนาวิทยา",
+      "sasnupatam-school": "รร.ศาสนูปถัมภ์",
+      "sassamukkee-school": "รร.ศาสนสามัคคี",
+      "thamavitya-mulniti-school": "รร.ธรรมวิทยามูลนิธิ",
+    }
+    return mapping[folder.toLowerCase()] || folder.replace(/-/g, " ").replace(/\b\w/g, (c) => c.toUpperCase())
+  }
 
   // ดึงข้อมูลรูปภาพจาก Cloudinary หลังเมาท์คอมโพเนนต์หากมีการระบุ imageFolder
   useEffect(() => {
     if (!imageFolder) {
-      setGalleryImages(images)
+      setGalleryItems(images.map((url) => ({ url, subfolder: null })))
+      setErrorMsg(null)
       return
     }
 
@@ -40,15 +66,44 @@ export function SharedGallery({
       .then((result) => {
         if (!isMounted) return
         if (result.success && result.resources && result.resources.length > 0) {
-          const optimizedUrls = result.resources.map((img) => getOptimizedImageUrl(img.publicId))
-          setGalleryImages(optimizedUrls)
+          // สลับลำดับเป็นจากเก่าไปใหม่หากระบุ sortOrder เป็น 'asc'
+          const resources = sortOrder === 'asc'
+            ? [...result.resources].reverse()
+            : result.resources;
+
+          const items = resources.map((img) => {
+            const optimizedUrl = getOptimizedImageUrl(img.publicId)
+            // ดึงชื่อโฟลเดอร์ย่อย (เช่น 'azizstan-foundation-school')
+            let subfolder: string | null = null
+            const prefix = `${imageFolder}/`
+            // ตรวจจับจาก img.folder ก่อนเนื่องจากกรณีที่ public_id ไม่มี path นำหน้า
+            const targetPath = img.folder || img.publicId
+            if (targetPath && targetPath.startsWith(prefix)) {
+              const relativePath = targetPath.substring(prefix.length)
+              const parts = relativePath.split("/")
+              if (parts.length > 0 && parts[0] !== "") {
+                subfolder = parts[0]
+              }
+            }
+            return { url: optimizedUrl, subfolder }
+          })
+          setGalleryItems(items)
+          setErrorMsg(null)
         } else {
-          setGalleryImages(images)
+          setGalleryItems(images.map((url) => ({ url, subfolder: null })))
+          if (result.error) {
+            setErrorMsg(result.error)
+          } else if (!result.resources || result.resources.length === 0) {
+            setErrorMsg(`ไม่พบไฟล์ภาพกิจกรรมในโฟลเดอร์ "${imageFolder}" หรือยังไม่ได้อัปโหลดรูปภาพลงระบบ Cloudinary`)
+          }
         }
       })
       .catch((err) => {
         console.error("Failed to load Cloudinary images centrally:", err)
-        if (isMounted) setGalleryImages(images)
+        if (isMounted) {
+          setGalleryItems(images.map((url) => ({ url, subfolder: null })))
+          setErrorMsg(err instanceof Error ? err.message : String(err))
+        }
       })
       .finally(() => {
         if (isMounted) setIsLoading(false)
@@ -62,7 +117,17 @@ export function SharedGallery({
   // รีเซ็ตกลับไปหน้าแรกเมื่อรายการรูปภาพเปลี่ยนแปลง
   useEffect(() => {
     setCurrentPage(1)
-  }, [galleryImages])
+    setSelectedFolder(null) // รีเซ็ตตัวกรองโฟลเดอร์ย่อยเมื่อมีการเปลี่ยนโฟลเดอร์หลัก
+  }, [galleryItems])
+
+  // ดึงรายชื่อโฟลเดอร์ย่อยที่มีทั้งหมดมาทำเป็นตัวกรอง
+  const uniqueFolders = Array.from(
+    new Set(
+      galleryItems
+        .map((item) => item.subfolder)
+        .filter((f): f is string => f !== null)
+    )
+  ).sort()
 
   // แสดงตัวโหลดแบบพัลส์กระพริบระหว่างดึงภาพจาก Cloudinary
   if (isLoading) {
@@ -90,20 +155,34 @@ export function SharedGallery({
     )
   }
 
-  if (!galleryImages || galleryImages.length === 0) {
+  if (!galleryItems || galleryItems.length === 0) {
     return (
       <section className="py-10 bg-background animate-fade-in">
-        <div className="mx-auto max-w-7xl px-6 text-center text-muted-foreground/60">
+        <div className="mx-auto max-w-7xl px-6 text-center text-muted-foreground/60 space-y-4">
           <p>{t("ไม่มีรูปภาพกิจกรรมแสดงผลในขณะนี้", "No photos available at the moment.")}</p>
+          {errorMsg && (
+            <div className="text-xs text-rose-500 bg-rose-500/10 rounded-2xl p-4 max-w-lg mx-auto border border-rose-500/20 leading-relaxed text-left">
+              <p className="font-bold mb-1">🔍 ข้อมูลดีบั๊ก (Debug Information):</p>
+              <p className="font-mono text-[11px] break-all bg-background/50 p-2 rounded-lg border border-border/40">{errorMsg}</p>
+              <p className="mt-2 text-[10px] text-muted-foreground">
+                คำแนะนำ: หากมีการอัปเดตตัวแปรสภาพแวดล้อม (.env.local) กรุณา Restart Dev Server (หยุดรันแล้ว start ใหม่) เพื่อโหลดค่าคอนฟิก Cloudinary
+              </p>
+            </div>
+          )}
         </div>
       </section>
     )
   }
 
+  // กรองภาพตามโฟลเดอร์ที่ผู้เลือกเลือก
+  const filteredItems = selectedFolder
+    ? galleryItems.filter((item) => item.subfolder === selectedFolder)
+    : galleryItems
+
   // คำนวณการแบ่งหน้า (Pagination)
-  const totalPages = Math.ceil(galleryImages.length / itemsPerPage)
+  const totalPages = Math.ceil(filteredItems.length / itemsPerPage)
   const startIndex = (currentPage - 1) * itemsPerPage
-  const currentImages = galleryImages.slice(startIndex, startIndex + itemsPerPage)
+  const currentItems = filteredItems.slice(startIndex, startIndex + itemsPerPage)
 
   // คำนวณช่วงเลขหน้าแบบมีจุดไข่ปลา (...) เพื่อความสะอาดตาและการใช้งานระยะยาว
   const getPaginationRange = () => {
@@ -158,10 +237,15 @@ export function SharedGallery({
     }
   }
 
+  function handleFolderFilter(folder: string | null) {
+    setSelectedFolder(folder)
+    setCurrentPage(1)
+  }
+
   return (
     <section id="gallery-section" className="py-10 bg-background animate-fade-in scroll-mt-20">
       <div className="mx-auto max-w-7xl px-6">
-        <div className="text-center max-w-2xl mx-auto mb-12 space-y-3">
+        <div className="text-center max-w-2xl mx-auto mb-10 space-y-3">
           <h2 className="text-balance text-2xl font-bold tracking-tight text-primary sm:text-3xl">
             {title && title !== `${translationKey}.galleryTitle` ? title : t("ภาพกิจกรรม", "Photos")}
           </h2>
@@ -170,17 +254,46 @@ export function SharedGallery({
           </p>
         </div>
 
+        {/* แท็บตัวกรองโรงเรียนย่อย (จะแสดงเฉพาะเมื่อตรวจพบโครงสร้างโฟลเดอร์ย่อยในระบบ) */}
+        {uniqueFolders.length > 0 && (
+          <div className="flex flex-wrap items-center justify-center gap-2 mb-8 animate-fade-in">
+            <button
+              onClick={() => handleFolderFilter(null)}
+              className={`px-4 py-2 rounded-xl text-xs font-bold transition-all duration-200 cursor-pointer border ${
+                selectedFolder === null
+                  ? "bg-primary text-primary-foreground shadow-xs border-primary"
+                  : "text-muted-foreground hover:bg-secondary hover:text-primary border-border/50 bg-card"
+              }`}
+            >
+              {t("ภาพรวมทั้งหมด", "All Photos")}
+            </button>
+            {uniqueFolders.map((folder) => (
+              <button
+                key={folder}
+                onClick={() => handleFolderFilter(folder)}
+                className={`px-4 py-2 rounded-xl text-xs font-bold transition-all duration-200 cursor-pointer border ${
+                  selectedFolder === folder
+                    ? "bg-primary text-primary-foreground shadow-xs border-primary"
+                    : "text-muted-foreground hover:bg-secondary hover:text-primary border-border/50 bg-card"
+                }`}
+              >
+                {getSchoolName(folder)}
+              </button>
+            ))}
+          </div>
+        )}
+
         {/* แสดงผลรูปภาพในหน้าปัจจุบัน (Grid Layout) */}
         <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {currentImages.map((src, index) => {
+          {currentItems.map((item, index) => {
             const globalIndex = startIndex + index
             return (
               <div 
-                key={src} 
+                key={item.url} 
                 className="group aspect-4/3 bg-secondary/35 rounded-3xl overflow-hidden border border-border/50 hover:border-accent/40 hover:shadow-xs transition-all duration-300 flex items-center justify-center relative"
               >
                 <Image 
-                  src={src} 
+                  src={item.url} 
                   alt={`ภาพกิจกรรมที่ ${globalIndex + 1}`}
                   fill
                   sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"

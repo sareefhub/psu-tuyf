@@ -160,7 +160,7 @@ function SanchonStaff({ translationKey }: Readonly<{ translationKey: string }>) 
 }
 
 // 4. คอมโพเนนต์หลักควบคุม Template (SanchonTemplate Controller)
-export function SanchonTemplate({ year, translationKey, announcements, galleryImages = [] }: SanchonTemplateProps) {
+export function SanchonTemplate({ year, translationKey, imageFolder, announcements, galleryImages = [] }: SanchonTemplateProps) {
   // กำหนดโครงร่างแท็บที่จะส่งไปให้ Component ส่วนกลางประมวลผล
   const tabs = [
     {
@@ -191,7 +191,14 @@ export function SanchonTemplate({ year, translationKey, announcements, galleryIm
     {
       id: "gallery",
       labelKey: `${translationKey}.tabs.gallery`,
-      component: <SharedGallery translationKey={translationKey} images={galleryImages} />,
+      component: (
+        <SharedGallery
+          translationKey={translationKey}
+          imageFolder={`psu-tuyf/mscd/student-improvement/match-sanchon/${imageFolder}`}
+          images={galleryImages}
+          sortOrder="asc"
+        />
+      ),
     },
   ] as const
 

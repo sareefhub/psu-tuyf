@@ -8,6 +8,7 @@ export interface CloudinaryResource {
   width: number;
   height: number;
   createdAt: string;
+  folder?: string;
 }
 
 // โครงสร้างผลลัพธ์การดึงรายการไฟล์รูปภาพ
@@ -46,11 +47,52 @@ export function getOptimizedImageUrl(
 }
 
 /**
+ * ฟังก์ชันผู้ช่วยสำหรับการแปลงข้อมูลทรัพยากรดิบจาก Cloudinary API
+ */
+function mapCloudinaryResources(resources: any[]): CloudinaryResource[] {
+  return resources.map((resource: any) => ({
+    publicId: resource.public_id,
+    secureUrl: resource.secure_url,
+    format: resource.format,
+    width: resource.width,
+    height: resource.height,
+    createdAt: resource.created_at,
+    folder: resource.asset_folder,
+  }));
+}
+
+/**
  * ดึงรายการรูปภาพทั้งหมดจากโฟลเดอร์ที่ระบุใน Cloudinary (ทำงานเฉพาะฝั่ง Server)
  * 
  * @param folder ชื่อโฟลเดอร์ใน Cloudinary ที่เก็บรูป เช่น 'psu-tuyf-uploads'
  * @param maxResults จำนวนรูปภาพสูงสุดที่จะแสดง (หากไม่ได้ระบุ หรือระบุค่าน้อยกว่าเท่ากับ 0 จะดึงรูปภาพทั้งหมดที่มีในโฟลเดอร์)
  */
+interface FetchPageParams {
+  folder: string;
+  limit: number;
+  nextCursor?: string;
+}
+
+/**
+ * ฟังก์ชันผู้ช่วยสำหรับการดึงข้อมูลรูปภาพจาก Cloudinary ในแต่ละหน้า (Single Page Fetch)
+ */
+async function fetchCloudinaryPage({ folder, limit, nextCursor }: FetchPageParams) {
+  let query = cloudinary.search
+    .expression(`folder:"${folder}/*" OR folder:"${folder}"`)
+    .sort_by('created_at', 'desc')
+    .max_results(limit);
+
+  if (nextCursor) {
+    query = query.next_cursor(nextCursor);
+  }
+
+  const result = await query.execute();
+  return {
+    resources: mapCloudinaryResources(result.resources),
+    nextCursor: result.next_cursor as string | undefined,
+  };
+}
+
 export async function getImagesFromFolder(
   folder: string = 'psu-tuyf-uploads',
   maxResults?: number
@@ -60,44 +102,29 @@ export async function getImagesFromFolder(
     let nextCursor: string | undefined = undefined;
     let hasMore = true;
     const limitPerRequest = 500; // Cloudinary Search API จำกัดสูงสุด 500 รูปต่อคำขอ
+    const hasLimit = maxResults !== undefined && maxResults > 0;
 
     while (hasMore) {
-      let query = cloudinary.search
-        .expression(`folder:${folder}`)
-        .sort_by('created_at', 'desc'); // เรียงลำดับรูปภาพที่อัปโหลดล่าสุดขึ้นก่อน
-
-      // คำนวณขีดจำกัดสำหรับการร้องขอแต่ละครั้ง
-      if (maxResults && maxResults > 0) {
-        const remaining = maxResults - allResources.length;
-        if (remaining <= 0) break;
-        query = query.max_results(Math.min(remaining, limitPerRequest));
-      } else {
-        query = query.max_results(limitPerRequest);
+      const remaining = hasLimit ? maxResults - allResources.length : 0;
+      // ตรวจสอบขีดจำกัดจำนวนรูปก่อนสร้าง Query
+      if (hasLimit && remaining <= 0) {
+        break;
       }
 
-      // หากมี nextCursor ให้ส่งค่าเพื่อขอข้อมูลในหน้าถัดไป
-      if (nextCursor) {
-        query = query.next_cursor(nextCursor);
-      }
-
-      const result = await query.execute();
-
-      const resources: CloudinaryResource[] = result.resources.map((resource: any) => ({
-        publicId: resource.public_id,
-        secureUrl: resource.secure_url,
-        format: resource.format,
-        width: resource.width,
-        height: resource.height,
-        createdAt: resource.created_at,
-      }));
+      // คำนวณขีดจำกัดสำหรับการร้องขอในรอบนี้
+      const currentLimit = hasLimit ? Math.min(remaining, limitPerRequest) : limitPerRequest;
+      
+      const { resources, nextCursor: newCursor } = await fetchCloudinaryPage({
+        folder,
+        limit: currentLimit,
+        nextCursor,
+      });
 
       allResources = allResources.concat(resources);
-      nextCursor = result.next_cursor;
+      nextCursor = newCursor;
 
-      // ตรวจสอบเงื่อนไขการวนลูปดึงข้อมูลต่อ
-      if (!nextCursor) {
-        hasMore = false;
-      } else if (maxResults && maxResults > 0 && allResources.length >= maxResults) {
+      // ตรวจสอบเงื่อนไขการหยุดวนลูปดึงข้อมูล
+      if (!nextCursor || (hasLimit && allResources.length >= maxResults)) {
         hasMore = false;
       }
     }
