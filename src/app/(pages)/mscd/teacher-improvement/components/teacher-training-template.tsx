@@ -110,7 +110,7 @@ function TeacherBenefits({ translationKey }: Readonly<{ translationKey: string }
 }
 
 // 4. คอมโพเนนต์หลักควบคุม Template (TeacherTrainingTemplate Controller)
-export function TeacherTrainingTemplate({ year, translationKey, announcements, galleryImages = [] }: TeacherTrainingTemplateProps) {
+export function TeacherTrainingTemplate({ year, translationKey, imageFolder, announcements, galleryImages = [] }: TeacherTrainingTemplateProps) {
   // กำหนดโครงร่างแท็บที่จะส่งไปให้ Component ส่วนกลางประมวลผล
   const tabs = [
     {
@@ -141,7 +141,14 @@ export function TeacherTrainingTemplate({ year, translationKey, announcements, g
     {
       id: "gallery",
       labelKey: `${translationKey}.tabs.gallery`,
-      component: <SharedGallery translationKey={translationKey} images={galleryImages} />,
+      component: (
+        <SharedGallery
+          translationKey={translationKey}
+          imageFolder={`psu-tuyf/mscd/teacher-improvement/mathematics-teacher-training/${imageFolder}`}
+          images={galleryImages}
+          sortOrder="asc"
+        />
+      ),
     },
   ] as const
 
