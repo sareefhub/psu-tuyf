@@ -177,24 +177,42 @@ export default function StudentDetailPage({ params }: PageProps) {
                         {actDesc}
                       </p>
 
-                      {/* ช่องร่างสำหรับจัดวางรูปภาพกิจกรรมแบบ Clean Grid */}
+                      {/* ช่องจัดวางรูปภาพกิจกรรมแบบ Clean Grid */}
                       <div className="grid gap-4 sm:grid-cols-2 pt-2">
-                        {[1, 2].map((num) => (
-                          <div 
-                            key={num} 
-                            className="group/img aspect-video rounded-2xl border-2 border-dashed border-border/60 bg-gradient-to-br from-secondary/15 via-secondary/5 to-transparent flex flex-col items-center justify-center p-6 hover:bg-secondary/10 hover:border-accent/40 hover:shadow-2xs transition-all duration-300 select-none cursor-pointer"
-                          >
-                            <div className="p-3.5 rounded-full bg-background border border-border/40 shadow-3xs text-accent/50 group-hover/img:scale-110 group-hover/img:text-accent transition-all duration-300 mb-3">
-                              <FileImage className="h-6 w-6" />
+                        {activity.images && activity.images.length > 0 ? (
+                          activity.images.map((imgSrc, imgIndex) => (
+                            <div 
+                              key={`${imgSrc}-${imgIndex}`}
+                              className="relative aspect-video rounded-2xl overflow-hidden border border-border/50 bg-secondary/15 shadow-3xs group/img hover:border-accent/30 transition-all duration-300"
+                            >
+                              <Image 
+                                src={imgSrc}
+                                alt={`${actTitle} photo ${imgIndex + 1}`}
+                                fill
+                                className="object-cover group-hover/img:scale-105 transition-transform duration-500"
+                                sizes="(max-width: 640px) 100vw, 50vw"
+                              />
                             </div>
-                            <span className="text-xs font-bold text-primary/75 tracking-wider uppercase group-hover/img:text-accent transition-colors duration-300">
-                              {t("รูปภาพกิจกรรม", "Activity Photo")}
-                            </span>
-                            <span className="text-[10px] text-muted-foreground/60 mt-1 font-light">
-                              {t("อยู่ระหว่างดำเนินการจัดเก็บ", "Photo collection in progress")}
-                            </span>
-                          </div>
-                        ))}
+                          ))
+                        ) : (
+                          // แสดงกล่องร่าง (Placeholder) เมื่อไม่มีรูปภาพ
+                          [1, 2].map((num) => (
+                            <div 
+                              key={num} 
+                              className="group/img aspect-video rounded-2xl border-2 border-dashed border-border/60 bg-gradient-to-br from-secondary/15 via-secondary/5 to-transparent flex flex-col items-center justify-center p-6 hover:bg-secondary/10 hover:border-accent/40 hover:shadow-2xs transition-all duration-300 select-none cursor-pointer"
+                            >
+                              <div className="p-3.5 rounded-full bg-background border border-border/40 shadow-3xs text-accent/50 group-hover/img:scale-110 group-hover/img:text-accent transition-all duration-300 mb-3">
+                                <FileImage className="h-6 w-6" />
+                              </div>
+                              <span className="text-xs font-bold text-primary/75 tracking-wider uppercase group-hover/img:text-accent transition-colors duration-300">
+                                {t("รูปภาพกิจกรรม", "Activity Photo")}
+                              </span>
+                              <span className="text-[10px] text-muted-foreground/60 mt-1 font-light">
+                                {t("อยู่ระหว่างดำเนินการจัดเก็บ", "Photo collection in progress")}
+                              </span>
+                            </div>
+                          ))
+                        )}
                       </div>
                     </div>
                   </div>

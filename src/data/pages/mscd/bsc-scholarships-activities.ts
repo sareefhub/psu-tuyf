@@ -47,7 +47,10 @@ export const bscStudentsActivitiesData: Record<string, StudentProfile> = {
           th: "ช่วยปลูกต้นกล้าในหมู่บ้านบาโงยซามีแล ร่วมกับคุณครูและเพื่อนร่วมชั้นเรียน",
           en: "To help plant seedlings in the village of Talo Samilae with the participation of teachers and classmates.",
         },
-        images: [], // ยังไม่มีรูปภาพในระบบ
+        images: [
+          "/images/mscd/bsc-scholarships/sophoun-youk/activity-1-1.png",
+          "/images/mscd/bsc-scholarships/sophoun-youk/activity-1-2.png",
+        ],
       },
       {
         title: {
@@ -62,7 +65,10 @@ export const bscStudentsActivitiesData: Record<string, StudentProfile> = {
           th: "ลงพื้นที่ช่วยเหลือระดมทุนเพื่อสร้างบ้านเด็กกำพร้า และช่วยทำความสะอาด จัดสวนดอกไม้ที่มูลนิธิเพื่อการศึกษาและพัฒนาทรัพยากรมนุษย์ (115 33 ถนนสิโรรส ซอย 2 ตำบลสะเตง อำเภอเมืองยะลา จังหวัดยะลา 95000)",
           en: "Went to the area to help raise funds to build an orphanage and helped clean and arrange the flower garden at the Foundation for Education and Resource Development at (115 33 Siroros Sai 2 Rd, Sateng, Mueang Yala District, Yala 95000)",
         },
-        images: [], // ยังไม่มีรูปภาพในระบบ
+        images: [
+          "/images/mscd/bsc-scholarships/sophoun-youk/activity-2-1.png",
+          "/images/mscd/bsc-scholarships/sophoun-youk/activity-2-2.png",
+        ],
       },
       {
         title: {
@@ -77,7 +83,10 @@ export const bscStudentsActivitiesData: Record<string, StudentProfile> = {
           th: "เข้าร่วมจัดกิจกรรมวันเด็กแห่งชาติ เพื่อมอบความสนุกสนานและส่งเสริมการเรียนรู้ของเด็กๆ ในชุมชน",
           en: "Participated in organizing National Children's Day activities to bring joy and support learning for children in the community.",
         },
-        images: [],
+        images: [
+          "/images/mscd/bsc-scholarships/sophoun-youk/activity-3-1.png",
+          "/images/mscd/bsc-scholarships/sophoun-youk/activity-3-2.png",
+        ],
       },
       {
         title: {
@@ -92,7 +101,10 @@ export const bscStudentsActivitiesData: Record<string, StudentProfile> = {
           th: "เข้าร่วมสนับสนุนการประเมินคุณภาพการศึกษาระดับหลักสูตรตามเกณฑ์ AUN-QA ในฐานะตัวแทนนักศึกษา",
           en: "Participated in the AUN-QA programme quality assessment as a student representative.",
         },
-        images: [],
+        images: [
+          "/images/mscd/bsc-scholarships/sophoun-youk/activity-4-1.png",
+          "/images/mscd/bsc-scholarships/sophoun-youk/activity-4-2.png",
+        ],
       },
       {
         title: {
@@ -107,7 +119,10 @@ export const bscStudentsActivitiesData: Record<string, StudentProfile> = {
           th: "ร่วมกิจกรรมแบ่งปันความรู้คณิตศาสตร์พื้นฐานและกระบวนการคิดวิเคราะห์เชิงระบบให้กับรุ่นน้อง",
           en: "Participated in the tutoring program sharing mathematics knowledge and logical reasoning skills with junior students.",
         },
-        images: [],
+        images: [
+          "/images/mscd/bsc-scholarships/sophoun-youk/activity-5-1.png",
+          "/images/mscd/bsc-scholarships/sophoun-youk/activity-5-2.png",
+        ],
       },
     ],
   },
