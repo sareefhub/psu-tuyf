@@ -48,8 +48,8 @@ export const bscStudentsActivitiesData: Record<string, StudentProfile> = {
           en: "To help plant seedlings in the village of Talo Samilae with the participation of teachers and classmates.",
         },
         images: [
-          "/images/mscd/bsc-scholarships/sophoun-youk/activity-1-1.png",
-          "/images/mscd/bsc-scholarships/sophoun-youk/activity-1-2.png",
+          "/images/mscd/bsc-scholarships/sophoun-youk/activity-1-1.jpg",
+          "/images/mscd/bsc-scholarships/sophoun-youk/activity-1-2.jpg",
         ],
       },
       {
