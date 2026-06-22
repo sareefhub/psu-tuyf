@@ -5,6 +5,7 @@ export interface BscStudent {
   readonly name: string;
   readonly studentKey: string;
   readonly image: string;
+  readonly slug: string;
 }
 
 export interface BscStudentGroup {
@@ -35,6 +36,7 @@ export const bscDirectoryData: readonly BscStudentYearGroup[] = [
             name: "Miss SOPHOUN YOUK",
             studentKey: "s1",
             image: "/images/mscd/bsc-scholarships/student-1.png",
+            slug: "sophoun-youk",
           },
         ],
       },
@@ -46,18 +48,18 @@ export const bscDirectoryData: readonly BscStudentYearGroup[] = [
       {
         groupKey: "g1",
         students: [
-          { name: "Mr. Faruk Waede", studentKey: "s1", image: "/images/mscd/bsc-scholarships/student-2.png" },
-          { name: "Miss Inasnee Rattanawongsawas", studentKey: "s2", image: "/images/mscd/bsc-scholarships/student-3.png" },
-          { name: "Miss Fatimah Mahae", studentKey: "s3", image: "/images/mscd/bsc-scholarships/student-4.png" },
-          { name: "Miss Nirania Waedaya", studentKey: "s4", image: "/images/mscd/bsc-scholarships/student-5.png" },
-          { name: "Miss Sufianee Abu", studentKey: "s5", image: "/images/mscd/bsc-scholarships/student-6.png" },
+          { name: "Mr. Faruk Waede", studentKey: "s1", image: "/images/mscd/bsc-scholarships/student-2.png", slug: "faruk-waede" },
+          { name: "Miss Inasnee Rattanawongsawas", studentKey: "s2", image: "/images/mscd/bsc-scholarships/student-3.png", slug: "inasnee-rattanawongsawas" },
+          { name: "Miss Fatimah Mahae", studentKey: "s3", image: "/images/mscd/bsc-scholarships/student-4.png", slug: "fatimah-mahae" },
+          { name: "Miss Nirania Waedaya", studentKey: "s4", image: "/images/mscd/bsc-scholarships/student-5.png", slug: "nirania-waedaya" },
+          { name: "Miss Sufianee Abu", studentKey: "s5", image: "/images/mscd/bsc-scholarships/student-6.png", slug: "sufianee-abu" },
         ],
       },
       {
         groupKey: "g2",
         students: [
-          { name: "Miss Liza Thea", studentKey: "s1", image: "/images/mscd/bsc-scholarships/student-7.png" },
-          { name: "Mr. Chhavy Chorn", studentKey: "s2", image: "/images/mscd/bsc-scholarships/student-8.png" },
+          { name: "Miss Liza Thea", studentKey: "s1", image: "/images/mscd/bsc-scholarships/student-7.png", slug: "liza-thea" },
+          { name: "Mr. Chhavy Chorn", studentKey: "s2", image: "/images/mscd/bsc-scholarships/student-8.png", slug: "chhavy-chorn" },
         ],
       },
     ],
@@ -68,15 +70,15 @@ export const bscDirectoryData: readonly BscStudentYearGroup[] = [
       {
         groupKey: "g1",
         students: [
-          { name: "Miss Rusmee Binmaming", studentKey: "s1", image: "/images/mscd/bsc-scholarships/student-9.png" },
-          { name: "Mr. Affan Yahyoh", studentKey: "s2", image: "/images/mscd/bsc-scholarships/student-10.png" },
+          { name: "Miss Rusmee Binmaming", studentKey: "s1", image: "/images/mscd/bsc-scholarships/student-9.png", slug: "rusmee-binmaming" },
+          { name: "Mr. Affan Yahyoh", studentKey: "s2", image: "/images/mscd/bsc-scholarships/student-10.png", slug: "affan-yahyoh" },
         ],
       },
       {
         groupKey: "g2",
         students: [
-          { name: "Mr. Namoral Thy", studentKey: "s1", image: "/images/mscd/bsc-scholarships/student-11.png" },
-          { name: "Miss Layya Meak", studentKey: "s2", image: "/images/mscd/bsc-scholarships/student-12.png" },
+          { name: "Mr. Namoral Thy", studentKey: "s1", image: "/images/mscd/bsc-scholarships/student-11.png", slug: "namoral-thy" },
+          { name: "Miss Layya Meak", studentKey: "s2", image: "/images/mscd/bsc-scholarships/student-12.png", slug: "layya-meak" },
         ],
       },
     ],

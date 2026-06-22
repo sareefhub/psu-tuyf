@@ -2,11 +2,13 @@
 
 import { useT } from "@/components/language-context"
 import { StudentCard } from "@/components/student-card"
+import { useRouter } from "next/navigation"
 
 import { bscDirectoryData } from "@/data/pages/mscd/bsc-scholarships"
 
 export function SelectionDirectory() {
   const t = useT()
+  const router = useRouter()
 
   return (
     <section className="py-10 bg-background">
@@ -41,7 +43,7 @@ export function SelectionDirectory() {
                       {t(`bscScholarships.directory.years.${yearGroup.yearKey}.groups.${group.groupKey}.title`)}
                     </span>
 
-                    {/* รายชื่อนักเรียนในกลุ่มนี้แสดงเป็น Grid ขนาด 4 คอลัมน์โดยใช้คอมโพเนนต์กลาง */}
+                    {/* รายรายชื่อนักเรียนในกลุ่มนี้แสดงเป็น Grid ขนาด 4 คอลัมน์โดยใช้คอมโพเนนต์กลาง */}
                     <div className="grid gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
                       {group.students.map((student) => (
                         <StudentCard
@@ -54,6 +56,7 @@ export function SelectionDirectory() {
                           photoPlaceholderText={t("bscScholarships.directory.photo")}
                           categoryBadge={t("bscScholarships.directory.title")}
                           priority={yearGroup.yearKey === "y2566"}
+                          onDetailClick={() => router.push(`/mscd/bsc-scholarships/${student.slug}`)}
                         />
                       ))}
                     </div>
