@@ -64,6 +64,51 @@ export const bscStudentsActivitiesData: Record<string, StudentProfile> = {
         },
         images: [], // ยังไม่มีรูปภาพในระบบ
       },
+      {
+        title: {
+          th: "กิจกรรมวันเด็ก (Children's Day Activity)",
+          en: "Children's Day Activity",
+        },
+        date: {
+          th: "13 มกราคม 2567",
+          en: "13-January-2024",
+        },
+        description: {
+          th: "เข้าร่วมจัดกิจกรรมวันเด็กแห่งชาติ เพื่อมอบความสนุกสนานและส่งเสริมการเรียนรู้ของเด็กๆ ในชุมชน",
+          en: "Participated in organizing National Children's Day activities to bring joy and support learning for children in the community.",
+        },
+        images: [],
+      },
+      {
+        title: {
+          th: "การประเมินหลักสูตร AUN-QA (The AUN-QA Programme Assessment)",
+          en: "The AUN-QA Programme Assessment",
+        },
+        date: {
+          th: "15 พฤษภาคม 2567",
+          en: "15-May-2024",
+        },
+        description: {
+          th: "เข้าร่วมสนับสนุนการประเมินคุณภาพการศึกษาระดับหลักสูตรตามเกณฑ์ AUN-QA ในฐานะตัวแทนนักศึกษา",
+          en: "Participated in the AUN-QA programme quality assessment as a student representative.",
+        },
+        images: [],
+      },
+      {
+        title: {
+          th: "กิจกรรมพี่ช่วยน้อง - สนุกคิดคณิตศาสตร์ (Senior Helps Junior - Fun with Math Thinking)",
+          en: "Senior Helps Junior - Fun with Math Thinking",
+        },
+        date: {
+          th: "20 กรกฎาคม 2567",
+          en: "20-July-2024",
+        },
+        description: {
+          th: "ร่วมกิจกรรมแบ่งปันความรู้คณิตศาสตร์พื้นฐานและกระบวนการคิดวิเคราะห์เชิงระบบให้กับรุ่นน้อง",
+          en: "Participated in the tutoring program sharing mathematics knowledge and logical reasoning skills with junior students.",
+        },
+        images: [],
+      },
     ],
   },
 }
