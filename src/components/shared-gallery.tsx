@@ -1,7 +1,7 @@
 "use client"
 
 import { useState, useEffect } from "react"
-import { useT } from "@/components/language-context"
+import { useT, useLanguage } from "@/components/language-context"
 import { ChevronLeft, ChevronRight } from "lucide-react"
 import Image from "next/image"
 import { getImagesAction } from "@/lib/cloudinary-actions"
@@ -28,6 +28,7 @@ export function SharedGallery({
   sortOrder = 'desc',
 }: Readonly<SharedGalleryProps>) {
   const t = useT()
+  const { lang } = useLanguage()
   const title = t(`${translationKey}.galleryTitle`)
   const [currentPage, setCurrentPage] = useState(1)
   const [galleryItems, setGalleryItems] = useState<readonly GalleryItem[]>(
@@ -35,11 +36,12 @@ export function SharedGallery({
   )
   const [selectedFolder, setSelectedFolder] = useState<string | null>(null)
   const [isLoading, setIsLoading] = useState(false)
-  const [errorMsg, setErrorMsg] = useState<string | null>(null)
 
-  // พจนานุกรมชื่อย่อโรงเรียนภาษาไทยเพื่อแสดงในแถบตัวกรอง
+  // พจนานุกรมชื่อย่อโรงเรียนภาษาไทยและภาษาอังกฤษเพื่อแสดงในแถบตัวกรอง
   const getSchoolName = (folder: string): string => {
-    const mapping: Record<string, string> = {
+    const isEn = lang === "en"
+    
+    const mappingTh: Record<string, string> = {
       "azizstan-foundation-school": "รร.มูลนิธิอซิซสถาน",
       "chongraksat-wittaya-school": "รร.จงรักสัตย์วิทยา",
       "darussalam-school": "รร.ดารุสสาลาม",
@@ -48,6 +50,18 @@ export function SharedGallery({
       "sassamukkee-school": "รร.ศาสนสามัคคี",
       "thamavitya-mulniti-school": "รร.ธรรมวิทยามูลนิธิ",
     }
+
+    const mappingEn: Record<string, string> = {
+      "azizstan-foundation-school": "Azizstan Foundation School",
+      "chongraksat-wittaya-school": "Chongraksat Wittaya School",
+      "darussalam-school": "Darussalam School",
+      "phatna-witya-school": "Phatna Witya School",
+      "sasnupatam-school": "Sasnupatam School",
+      "sassamukkee-school": "Sassamukkee School",
+      "thamavitya-mulniti-school": "Thamavitya Mulniti School",
+    }
+
+    const mapping = isEn ? mappingEn : mappingTh
     return mapping[folder.toLowerCase()] || folder.replace(/-/g, " ").replace(/\b\w/g, (c) => c.toUpperCase())
   }
 
@@ -55,7 +69,6 @@ export function SharedGallery({
   useEffect(() => {
     if (!imageFolder) {
       setGalleryItems(images.map((url) => ({ url, subfolder: null })))
-      setErrorMsg(null)
       return
     }
 
@@ -88,21 +101,14 @@ export function SharedGallery({
             return { url: optimizedUrl, subfolder }
           })
           setGalleryItems(items)
-          setErrorMsg(null)
         } else {
           setGalleryItems(images.map((url) => ({ url, subfolder: null })))
-          if (result.error) {
-            setErrorMsg(result.error)
-          } else if (!result.resources || result.resources.length === 0) {
-            setErrorMsg(`ไม่พบไฟล์ภาพกิจกรรมในโฟลเดอร์ "${imageFolder}" หรือยังไม่ได้อัปโหลดรูปภาพลงระบบ Cloudinary`)
-          }
         }
       })
       .catch((err) => {
         console.error("Failed to load Cloudinary images centrally:", err)
         if (isMounted) {
           setGalleryItems(images.map((url) => ({ url, subfolder: null })))
-          setErrorMsg(err instanceof Error ? err.message : String(err))
         }
       })
       .finally(() => {
@@ -158,17 +164,8 @@ export function SharedGallery({
   if (!galleryItems || galleryItems.length === 0) {
     return (
       <section className="py-10 bg-background animate-fade-in">
-        <div className="mx-auto max-w-7xl px-6 text-center text-muted-foreground/60 space-y-4">
+        <div className="mx-auto max-w-7xl px-6 text-center text-muted-foreground/60">
           <p>{t("ไม่มีรูปภาพกิจกรรมแสดงผลในขณะนี้", "No photos available at the moment.")}</p>
-          {errorMsg && (
-            <div className="text-xs text-rose-500 bg-rose-500/10 rounded-2xl p-4 max-w-lg mx-auto border border-rose-500/20 leading-relaxed text-left">
-              <p className="font-bold mb-1">🔍 ข้อมูลดีบั๊ก (Debug Information):</p>
-              <p className="font-mono text-[11px] break-all bg-background/50 p-2 rounded-lg border border-border/40">{errorMsg}</p>
-              <p className="mt-2 text-[10px] text-muted-foreground">
-                คำแนะนำ: หากมีการอัปเดตตัวแปรสภาพแวดล้อม (.env.local) กรุณา Restart Dev Server (หยุดรันแล้ว start ใหม่) เพื่อโหลดค่าคอนฟิก Cloudinary
-              </p>
-            </div>
-          )}
         </div>
       </section>
     )
