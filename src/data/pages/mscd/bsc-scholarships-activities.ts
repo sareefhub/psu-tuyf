@@ -66,8 +66,8 @@ export const bscStudentsActivitiesData: Record<string, StudentProfile> = {
           en: "Went to the area to help raise funds to build an orphanage and helped clean and arrange the flower garden at the Foundation for Education and Resource Development at (115 33 Siroros Sai 2 Rd, Sateng, Mueang Yala District, Yala 95000)",
         },
         images: [
-          "/images/mscd/bsc-scholarships/sophoun-youk/activity-2-1.png",
-          "/images/mscd/bsc-scholarships/sophoun-youk/activity-2-2.png",
+          "/images/mscd/bsc-scholarships/sophoun-youk/activity-2-1.jpg",
+          "/images/mscd/bsc-scholarships/sophoun-youk/activity-2-2.jpg",
         ],
       },
       {
