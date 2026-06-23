@@ -15,5 +15,21 @@ export const palinRaktaowProfile: MgssStudentProfile = {
     th: "วิทยาเขตปัตตานี",
     en: "Pattani Campus",
   },
+  studyPlan: {
+    th: "หลักสูตรปริญญาโท (สำเร็จการศึกษาแล้ว)",
+    en: "Milestone of Graduation: Master degree (Completed)",
+  },
+  projectTitle: {
+    th: "Paracompact and countably paracompact in ideal topological spaces",
+    en: "Paracompact and countably paracompact in ideal topological spaces",
+  },
+  projectAdviser: {
+    th: "Assoc. Prof. Dr. Areeyuth Sama-ae",
+    en: "Assoc. Prof. Dr. Areeyuth Sama-ae",
+  },
+  educationalStatus: {
+    th: "สำเร็จการศึกษา (Completed)",
+    en: "Completed",
+  },
   activities: [],
 }
