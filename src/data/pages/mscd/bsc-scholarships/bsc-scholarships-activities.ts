@@ -124,7 +124,10 @@ export const bscStudentsActivitiesData: Record<string, StudentProfile> = {
           th: "ปฏิบัติหน้าที่เป็นคณะทำงานและผู้ควบคุมการสอบในการแข่งขันคณิตศาสตร์ระดับประถมศึกษา เพื่อสนับสนุนการจัดกิจกรรมทางวิชาการและส่งเสริมศักยภาพเยาวชน",
           en: "Served as a staff member and exam proctor for the elementary school-level mathematics competition, supporting academic activities and youth potential development.",
         },
-        images: [],
+        images: [
+          "/images/mscd/bsc-scholarships/faruk-waede/activity-2-1.jpg",
+          "/images/mscd/bsc-scholarships/faruk-waede/activity-2-2.jpg",
+        ],
       },
       {
         title: {
@@ -139,7 +142,9 @@ export const bscStudentsActivitiesData: Record<string, StudentProfile> = {
           th: "ร่วมเป็นคณะทำงานในการจัดพิธีไหว้ครูเพื่อแสดงความกตัญญูกตเวทิตาต่อบูรพาจารย์ และสืบสานประเพณีอันดีงามของมหาวิทยาลัย",
           en: "Served as a staff member in organizing the Teacher Appreciation Ceremony to express gratitude to teachers and preserve the university's fine traditions.",
         },
-        images: [],
+        images: [
+          "/images/mscd/bsc-scholarships/faruk-waede/activity-3-1.jpg",
+        ],
       },
       {
         title: {
@@ -154,7 +159,9 @@ export const bscStudentsActivitiesData: Record<string, StudentProfile> = {
           th: "ทำหน้าที่เป็นพี่เลี้ยงและคณะทำงานในการต้อนรับและกระชับมิตรนักศึกษาใหม่เข้าสู่รั้วมหาวิทยาลัย วิทยาเขตปัตตานี (รูสะมิแล) เพื่อแนะนำแนวทางการเรียนและการปรับตัว",
           en: "Served as a mentor and staff member in welcoming and bonding new students to the university campus in Pattani (Rusamilae), providing guidance on study and adaptation.",
         },
-        images: [],
+        images: [
+          "/images/mscd/bsc-scholarships/faruk-waede/activity-4-1.jpg",
+        ],
       },
       {
         title: {
@@ -169,7 +176,9 @@ export const bscStudentsActivitiesData: Record<string, StudentProfile> = {
           th: "เข้าร่วมฟังการบรรยายเสวนาเชิงวิชาการเพื่อเสริมสร้างความรู้ความเข้าใจเกี่ยวกับทิศทางความเชื่อมโยงระหว่างการเมืองและการพัฒนาคุณภาพระบบการศึกษา",
           en: "Participated in an academic seminar to enhance understanding of the relationship between politics and educational quality development.",
         },
-        images: [],
+        images: [
+          "/images/mscd/bsc-scholarships/faruk-waede/activity-5-1.jpg",
+        ],
       },
       {
         title: {
@@ -184,7 +193,11 @@ export const bscStudentsActivitiesData: Record<string, StudentProfile> = {
           th: "ลงพื้นที่ทำกิจกรรมจิตอาสาแจกจ่ายถุงยังชีพและสิ่งของจำเป็นให้กับผู้ยากไร้ ตลอดจนผู้ป่วยติดเตียงในชุมชนต่าง ๆ ของจังหวัดปัตตานีเพื่อบรรเทาความเดือดร้อนเบื้องต้น",
           en: "Participated in volunteer field activities distributing survival bags and essential supplies to the poor and bedridden patients in various communities of Pattani Province.",
         },
-        images: [],
+        images: [
+          "/images/mscd/bsc-scholarships/faruk-waede/activity-6-1.jpg",
+          "/images/mscd/bsc-scholarships/faruk-waede/activity-6-2.jpg",
+          "/images/mscd/bsc-scholarships/faruk-waede/activity-6-3.jpg",
+        ],
       },
       {
         title: {
@@ -199,7 +212,9 @@ export const bscStudentsActivitiesData: Record<string, StudentProfile> = {
           th: "เข้าร่วมพิธีและกิจกรรมรับมอบเสื้อช็อปปฏิบัติการสำหรับนักศึกษาชั้นปีที่ 2 เพื่อแสดงสัญลักษณ์แห่งความรับผิดชอบและการก้าวสู่วิชาชีพขั้นสูง",
           en: "Participated in the ceremony and activity to receive laboratory workshop shirts for second-year students, symbolizing responsibility and advancement in their major fields.",
         },
-        images: [],
+        images: [
+          "/images/mscd/bsc-scholarships/faruk-waede/activity-7-1.jpg",
+        ],
       },
     ],
   },
