@@ -1,7 +1,7 @@
 "use client"
 
 import { useT } from "@/components/language-context"
-import { bscAnnouncementsData } from "@/data/pages/mscd/bsc-scholarships"
+import { bscAnnouncementsData } from "@/data/pages/mscd/bsc-scholarships/bsc-scholarships"
 import { SharedAnnouncements } from "@/components/program-detail-template"
 
 /**

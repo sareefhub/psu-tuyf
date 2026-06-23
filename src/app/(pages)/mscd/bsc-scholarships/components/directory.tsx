@@ -4,7 +4,7 @@ import { useT } from "@/components/language-context"
 import { StudentCard } from "@/components/student-card"
 import { useRouter } from "next/navigation"
 
-import { bscDirectoryData } from "@/data/pages/mscd/bsc-scholarships"
+import { bscDirectoryData } from "@/data/pages/mscd/bsc-scholarships/bsc-scholarships"
 
 export function SelectionDirectory() {
   const t = useT()

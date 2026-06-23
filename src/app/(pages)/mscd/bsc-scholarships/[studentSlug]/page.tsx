@@ -6,8 +6,8 @@ import { useRouter } from "next/navigation"
 import Image from "next/image"
 import Link from "next/link"
 import { ArrowLeft, GraduationCap, Calendar, FileImage, User } from "lucide-react"
-import { bscDirectoryData } from "@/data/pages/mscd/bsc-scholarships"
-import { bscStudentsActivitiesData } from "@/data/pages/mscd/bsc-scholarships-activities"
+import { bscDirectoryData } from "@/data/pages/mscd/bsc-scholarships/bsc-scholarships"
+import { bscStudentsActivitiesData } from "@/data/pages/mscd/bsc-scholarships/bsc-scholarships-activities"
 import { MainLayout } from "@/layout/main-layout"
 
 interface PageProps {
@@ -131,8 +131,132 @@ export default function StudentDetailPage({ params }: PageProps) {
                 <span>{studentCampus}</span>
               </p>
             </div>
+
+            {/* ข้อมูลการศึกษาและผลงานเพิ่มเติม (เช่น แผนการเรียน, โครงงาน, รางวัล) */}
+            {(studentProfile.studyPlan || studentProfile.projectTitle || studentProfile.projectAdviser || studentProfile.educationalStatus || studentProfile.award) && (
+              <div className="border-t border-border/60 pt-5 mt-5 space-y-3.5 text-left">
+                {studentProfile.studyPlan && (
+                  <div className="flex flex-col sm:flex-row sm:items-start gap-1.5 sm:gap-4 pb-3 border-b border-border/30 last:border-0">
+                    <span className="text-[10px] sm:text-xs font-bold text-accent/90 uppercase tracking-wider shrink-0 sm:w-32 pt-0.5">
+                      {t("แผนการศึกษา", "Study Plan")}
+                    </span>
+                    <span className="text-xs sm:text-sm font-semibold text-primary/95 flex-1">
+                      {lang === "th" ? studentProfile.studyPlan.th : studentProfile.studyPlan.en}
+                    </span>
+                  </div>
+                )}
+                {studentProfile.projectTitle && (
+                  <div className="flex flex-col sm:flex-row sm:items-start gap-1.5 sm:gap-4 pb-3 border-b border-border/30 last:border-0">
+                    <span className="text-[10px] sm:text-xs font-bold text-accent/90 uppercase tracking-wider shrink-0 sm:w-32 pt-0.5">
+                      {t("หัวข้อโครงงาน", "Project Title")}
+                    </span>
+                    <span className="text-xs sm:text-sm font-semibold text-primary/95 flex-1 leading-relaxed">
+                      {lang === "th" ? studentProfile.projectTitle.th : studentProfile.projectTitle.en}
+                    </span>
+                  </div>
+                )}
+                {studentProfile.projectAdviser && (
+                  <div className="flex flex-col sm:flex-row sm:items-start gap-1.5 sm:gap-4 pb-3 border-b border-border/30 last:border-0">
+                    <span className="text-[10px] sm:text-xs font-bold text-accent/90 uppercase tracking-wider shrink-0 sm:w-32 pt-0.5">
+                      {t("อาจารย์ที่ปรึกษา", "Project Adviser")}
+                    </span>
+                    <span className="text-xs sm:text-sm font-semibold text-primary/95 flex-1">
+                      {lang === "th" ? studentProfile.projectAdviser.th : studentProfile.projectAdviser.en}
+                    </span>
+                  </div>
+                )}
+                {studentProfile.educationalStatus && (
+                  <div className="flex flex-col sm:flex-row sm:items-start gap-1.5 sm:gap-4 pb-3 border-b border-border/30 last:border-0">
+                    <span className="text-[10px] sm:text-xs font-bold text-accent/90 uppercase tracking-wider shrink-0 sm:w-32 pt-0.5">
+                      {t("สถานะการศึกษา", "Educational Status")}
+                    </span>
+                    <div className="flex-1">
+                      <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-[10px] font-extrabold bg-emerald-500/10 text-emerald-600 border border-emerald-500/20">
+                        {lang === "th" ? studentProfile.educationalStatus.th : studentProfile.educationalStatus.en}
+                      </span>
+                    </div>
+                  </div>
+                )}
+                {studentProfile.award && (
+                  <div className="flex flex-col sm:flex-row sm:items-start gap-1.5 sm:gap-4 pb-3 border-b border-border/30 last:border-0">
+                    <span className="text-[10px] sm:text-xs font-bold text-accent/90 uppercase tracking-wider shrink-0 sm:w-32 pt-0.5">
+                      {t("รางวัลที่ได้รับ", "Award")}
+                    </span>
+                    <span className="text-xs sm:text-sm font-semibold text-primary/95 flex-1 leading-relaxed">
+                      {lang === "th" ? studentProfile.award.th : studentProfile.award.en}
+                    </span>
+                  </div>
+                )}
+              </div>
+            )}
           </div>
         </div>
+
+        {/* ส่วนข้อมูลการฝึกปฏิบัติงาน (Internship Section) */}
+        {studentProfile.internship && (
+          <div className="space-y-6 mt-10 animate-fade-in">
+            {/* หัวข้อข้อมูลการฝึกงาน */}
+            <div className="border-b border-border/80 pb-4 mb-4">
+              <h2 className="text-xl font-bold text-primary flex items-center gap-2">
+                <span className="h-5.5 w-1 bg-accent rounded-full animate-pulse" />
+                <span>{t("ข้อมูลการฝึกปฏิบัติงาน (Internship)", "Internship Experience")}</span>
+              </h2>
+            </div>
+
+            {/* การ์ดรายละเอียดการฝึกงาน */}
+            <div className="bg-card border border-border/50 rounded-3xl p-6 sm:p-8 shadow-2xs hover:shadow-xs hover:border-primary/25 transition-all duration-300 space-y-6 text-left">
+              {/* รายละเอียดภาพรวม (Overview Grid) */}
+              <div className="grid gap-6 sm:grid-cols-3 border-b border-border/60 pb-6">
+                <div className="space-y-1.5">
+                  <span className="text-xs text-muted-foreground font-semibold uppercase tracking-wider block">
+                    {t("ตำแหน่งงาน", "Position")}
+                  </span>
+                  <p className="text-sm sm:text-base font-bold text-primary">
+                    {lang === "th" ? studentProfile.internship.position.th : studentProfile.internship.position.en}
+                  </p>
+                </div>
+                <div className="space-y-1.5">
+                  <span className="text-xs text-muted-foreground font-semibold uppercase tracking-wider block">
+                    {t("สถานที่ฝึกปฏิบัติงาน", "Location")}
+                  </span>
+                  <p className="text-sm sm:text-base font-bold text-primary">
+                    {lang === "th" ? studentProfile.internship.location.th : studentProfile.internship.location.en}
+                  </p>
+                </div>
+                <div className="space-y-1.5">
+                  <span className="text-xs text-muted-foreground font-semibold uppercase tracking-wider block">
+                    {t("ระยะเวลาฝึกปฏิบัติงาน", "Duration")}
+                  </span>
+                  <p className="text-sm sm:text-base font-bold text-primary">
+                    {lang === "th" ? studentProfile.internship.duration.th : studentProfile.internship.duration.en}
+                  </p>
+                </div>
+              </div>
+
+              {/* หน้าที่ความรับผิดชอบหลัก (Main Responsibility) */}
+              <div className="space-y-2">
+                <h3 className="text-base sm:text-lg font-bold text-primary">
+                  {t("หน้าที่ความรับผิดชอบหลัก", "Internship Main Responsibility")}
+                </h3>
+                <p className="text-sm sm:text-base text-muted-foreground/80 leading-relaxed whitespace-pre-line">
+                  {lang === "th" ? studentProfile.internship.responsibility.th : studentProfile.internship.responsibility.en}
+                </p>
+              </div>
+
+              {/* แผนงานในอนาคต (Future Plan) */}
+              {studentProfile.internship.futurePlan && (
+                <div className="space-y-2 pt-4 border-t border-border/40">
+                  <h3 className="text-base sm:text-lg font-bold text-primary">
+                    {t("แผนการศึกษาและเป้าหมายในอนาคต", "Future Plan")}
+                  </h3>
+                  <p className="text-sm sm:text-base text-muted-foreground/80 leading-relaxed whitespace-pre-line">
+                    {lang === "th" ? studentProfile.internship.futurePlan.th : studentProfile.internship.futurePlan.en}
+                  </p>
+                </div>
+              )}
+            </div>
+          </div>
+        )}
 
         {/* หัวข้อกิจกรรมสไตล์มินิมอลคุมโทนระบบ (Clean Section Header) */}
         <div className="border-b border-border/80 pb-4 mt-12 mb-8">
