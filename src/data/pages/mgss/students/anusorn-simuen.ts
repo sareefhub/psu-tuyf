@@ -62,7 +62,11 @@ export const anusornSimuenProfile: MgssStudentProfile = {
         th: "จัดโดยคณาจารย์จาก Yokohama National University และ มหาวิทยาลัยสงขลานครินทร์ (By Professors from Yokohama National University and Prince of Songkla University)",
         en: "By Professors from Yokohama National University and Prince of Songkla University",
       },
-      images: [],
+      images: [
+        "/images/mgss/phd-student-hatyai/anusorn-simuen/activity-1-1.png",
+        "/images/mgss/phd-student-hatyai/anusorn-simuen/activity-1-2.png",
+        "/images/mgss/phd-student-hatyai/anusorn-simuen/activity-1-3.png",
+      ],
     },
     {
       title: {
@@ -77,7 +81,12 @@ export const anusornSimuenProfile: MgssStudentProfile = {
         th: "โดยนักศึกษาระดับบัณฑิตศึกษาสาขาคณิตศาสตร์ มหาวิทยาลัยสงขลานครินทร์ (By Graduate Mathematics Students in Prince of Songkla University)",
         en: "By Graduate Mathematics Students in Prince of Songkla University",
       },
-      images: [],
+      images: [
+        "/images/mgss/phd-student-hatyai/anusorn-simuen/activity-2-1.png",
+        "/images/mgss/phd-student-hatyai/anusorn-simuen/activity-2-2.png",
+        "/images/mgss/phd-student-hatyai/anusorn-simuen/activity-2-3.png",
+        "/images/mgss/phd-student-hatyai/anusorn-simuen/activity-2-4.png",
+      ],
     },
     {
       title: {
@@ -92,7 +101,9 @@ export const anusornSimuenProfile: MgssStudentProfile = {
         th: "",
         en: "",
       },
-      images: [],
+      images: [
+        "/images/mgss/phd-student-hatyai/anusorn-simuen/activity-3-1.png",
+      ],
     },
     {
       title: {
@@ -107,8 +118,11 @@ export const anusornSimuenProfile: MgssStudentProfile = {
         th: "",
         en: "",
       },
-      images: [],
+      images: [
+        "/images/mgss/phd-student-hatyai/anusorn-simuen/activity-4-1.png",
+      ],
     },
   ],
 }
+
 

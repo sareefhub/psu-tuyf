@@ -62,11 +62,14 @@ export const pokpongSrimoraProfile: MgssStudentProfile = {
         th: "",
         en: "",
       },
-      images: [],
+      images: [
+        "/images/mgss/phd-student-hatyai/pokpong-srimora/activity-1-1.png",
+        "/images/mgss/phd-student-hatyai/pokpong-srimora/activity-1-2.png",
+      ],
     },
     {
       title: {
-        th: "ค่ายคณิตศาสตร์สำหรับนักเรียนมัธยมศึกษาตอนปลาย",
+        th: "ค่ายคณิตศาสตร์สำหรับนักเรียนมัยมศึกษาตอนปลาย",
         en: "Mathematics Camp for High School Students",
       },
       date: {
@@ -77,7 +80,9 @@ export const pokpongSrimoraProfile: MgssStudentProfile = {
         th: "",
         en: "",
       },
-      images: [],
+      images: [
+        "/images/mgss/phd-student-hatyai/pokpong-srimora/activity-2-1.png",
+      ],
     },
     {
       title: {
@@ -92,8 +97,11 @@ export const pokpongSrimoraProfile: MgssStudentProfile = {
         th: "",
         en: "",
       },
-      images: [],
+      images: [
+        "/images/mgss/phd-student-hatyai/pokpong-srimora/activity-3-1.png",
+      ],
     },
   ],
 }
+
 

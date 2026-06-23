@@ -62,8 +62,12 @@ export const kritKanopthamakunProfile: MgssStudentProfile = {
         th: "",
         en: "",
       },
-      images: [],
+      images: [
+        "/images/mgss/phd-student-hatyai/krit-kanopthamakun/activity-1-1.png",
+        "/images/mgss/phd-student-hatyai/krit-kanopthamakun/activity-1-2.png",
+      ],
     },
   ],
 }
+
 
