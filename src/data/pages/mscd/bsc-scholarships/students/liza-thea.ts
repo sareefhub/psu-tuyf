@@ -67,7 +67,7 @@ export const lizaTheaProfile: StudentProfile = {
         th: "เข้าร่วมกิจกรรมส่งเสริมการเรียนรู้ที่สร้างสรรค์และสนุกสนาน เพื่อพัฒนาทักษะชีวิตและกระบวนการเรียนรู้ของนักศึกษา",
         en: "Participated in the creative and fun learning promotion activity to develop life skills and student learning processes.",
       },
-      images: [],
+      images: ["/images/mscd/bsc-scholarships/liza-thea/activity-1-1.jpg"], // รูปภาพโครงการ SMART SAT SMART FUN
     },
     {
       title: {
@@ -82,7 +82,7 @@ export const lizaTheaProfile: StudentProfile = {
         th: "เข้าร่วมฝึกฝนและพัฒนาตนเองด้านทักษะการสื่อสารภาษาอังกฤษอย่างเข้มข้นเป็นเวลา 2 เดือนเพื่อเตรียมพร้อมสำหรับการทำงานวิชาการและการสื่อสารในสากล",
         en: "Participated in intensive self-development in English communication skills for 2 months to prepare for academic and international communication.",
       },
-      images: [],
+      images: ["/images/mscd/bsc-scholarships/liza-thea/activity-2-1.jpg"], // รูปภาพโครงการพัฒนาทักษะภาษาอังกฤษ 2 เดือน
     },
   ],
 }

@@ -72,7 +72,7 @@ export const affanProfile: StudentProfile = {
         th: "เข้าร่วมและสนับสนุนการประเมินคุณภาพการศึกษาระดับหลักสูตรตามเกณฑ์มาตรฐานสากล AUN-QA ของคณะและสาขาวิชาเพื่อพัฒนาคุณภาพการศึกษาอย่างยั่งยืน",
         en: "Participated in and supported the program-level educational quality assessment according to the international AUN-QA standards to continuously improve education quality.",
       },
-      images: [],
+      images: ["/images/mscd/bsc-scholarships/affan-yahyoh/activity-1-1.png"], // รูปภาพกิจกรรมการประเมินคุณภาพหลักสูตร AUN-QA
     },
     {
       title: {
@@ -87,7 +87,7 @@ export const affanProfile: StudentProfile = {
         th: "เข้าร่วมเป็นคณะทำงานและผู้ช่วยวิทยากรจัดกิจกรรมค่ายคณิตศาสตร์เพื่อเสริมสร้างทักษะและเจตคติที่ดีต่อคณิตศาสตร์ให้แก่เยาวชน",
         en: "Participated as a staff member and assistant facilitator in organizing the Math Camp to promote mathematical skills and positive attitudes among students.",
       },
-      images: [],
+      images: ["/images/mscd/bsc-scholarships/affan-yahyoh/activity-2-1.png"], // รูปภาพกิจกรรมค่ายคณิตศาสตร์ (Math Camp)
     },
     {
       title: {
@@ -102,7 +102,7 @@ export const affanProfile: StudentProfile = {
         th: "ร่วมนำเสนอหลักสูตร จัดบูธนิทรรศการ และให้คำปรึกษาแก่ผู้เข้าชมงานเกี่ยวกับสาขาวิชาคณิตศาสตร์ในงานตลาดนัดหลักสูตร ครั้งที่ 2",
         en: "Co-presented the academic program, set up the exhibition booth, and provided educational advice regarding the mathematics curriculum at the 2nd Curriculum Fair.",
       },
-      images: [],
+      images: ["/images/mscd/bsc-scholarships/affan-yahyoh/activity-3-1.png"], // รูปภาพโครงการตลาดนัดหลักสูตร ครั้งที่ 2
     },
     {
       title: {
@@ -117,7 +117,7 @@ export const affanProfile: StudentProfile = {
         th: "จัดกิจกรรมพัฒนาและส่งเสริมทักษะวิชาการด้านคณิตศาสตร์ให้แก่นักเรียนผ่านกิจกรรมที่สร้างสรรค์ภายใต้ชื่อโครงการ 'IM Wonderful Math' ในช่วงฝึกประสบการณ์วิชาชีพ",
         en: "Organized mathematical academic skill-enhancing activities for students through creative games and exercises under the name 'IM Wonderful Math' during the teaching internship.",
       },
-      images: [],
+      images: ["/images/mscd/bsc-scholarships/affan-yahyoh/activity-4-1.png"], // รูปภาพกิจกรรมเสริมทักษะคณิตศาสตร์ IM Wonderful Math
     },
     {
       title: {
@@ -132,7 +132,7 @@ export const affanProfile: StudentProfile = {
         th: "ร่วมเป็นวิทยากรแนะแนวการเรียน การใช้ชีวิต และเตรียมความพร้อมสู่การฝึกสหกิจศึกษาให้แก่น้องๆ รุ่นน้องในสาขาวิชา",
         en: "Served as a speaker providing guidance on study, life, and preparing for cooperative education to junior students in the department.",
       },
-      images: [],
+      images: ["/images/mscd/bsc-scholarships/affan-yahyoh/activity-5-1.png"], // รูปภาพกิจกรรมพี่แนะแนวน้อง ครั้งที่ 3
     },
     {
       title: {
@@ -147,7 +147,7 @@ export const affanProfile: StudentProfile = {
         th: "เข้าร่วมจัดกิจกรรมนิทรรศการทางวิชาการและแนะแนวการศึกษาต่อระดับปริญญาตรีสาขาคณิตศาสตร์ในกิจกรรมเปิดบ้านต้อนรับนักเรียน ม.อ. ปัตตานี",
         en: "Participated in organizing academic exhibition booths and providing undergraduate education guidance for the mathematics department during the PSU Open House 2024.",
       },
-      images: [],
+      images: ["/images/mscd/bsc-scholarships/affan-yahyoh/activity-6-1.png"], // รูปภาพกิจกรรมเปิดบ้าน ม.อ. ประจำปี 2567
     },
   ],
 }

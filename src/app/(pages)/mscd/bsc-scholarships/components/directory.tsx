@@ -11,7 +11,7 @@ interface StudentGroupProps {
   yearKey: string
   groupKey: string
   groupTitle: string
-  students: any[]
+  students: readonly any[] // กำหนดเป็น readonly array เพื่อรองรับข้อมูลทุนแบบคงที่
   t: any
   router: any
 }

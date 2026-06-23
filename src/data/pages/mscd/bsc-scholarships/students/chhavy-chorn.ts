@@ -68,7 +68,7 @@ export const chhavyChornProfile: StudentProfile = {
         th: "เข้าร่วมกิจกรรมเสริมสร้างและแบ่งปันความรู้เกี่ยวกับเทคโนโลยีหุ่นยนต์และระบบอัตโนมัติให้แก่ผู้ที่สนใจ",
         en: "Participated in a program to strengthen and share knowledge of robotics and automation technology.",
       },
-      images: [],
+      images: ["/images/mscd/bsc-scholarships/chhavy-chorn/activity-1-1.jpg"], // รูปภาพโครงการส่งเสริมความรู้ด้านหุ่นยนต์
     },
     {
       title: {
@@ -83,7 +83,7 @@ export const chhavyChornProfile: StudentProfile = {
         th: "เข้าร่วมการแข่งขันทักษะสะกดคำภาษาอังกฤษ (English Crossword) และปฏิบัติภารกิจร่วมกันเป็นทีมในกิจกรรม PSU Talent",
         en: "Participated in the English Crossword challenge and collaborated with team members in the PSU Talent event.",
       },
-      images: [],
+      images: ["/images/mscd/bsc-scholarships/chhavy-chorn/activity-2-1.png"], // รูปภาพการแข่งขันสะกดคำภาษาอังกฤษ PSU Talent
     },
     {
       title: {
@@ -98,7 +98,7 @@ export const chhavyChornProfile: StudentProfile = {
         th: "เข้าร่วมกิจกรรมแลกเปลี่ยนระดับนานาชาติเพื่อเสริมสร้างความเข้าใจในความหลากหลายทางวัฒนธรรมและพัฒนาทักษะการสื่อสาร",
         en: "Joined an international student exchange program to enhance cross-cultural understanding and communication skills.",
       },
-      images: [],
+      images: ["/images/mscd/bsc-scholarships/chhavy-chorn/activity-3-1.jpg"], // รูปภาพโครงการแลกเปลี่ยนนักศึกษานานาชาติ
     },
     {
       title: {
@@ -113,7 +113,7 @@ export const chhavyChornProfile: StudentProfile = {
         th: "เข้าร่วมค่ายกิจกรรมพัฒนาทักษะชีวิต ความเป็นผู้นำ และการทำงานร่วมกันเป็นทีมผ่านการฝึกฝนทักษะภาษาอังกฤษในชีวิตจริง ณ รัฐกลันตัน และเมืองโกตาบารู ประเทศมาเลเซีย",
         en: "Participated in a hands-on learning camp to develop English proficiency, teamwork, and leadership skills in Kelantan and Kota Bharu, Malaysia.",
       },
-      images: [],
+      images: ["/images/mscd/bsc-scholarships/chhavy-chorn/activity-4-1.jpg"], // รูปภาพโครงการเรียนรู้เชิงปฏิบัติการ ประเทศมาเลเซีย
     },
   ],
 }

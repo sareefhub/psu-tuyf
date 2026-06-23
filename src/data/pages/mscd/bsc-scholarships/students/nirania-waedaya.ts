@@ -71,7 +71,7 @@ export const niraniaProfile: StudentProfile = {
         th: "ปฏิบัติหน้าที่เป็นเลขานุการสโมสรนักศึกษาคณะวิทยาศาสตร์และเทคโนโลยี ในการวางแผน ประสานงาน และจัดทำเอกสารเพื่อดำเนินโครงการและกิจกรรมต่างๆ ของคณะให้สำเร็จลุล่วง",
         en: "Served as the secretary of the Faculty of Science and Technology Student Club, coordinating, planning, and managing documentation for various faculty projects and activities.",
       },
-      images: [],
+      images: ["/images/mscd/bsc-scholarships/nirania-waedaya/activity-1-1.jpg"], // รูปภาพเลขานุการสโมสรนักศึกษา SCI-TECH
     },
     {
       title: {
@@ -86,7 +86,7 @@ export const niraniaProfile: StudentProfile = {
         th: "เข้าร่วมกิจกรรมส่งเสริมการเรียนรู้ที่สร้างสรรค์และสนุกสนาน เพื่อพัฒนาทักษะชีวิตและกระบวนการเรียนรู้ของนักศึกษา",
         en: "Participated in the creative and fun learning promotion activity to develop life skills and student learning processes.",
       },
-      images: [],
+      images: ["/images/mscd/bsc-scholarships/nirania-waedaya/activity-2-1.jpg"], // รูปภาพโครงการ SMART SAT SMART FUN
     },
     {
       title: {
@@ -101,7 +101,7 @@ export const niraniaProfile: StudentProfile = {
         th: "เข้าร่วมแข่งขันกีฬาและกิจกรรมนันทนาการเพื่อสร้างความสามัคคีและพลานามัยที่ดีในหมู่นักศึกษา",
         en: "Participated in sports competitions and recreational activities to promote unity and physical fitness among students.",
       },
-      images: [],
+      images: ["/images/mscd/bsc-scholarships/nirania-waedaya/activity-3-1.jpg"], // รูปภาพการแข่งขันกีฬา SAT Game
     },
     {
       title: {
@@ -116,7 +116,7 @@ export const niraniaProfile: StudentProfile = {
         th: "เข้าร่วมกิจกรรมและพิธีรับมอบเสื้อช็อปปฏิบัติการสำหรับนักศึกษาชั้นปีที่ 2 เพื่อก้าวเข้าสู่การเรียนรู้ภาคปฏิบัติเต็มรูปแบบ",
         en: "Participated in the activity and ceremony to receive workshop laboratory shirts for second-year students advancing into full practical learning.",
       },
-      images: [],
+      images: ["/images/mscd/bsc-scholarships/nirania-waedaya/activity-4-1.jpg"], // รูปภาพกิจกรรมรับเสื้อปฏิบัติการ (เสื้อช็อป)
     },
     {
       title: {
@@ -131,7 +131,7 @@ export const niraniaProfile: StudentProfile = {
         th: "เข้าร่วมกิจกรรมสังสรรค์ส่งท้ายปีเก่าต้อนรับปีใหม่ในโครงการของปี 2024 เพื่อทำความคุ้นเคยและสร้างความสัมพันธ์อันดีระหว่างเพื่อนและรุ่นพี่รุ่นน้องภายในสาขาวิชาเดียวกัน",
         en: "Participated in the New Year celebration under the project of the Beginning of 2024 to build relations and foster networking among students and peers within the major.",
       },
-      images: [],
+      images: ["/images/mscd/bsc-scholarships/nirania-waedaya/activity-5-1.jpg"], // รูปภาพเข้าร่วมกิจกรรมต้อนรับปีใหม่ 2024
     },
   ],
 }

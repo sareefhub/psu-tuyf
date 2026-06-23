@@ -67,7 +67,10 @@ export const inasneeProfile: StudentProfile = {
         th: "เข้าร่วมแข่งขันกีฬาและกิจกรรมเชื่อมความสัมพันธ์ระหว่างนักศึกษาจากทั้ง 5 วิทยาเขต ของมหาวิทยาลัยสงขลานครินทร์ ณ วิทยาเขตหาดใหญ่",
         en: "Participated in sports competitions and relationship-building activities among students from all 5 campuses of Prince of Songkhla University at Hat Yai Campus.",
       },
-      images: [],
+      images: [
+        "/images/mscd/bsc-scholarships/inasnee-rattanawongsawas/activity-1-1.jpg",
+        "/images/mscd/bsc-scholarships/inasnee-rattanawongsawas/activity-1-2.jpg"
+      ], // รูปภาพโครงการกีฬา 5 วิทยาเขต หาดใหญ่
     },
     {
       title: {
@@ -82,7 +85,7 @@ export const inasneeProfile: StudentProfile = {
         th: "ปฏิบัติหน้าที่สังเกตการณ์การจัดกิจกรรมต้อนรับน้องใหม่ของสภานักศึกษา เพื่อให้การดำเนินกิจกรรมเป็นไปด้วยความเรียบร้อยและสร้างสรรค์",
         en: "Served as a staff member observing the freshmen welcoming activities organized by the student council to ensure orderly and creative event execution.",
       },
-      images: [],
+      images: ["/images/mscd/bsc-scholarships/inasnee-rattanawongsawas/activity-2-1.jpg"], // รูปภาพคณะทำงานสังเกตการณ์การต้อนรับน้องใหม่
     },
     {
       title: {
@@ -97,7 +100,7 @@ export const inasneeProfile: StudentProfile = {
         th: "เข้าร่วมรับฟังความคิดเห็นและข้อมูลที่เป็นประโยชน์ในงานเสวนาวิชาการที่อภิปรายเกี่ยวกับทิศทางการพัฒนาการศึกษาที่เชื่อมโยงกับมิติทางการเมือง",
         en: "Participated in listening to the academic seminar discussing the direction of educational development linked with political dimensions.",
       },
-      images: [],
+      images: ["/images/mscd/bsc-scholarships/inasnee-rattanawongsawas/activity-3-1.jpg"], // รูปภาพเข้าร่วมเสวนาวิชาการ
     },
     {
       title: {
@@ -112,7 +115,11 @@ export const inasneeProfile: StudentProfile = {
         th: "ร่วมเป็นจิตอาสาลงพื้นที่มอบถุงยังชีพและสิ่งของอุปโภคบริโภคที่จำเป็นเพื่อช่วยเหลือบรรเทาความเดือดร้อนของผู้ยากไร้และผู้ป่วยติดเตียงในชุมชนจังหวัดปัตตานี",
         en: "Participated as a volunteer distributing survival bags and necessary consumer goods to help relieve the hardship of the poor and bedridden patients in communities within Pattani Province.",
       },
-      images: [],
+      images: [
+        "/images/mscd/bsc-scholarships/inasnee-rattanawongsawas/activity-4-1.jpg",
+        "/images/mscd/bsc-scholarships/inasnee-rattanawongsawas/activity-4-2.jpg",
+        "/images/mscd/bsc-scholarships/inasnee-rattanawongsawas/activity-4-3.jpg"
+      ], // รูปภาพจิตอาสามอบถุงยังชีพช่วยเหลือผู้ยากไร้และผู้ป่วยติดเตียง
     },
     {
       title: {
@@ -127,7 +134,7 @@ export const inasneeProfile: StudentProfile = {
         th: "เข้าร่วมกิจกรรมส่งเสริมการเรียนรู้ที่สร้างสรรค์และสนุกสนาน เพื่อพัฒนาทักษะชีวิตและกระบวนการเรียนรู้ของนักศึกษา",
         en: "Participated in the creative and fun learning promotion activity to develop life skills and student learning processes.",
       },
-      images: [],
+      images: ["/images/mscd/bsc-scholarships/inasnee-rattanawongsawas/activity-5-1.jpg"], // รูปภาพโครงการ SMART SAT SMART FUN
     },
     {
       title: {
@@ -142,7 +149,7 @@ export const inasneeProfile: StudentProfile = {
         th: "เข้าร่วมกิจกรรมและพิธีรับมอบเสื้อช็อปปฏิบัติการสำหรับนักศึกษาชั้นปีที่ 2 เพื่อก้าวเข้าสู่การเรียนรู้ภาคปฏิบัติเต็มรูปแบบ",
         en: "Participated in the activity and ceremony to receive workshop laboratory shirts for second-year students advancing into full practical learning.",
       },
-      images: [],
+      images: ["/images/mscd/bsc-scholarships/inasnee-rattanawongsawas/activity-6-1.jpg"], // รูปภาพกิจกรรมรับเสื้อปฏิบัติการ (เสื้อช็อป)
     },
     {
       title: {
@@ -157,7 +164,11 @@ export const inasneeProfile: StudentProfile = {
         th: "ร่วมแรงร่วมใจจัดเตรียมอาหารปรุงสุกและอาหารแห้งบรรจุถุงยังชีพ เพื่อนำไปแจกจ่ายช่วยเหลือผู้ประสบอุทกภัยในพื้นที่จังหวัดปัตตานี",
         en: "Helped prepare meals and dry food packages to distribute to flood victims in Pattani Province.",
       },
-      images: [],
+      images: [
+        "/images/mscd/bsc-scholarships/inasnee-rattanawongsawas/activity-7-1.jpg",
+        "/images/mscd/bsc-scholarships/inasnee-rattanawongsawas/activity-7-2.jpg",
+        "/images/mscd/bsc-scholarships/inasnee-rattanawongsawas/activity-7-3.jpg"
+      ], // รูปภาพจิตอาสาช่วยเหลือผู้ประสบอุทกภัยจังหวัดปัตตานี
     },
     {
       title: {
@@ -172,7 +183,7 @@ export const inasneeProfile: StudentProfile = {
         th: "เข้าร่วมสัมมนาสร้างความสัมพันธ์อันดีระหว่างสมาชิกสภานักศึกษา พร้อมร่วมวางแผนการดำเนินโครงการและกิจกรรมต่างๆ ในภาคการศึกษา 2/2566",
         en: "Participated in the Student Council seminar to build good relationships among members and plan upcoming projects and activities for semester 2/2023 (2/2566 BE).",
       },
-      images: [],
+      images: ["/images/mscd/bsc-scholarships/inasnee-rattanawongsawas/activity-8-1.jpg"], // รูปภาพการสัมมนาสภานักศึกษา ประจำภาคการศึกษา 2/2566
     },
     {
       title: {
@@ -187,7 +198,10 @@ export const inasneeProfile: StudentProfile = {
         th: "ร่วมปฏิบัติหน้าที่เป็นคณะทำงานและสนับสนุนการจัดงานประชุมการนำเสนอผลงานวิจัยเพื่อการพัฒนาพื้นที่และชุมชน",
         en: "Served as a staff member supporting the research presentation conference focused on regional and community development.",
       },
-      images: [],
+      images: [
+        "/images/mscd/bsc-scholarships/inasnee-rattanawongsawas/activity-9-1.jpg",
+        "/images/mscd/bsc-scholarships/inasnee-rattanawongsawas/activity-9-2.jpg"
+      ], // รูปภาพคณะทำงานนำเสนอผลงานวิจัยเชิงพื้นที่
     },
     {
       title: {
@@ -202,7 +216,7 @@ export const inasneeProfile: StudentProfile = {
         th: "เข้าร่วมกิจกรรมนิทรรศการวิชาการ SMP Open House ณ คณะศึกษาศาสตร์ วิทยาเขตปัตตานี พร้อมทั้งได้รับเกียรติบัตรรางวัลนักเรียนเรียนดีเด่น SMP อันดับที่ 4",
         en: "Participated in the SMP Open House academic exhibition at the Faculty of Education, Pattani Campus, and received the 4th SMP Outstanding Student Award.",
       },
-      images: [],
+      images: ["/images/mscd/bsc-scholarships/inasnee-rattanawongsawas/activity-10-1.jpg"], // รูปภาพเข้าร่วมกิจกรรม SMP OPEN HOUSE
     },
   ],
 }

@@ -71,7 +71,10 @@ export const fatimahProfile: StudentProfile = {
         th: "เข้าร่วมแข่งขันกีฬาและกิจกรรมเชื่อมความสัมพันธ์ระหว่างนักศึกษาจากทั้ง 5 วิทยาเขต ของมหาวิทยาลัยสงขลานครินทร์ ณ วิทยาเขตหาดใหญ่",
         en: "Participated in sports competitions and relationship-building activities among students from all 5 campuses of Prince of Songkhla University at Hat Yai Campus.",
       },
-      images: [],
+      images: [
+        "/images/mscd/bsc-scholarships/fatimah-mahae/activity-1-1.jpg",
+        "/images/mscd/bsc-scholarships/fatimah-mahae/activity-1-2.jpg"
+      ], // รูปภาพโครงการกีฬา 5 วิทยาเขต หาดใหญ่
     },
     {
       title: {
@@ -86,7 +89,10 @@ export const fatimahProfile: StudentProfile = {
         th: "ปฏิบัติหน้าที่เป็นคณะทำงานและผู้ควบคุมการสอบในการแข่งขันคณิตศาสตร์ระดับประถมศึกษา เพื่อสนับสนุนการจัดกิจกรรมทางวิชาการและส่งเสริมศักยภาพเยาวชน",
         en: "Served as a staff member and exam proctor for the elementary school-level mathematics competition, supporting academic activities and youth potential development.",
       },
-      images: [],
+      images: [
+        "/images/mscd/bsc-scholarships/fatimah-mahae/activity-2-1.jpg",
+        "/images/mscd/bsc-scholarships/fatimah-mahae/activity-2-2.jpg"
+      ], // รูปภาพการจัดสอบแข่งขันคณิตศาสตร์ระดับประถมศึกษา
     },
     {
       title: {
@@ -101,7 +107,7 @@ export const fatimahProfile: StudentProfile = {
         th: "ร่วมเป็นคณะทำงานในการจัดพิธีไหว้ครูเพื่อแสดงความกตัญญูกตเวทิตาต่อบูรพาจารย์ และสืบสานประเพณีอันดีงามของมหาวิทยาลัย",
         en: "Served as a staff member in organizing the Teacher Appreciation Ceremony to express gratitude to teachers and preserve the university's fine traditions.",
       },
-      images: [],
+      images: ["/images/mscd/bsc-scholarships/fatimah-mahae/activity-3-1.jpg"], // รูปภาพพิธีไหว้ครู ประจำปี 2567
     },
     {
       title: {
@@ -116,7 +122,7 @@ export const fatimahProfile: StudentProfile = {
         th: "ทำหน้าที่เป็นพี่เลี้ยงและคณะทำงานในการต้อนรับและกระชับมิตรนักศึกษาใหม่เข้าสู่รั้วมหาวิทยาลัย วิทยาเขตปัตตานี (รูสะมิแล) เพื่อแนะนำแนวทางการเรียนและการปรับตัว",
         en: "Served as a mentor and staff member in welcoming and bonding new students to the university campus in Pattani (Rusamilae), providing guidance on study and adaptation.",
       },
-      images: [],
+      images: ["/images/mscd/bsc-scholarships/fatimah-mahae/activity-4-1.jpg"], // รูปภาพต้อนรับน้องใหม่ ศรีตรังบานที่รูสะมิแล
     },
     {
       title: {
@@ -131,7 +137,11 @@ export const fatimahProfile: StudentProfile = {
         th: "ร่วมเป็นจิตอาสาลงพื้นที่มอบถุงยังชีพและสิ่งของอุปโภคบริโภคที่จำเป็นเพื่อช่วยเหลือบรรเทาความเดือดร้อนของผู้ยากไร้และผู้ป่วยติดเตียงในชุมชนจังหวัดปัตตานี",
         en: "Participated as a volunteer distributing survival bags and necessary consumer goods to help relieve the hardship of the poor and bedridden patients in communities within Pattani Province.",
       },
-      images: [],
+      images: [
+        "/images/mscd/bsc-scholarships/fatimah-mahae/activity-5-1.jpg",
+        "/images/mscd/bsc-scholarships/fatimah-mahae/activity-5-2.jpg",
+        "/images/mscd/bsc-scholarships/fatimah-mahae/activity-5-3.jpg"
+      ], // รูปภาพจิตอาสามอบถุงยังชีพช่วยเหลือผู้ยากไร้และผู้ป่วยติดเตียง
     },
     {
       title: {
@@ -146,7 +156,7 @@ export const fatimahProfile: StudentProfile = {
         th: "เข้าร่วมแข่งขันกีฬาและกิจกรรมนันทนาการเพื่อสร้างความสามัคคีและพลานามัยที่ดีในหมู่นักศึกษา",
         en: "Participated in sports competitions and recreational activities to promote unity and physical fitness among students.",
       },
-      images: [],
+      images: ["/images/mscd/bsc-scholarships/fatimah-mahae/activity-6-1.png"], // รูปภาพการแข่งขันกีฬา SAT Game
     },
     {
       title: {
@@ -161,7 +171,7 @@ export const fatimahProfile: StudentProfile = {
         th: "เข้าร่วมกิจกรรมส่งเสริมการเรียนรู้ที่สร้างสรรค์และสนุกสนาน เพื่อพัฒนาทักษะชีวิตและกระบวนการเรียนรู้ของนักศึกษา",
         en: "Participated in the creative and fun learning promotion activity to develop life skills and student learning processes.",
       },
-      images: [],
+      images: ["/images/mscd/bsc-scholarships/fatimah-mahae/activity-7-1.png"], // รูปภาพโครงการ SMART SAT SMART FUN
     },
     {
       title: {
@@ -176,7 +186,7 @@ export const fatimahProfile: StudentProfile = {
         th: "เข้าร่วมกิจกรรมและพิธีรับมอบเสื้อช็อปปฏิบัติการสำหรับนักศึกษาชั้นปีที่ 2 เพื่อก้าวเข้าสู่การเรียนรู้ภาคปฏิบัติเต็มรูปแบบ",
         en: "Participated in the activity and ceremony to receive workshop laboratory shirts for second-year students advancing into full practical learning.",
       },
-      images: [],
+      images: ["/images/mscd/bsc-scholarships/fatimah-mahae/activity-8-1.jpg"], // รูปภาพกิจกรรมรับเสื้อปฏิบัติการ (เสื้อช็อป)
     },
     {
       title: {
@@ -191,7 +201,11 @@ export const fatimahProfile: StudentProfile = {
         th: "ร่วมแรงร่วมใจจัดเตรียมอาหารปรุงสุกและอาหารแห้งบรรจุถุงยังชีพ เพื่อนำไปแจกจ่ายช่วยเหลือผู้ประสบอุทกภัยในพื้นที่จังหวัดปัตตานี",
         en: "Helped prepare meals and dry food packages to distribute to flood victims in Pattani Province.",
       },
-      images: [],
+      images: [
+        "/images/mscd/bsc-scholarships/fatimah-mahae/activity-9-1.jpg",
+        "/images/mscd/bsc-scholarships/fatimah-mahae/activity-9-2.jpg",
+        "/images/mscd/bsc-scholarships/fatimah-mahae/activity-9-3.jpg"
+      ], // รูปภาพจิตอาสาช่วยเหลือผู้ประสบอุทกภัยจังหวัดปัตตานี
     },
   ],
 }

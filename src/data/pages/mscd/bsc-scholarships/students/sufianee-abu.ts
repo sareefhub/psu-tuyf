@@ -67,7 +67,10 @@ export const sufianeeProfile: StudentProfile = {
         th: "เข้าร่วมกิจกรรมเสริมสร้างศักยภาพความเป็นผู้นำและการพัฒนาเครือข่ายเยาวชน เพื่อส่งเสริมการทำงานร่วมกันอย่างมีประสิทธิภาพและร่วมสร้างประโยชน์ต่อชุมชน",
         en: "Participated in the program to strengthen leadership capabilities and youth network development, enhancing teamwork skills and community contribution.",
       },
-      images: [],
+      images: [
+        "/images/mscd/bsc-scholarships/sufianee-abu/activity-1-1.jpg",
+        "/images/mscd/bsc-scholarships/sufianee-abu/activity-1-2.jpg"
+      ], // รูปภาพกิจกรรมเสริมสร้างศักยภาพความเป็นผู้นำ
     },
     {
       title: {
@@ -82,7 +85,7 @@ export const sufianeeProfile: StudentProfile = {
         th: "เข้าร่วมกิจกรรมส่งเสริมการเรียนรู้ที่สร้างสรรค์และสนุกสนาน เพื่อพัฒนาทักษะชีวิตและกระบวนการเรียนรู้ของนักศึกษา",
         en: "Participated in the creative and fun learning promotion activity to develop life skills and student learning processes.",
       },
-      images: [],
+      images: ["/images/mscd/bsc-scholarships/sufianee-abu/activity-3-1.jpg"], // รูปภาพโครงการ SMART SAT SMART FUN
     },
     {
       title: {
@@ -94,10 +97,14 @@ export const sufianeeProfile: StudentProfile = {
         en: "20 February 2024",
       },
       description: {
-        th: "ร่วมเป็นจิตอาสาลงพื้นที่มอบถุงยังชีพและสิ่งของอุปโภคบริโภคที่จำเป็นเพื่อช่วยเหลือบรรเทาความเดือดร้อนของผู้ยากไร้และผู้ป่วยติดเตียงในชุมชนจังหวัดปัตตานี",
+        th: "ร่วมเป็นจิตอาสาลงพื้นที่มอบถุงยังชีพและสิ่งของอุปโภคบริโภคที่จำเป็นเพื่อช่วยเหลือบรรเทาความเดือดร้อนของผู้ยากไร้และผู้ป่วยติดเตียง in ชุมชนจังหวัดปัตตานี",
         en: "Participated as a volunteer distributing survival bags and necessary consumer goods to help relieve the hardship of the poor and bedridden patients in communities within Pattani Province.",
       },
-      images: [],
+      images: [
+        "/images/mscd/bsc-scholarships/sufianee-abu/activity-4-1.jpg",
+        "/images/mscd/bsc-scholarships/sufianee-abu/activity-4-2.jpg",
+        "/images/mscd/bsc-scholarships/sufianee-abu/activity-4-3.jpg"
+      ], // รูปภาพจิตอาสามอบถุงยังชีพช่วยเหลือผู้ยากไร้และผู้ป่วยติดเตียง
     },
     {
       title: {
@@ -112,7 +119,7 @@ export const sufianeeProfile: StudentProfile = {
         th: "เข้าร่วมกิจกรรมและพิธีรับมอบเสื้อช็อปปฏิบัติการสำหรับนักศึกษาชั้นปีที่ 2 เพื่อก้าวเข้าสู่การเรียนรู้ภาคปฏิบัติเต็มรูปแบบ",
         en: "Participated in the activity and ceremony to receive workshop laboratory shirts for second-year students advancing into full practical learning.",
       },
-      images: [],
+      images: ["/images/mscd/bsc-scholarships/sufianee-abu/activity-5-1.jpg"], // รูปภาพกิจกรรมรับเสื้อปฏิบัติการ (เสื้อช็อป)
     },
     {
       title: {
@@ -127,7 +134,11 @@ export const sufianeeProfile: StudentProfile = {
         th: "ร่วมแรงร่วมใจจัดเตรียมอาหารปรุงสุกและอาหารแห้งบรรจุถุงยังชีพ เพื่อนำไปแจกจ่ายช่วยเหลือผู้ประสบอุทกภัยในพื้นที่จังหวัดปัตตานี",
         en: "Helped prepare meals and dry food packages to distribute to flood victims in Pattani Province.",
       },
-      images: [],
+      images: [
+        "/images/mscd/bsc-scholarships/sufianee-abu/activity-6-1.jpg",
+        "/images/mscd/bsc-scholarships/sufianee-abu/activity-6-2.jpg",
+        "/images/mscd/bsc-scholarships/sufianee-abu/activity-6-3.jpg"
+      ], // รูปภาพจิตอาสาช่วยเหลือผู้ประสบอุทกภัยจังหวัดปัตตานี
     },
     {
       title: {
@@ -142,7 +153,10 @@ export const sufianeeProfile: StudentProfile = {
         th: "ร่วมปฏิบัติหน้าที่เป็นคณะทำงานและสนับสนุนการจัดงานประชุมการนำเสนอผลงานวิจัยเพื่อการพัฒนาพื้นที่และชุมชน",
         en: "Served as a staff member supporting the research presentation conference focused on regional and community development.",
       },
-      images: [],
+      images: [
+        "/images/mscd/bsc-scholarships/sufianee-abu/activity-7-1.jpg",
+        "/images/mscd/bsc-scholarships/sufianee-abu/activity-7-2.jpg"
+      ], // รูปภาพคณะทำงานนำเสนอผลงานวิจัยเชิงพื้นที่
     },
   ],
 }
