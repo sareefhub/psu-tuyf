@@ -24,7 +24,7 @@ export const farukWaedeProfile: StudentProfile = {
     en: "Weekly Forecasting of Cup Lump Rubber Prices in Yala Province from 2021 to 2025",
   },
   projectAdviser: {
-    th: "มะยูนิ้ง อีซอ (Mayuening Eiso)",
+    th: "Mayuening Eiso",
     en: "Mayuening Eiso",
   },
   educationalStatus: {

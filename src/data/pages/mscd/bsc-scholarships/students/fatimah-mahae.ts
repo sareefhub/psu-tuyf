@@ -24,7 +24,7 @@ export const fatimahProfile: StudentProfile = {
     en: "STUDY AND DEVELOPMENT OF APPLICATIONS BY APPLYING ARTIFICIAL INTELLIGENCE TOOLS.",
   },
   projectAdviser: {
-    th: "รศ.ดร.กิตติยา คงกระพันธ์ (Assoc. Prof. Dr. Kittiya Khongkrapan)",
+    th: "Assoc. Prof. Dr. Kittiya Khongkrapan",
     en: "Assoc. Prof. Dr. Kittiya Khongkrapan",
   },
   educationalStatus: {

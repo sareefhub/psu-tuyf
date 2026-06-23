@@ -24,7 +24,7 @@ export const inasneeProfile: StudentProfile = {
     en: "Developing a text editor for an electronic document management system using Quill and Blazor Framework.",
   },
   projectAdviser: {
-    th: "ดร.จารุณี เสหนี (Dr. Jarunee Saelee)",
+    th: "Dr. Jarunee Saelee",
     en: "Dr. Jarunee Saelee",
   },
   educationalStatus: {

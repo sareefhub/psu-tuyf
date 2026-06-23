@@ -24,7 +24,7 @@ export const niraniaProfile: StudentProfile = {
     en: "Bronze Medal for Oral Presentation at the 14th Undergraduate in Applied Mathematics Conference (UAMC 2026)",
   },
   projectAdviser: {
-    th: "รศ.ดร.อนิรุต พูนอ่อน, ผศ.ดร.นิฟัตมะห์ มะกาเจ",
+    th: "Assoc. Prof. Dr. Aniruth Phon-On, Asst. Prof. Dr. Nifatamah Makaje",
     en: "Assoc. Prof. Dr. Aniruth Phon-On, Asst. Prof. Dr. Nifatamah Makaje",
   },
   educationalStatus: {
