@@ -1,52 +1,18 @@
 "use client"
-
+ 
 import { use } from "react"
 import { useT, useLanguage } from "@/components/language-context"
 import { useRouter } from "next/navigation"
 import Image from "next/image"
 import Link from "next/link"
 import { ArrowLeft, GraduationCap, Calendar, FileImage, User } from "lucide-react"
-import { bscDirectoryData } from "@/data/pages/mscd/bsc-scholarships/bsc-scholarships"
 import { bscStudentsActivitiesData } from "@/data/pages/mscd/bsc-scholarships/bsc-scholarships-activities"
 import { MainLayout } from "@/layout/main-layout"
-
+ 
 interface PageProps {
   readonly params: Promise<{ studentSlug: string }>
 }
-
-/**
- * ค้นหาข้อมูลนักเรียนทุนจำลองจากทำเนียบหลักในกรณีที่ยังไม่ได้บันทึกกิจกรรมย่อย
- */
-function findFallbackStudent(studentSlug: string, translate: (key: string) => string) {
-  let foundStudent: any = null
-  let foundRoleKey = ""
-  let foundCampusKey = ""
-
-  for (const yearGroup of bscDirectoryData) {
-    for (const group of yearGroup.groups) {
-      const student = group.students.find((s) => s.slug === studentSlug)
-      if (student) {
-        foundStudent = student
-        foundRoleKey = `bscScholarships.directory.years.${yearGroup.yearKey}.groups.${group.groupKey}.students.${student.studentKey}.role`
-        foundCampusKey = `bscScholarships.directory.years.${yearGroup.yearKey}.groups.${group.groupKey}.students.${student.studentKey}.campus`
-        break
-      }
-    }
-    if (foundStudent) break
-  }
-
-  if (!foundStudent) return null
-
-  return {
-    slug: foundStudent.slug,
-    name: { th: foundStudent.name, en: foundStudent.name },
-    image: foundStudent.image,
-    role: { th: translate(foundRoleKey), en: translate(foundRoleKey) },
-    campus: { th: translate(foundCampusKey), en: translate(foundCampusKey) },
-    activities: [],
-  }
-}
-
+ 
 // คอมโพเนนต์แสดงผลกรณีไม่พบข้อมูลนักเรียนทุน (แยกออกเพื่อลด Cognitive Complexity)
 function StudentNotFound({ t }: { t: any }) {
   return (
@@ -61,20 +27,20 @@ function StudentNotFound({ t }: { t: any }) {
     </MainLayout>
   )
 }
-
+ 
 export default function StudentDetailPage({ params }: PageProps) {
   const { studentSlug } = use(params)
   const t = useT()
   const { lang } = useLanguage()
   const router = useRouter()
-
-  // ค้นหาข้อมูลกิจกรรมของนักเรียนทุนจาก Data File หรือสร้าง Profile จำลองแบบไม่มีกิจกรรม
-  const studentProfile = bscStudentsActivitiesData[studentSlug] || findFallbackStudent(studentSlug, t)
-
+ 
+  // ค้นหาข้อมูลกิจกรรมของนักเรียนทุนจาก Data File
+  const studentProfile = bscStudentsActivitiesData[studentSlug]
+ 
   if (!studentProfile) {
     return <StudentNotFound t={t} />
   }
-
+ 
   // ดึงข้อความตามภาษาปัจจุบัน (TH / EN)
   const studentName = lang === "th" ? studentProfile.name.th : studentProfile.name.en
   const studentRole = lang === "th" ? studentProfile.role.th : studentProfile.role.en

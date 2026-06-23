@@ -1,16 +1,18 @@
 import { StudentProfile } from "./types"
-import { farukWaedeProfile } from "./students/faruk-waede"
-import { sophounYoukProfile } from "./students/sophoun-youk"
-import { inasneeProfile } from "./students/inasnee-rattanawongsawas"
-import { fatimahProfile } from "./students/fatimah-mahae"
-import { niraniaProfile } from "./students/nirania-waedaya"
-import { sufianeeProfile } from "./students/sufianee-abu"
-import { lizaTheaProfile } from "./students/liza-thea" // นำเข้าประวัติและกิจกรรมของ Liza Thea
-import { chhavyChornProfile } from "./students/chhavy-chorn" // นำเข้าประวัติและกิจกรรมของ Chhavy Chorn
-import { rusmeeProfile } from "./students/rusmee-binmaming" // นำเข้าประวัติและกิจกรรมของ Rusmee Binmaming
-import { affanProfile } from "./students/affan-yahyoh" // นำเข้าประวัติและกิจกรรมของ Affan Yahyoh
-import { namoralThyProfile } from "./students/namoral-thy" // นำเข้าประวัติและกิจกรรมของ Namoral Thy
-import { layyaMeakProfile } from "./students/layya-meak" // นำเข้าประวัติและกิจกรรมของ Layya Meak
+import {
+  farukWaedeProfile,
+  sophounYoukProfile,
+  inasneeProfile,
+  fatimahProfile,
+  niraniaProfile,
+  sufianeeProfile,
+  lizaTheaProfile,
+  chhavyChornProfile,
+  rusmeeProfile,
+  affanProfile,
+  namoralThyProfile,
+  layyaMeakProfile,
+} from "./students"
 
 export type { StudentActivity, StudentProfile } from "./types"
 

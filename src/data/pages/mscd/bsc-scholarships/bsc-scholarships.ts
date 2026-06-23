@@ -1,5 +1,22 @@
 // ข้อมูลของทุนการศึกษาระดับปริญญาตรี (B.Sc. Scholarships)
 // ประกอบไปด้วยข้อมูลประกาศ PDF และรายชื่อนักเรียนทุน เพื่อความสะอาดเรียบร้อยของหน้า UI
+// ใช้หลัก Single Source of Truth (SSOT) โดยดึงข้อมูลจากไฟล์โปรไฟล์นักศึกษาโดยตรง
+
+import { StudentProfile } from "./types"
+import {
+  sophounYoukProfile,
+  farukWaedeProfile,
+  inasneeProfile,
+  fatimahProfile,
+  niraniaProfile,
+  sufianeeProfile,
+  lizaTheaProfile,
+  chhavyChornProfile,
+  rusmeeProfile,
+  affanProfile,
+  namoralThyProfile,
+  layyaMeakProfile,
+} from "./students"
 
 export interface BscStudent {
   readonly name: string;
@@ -24,7 +41,19 @@ export interface BscAnnouncementItem {
   readonly fileUrl: string;
 }
 
-// 1. ข้อมูลทำเนียบรายชื่อนักเรียนทุน ป.ตรี
+/**
+ * ฟังก์ชันช่วยแปลงข้อมูลโปรไฟล์จริง เป็นข้อมูลสำหรับหน้าทำเนียบ ป.ตรี (SSOT)
+ */
+function toBscStudent(profile: StudentProfile, studentKey: string, namePrefix?: string): BscStudent {
+  return {
+    name: namePrefix ? `${namePrefix}${profile.name.en}` : profile.name.en,
+    studentKey,
+    image: profile.image,
+    slug: profile.slug,
+  }
+}
+
+// 1. ข้อมูลทำเนียบรายชื่อนักเรียนทุน ป.ตรี (SSOT)
 export const bscDirectoryData: readonly BscStudentYearGroup[] = [
   {
     yearKey: "y2566",
@@ -32,12 +61,7 @@ export const bscDirectoryData: readonly BscStudentYearGroup[] = [
       {
         groupKey: "g1",
         students: [
-          {
-            name: "Miss SOPHOUN YOUK",
-            studentKey: "s1",
-            image: "/images/mscd/bsc-scholarships/sophoun-youk/profile.png",
-            slug: "sophoun-youk",
-          },
+          toBscStudent(sophounYoukProfile, "s1", "Miss "),
         ],
       },
     ],
@@ -48,18 +72,18 @@ export const bscDirectoryData: readonly BscStudentYearGroup[] = [
       {
         groupKey: "g1",
         students: [
-          { name: "Mr. Faruk Waede", studentKey: "s1", image: "/images/mscd/bsc-scholarships/faruk-waede/profile.png", slug: "faruk-waede" },
-          { name: "Miss Inasnee Rattanawongsawas", studentKey: "s2", image: "/images/mscd/bsc-scholarships/inasnee-rattanawongsawas/profile.png", slug: "inasnee-rattanawongsawas" },
-          { name: "Miss Fatimah Mahae", studentKey: "s3", image: "/images/mscd/bsc-scholarships/fatimah-mahae/profile.png", slug: "fatimah-mahae" },
-          { name: "Miss Nirania Waedaya", studentKey: "s4", image: "/images/mscd/bsc-scholarships/nirania-waedaya/profile.png", slug: "nirania-waedaya" },
-          { name: "Miss Sufianee Abu", studentKey: "s5", image: "/images/mscd/bsc-scholarships/sufianee-abu/profile.png", slug: "sufianee-abu" },
+          toBscStudent(farukWaedeProfile, "s1", "Mr. "),
+          toBscStudent(inasneeProfile, "s2", "Miss "),
+          toBscStudent(fatimahProfile, "s3", "Miss "),
+          toBscStudent(niraniaProfile, "s4", "Miss "),
+          toBscStudent(sufianeeProfile, "s5", "Miss "),
         ],
       },
       {
         groupKey: "g2",
         students: [
-          { name: "Miss Liza Thea", studentKey: "s1", image: "/images/mscd/bsc-scholarships/liza-thea/profile.png", slug: "liza-thea" },
-          { name: "Mr. Chhavy Chorn", studentKey: "s2", image: "/images/mscd/bsc-scholarships/chhavy-chorn/profile.png", slug: "chhavy-chorn" },
+          toBscStudent(lizaTheaProfile, "s1", "Miss "),
+          toBscStudent(chhavyChornProfile, "s2", "Mr. "),
         ],
       },
     ],
@@ -70,15 +94,15 @@ export const bscDirectoryData: readonly BscStudentYearGroup[] = [
       {
         groupKey: "g1",
         students: [
-          { name: "Miss Rusmee Binmaming", studentKey: "s1", image: "/images/mscd/bsc-scholarships/rusmee-binmaming/profile.png", slug: "rusmee-binmaming" },
-          { name: "Mr. Affan Yahyoh", studentKey: "s2", image: "/images/mscd/bsc-scholarships/affan-yahyoh/profile.png", slug: "affan-yahyoh" },
+          toBscStudent(rusmeeProfile, "s1", "Miss "),
+          toBscStudent(affanProfile, "s2", "Mr. "),
         ],
       },
       {
         groupKey: "g2",
         students: [
-          { name: "Mr. Namoral Thy", studentKey: "s1", image: "/images/mscd/bsc-scholarships/namoral-thy/profile.png", slug: "namoral-thy" },
-          { name: "Miss Layya Meak", studentKey: "s2", image: "/images/mscd/bsc-scholarships/layya-meak/profile.png", slug: "layya-meak" },
+          toBscStudent(namoralThyProfile, "s1", "Mr. "),
+          toBscStudent(layyaMeakProfile, "s2", "Miss "),
         ],
       },
     ],
