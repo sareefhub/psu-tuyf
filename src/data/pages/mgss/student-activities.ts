@@ -1,22 +1,27 @@
+// รวบรวมข้อมูลประวัติและกิจกรรมของนักศึกษาทุน MGSS ตาม Slug
+// ดึงข้อมูลจาก Barrel Export เพื่อลดความซ้ำซ้อนของการนำเข้า
+
 import { MgssStudentProfile } from "./types"
-import { saowapakMakphonProfile } from "./students/saowapak-makphon"
-import { phitchayaweeSangjanProfile } from "./students/phitchayawee-sangjan"
-import { panupongDaengpradapProfile } from "./students/panupong-daengpradap"
-import { fatimaHemnaProfile } from "./students/fatima-hemna"
-import { fateehahKorlaehProfile } from "./students/fateehah-korlaeh"
-import { imamMuhyideenSidiqProfile } from "./students/imam-muhyideen-sidiq"
-import { asmaYafadProfile } from "./students/asma-yafad"
-import { palinRaktaowProfile } from "./students/palin-raktaow"
-import { kritaponChaikanProfile } from "./students/kritapon-chaikan"
-import { arbazJehanKhanProfile } from "./students/arbaz-jehan-khan"
-import { pokpongSrimoraProfile } from "./students/pokpong-srimora"
-import { traiwatIntarawongProfile } from "./students/traiwat-intarawong"
-import { kritKanopthamakunProfile } from "./students/krit-kanopthamakun"
-import { anusornSimuenProfile } from "./students/anusorn-simuen"
+import {
+  saowapakMakphonProfile,
+  phitchayaweeSangjanProfile,
+  panupongDaengpradapProfile,
+  fatimaHemnaProfile,
+  fateehahKorlaehProfile,
+  imamMuhyideenSidiqProfile,
+  asmaYafadProfile,
+  palinRaktaowProfile,
+  kritaponChaikanProfile,
+  arbazJehanKhanProfile,
+  pokpongSrimoraProfile,
+  traiwatIntarawongProfile,
+  kritKanopthamakunProfile,
+  anusornSimuenProfile,
+} from "./students"
 
 export type { MgssStudentActivity, MgssStudentProfile } from "./types"
 
-// รวบรวมข้อมูลประวัติและกิจกรรมของนักศึกษาทุน MGSS ตามรหัส Slug
+// แมปข้อมูลโปรไฟล์ของนักศึกษาทุกคนด้วย slug เป็น key
 export const mgssStudentsActivitiesData: Record<string, MgssStudentProfile> = {
   "saowapak-makphon": saowapakMakphonProfile,
   "phitchayawee-sangjan": phitchayaweeSangjanProfile,

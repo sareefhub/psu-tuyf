@@ -1,5 +1,28 @@
 // ข้อมูลทำเนียบนักศึกษาทุนระดับบัณฑิตศึกษา โครงการ MGSS (M.Sc. & Ph.D.)
-// แยกกลุ่มตามวิทยาเขตและประเภทหลักสูตร เพื่อความสะอาดเรียบร้อยและไม่ปนกับโค้ด UI
+// ใช้หลัก Single Source of Truth (SSOT) โดยดึงข้อมูลจากไฟล์โปรไฟล์แต่ละคนโดยตรง
+// เพื่อป้องกันความซ้ำซ้อนของข้อมูลและลดโอกาสเกิดความไม่สอดคล้องกัน
+
+import {
+  saowapakMakphonProfile,
+  phitchayaweeSangjanProfile,
+  panupongDaengpradapProfile,
+  fatimaHemnaProfile,
+  fateehahKorlaehProfile,
+  imamMuhyideenSidiqProfile,
+  asmaYafadProfile,
+  palinRaktaowProfile,
+  kritaponChaikanProfile,
+  arbazJehanKhanProfile,
+  pokpongSrimoraProfile,
+  traiwatIntarawongProfile,
+  kritKanopthamakunProfile,
+  anusornSimuenProfile,
+} from "./students"
+import type { MgssStudentProfile } from "./types"
+
+// -------------------------------------------------------------------------
+// Interface สำหรับโครงสร้างข้อมูลทำเนียบ (ใช้ร่วมกับหน้า UI Listing)
+// -------------------------------------------------------------------------
 
 export interface Student {
   readonly name: string;
@@ -20,154 +43,100 @@ export interface StudentDirectoryData {
   readonly en: readonly StudentYearGroup[];
 }
 
-// 1. ข้อมูลนักศึกษา ป.โท วิทยาเขตหาดใหญ่ (M.Sc. Hatyai)
+// -------------------------------------------------------------------------
+// ฟังก์ชันช่วยแปลงจากโปรไฟล์หลักเป็นข้อมูลทำเนียบ (Helper)
+// -------------------------------------------------------------------------
+
+/** แปลงข้อมูลโปรไฟล์ -> ข้อมูลทำเนียบภาษาไทย */
+function toStudentTh(profile: MgssStudentProfile): Student {
+  return {
+    name: profile.name.th,
+    role: profile.role.th,
+    campus: profile.campus.th,
+    image: profile.image,
+    slug: profile.slug,
+  }
+}
+
+/** แปลงข้อมูลโปรไฟล์ -> ข้อมูลทำเนียบภาษาอังกฤษ */
+function toStudentEn(profile: MgssStudentProfile): Student {
+  return {
+    name: profile.name.en,
+    role: profile.role.en,
+    campus: profile.campus.en,
+    image: profile.image,
+    slug: profile.slug,
+  }
+}
+
+// -------------------------------------------------------------------------
+// 1. ข้อมูลนักศึกษา ป.โท วิทยาเขตหาดใหญ่ (M.Sc. Hat Yai)
+// -------------------------------------------------------------------------
+
 export const mscHatyaiData: StudentDirectoryData = {
   th: [
     {
       year: "ปีการศึกษา 2567",
       groupTitle: "นักเรียนทุนปี 2024 (STUDENT SCHOLARS 2024)",
-      students: [
-        {
-          name: "Saowapak Makphon",
-          role: "รหัสนักศึกษา: 6610220020",
-          campus: "วิทยาเขตหาดใหญ่",
-          image: "/images/mgss/master-student-hatyai/saowapak-makphon/profile.png",
-          slug: "saowapak-makphon",
-        },
-      ],
+      students: [toStudentTh(saowapakMakphonProfile)],
     },
     {
       year: "ปีการศึกษา 2565",
       groupTitle: "นักเรียนทุนปี 2022 (STUDENT SCHOLARS 2022)",
-      students: [
-        {
-          name: "Phitchayawee Sangjan",
-          role: "รหัสนักศึกษา: 6610220011",
-          campus: "วิทยาเขตหาดใหญ่",
-          image: "/images/mgss/master-student-hatyai/phitchayawee-sangjan/profile.png",
-          slug: "phitchayawee-sangjan",
-        },
-      ],
+      students: [toStudentTh(phitchayaweeSangjanProfile)],
     },
     {
       year: "ปีการศึกษา 2564",
       groupTitle: "นักเรียนทุนปี 2021 (STUDENT SCHOLARS 2021)",
-      students: [
-        {
-          name: "Panupong Daengpradap",
-          role: "รหัสนักศึกษา: 6410220051",
-          campus: "วิทยาเขตหาดใหญ่",
-          image: "/images/mgss/master-student-hatyai/panupong-daengpradap/profile.png",
-          slug: "panupong-daengpradap",
-        },
-      ],
+      students: [toStudentTh(panupongDaengpradapProfile)],
     },
   ],
   en: [
     {
       year: "Academic Year 2024",
       groupTitle: "STUDENT SCHOLARS 2024",
-      students: [
-        {
-          name: "Saowapak Makphon",
-          role: "Student ID: 6610220020",
-          campus: "Hat Yai Campus",
-          image: "/images/mgss/master-student-hatyai/saowapak-makphon/profile.png",
-          slug: "saowapak-makphon",
-        },
-      ],
+      students: [toStudentEn(saowapakMakphonProfile)],
     },
     {
       year: "Academic Year 2022",
       groupTitle: "STUDENT SCHOLARS 2022",
-      students: [
-        {
-          name: "Phitchayawee Sangjan",
-          role: "Student ID: 6610220011",
-          campus: "Hat Yai Campus",
-          image: "/images/mgss/master-student-hatyai/phitchayawee-sangjan/profile.png",
-          slug: "phitchayawee-sangjan",
-        },
-      ],
+      students: [toStudentEn(phitchayaweeSangjanProfile)],
     },
     {
       year: "Academic Year 2021",
       groupTitle: "STUDENT SCHOLARS 2021",
-      students: [
-        {
-          name: "Panupong Daengpradap",
-          role: "Student ID: 6410220051",
-          campus: "Hat Yai Campus",
-          image: "/images/mgss/master-student-hatyai/panupong-daengpradap/profile.png",
-          slug: "panupong-daengpradap",
-        },
-      ],
+      students: [toStudentEn(panupongDaengpradapProfile)],
     },
   ],
 }
 
+// -------------------------------------------------------------------------
 // 2. ข้อมูลนักศึกษา ป.โท วิทยาเขตปัตตานี (M.Sc. Pattani)
+// -------------------------------------------------------------------------
+
 export const mscPattaniData: StudentDirectoryData = {
   th: [
     {
       year: "ปีการศึกษา 2567",
       groupTitle: "นักเรียนทุนปี 2024 (STUDENT SCHOLARS 2024)",
       students: [
-        {
-          name: "Fatima Hemna",
-          role: "รหัสนักศึกษา: 6620320705",
-          campus: "วิทยาเขตปัตตานี",
-          image: "/images/mgss/master-student-pattani/fatima-hemna/profile.png",
-          slug: "fatima-hemna",
-        },
-        {
-          name: "Fateehah Korlaeh",
-          role: "รหัสนักศึกษา: 6720320702",
-          campus: "วิทยาเขตปัตตานี",
-          image: "/images/mgss/master-student-pattani/fateehah-korlaeh/profile.png",
-          slug: "fateehah-korlaeh",
-        },
-        {
-          name: "Mr. Imam Muhyideen Sidiq",
-          role: "รหัสนักศึกษา: 6720320703",
-          campus: "วิทยาเขตปัตตานี",
-          image: "/images/mgss/master-student-pattani/imam-muhyideen-sidiq/profile.png",
-          slug: "imam-muhyideen-sidiq",
-        },
+        toStudentTh(fatimaHemnaProfile),
+        toStudentTh(fateehahKorlaehProfile),
+        toStudentTh(imamMuhyideenSidiqProfile),
       ],
     },
     {
       year: "ปีการศึกษา 2565",
       groupTitle: "นักเรียนทุนปี 2022 (STUDENT SCHOLARS 2022)",
       students: [
-        {
-          name: "Asma Yafad",
-          role: "รหัสนักศึกษา: 6620320703",
-          campus: "วิทยาเขตปัตตานี",
-          image: "/images/mgss/master-student-pattani/asma-yafad/profile.png",
-          slug: "asma-yafad",
-        },
-        {
-          name: "Palin Raktaow",
-          role: "รหัสนักศึกษา: 6620320702",
-          campus: "วิทยาเขตปัตตานี",
-          image: "/images/mgss/master-student-pattani/palin-raktaow/profile.png",
-          slug: "palin-raktaow",
-        },
+        toStudentTh(asmaYafadProfile),
+        toStudentTh(palinRaktaowProfile),
       ],
     },
     {
       year: "ปีการศึกษา 2564",
       groupTitle: "นักเรียนทุนปี 2021 (STUDENT SCHOLARS 2021)",
-      students: [
-        {
-          name: "Kritapon Chaikan",
-          role: "รหัสนักศึกษา: 6420320701",
-          campus: "วิทยาเขตปัตตานี",
-          image: "/images/mgss/master-student-pattani/kritapon-chaikan/profile.png",
-          slug: "kritapon-chaikan",
-        },
-      ],
+      students: [toStudentTh(kritaponChaikanProfile)],
     },
   ],
   en: [
@@ -175,119 +144,52 @@ export const mscPattaniData: StudentDirectoryData = {
       year: "Academic Year 2024",
       groupTitle: "STUDENT SCHOLARS 2024",
       students: [
-        {
-          name: "Fatima Hemna",
-          role: "Student ID: 6620320705",
-          campus: "Pattani Campus",
-          image: "/images/mgss/master-student-pattani/fatima-hemna/profile.png",
-          slug: "fatima-hemna",
-        },
-        {
-          name: "Fateehah Korlaeh",
-          role: "Student ID: 6720320702",
-          campus: "Pattani Campus",
-          image: "/images/mgss/master-student-pattani/fateehah-korlaeh/profile.png",
-          slug: "fateehah-korlaeh",
-        },
-        {
-          name: "Mr. Imam Muhyideen Sidiq",
-          role: "Student ID: 6720320703",
-          campus: "Pattani Campus",
-          image: "/images/mgss/master-student-pattani/imam-muhyideen-sidiq/profile.png",
-          slug: "imam-muhyideen-sidiq",
-        },
+        toStudentEn(fatimaHemnaProfile),
+        toStudentEn(fateehahKorlaehProfile),
+        toStudentEn(imamMuhyideenSidiqProfile),
       ],
     },
     {
       year: "Academic Year 2022",
       groupTitle: "STUDENT SCHOLARS 2022",
       students: [
-        {
-          name: "Asma Yafad",
-          role: "Student ID: 6620320703",
-          campus: "Pattani Campus",
-          image: "/images/mgss/master-student-pattani/asma-yafad/profile.png",
-          slug: "asma-yafad",
-        },
-        {
-          name: "Palin Raktaow",
-          role: "Student ID: 6620320702",
-          campus: "Pattani Campus",
-          image: "/images/mgss/master-student-pattani/palin-raktaow/profile.png",
-          slug: "palin-raktaow",
-        },
+        toStudentEn(asmaYafadProfile),
+        toStudentEn(palinRaktaowProfile),
       ],
     },
     {
       year: "Academic Year 2021",
       groupTitle: "STUDENT SCHOLARS 2021",
-      students: [
-        {
-          name: "Kritapon Chaikan",
-          role: "Student ID: 6420320701",
-          campus: "Pattani Campus",
-          image: "/images/mgss/master-student-pattani/kritapon-chaikan/profile.png",
-          slug: "kritapon-chaikan",
-        },
-      ],
+      students: [toStudentEn(kritaponChaikanProfile)],
     },
   ],
 }
 
-// 3. ข้อมูลนักศึกษา ป.เอก วิทยาเขตหาดใหญ่ (Ph.D. Hatyai)
+// -------------------------------------------------------------------------
+// 3. ข้อมูลนักศึกษา ป.เอก วิทยาเขตหาดใหญ่ (Ph.D. Hat Yai)
+// -------------------------------------------------------------------------
+
 export const phdHatyaiData: StudentDirectoryData = {
   th: [
     {
       year: "ปีการศึกษา 2567",
       groupTitle: "นักเรียนทุนปี 2024 (STUDENT SCHOLARS 2024)",
-      students: [
-        {
-          name: "Arbaz Jehan khan",
-          role: "รหัสนักศึกษา: 6710230007",
-          campus: "วิทยาเขตหาดใหญ่",
-          image: "/images/mgss/phd-student-hatyai/arbaz-jehan-khan/profile.png",
-          slug: "arbaz-jehan-khan",
-        },
-      ],
+      students: [toStudentTh(arbazJehanKhanProfile)],
     },
     {
       year: "ปีการศึกษา 2566",
       groupTitle: "นักเรียนทุนปี 2023 (STUDENT SCHOLARS 2023)",
       students: [
-        {
-          name: "Pokpong Srimora",
-          role: "รหัสนักศึกษา: 6610230016",
-          campus: "วิทยาเขตหาดใหญ่",
-          image: "/images/mgss/phd-student-hatyai/pokpong-srimora/profile.png",
-          slug: "pokpong-srimora",
-        },
-        {
-          name: "Traiwat Intarawong",
-          role: "รหัสนักศึกษา: 6610230005",
-          campus: "วิทยาเขตหาดใหญ่",
-          image: "/images/mgss/phd-student-hatyai/traiwat-intarawong/profile.png",
-          slug: "traiwat-intarawong",
-        },
+        toStudentTh(pokpongSrimoraProfile),
+        toStudentTh(traiwatIntarawongProfile),
       ],
     },
     {
       year: "ปีการศึกษา 2564",
       groupTitle: "นักเรียนทุนปี 2021 (STUDENT SCHOLARS 2021)",
       students: [
-        {
-          name: "Krit Kanopthamakun",
-          role: "รหัสนักศึกษา: 6310230017",
-          campus: "วิทยาเขตหาดใหญ่",
-          image: "/images/mgss/phd-student-hatyai/krit-kanopthamakun/profile.png",
-          slug: "krit-kanopthamakun",
-        },
-        {
-          name: "Anusorn Simuen",
-          role: "รหัสนักศึกษา: 6410230005",
-          campus: "วิทยาเขตหาดใหญ่",
-          image: "/images/mgss/phd-student-hatyai/anusorn-simuen/profile.png",
-          slug: "anusorn-simuen",
-        },
+        toStudentTh(kritKanopthamakunProfile),
+        toStudentTh(anusornSimuenProfile),
       ],
     },
   ],
@@ -295,54 +197,22 @@ export const phdHatyaiData: StudentDirectoryData = {
     {
       year: "Academic Year 2024",
       groupTitle: "STUDENT SCHOLARS 2024",
-      students: [
-        {
-          name: "Arbaz Jehan khan",
-          role: "Student ID: 6710230007",
-          campus: "Hat Yai Campus",
-          image: "/images/mgss/phd-student-hatyai/arbaz-jehan-khan/profile.png",
-          slug: "arbaz-jehan-khan",
-        },
-      ],
+      students: [toStudentEn(arbazJehanKhanProfile)],
     },
     {
       year: "Academic Year 2023",
       groupTitle: "STUDENT SCHOLARS 2023",
       students: [
-        {
-          name: "Pokpong Srimora",
-          role: "Student ID: 6610230016",
-          campus: "Hat Yai Campus",
-          image: "/images/mgss/phd-student-hatyai/pokpong-srimora/profile.png",
-          slug: "pokpong-srimora",
-        },
-        {
-          name: "Traiwat Intarawong",
-          role: "Student ID: 6610230005",
-          campus: "Hat Yai Campus",
-          image: "/images/mgss/phd-student-hatyai/traiwat-intarawong/profile.png",
-          slug: "traiwat-intarawong",
-        },
+        toStudentEn(pokpongSrimoraProfile),
+        toStudentEn(traiwatIntarawongProfile),
       ],
     },
     {
       year: "Academic Year 2021",
       groupTitle: "STUDENT SCHOLARS 2021",
       students: [
-        {
-          name: "Krit Kanopthamakun",
-          role: "Student ID: 6310230017",
-          campus: "Hat Yai Campus",
-          image: "/images/mgss/phd-student-hatyai/krit-kanopthamakun/profile.png",
-          slug: "krit-kanopthamakun",
-        },
-        {
-          name: "Anusorn Simuen",
-          role: "Student ID: 6410230005",
-          campus: "Hat Yai Campus",
-          image: "/images/mgss/phd-student-hatyai/anusorn-simuen/profile.png",
-          slug: "anusorn-simuen",
-        },
+        toStudentEn(kritKanopthamakunProfile),
+        toStudentEn(anusornSimuenProfile),
       ],
     },
   ],

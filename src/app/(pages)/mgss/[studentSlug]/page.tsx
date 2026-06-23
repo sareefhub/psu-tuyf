@@ -7,7 +7,6 @@ import Image from "next/image"
 import Link from "next/link"
 import { ArrowLeft, GraduationCap, Calendar, FileImage, User } from "lucide-react"
 
-import { mscHatyaiData, mscPattaniData, phdHatyaiData } from "@/data/pages/mgss/student-directory"
 import { mgssStudentsActivitiesData } from "@/data/pages/mgss/student-activities"
 import { MainLayout } from "@/layout/main-layout"
 
@@ -15,99 +14,8 @@ interface PageProps {
   readonly params: Promise<{ studentSlug: string }>
 }
 
-/**
- * ค้นหาข้อมูลนักศึกษาจำลองจากทำเนียบหลักในกรณีที่ยังไม่ได้บันทึกกิจกรรมย่อย
- * โดยจะกวาดค้นหาตามรายชื่อนักศึกษาทุน MGSS ทั้ง 3 กลุ่มทั้งภาษาไทยและอังกฤษ
- */
-function findFallbackStudent(studentSlug: string) {
-  let foundStudent: any = null
 
-  // 1. ค้นหาในกลุ่ม ป.โท วิทยาเขตหาดใหญ่
-  for (const yearGroup of mscHatyaiData.th) {
-    const student = yearGroup.students.find((s) => s.slug === studentSlug)
-    if (student) {
-      foundStudent = {
-        slug: student.slug,
-        name: { th: student.name, en: student.name },
-        image: student.image,
-        role: { th: student.role, en: "" },
-        campus: { th: student.campus, en: "" },
-        activities: [],
-      }
-      break
-    }
-  }
 
-  if (foundStudent) {
-    for (const yearGroup of mscHatyaiData.en) {
-      const student = yearGroup.students.find((s) => s.slug === studentSlug)
-      if (student) {
-        foundStudent.role.en = student.role
-        foundStudent.campus.en = student.campus
-        break
-      }
-    }
-    return foundStudent
-  }
-
-  // 2. ค้นหาในกลุ่ม ป.โท วิทยาเขตปัตตานี
-  for (const yearGroup of mscPattaniData.th) {
-    const student = yearGroup.students.find((s) => s.slug === studentSlug)
-    if (student) {
-      foundStudent = {
-        slug: student.slug,
-        name: { th: student.name, en: student.name },
-        image: student.image,
-        role: { th: student.role, en: "" },
-        campus: { th: student.campus, en: "" },
-        activities: [],
-      }
-      break
-    }
-  }
-
-  if (foundStudent) {
-    for (const yearGroup of mscPattaniData.en) {
-      const student = yearGroup.students.find((s) => s.slug === studentSlug)
-      if (student) {
-        foundStudent.role.en = student.role
-        foundStudent.campus.en = student.campus
-        break
-      }
-    }
-    return foundStudent
-  }
-
-  // 3. ค้นหาในกลุ่ม ป.เอก วิทยาเขตหาดใหญ่
-  for (const yearGroup of phdHatyaiData.th) {
-    const student = yearGroup.students.find((s) => s.slug === studentSlug)
-    if (student) {
-      foundStudent = {
-        slug: student.slug,
-        name: { th: student.name, en: student.name },
-        image: student.image,
-        role: { th: student.role, en: "" },
-        campus: { th: student.campus, en: "" },
-        activities: [],
-      }
-      break
-    }
-  }
-
-  if (foundStudent) {
-    for (const yearGroup of phdHatyaiData.en) {
-      const student = yearGroup.students.find((s) => s.slug === studentSlug)
-      if (student) {
-        foundStudent.role.en = student.role
-        foundStudent.campus.en = student.campus
-        break
-      }
-    }
-    return foundStudent
-  }
-
-  return null
-}
 
 // คอมโพเนนต์แสดงผลกรณีไม่พบข้อมูลนักเรียนทุน
 function StudentNotFound({ t }: { t: any }) {
@@ -130,8 +38,8 @@ export default function MgssStudentDetailPage({ params }: PageProps) {
   const { lang } = useLanguage()
   const router = useRouter()
 
-  // ค้นหาข้อมูลกิจกรรมของนักเรียนทุนจาก Data File หรือสร้าง Profile จำลองแบบไม่มีกิจกรรม
-  const studentProfile = mgssStudentsActivitiesData[studentSlug] || findFallbackStudent(studentSlug)
+  // ค้นหาข้อมูลนักเรียนทุนจากฐานข้อมูลโปรไฟล์หลัก (SSOT)
+  const studentProfile = mgssStudentsActivitiesData[studentSlug]
 
   if (!studentProfile) {
     return <StudentNotFound t={t} />
