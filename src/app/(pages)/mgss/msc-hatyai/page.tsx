@@ -16,7 +16,7 @@ export default function MscHatyaiDirectoryPage() {
 
   // เลื่อนกลับไปยังตำแหน่งการ์ดนักเรียนล่าสุดที่กดเข้าไปดูเมื่อกดย้อนกลับมา
   useEffect(() => {
-    if (typeof window !== "undefined") {
+    if (typeof globalThis.window !== "undefined") {
       const lastSlug = sessionStorage.getItem("mgss_last_student_slug")
       const scrollY = sessionStorage.getItem("mgss_scroll_y")
 
@@ -28,7 +28,7 @@ export default function MscHatyaiDirectoryPage() {
             // เลื่อนไปที่กึ่งกลางหน้าจอเพื่อให้เห็นชัดเจนและสวยงาม
             element.scrollIntoView({ block: "center", behavior: "smooth" })
           } else if (scrollY) {
-            window.scrollTo({ top: parseInt(scrollY, 10), behavior: "smooth" })
+            globalThis.window.scrollTo({ top: Number.parseInt(scrollY, 10), behavior: "smooth" })
           }
           // เคลียร์ค่าออกเพื่อป้องกันการสกรอลซ้ำโดยไม่ได้ตั้งใจในครั้งถัดไป
           sessionStorage.removeItem("mgss_last_student_slug")
@@ -88,9 +88,9 @@ export default function MscHatyaiDirectoryPage() {
                           categoryBadge={lang === "en" ? "MGSS SCHOLAR" : "นักศึกษาทุน MGSS"}
                           priority={yearGroup.year.includes("2567") || yearGroup.year.includes("2024")} // เพิ่มความสำคัญในการโหลดรูปภาพสำหรับรุ่นปัจจุบัน
                           onDetailClick={() => {
-                            if (typeof window !== "undefined") {
+                            if (typeof globalThis.window !== "undefined") {
                               sessionStorage.setItem("mgss_last_student_slug", student.slug)
-                              sessionStorage.setItem("mgss_scroll_y", window.scrollY.toString())
+                              sessionStorage.setItem("mgss_scroll_y", globalThis.window.scrollY.toString())
                             }
                             router.push(`/mgss/${student.slug}`)
                           }}
