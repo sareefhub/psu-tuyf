@@ -6,6 +6,44 @@ import { useRouter } from "next/navigation"
 
 import { bscDirectoryData } from "@/data/pages/mscd/bsc-scholarships/bsc-scholarships"
 
+interface StudentGroupProps {
+  yearKey: string
+  groupKey: string
+  groupTitle: string
+  students: any[]
+  t: any
+  router: any
+}
+
+// คอมโพเนนต์แสดงผลกลุ่มนักเรียนทุน (แยกออกเพื่อลดระดับการซ้อนฟังก์ชัน)
+function StudentGroup({ yearKey, groupKey, groupTitle, students, t, router }: StudentGroupProps) {
+  return (
+    <div className="space-y-6">
+      <span className="text-xs font-bold text-muted-foreground uppercase tracking-widest block bg-secondary/40 px-3 py-1 rounded w-fit">
+        {groupTitle}
+      </span>
+
+      {/* รายรายชื่อนักเรียนในกลุ่มนี้แสดงเป็น Grid ขนาด 4 คอลัมน์โดยใช้คอมโพเนนต์กลาง */}
+      <div className="grid gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+        {students.map((student) => (
+          <StudentCard
+            key={student.name}
+            name={student.name}
+            image={student.image}
+            role={t(`bscScholarships.directory.years.${yearKey}.groups.${groupKey}.students.${student.studentKey}.role`)}
+            campus={t(`bscScholarships.directory.years.${yearKey}.groups.${groupKey}.students.${student.studentKey}.campus`)}
+            moreDetailText={t("bscScholarships.directory.moreDetail")}
+            photoPlaceholderText={t("bscScholarships.directory.photo")}
+            categoryBadge={t("bscScholarships.directory.title")}
+            priority={yearKey === "y2566"}
+            onDetailClick={() => router.push(`/mscd/bsc-scholarships/${student.slug}`)}
+          />
+        ))}
+      </div>
+    </div>
+  )
+}
+
 export function SelectionDirectory() {
   const t = useT()
   const router = useRouter()
@@ -38,29 +76,15 @@ export function SelectionDirectory() {
               {/* วนลูปกลุ่มสัญชาติย่อยภายในปีนั้น ๆ */}
               <div className="space-y-10">
                 {yearGroup.groups.map((group) => (
-                  <div key={group.groupKey} className="space-y-6">
-                    <span className="text-xs font-bold text-muted-foreground uppercase tracking-widest block bg-secondary/40 px-3 py-1 rounded w-fit">
-                      {t(`bscScholarships.directory.years.${yearGroup.yearKey}.groups.${group.groupKey}.title`)}
-                    </span>
-
-                    {/* รายรายชื่อนักเรียนในกลุ่มนี้แสดงเป็น Grid ขนาด 4 คอลัมน์โดยใช้คอมโพเนนต์กลาง */}
-                    <div className="grid gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
-                      {group.students.map((student) => (
-                        <StudentCard
-                          key={student.name}
-                          name={student.name}
-                          image={student.image}
-                          role={t(`bscScholarships.directory.years.${yearGroup.yearKey}.groups.${group.groupKey}.students.${student.studentKey}.role`)}
-                          campus={t(`bscScholarships.directory.years.${yearGroup.yearKey}.groups.${group.groupKey}.students.${student.studentKey}.campus`)}
-                          moreDetailText={t("bscScholarships.directory.moreDetail")}
-                          photoPlaceholderText={t("bscScholarships.directory.photo")}
-                          categoryBadge={t("bscScholarships.directory.title")}
-                          priority={yearGroup.yearKey === "y2566"}
-                          onDetailClick={() => router.push(`/mscd/bsc-scholarships/${student.slug}`)}
-                        />
-                      ))}
-                    </div>
-                  </div>
+                  <StudentGroup
+                    key={group.groupKey}
+                    yearKey={yearGroup.yearKey}
+                    groupKey={group.groupKey}
+                    groupTitle={t(`bscScholarships.directory.years.${yearGroup.yearKey}.groups.${group.groupKey}.title`)}
+                    students={group.students}
+                    t={t}
+                    router={router}
+                  />
                 ))}
               </div>
             </div>

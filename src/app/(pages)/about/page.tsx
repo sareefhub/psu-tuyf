@@ -50,27 +50,31 @@ export default function AboutFundPage() {
       {/* ข้อมูลแนะนำเบื้องต้นของหน้ากองทุน */}
       <section className="py-16 bg-background">
         <div className="mx-auto max-w-7xl px-6">
-          {/* โลโก้แสดงกึ่งกลางด้านบนสุด ปรับขนาดให้ใหญ่ขึ้นและโค้งมนเพื่อไม่ให้ขอบเหลี่ยม */}
-          <div className="flex justify-center mb-8">
-            <div className="relative h-48 w-48 sm:h-64 sm:w-64 rounded-3xl overflow-hidden transition-transform duration-300 hover:scale-[1.05]">
-              <Image
-                src="/images/logo/logo-psu-tuyf.png"
-                alt="PSU-TUYF Logo"
-                fill
-                priority
-                className="object-contain rounded-3xl filter drop-shadow-sm"
-              />
+          <div className="flex flex-col md:flex-row gap-8 md:gap-12 items-center">
+            {/* โลโก้แสดงทางซ้าย ปรับขนาด ใส่กรอบเส้นเล็ก และนำเอฟเฟกต์ซูมออกตามความต้องการของผู้ใช้ */}
+            <div className="shrink-0">
+              <div className="border border-border bg-white dark:bg-card rounded-3xl p-4 shadow-xs">
+                <div className="relative h-40 w-40 sm:h-56 sm:w-56">
+                  <Image
+                    src="/images/logo/logo-psu-tuyf.png"
+                    alt="PSU-TUYF Logo"
+                    fill
+                    priority
+                    className="object-contain"
+                  />
+                </div>
+              </div>
             </div>
-          </div>
 
-          {/* รายละเอียดข้อความรูปแบบเดิม (ชิดซ้าย) */}
-          <div className="space-y-6">
-            <h2 className="text-2xl font-bold text-primary leading-snug">
-              {t("aboutFund.contentTitle")}
-            </h2>
-            <p className="text-sm leading-relaxed text-muted-foreground/90 text-pretty">
-              {t("aboutFund.history.desc")}
-            </p>
+            {/* รายละเอียดข้อความแสดงทางขวา */}
+            <div className="flex-1 space-y-6">
+              <h2 className="text-2xl font-bold text-primary leading-snug">
+                {t("aboutFund.contentTitle")}
+              </h2>
+              <p className="text-sm leading-relaxed text-muted-foreground/90 text-pretty">
+                {t("aboutFund.history.desc")}
+              </p>
+            </div>
           </div>
         </div>
       </section>

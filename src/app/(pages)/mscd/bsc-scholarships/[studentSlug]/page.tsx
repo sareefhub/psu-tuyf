@@ -47,35 +47,32 @@ function findFallbackStudent(studentSlug: string, translate: (key: string) => st
   }
 }
 
+// คอมโพเนนต์แสดงผลกรณีไม่พบข้อมูลนักเรียนทุน (แยกออกเพื่อลด Cognitive Complexity)
+function StudentNotFound({ t }: { t: any }) {
+  return (
+    <MainLayout>
+      <div className="py-20 text-center max-w-md mx-auto space-y-4">
+        <h2 className="text-xl font-bold text-primary">{t("ไม่พบข้อมูลนักเรียนทุน", "Student Profile Not Found")}</h2>
+        <Link href="/mscd/bsc-scholarships" className="inline-flex items-center gap-2 text-accent font-bold hover:underline">
+          <ArrowLeft className="h-4 w-4" />
+          <span>{t("ย้อนกลับ", "Back")}</span>
+        </Link>
+      </div>
+    </MainLayout>
+  )
+}
+
 export default function StudentDetailPage({ params }: PageProps) {
   const { studentSlug } = use(params)
   const t = useT()
   const { lang } = useLanguage()
   const router = useRouter()
 
-  // ค้นหาข้อมูลกิจกรรมของนักเรียนทุนจาก Data File
-  let studentProfile = bscStudentsActivitiesData[studentSlug]
+  // ค้นหาข้อมูลกิจกรรมของนักเรียนทุนจาก Data File หรือสร้าง Profile จำลองแบบไม่มีกิจกรรม
+  const studentProfile = bscStudentsActivitiesData[studentSlug] || findFallbackStudent(studentSlug, t)
 
-  // หากไม่มีข้อมูลกิจกรรม แต่มีรายชื่อในทำเนียบหลัก ให้สร้าง Profile จำลองแบบไม่มีกิจกรรม
   if (!studentProfile) {
-    const fallbackProfile = findFallbackStudent(studentSlug, t)
-
-    if (!fallbackProfile) {
-      // หากไม่มีชื่อในระบบเลย ให้เด้งกลับหน้าหลัก
-      return (
-        <MainLayout>
-          <div className="py-20 text-center max-w-md mx-auto space-y-4">
-            <h2 className="text-xl font-bold text-primary">{t("ไม่พบข้อมูลนักเรียนทุน", "Student Profile Not Found")}</h2>
-            <Link href="/mscd/bsc-scholarships" className="inline-flex items-center gap-2 text-accent font-bold hover:underline">
-              <ArrowLeft className="h-4 w-4" />
-              <span>{t("ย้อนกลับ", "Back")}</span>
-            </Link>
-          </div>
-        </MainLayout>
-      )
-    }
-
-    studentProfile = fallbackProfile
+    return <StudentNotFound t={t} />
   }
 
   // ดึงข้อความตามภาษาปัจจุบัน (TH / EN)
@@ -323,7 +320,7 @@ export default function StudentDetailPage({ params }: PageProps) {
                           [1, 2].map((num) => (
                             <div 
                               key={num} 
-                              className="group/img aspect-video rounded-2xl border-2 border-dashed border-border/60 bg-gradient-to-br from-secondary/15 via-secondary/5 to-transparent flex flex-col items-center justify-center p-6 hover:bg-secondary/10 hover:border-accent/40 hover:shadow-2xs transition-all duration-300 select-none cursor-pointer"
+                              className="group/img aspect-video rounded-2xl border-2 border-dashed border-border/60 bg-linear-to-br from-secondary/15 via-secondary/5 to-transparent flex flex-col items-center justify-center p-6 hover:bg-secondary/10 hover:border-accent/40 hover:shadow-2xs transition-all duration-300 select-none cursor-pointer"
                             >
                               <div className="p-3.5 rounded-full bg-background border border-border/40 shadow-3xs text-accent/50 group-hover/img:scale-110 group-hover/img:text-accent transition-all duration-300 mb-3">
                                 <FileImage className="h-6 w-6" />
