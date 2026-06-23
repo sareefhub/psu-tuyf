@@ -45,7 +45,9 @@ export const saowapakMakphonProfile: MgssStudentProfile = {
         th: "",
         en: "",
       },
-      images: [],
+      images: [
+        "/images/mgss/master-student-hatyai/saowapak-makphon/activity-1-1.png",
+      ],
     },
     {
       title: {
@@ -60,7 +62,9 @@ export const saowapakMakphonProfile: MgssStudentProfile = {
         th: "",
         en: "",
       },
-      images: [],
+      images: [
+        "/images/mgss/master-student-hatyai/saowapak-makphon/activity-2-1.png",
+      ],
     },
   ],
 }
