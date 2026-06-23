@@ -1,0 +1,424 @@
+"use client"
+
+import { use } from "react"
+import { useT, useLanguage } from "@/components/language-context"
+import { useRouter } from "next/navigation"
+import Image from "next/image"
+import Link from "next/link"
+import { ArrowLeft, GraduationCap, Calendar, FileImage, User } from "lucide-react"
+
+import { mscHatyaiData, mscPattaniData, phdHatyaiData } from "@/data/pages/mgss/student-directory"
+import { mgssStudentsActivitiesData } from "@/data/pages/mgss/student-activities"
+import { MainLayout } from "@/layout/main-layout"
+
+interface PageProps {
+  readonly params: Promise<{ studentSlug: string }>
+}
+
+/**
+ * ค้นหาข้อมูลนักศึกษาจำลองจากทำเนียบหลักในกรณีที่ยังไม่ได้บันทึกกิจกรรมย่อย
+ * โดยจะกวาดค้นหาตามรายชื่อนักศึกษาทุน MGSS ทั้ง 3 กลุ่มทั้งภาษาไทยและอังกฤษ
+ */
+function findFallbackStudent(studentSlug: string) {
+  let foundStudent: any = null
+
+  // 1. ค้นหาในกลุ่ม ป.โท วิทยาเขตหาดใหญ่
+  for (const yearGroup of mscHatyaiData.th) {
+    const student = yearGroup.students.find((s) => s.slug === studentSlug)
+    if (student) {
+      foundStudent = {
+        slug: student.slug,
+        name: { th: student.name, en: student.name },
+        image: student.image,
+        role: { th: student.role, en: "" },
+        campus: { th: student.campus, en: "" },
+        activities: [],
+      }
+      break
+    }
+  }
+
+  if (foundStudent) {
+    for (const yearGroup of mscHatyaiData.en) {
+      const student = yearGroup.students.find((s) => s.slug === studentSlug)
+      if (student) {
+        foundStudent.role.en = student.role
+        foundStudent.campus.en = student.campus
+        break
+      }
+    }
+    return foundStudent
+  }
+
+  // 2. ค้นหาในกลุ่ม ป.โท วิทยาเขตปัตตานี
+  for (const yearGroup of mscPattaniData.th) {
+    const student = yearGroup.students.find((s) => s.slug === studentSlug)
+    if (student) {
+      foundStudent = {
+        slug: student.slug,
+        name: { th: student.name, en: student.name },
+        image: student.image,
+        role: { th: student.role, en: "" },
+        campus: { th: student.campus, en: "" },
+        activities: [],
+      }
+      break
+    }
+  }
+
+  if (foundStudent) {
+    for (const yearGroup of mscPattaniData.en) {
+      const student = yearGroup.students.find((s) => s.slug === studentSlug)
+      if (student) {
+        foundStudent.role.en = student.role
+        foundStudent.campus.en = student.campus
+        break
+      }
+    }
+    return foundStudent
+  }
+
+  // 3. ค้นหาในกลุ่ม ป.เอก วิทยาเขตหาดใหญ่
+  for (const yearGroup of phdHatyaiData.th) {
+    const student = yearGroup.students.find((s) => s.slug === studentSlug)
+    if (student) {
+      foundStudent = {
+        slug: student.slug,
+        name: { th: student.name, en: student.name },
+        image: student.image,
+        role: { th: student.role, en: "" },
+        campus: { th: student.campus, en: "" },
+        activities: [],
+      }
+      break
+    }
+  }
+
+  if (foundStudent) {
+    for (const yearGroup of phdHatyaiData.en) {
+      const student = yearGroup.students.find((s) => s.slug === studentSlug)
+      if (student) {
+        foundStudent.role.en = student.role
+        foundStudent.campus.en = student.campus
+        break
+      }
+    }
+    return foundStudent
+  }
+
+  return null
+}
+
+// คอมโพเนนต์แสดงผลกรณีไม่พบข้อมูลนักเรียนทุน
+function StudentNotFound({ t }: { t: any }) {
+  return (
+    <MainLayout>
+      <div className="py-20 text-center max-w-md mx-auto space-y-4">
+        <h2 className="text-xl font-bold text-primary">{t("ไม่พบข้อมูลนักเรียนทุน", "Student Profile Not Found")}</h2>
+        <Link href="/mgss" className="inline-flex items-center gap-2 text-accent font-bold hover:underline">
+          <ArrowLeft className="h-4 w-4" />
+          <span>{t("ย้อนกลับ", "Back")}</span>
+        </Link>
+      </div>
+    </MainLayout>
+  )
+}
+
+export default function MgssStudentDetailPage({ params }: PageProps) {
+  const { studentSlug } = use(params)
+  const t = useT()
+  const { lang } = useLanguage()
+  const router = useRouter()
+
+  // ค้นหาข้อมูลกิจกรรมของนักเรียนทุนจาก Data File หรือสร้าง Profile จำลองแบบไม่มีกิจกรรม
+  const studentProfile = mgssStudentsActivitiesData[studentSlug] || findFallbackStudent(studentSlug)
+
+  if (!studentProfile) {
+    return <StudentNotFound t={t} />
+  }
+
+  // ดึงข้อความตามภาษาปัจจุบัน (TH / EN)
+  const studentName = lang === "th" ? studentProfile.name.th : studentProfile.name.en
+  const studentRole = lang === "th" ? studentProfile.role.th : studentProfile.role.en
+  const studentCampus = lang === "th" ? studentProfile.campus.th : studentProfile.campus.en
+
+  return (
+    <MainLayout className="animate-fade-in">
+      <div className="mx-auto max-w-7xl px-6 pt-8 space-y-8 pb-16">
+        
+        {/* ปุ่มย้อนกลับสไตล์พรีเมียมคุมโทนระบบ */}
+        <button
+          onClick={() => router.back()}
+          className="inline-flex items-center gap-2 px-3.5 py-2 rounded-xl border border-border/50 bg-card text-xs font-bold text-muted-foreground hover:text-primary hover:border-primary/20 hover:shadow-2xs transition-all duration-200 cursor-pointer group"
+        >
+          <ArrowLeft className="h-4 w-4 transition-transform group-hover:-translate-x-1" />
+          <span>{t("ย้อนกลับ", "Back")}</span>
+        </button>
+
+        {/* ส่วนหัวแสดงโปรไฟล์และรูปถ่าย (Header Section) */}
+        <div className="bg-card border border-border/50 rounded-3xl p-6 sm:p-8 shadow-xs flex flex-col sm:flex-row gap-8 items-center sm:items-start hover:border-primary/25 hover:shadow-xs transition-all duration-300">
+          {/* รูปโปรไฟล์พร้อมวงแหวนซ้อนเพื่อความพรีเมียม */}
+          <div className="relative h-44 w-36 sm:h-52 sm:w-44 aspect-4/5 rounded-2xl overflow-hidden border border-border bg-secondary/35 shrink-0 shadow-xs ring-4 ring-secondary/40">
+            <Image
+              src={studentProfile.image}
+              alt={studentName}
+              fill
+              sizes="(max-width: 640px) 150px, 200px"
+              className="object-cover"
+              priority
+            />
+          </div>
+
+          {/* รายละเอียดข้อมูล */}
+          <div className="space-y-4 text-center sm:text-left flex-1 py-2">
+            <div className="space-y-3">
+              <span className="text-[10px] font-bold text-accent uppercase tracking-widest bg-accent/10 px-3 py-1.5 rounded-full border border-accent/20">
+                {t("นักเรียนทุนโครงการ MGSS", "MGSS Scholarship Student")}
+              </span>
+              <h1 className="text-2xl sm:text-3xl font-extrabold text-primary tracking-tight">
+                {studentName}
+              </h1>
+            </div>
+            
+            <div className="grid gap-2.5 text-sm text-muted-foreground/90 font-medium">
+              <p className="flex items-center justify-center sm:justify-start gap-2.5">
+                <User className="h-4 w-4 text-primary/70 shrink-0" />
+                <span>{studentRole}</span>
+              </p>
+              <p className="flex items-center justify-center sm:justify-start gap-2.5">
+                <GraduationCap className="h-4 w-4 text-accent shrink-0" />
+                <span>{studentCampus}</span>
+              </p>
+            </div>
+
+            {/* ข้อมูลการศึกษาและผลงานเพิ่มเติม (เช่น แผนการเรียน, โครงงาน, รางวัล) */}
+            {(studentProfile.studyPlan || studentProfile.projectTitle || studentProfile.projectAdviser || studentProfile.educationalStatus || studentProfile.award) && (
+              <div className="border-t border-border/60 pt-6 mt-6 text-left">
+                <div className="space-y-4">
+                  {studentProfile.studyPlan && (
+                    <div className="flex flex-col sm:flex-row sm:items-start gap-1 sm:gap-6 pb-4 border-b border-border/30 last:border-0 last:pb-0">
+                      <span className="text-xs font-bold text-muted-foreground uppercase tracking-wider w-full sm:w-36 shrink-0 pt-0.5">
+                        {t("แผนการศึกษา", "Study Plan")}
+                      </span>
+                      <span className="text-sm font-semibold text-primary flex-1 leading-relaxed">
+                        {lang === "th" ? studentProfile.studyPlan.th : studentProfile.studyPlan.en}
+                      </span>
+                    </div>
+                  )}
+                  {studentProfile.projectTitle && (
+                    <div className="flex flex-col sm:flex-row sm:items-start gap-1 sm:gap-6 pb-4 border-b border-border/30 last:border-0 last:pb-0">
+                      <span className="text-xs font-bold text-muted-foreground uppercase tracking-wider w-full sm:w-36 shrink-0 pt-0.5">
+                        {t("หัวข้อวิทยานิพนธ์", "Thesis Title")}
+                      </span>
+                      <span className="text-sm font-semibold text-primary flex-1 leading-relaxed text-pretty">
+                        {lang === "th" ? studentProfile.projectTitle.th : studentProfile.projectTitle.en}
+                      </span>
+                    </div>
+                  )}
+                  {studentProfile.projectAdviser && (
+                    <div className="flex flex-col sm:flex-row sm:items-start gap-1 sm:gap-6 pb-4 border-b border-border/30 last:border-0 last:pb-0">
+                      <span className="text-xs font-bold text-muted-foreground uppercase tracking-wider w-full sm:w-36 shrink-0 pt-0.5">
+                        {t("อาจารย์ที่ปรึกษา", "Thesis Adviser")}
+                      </span>
+                      <span className="text-sm font-semibold text-primary flex-1 leading-relaxed">
+                        {lang === "th" ? studentProfile.projectAdviser.th : studentProfile.projectAdviser.en}
+                      </span>
+                    </div>
+                  )}
+                  {studentProfile.educationalStatus && (
+                    <div className="flex flex-col sm:flex-row sm:items-start gap-1 sm:gap-6 pb-4 border-b border-border/30 last:border-0 last:pb-0">
+                      <span className="text-xs font-bold text-muted-foreground uppercase tracking-wider w-full sm:w-36 shrink-0 pt-0.5">
+                        {t("สถานะการศึกษา", "Educational Status")}
+                      </span>
+                      <div className="flex-1">
+                        <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-[10px] font-bold bg-emerald-500/10 text-emerald-600 border border-emerald-500/20">
+                          {lang === "th" ? studentProfile.educationalStatus.th : studentProfile.educationalStatus.en}
+                        </span>
+                      </div>
+                    </div>
+                  )}
+                  {studentProfile.award && (
+                    <div className="flex flex-col sm:flex-row sm:items-start gap-1 sm:gap-6 pb-4 border-b border-border/30 last:border-0 last:pb-0">
+                      <span className="text-xs font-bold text-muted-foreground uppercase tracking-wider w-full sm:w-36 shrink-0 pt-0.5">
+                        {t("รางวัลที่ได้รับ", "Award")}
+                      </span>
+                      <span className="text-sm font-semibold text-primary flex-1 leading-relaxed text-pretty">
+                        {lang === "th" ? studentProfile.award.th : studentProfile.award.en}
+                      </span>
+                    </div>
+                  )}
+                </div>
+              </div>
+            )}
+          </div>
+        </div>
+
+        {/* ส่วนข้อมูลการฝึกปฏิบัติงาน (Internship Section) */}
+        {studentProfile.internship && (
+          <div className="space-y-6 mt-10 animate-fade-in">
+            {/* หัวข้อข้อมูลการฝึกงาน */}
+            <div className="border-b border-border/80 pb-4 mb-4">
+              <h2 className="text-xl font-bold text-primary flex items-center gap-2">
+                <span className="h-5.5 w-1 bg-accent rounded-full animate-pulse" />
+                <span>{t("ข้อมูลการฝึกปฏิบัติงาน (Internship)", "Internship Experience")}</span>
+              </h2>
+            </div>
+
+            {/* การ์ดรายละเอียดการฝึกงาน */}
+            <div className="bg-card border border-border/50 rounded-3xl p-6 sm:p-8 shadow-2xs hover:shadow-xs hover:border-primary/25 transition-all duration-300 space-y-6 text-left">
+              {/* รายละเอียดภาพรวม */}
+              <div className="grid gap-6 sm:grid-cols-3 border-b border-border/60 pb-6">
+                <div className="space-y-1.5">
+                  <span className="text-xs text-muted-foreground font-semibold uppercase tracking-wider block">
+                    {t("ตำแหน่งงาน", "Position")}
+                  </span>
+                  <p className="text-sm sm:text-base font-bold text-primary">
+                    {lang === "th" ? studentProfile.internship.position.th : studentProfile.internship.position.en}
+                  </p>
+                </div>
+                <div className="space-y-1.5">
+                  <span className="text-xs text-muted-foreground font-semibold uppercase tracking-wider block">
+                    {t("สถานที่ฝึกปฏิบัติงาน", "Location")}
+                  </span>
+                  <p className="text-sm sm:text-base font-bold text-primary">
+                    {lang === "th" ? studentProfile.internship.location.th : studentProfile.internship.location.en}
+                  </p>
+                </div>
+                <div className="space-y-1.5">
+                  <span className="text-xs text-muted-foreground font-semibold uppercase tracking-wider block">
+                    {t("ระยะเวลาฝึกปฏิบัติงาน", "Duration")}
+                  </span>
+                  <p className="text-sm sm:text-base font-bold text-primary">
+                    {lang === "th" ? studentProfile.internship.duration.th : studentProfile.internship.duration.en}
+                  </p>
+                </div>
+              </div>
+
+              {/* หน้าที่ความรับผิดชอบหลัก */}
+              <div className="space-y-2">
+                <h3 className="text-base sm:text-lg font-bold text-primary">
+                  {t("หน้าที่ความรับผิดชอบหลัก", "Internship Main Responsibility")}
+                </h3>
+                <p className="text-sm sm:text-base text-muted-foreground/80 leading-relaxed whitespace-pre-line">
+                  {lang === "th" ? studentProfile.internship.responsibility.th : studentProfile.internship.responsibility.en}
+                </p>
+              </div>
+
+              {/* แผนงานในอนาคต */}
+              {studentProfile.internship.futurePlan && (
+                <div className="space-y-2 pt-4 border-t border-border/40">
+                  <h3 className="text-base sm:text-lg font-bold text-primary">
+                    {t("แผนการศึกษาและเป้าหมายในอนาคต", "Future Plan")}
+                  </h3>
+                  <p className="text-sm sm:text-base text-muted-foreground/80 leading-relaxed whitespace-pre-line">
+                    {lang === "th" ? studentProfile.internship.futurePlan.th : studentProfile.internship.futurePlan.en}
+                  </p>
+                </div>
+              )}
+            </div>
+          </div>
+        )}
+
+        {/* หัวข้อกิจกรรมสไตล์มินิมอลคุมโทนระบบ */}
+        <div className="border-b border-border/80 pb-4 mt-12 mb-8">
+          <h2 className="text-xl font-bold text-primary flex items-center gap-2">
+            <span className="h-5.5 w-1 bg-accent rounded-full animate-pulse" />
+            <span>{t("กิจกรรมของนักเรียนทุน", "Student Activities")}</span>
+          </h2>
+        </div>
+
+        {/* รายการกิจกรรมย่อยของนักเรียนทุนแบบเส้นการเดินทาง (Timeline Layout) */}
+        <div>
+          {studentProfile.activities.length > 0 ? (
+            <div className="relative border-l-2 border-accent/25 pl-6 sm:pl-8 ml-4 sm:ml-6 space-y-12">
+              {studentProfile.activities.map((activity, index) => {
+                const actTitle = lang === "th" ? activity.title.th : activity.title.en
+                const actDate = lang === "th" ? activity.date.th : activity.date.en
+                const actDesc = lang === "th" ? activity.description.th : activity.description.en
+
+                return (
+                  <div key={`${actTitle}-${index}`} className="relative group animate-fade-in">
+                    {/* จุดกลมนำสายตาแบบไทม์ไลน์ */}
+                    <span className="absolute -left-[38px] sm:-left-[46px] top-6 flex h-7 w-7 items-center justify-center rounded-full bg-background border-2 border-accent/40 shadow-xs ring-4 ring-background group-hover:border-accent transition-all duration-300">
+                      <span className="h-2.5 w-2.5 rounded-full bg-accent group-hover:scale-110 transition-transform duration-300" />
+                    </span>
+
+                    <div className="bg-card border border-border/50 rounded-3xl p-6 sm:p-8 shadow-2xs hover:shadow-xs hover:border-accent/30 transition-all duration-300 space-y-4">
+                      {/* แถบด้านบน: วันที่กิจกรรม */}
+                      <div className="flex flex-wrap items-center gap-2">
+                        <span className="inline-flex items-center gap-1.5 text-xs font-bold text-accent bg-accent/8 px-3 py-1.5 rounded-xl border border-accent/15 tracking-wide">
+                          <Calendar className="h-3.5 w-3.5" />
+                          {actDate}
+                        </span>
+                      </div>
+                      
+                      {/* ชื่อกิจกรรม */}
+                      <h3 className="text-lg sm:text-xl font-extrabold text-primary leading-snug group-hover:text-accent transition-colors duration-300">
+                        {actTitle}
+                      </h3>
+
+                      {/* รายละเอียดกิจกรรม */}
+                      <p className="text-sm sm:text-base text-muted-foreground/80 leading-relaxed whitespace-pre-line">
+                        {actDesc}
+                      </p>
+
+                      {/* ช่องจัดวางรูปภาพกิจกรรมแบบ Clean Grid */}
+                      <div className="grid gap-4 sm:grid-cols-2 pt-2">
+                        {activity.images && activity.images.length > 0 ? (
+                          activity.images.map((imgSrc, imgIndex) => (
+                            <div 
+                              key={`${imgSrc}-${imgIndex}`}
+                              className="relative aspect-video rounded-2xl overflow-hidden border border-border/50 bg-secondary/15 shadow-3xs group/img hover:border-accent/30 transition-all duration-300"
+                            >
+                              <Image 
+                                src={imgSrc}
+                                alt={`${actTitle} photo ${imgIndex + 1}`}
+                                fill
+                                className="object-cover group-hover/img:scale-105 transition-transform duration-500"
+                                sizes="(max-width: 640px) 100vw, 50vw"
+                              />
+                            </div>
+                          ))
+                        ) : (
+                          // แสดงกล่องร่าง (Placeholder) เมื่อไม่มีรูปภาพ
+                          [1, 2].map((num) => (
+                            <div 
+                              key={num} 
+                              className="group/img aspect-video rounded-2xl border-2 border-dashed border-border/60 bg-linear-to-br from-secondary/15 via-secondary/5 to-transparent flex flex-col items-center justify-center p-6 hover:bg-secondary/10 hover:border-accent/40 hover:shadow-2xs transition-all duration-300 select-none cursor-pointer"
+                            >
+                              <div className="p-3.5 rounded-full bg-background border border-border/40 shadow-3xs text-accent/50 group-hover/img:scale-110 group-hover/img:text-accent transition-all duration-300 mb-3">
+                                <FileImage className="h-6 w-6" />
+                              </div>
+                              <span className="text-xs font-bold text-primary/75 tracking-wider uppercase group-hover/img:text-accent transition-colors duration-300">
+                                {t("รูปภาพกิจกรรม", "Activity Photo")}
+                              </span>
+                              <span className="text-[10px] text-muted-foreground/60 mt-1 font-light">
+                                {t("อยู่ระหว่างดำเนินการจัดเก็บ", "Photo collection in progress")}
+                              </span>
+                            </div>
+                          ))
+                        )}
+                      </div>
+                    </div>
+                  </div>
+                )
+              })}
+            </div>
+          ) : (
+            // กล่องแสดงผลในกรณีที่ยังไม่มีข้อมูลกิจกรรม (Empty State Card)
+            <div className="bg-card border border-border/40 rounded-3xl p-12 text-center text-muted-foreground/60 space-y-3 max-w-2xl mx-auto shadow-2xs">
+              <User className="h-10 w-10 mx-auto text-muted-foreground/30 mb-2" />
+              <p className="text-sm font-semibold">
+                {t("ไม่มีข้อมูลกิจกรรมที่บันทึกไว้ในขณะนี้", "No activities recorded at the moment.")}
+              </p>
+              <p className="text-xs text-muted-foreground/60 font-light">
+                {t("ประวัติกิจกรรมการทำจิตอาสาและการบำเพ็ญประโยชน์จะแสดงที่นี่เมื่อมีการอัปเดต", "Volunteer and community service activities will be shown here once updated.")}
+              </p>
+            </div>
+          )}
+        </div>
+
+      </div>
+    </MainLayout>
+  )
+}
