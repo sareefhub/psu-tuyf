@@ -46,9 +46,9 @@ export const asmaYafadProfile: MgssStudentProfile = {
         en: "",
       },
       images: [
-        "/images/mgss/master-student-pattani/asma-yafad/activity-1.jpg",
-        "/images/mgss/master-student-pattani/asma-yafad/activity-2.jpg",
-        "/images/mgss/master-student-pattani/asma-yafad/activity-3.jpg",
+        "/images/mgss/master-student-pattani/asma-yafad/activity-1-1.png",
+        "/images/mgss/master-student-pattani/asma-yafad/activity-1-2.png",
+        "/images/mgss/master-student-pattani/asma-yafad/activity-1-3.png",
       ],
     },
   ],
