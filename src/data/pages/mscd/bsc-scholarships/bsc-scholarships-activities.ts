@@ -6,6 +6,7 @@ import { fatimahProfile } from "./students/fatimah-mahae"
 import { niraniaProfile } from "./students/nirania-waedaya"
 import { sufianeeProfile } from "./students/sufianee-abu"
 import { lizaTheaProfile } from "./students/liza-thea" // นำเข้าประวัติและกิจกรรมของ Liza Thea
+import { chhavyChornProfile } from "./students/chhavy-chorn" // นำเข้าประวัติและกิจกรรมของ Chhavy Chorn
 
 export type { StudentActivity, StudentProfile } from "./types"
 
@@ -18,4 +19,5 @@ export const bscStudentsActivitiesData: Record<string, StudentProfile> = {
   "nirania-waedaya": niraniaProfile,
   "sufianee-abu": sufianeeProfile,
   "liza-thea": lizaTheaProfile,
+  "chhavy-chorn": chhavyChornProfile,
 }
