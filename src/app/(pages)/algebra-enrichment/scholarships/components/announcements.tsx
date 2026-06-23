@@ -15,16 +15,6 @@ const announcementsData = [
     size: "185 KB",
     fileUrl: "/documents/algebra-enrichment/scholarships/ใบสมัครทุนการศึกษา.pdf",
   },
-  {
-    key: "item3",
-    size: "95 KB",
-    fileUrl: "#",
-  },
-  {
-    key: "item4",
-    size: "110 KB",
-    fileUrl: "#",
-  },
 ]
 
 /**

@@ -42,17 +42,33 @@ export function SharedAnnouncements({
     globalThis.open(url, "_blank", "noopener,noreferrer")
   }
 
-  const title = t(`${translationKey}.announcementTitle`)
+  // ค้นหาคีย์หัวข้อหลัก (Title) จากไฟล์คำแปลภาษา i18n
+  let displayTitle = t(`${translationKey}.announcements.title`)
+  if (!displayTitle || displayTitle === `${translationKey}.announcements.title`) {
+    const backupTitle = t(`${translationKey}.announcementTitle`)
+    displayTitle = backupTitle && backupTitle !== `${translationKey}.announcementTitle`
+      ? backupTitle
+      : t("ประกาศโครงการ", "Announcements")
+  }
+
+  // ค้นหาคีย์คำบรรยายใต้หัวข้อ (Description/Subtitle) จากไฟล์คำแปลภาษา i18n
+  let displaySubtitle = t(`${translationKey}.announcements.desc`)
+  if (!displaySubtitle || displaySubtitle === `${translationKey}.announcements.desc`) {
+    const backupSubtitle = t(`${translationKey}.announcementDesc`)
+    displaySubtitle = backupSubtitle && backupSubtitle !== `${translationKey}.announcementDesc`
+      ? backupSubtitle
+      : t("เอกสารกำหนดการและประกาศหัวข้อแยกรายโรงเรียนและการอบรม", "Schedules, documents and announcements categorized by schools and training tracks")
+  }
 
   return (
     <section className="py-10 bg-background">
       <div className="mx-auto max-w-7xl px-6">
         <div className="text-center max-w-2xl mx-auto mb-12 space-y-3">
           <h2 className="text-balance text-2xl font-bold tracking-tight text-primary sm:text-3xl">
-            {title && title !== `${translationKey}.announcementTitle` ? title : t("ประกาศโครงการ", "Announcements")}
+            {displayTitle}
           </h2>
           <p className="text-sm text-muted-foreground/80">
-            {t("เอกสารกำหนดการและประกาศหัวข้อแยกรายโรงเรียนและการอบรม", "Schedules, documents and announcements categorized by schools and training tracks")}
+            {displaySubtitle}
           </p>
         </div>
 
