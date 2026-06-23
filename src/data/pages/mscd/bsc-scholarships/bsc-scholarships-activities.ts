@@ -5,9 +5,11 @@ import { inasneeProfile } from "./students/inasnee-rattanawongsawas"
 import { fatimahProfile } from "./students/fatimah-mahae"
 import { niraniaProfile } from "./students/nirania-waedaya"
 import { sufianeeProfile } from "./students/sufianee-abu"
+import { lizaTheaProfile } from "./students/liza-thea" // นำเข้าประวัติและกิจกรรมของ Liza Thea
 
 export type { StudentActivity, StudentProfile } from "./types"
 
+// รวบรวมข้อมูลประวัติและกิจกรรมของนักเรียนทุน ป.ตรี ตาม Slug
 export const bscStudentsActivitiesData: Record<string, StudentProfile> = {
   "faruk-waede": farukWaedeProfile,
   "sophoun-youk": sophounYoukProfile,
@@ -15,4 +17,5 @@ export const bscStudentsActivitiesData: Record<string, StudentProfile> = {
   "fatimah-mahae": fatimahProfile,
   "nirania-waedaya": niraniaProfile,
   "sufianee-abu": sufianeeProfile,
+  "liza-thea": lizaTheaProfile,
 }
