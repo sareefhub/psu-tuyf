@@ -15,5 +15,21 @@ export const imamMuhyideenSidiqProfile: MgssStudentProfile = {
     th: "วิทยาเขตปัตตานี",
     en: "Pattani Campus",
   },
+  studyPlan: {
+    th: "หลักสูตรปริญญาโท (ระยะเวลาหลักสูตร 2 ปี) / ดำเนินการศึกษาแล้ว: 0.5 เดือน",
+    en: "Milestone of Graduation: Master degree (Program Time: 2 Years) / Study Progression: 0.5 Months",
+  },
+  projectTitle: {
+    th: "-",
+    en: "-",
+  },
+  projectAdviser: {
+    th: "Assoc. Prof. Dr. Pakwan Riyapan",
+    en: "Assoc. Prof. Dr. Pakwan Riyapan",
+  },
+  educationalStatus: {
+    th: "ลงทะเบียนเรียนรายวิชาบังคับ (Enroll the core courses)",
+    en: "Enroll the core courses",
+  },
   activities: [],
 }
