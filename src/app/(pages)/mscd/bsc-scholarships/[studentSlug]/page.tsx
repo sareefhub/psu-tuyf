@@ -131,59 +131,61 @@ export default function StudentDetailPage({ params }: PageProps) {
 
             {/* ข้อมูลการศึกษาและผลงานเพิ่มเติม (เช่น แผนการเรียน, โครงงาน, รางวัล) */}
             {(studentProfile.studyPlan || studentProfile.projectTitle || studentProfile.projectAdviser || studentProfile.educationalStatus || studentProfile.award) && (
-              <div className="border-t border-border/60 pt-5 mt-5 space-y-3.5 text-left">
-                {studentProfile.studyPlan && (
-                  <div className="flex flex-col sm:flex-row sm:items-start gap-1.5 sm:gap-4 pb-3 border-b border-border/30 last:border-0">
-                    <span className="text-[10px] sm:text-xs font-bold text-accent/90 uppercase tracking-wider shrink-0 sm:w-32 pt-0.5">
-                      {t("แผนการศึกษา", "Study Plan")}
-                    </span>
-                    <span className="text-xs sm:text-sm font-semibold text-primary/95 flex-1">
-                      {lang === "th" ? studentProfile.studyPlan.th : studentProfile.studyPlan.en}
-                    </span>
-                  </div>
-                )}
-                {studentProfile.projectTitle && (
-                  <div className="flex flex-col sm:flex-row sm:items-start gap-1.5 sm:gap-4 pb-3 border-b border-border/30 last:border-0">
-                    <span className="text-[10px] sm:text-xs font-bold text-accent/90 uppercase tracking-wider shrink-0 sm:w-32 pt-0.5">
-                      {t("หัวข้อโครงงาน", "Project Title")}
-                    </span>
-                    <span className="text-xs sm:text-sm font-semibold text-primary/95 flex-1 leading-relaxed">
-                      {lang === "th" ? studentProfile.projectTitle.th : studentProfile.projectTitle.en}
-                    </span>
-                  </div>
-                )}
-                {studentProfile.projectAdviser && (
-                  <div className="flex flex-col sm:flex-row sm:items-start gap-1.5 sm:gap-4 pb-3 border-b border-border/30 last:border-0">
-                    <span className="text-[10px] sm:text-xs font-bold text-accent/90 uppercase tracking-wider shrink-0 sm:w-32 pt-0.5">
-                      {t("อาจารย์ที่ปรึกษา", "Project Adviser")}
-                    </span>
-                    <span className="text-xs sm:text-sm font-semibold text-primary/95 flex-1">
-                      {lang === "th" ? studentProfile.projectAdviser.th : studentProfile.projectAdviser.en}
-                    </span>
-                  </div>
-                )}
-                {studentProfile.educationalStatus && (
-                  <div className="flex flex-col sm:flex-row sm:items-start gap-1.5 sm:gap-4 pb-3 border-b border-border/30 last:border-0">
-                    <span className="text-[10px] sm:text-xs font-bold text-accent/90 uppercase tracking-wider shrink-0 sm:w-32 pt-0.5">
-                      {t("สถานะการศึกษา", "Educational Status")}
-                    </span>
-                    <div className="flex-1">
-                      <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-[10px] font-extrabold bg-emerald-500/10 text-emerald-600 border border-emerald-500/20">
-                        {lang === "th" ? studentProfile.educationalStatus.th : studentProfile.educationalStatus.en}
+              <div className="border-t border-border/60 pt-6 mt-6 text-left">
+                <div className="space-y-4">
+                  {studentProfile.studyPlan && (
+                    <div className="flex flex-col sm:flex-row sm:items-start gap-1 sm:gap-6 pb-4 border-b border-border/30 last:border-0 last:pb-0">
+                      <span className="text-xs font-bold text-muted-foreground uppercase tracking-wider w-full sm:w-36 shrink-0 pt-0.5">
+                        {t("แผนการศึกษา", "Study Plan")}
+                      </span>
+                      <span className="text-sm font-semibold text-primary flex-1 leading-relaxed">
+                        {lang === "th" ? studentProfile.studyPlan.th : studentProfile.studyPlan.en}
                       </span>
                     </div>
-                  </div>
-                )}
-                {studentProfile.award && (
-                  <div className="flex flex-col sm:flex-row sm:items-start gap-1.5 sm:gap-4 pb-3 border-b border-border/30 last:border-0">
-                    <span className="text-[10px] sm:text-xs font-bold text-accent/90 uppercase tracking-wider shrink-0 sm:w-32 pt-0.5">
-                      {t("รางวัลที่ได้รับ", "Award")}
-                    </span>
-                    <span className="text-xs sm:text-sm font-semibold text-primary/95 flex-1 leading-relaxed">
-                      {lang === "th" ? studentProfile.award.th : studentProfile.award.en}
-                    </span>
-                  </div>
-                )}
+                  )}
+                  {studentProfile.projectTitle && (
+                    <div className="flex flex-col sm:flex-row sm:items-start gap-1 sm:gap-6 pb-4 border-b border-border/30 last:border-0 last:pb-0">
+                      <span className="text-xs font-bold text-muted-foreground uppercase tracking-wider w-full sm:w-36 shrink-0 pt-0.5">
+                        {t("หัวข้อโครงงาน", "Project Title")}
+                      </span>
+                      <span className="text-sm font-semibold text-primary flex-1 leading-relaxed text-pretty">
+                        {lang === "th" ? studentProfile.projectTitle.th : studentProfile.projectTitle.en}
+                      </span>
+                    </div>
+                  )}
+                  {studentProfile.projectAdviser && (
+                    <div className="flex flex-col sm:flex-row sm:items-start gap-1 sm:gap-6 pb-4 border-b border-border/30 last:border-0 last:pb-0">
+                      <span className="text-xs font-bold text-muted-foreground uppercase tracking-wider w-full sm:w-36 shrink-0 pt-0.5">
+                        {t("อาจารย์ที่ปรึกษา", "Project Adviser")}
+                      </span>
+                      <span className="text-sm font-semibold text-primary flex-1 leading-relaxed">
+                        {lang === "th" ? studentProfile.projectAdviser.th : studentProfile.projectAdviser.en}
+                      </span>
+                    </div>
+                  )}
+                  {studentProfile.educationalStatus && (
+                    <div className="flex flex-col sm:flex-row sm:items-start gap-1 sm:gap-6 pb-4 border-b border-border/30 last:border-0 last:pb-0">
+                      <span className="text-xs font-bold text-muted-foreground uppercase tracking-wider w-full sm:w-36 shrink-0 pt-0.5">
+                        {t("สถานะการศึกษา", "Educational Status")}
+                      </span>
+                      <div className="flex-1">
+                        <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-[10px] font-bold bg-emerald-500/10 text-emerald-600 border border-emerald-500/20">
+                          {lang === "th" ? studentProfile.educationalStatus.th : studentProfile.educationalStatus.en}
+                        </span>
+                      </div>
+                    </div>
+                  )}
+                  {studentProfile.award && (
+                    <div className="flex flex-col sm:flex-row sm:items-start gap-1 sm:gap-6 pb-4 border-b border-border/30 last:border-0 last:pb-0">
+                      <span className="text-xs font-bold text-muted-foreground uppercase tracking-wider w-full sm:w-36 shrink-0 pt-0.5">
+                        {t("รางวัลที่ได้รับ", "Award")}
+                      </span>
+                      <span className="text-sm font-semibold text-primary flex-1 leading-relaxed text-pretty">
+                        {lang === "th" ? studentProfile.award.th : studentProfile.award.en}
+                      </span>
+                    </div>
+                  )}
+                </div>
               </div>
             )}
           </div>
