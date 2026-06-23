@@ -7,6 +7,8 @@ import { niraniaProfile } from "./students/nirania-waedaya"
 import { sufianeeProfile } from "./students/sufianee-abu"
 import { lizaTheaProfile } from "./students/liza-thea" // นำเข้าประวัติและกิจกรรมของ Liza Thea
 import { chhavyChornProfile } from "./students/chhavy-chorn" // นำเข้าประวัติและกิจกรรมของ Chhavy Chorn
+import { rusmeeProfile } from "./students/rusmee-binmaming" // นำเข้าประวัติและกิจกรรมของ Rusmee Binmaming
+import { affanProfile } from "./students/affan-yahyoh" // นำเข้าประวัติและกิจกรรมของ Affan Yahyoh
 
 export type { StudentActivity, StudentProfile } from "./types"
 
@@ -20,4 +22,6 @@ export const bscStudentsActivitiesData: Record<string, StudentProfile> = {
   "sufianee-abu": sufianeeProfile,
   "liza-thea": lizaTheaProfile,
   "chhavy-chorn": chhavyChornProfile,
+  "rusmee-binmaming": rusmeeProfile,
+  "affan-yahyoh": affanProfile,
 }
