@@ -6,7 +6,7 @@ export const palinRaktaowProfile: MgssStudentProfile = {
     th: "Palin Raktaow",
     en: "Palin Raktaow",
   },
-  image: "/images/mgss/master-student-pattani/student-5.png",
+  image: "/images/mgss/master-student-pattani/palin-raktaow/profile.png",
   role: {
     th: "รหัสนักศึกษา: 6620320702",
     en: "Student ID: 6620320702",

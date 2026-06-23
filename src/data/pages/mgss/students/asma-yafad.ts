@@ -6,7 +6,7 @@ export const asmaYafadProfile: MgssStudentProfile = {
     th: "Asma Yafad",
     en: "Asma Yafad",
   },
-  image: "/images/mgss/master-student-pattani/student-4.png",
+  image: "/images/mgss/master-student-pattani/asma-yafad/profile.png",
   role: {
     th: "รหัสนักศึกษา: 6620320703",
     en: "Student ID: 6620320703",
@@ -31,5 +31,25 @@ export const asmaYafadProfile: MgssStudentProfile = {
     th: "สำเร็จการศึกษา (Completed)",
     en: "Completed",
   },
-  activities: [],
+  activities: [
+    {
+      title: {
+        th: "ภาพกิจกรรม",
+        en: "Activity Photos",
+      },
+      date: {
+        th: "",
+        en: "",
+      },
+      description: {
+        th: "",
+        en: "",
+      },
+      images: [
+        "/images/mgss/master-student-pattani/asma-yafad/activity-1.jpg",
+        "/images/mgss/master-student-pattani/asma-yafad/activity-2.jpg",
+        "/images/mgss/master-student-pattani/asma-yafad/activity-3.jpg",
+      ],
+    },
+  ],
 }

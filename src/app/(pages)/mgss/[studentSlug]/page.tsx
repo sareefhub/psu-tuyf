@@ -345,12 +345,14 @@ export default function MgssStudentDetailPage({ params }: PageProps) {
 
                     <div className="bg-card border border-border/50 rounded-3xl p-6 sm:p-8 shadow-2xs hover:shadow-xs hover:border-accent/30 transition-all duration-300 space-y-4">
                       {/* แถบด้านบน: วันที่กิจกรรม */}
-                      <div className="flex flex-wrap items-center gap-2">
-                        <span className="inline-flex items-center gap-1.5 text-xs font-bold text-accent bg-accent/8 px-3 py-1.5 rounded-xl border border-accent/15 tracking-wide">
-                          <Calendar className="h-3.5 w-3.5" />
-                          {actDate}
-                        </span>
-                      </div>
+                      {actDate && (
+                        <div className="flex flex-wrap items-center gap-2">
+                          <span className="inline-flex items-center gap-1.5 text-xs font-bold text-accent bg-accent/8 px-3 py-1.5 rounded-xl border border-accent/15 tracking-wide">
+                            <Calendar className="h-3.5 w-3.5" />
+                            {actDate}
+                          </span>
+                        </div>
+                      )}
                       
                       {/* ชื่อกิจกรรม */}
                       <h3 className="text-lg sm:text-xl font-extrabold text-primary leading-snug group-hover:text-accent transition-colors duration-300">
@@ -358,9 +360,11 @@ export default function MgssStudentDetailPage({ params }: PageProps) {
                       </h3>
 
                       {/* รายละเอียดกิจกรรม */}
-                      <p className="text-sm sm:text-base text-muted-foreground/80 leading-relaxed whitespace-pre-line">
-                        {actDesc}
-                      </p>
+                      {actDesc && (
+                        <p className="text-sm sm:text-base text-muted-foreground/80 leading-relaxed whitespace-pre-line">
+                          {actDesc}
+                        </p>
+                      )}
 
                       {/* ช่องจัดวางรูปภาพกิจกรรมแบบ Clean Grid */}
                       <div className="grid gap-4 sm:grid-cols-2 pt-2">

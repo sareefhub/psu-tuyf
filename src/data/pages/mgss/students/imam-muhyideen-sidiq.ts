@@ -6,7 +6,7 @@ export const imamMuhyideenSidiqProfile: MgssStudentProfile = {
     th: "Mr. Imam Muhyideen Sidiq",
     en: "Mr. Imam Muhyideen Sidiq",
   },
-  image: "/images/mgss/master-student-pattani/student-3.png",
+  image: "/images/mgss/master-student-pattani/imam-muhyideen-sidiq/profile.png",
   role: {
     th: "รหัสนักศึกษา: 6720320703",
     en: "Student ID: 6720320703",

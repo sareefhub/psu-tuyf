@@ -6,7 +6,7 @@ export const fatimaHemnaProfile: MgssStudentProfile = {
     th: "Fatima Hemna",
     en: "Fatima Hemna",
   },
-  image: "/images/mgss/master-student-pattani/student-1.png",
+  image: "/images/mgss/master-student-pattani/fatima-hemna/profile.png",
   role: {
     th: "รหัสนักศึกษา: 6620320705",
     en: "Student ID: 6620320705",
