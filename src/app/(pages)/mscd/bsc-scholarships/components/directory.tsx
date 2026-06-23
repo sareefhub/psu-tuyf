@@ -1,5 +1,6 @@
 "use client"
 
+import { useEffect } from "react"
 import { useT } from "@/components/language-context"
 import { StudentCard } from "@/components/student-card"
 import { useRouter } from "next/navigation"
@@ -26,18 +27,25 @@ function StudentGroup({ yearKey, groupKey, groupTitle, students, t, router }: St
       {/* รายรายชื่อนักเรียนในกลุ่มนี้แสดงเป็น Grid ขนาด 4 คอลัมน์โดยใช้คอมโพเนนต์กลาง */}
       <div className="grid gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
         {students.map((student) => (
-          <StudentCard
-            key={student.name}
-            name={student.name}
-            image={student.image}
-            role={t(`bscScholarships.directory.years.${yearKey}.groups.${groupKey}.students.${student.studentKey}.role`)}
-            campus={t(`bscScholarships.directory.years.${yearKey}.groups.${groupKey}.students.${student.studentKey}.campus`)}
-            moreDetailText={t("bscScholarships.directory.moreDetail")}
-            photoPlaceholderText={t("bscScholarships.directory.photo")}
-            categoryBadge={t("bscScholarships.directory.title")}
-            priority={yearKey === "y2566"}
-            onDetailClick={() => router.push(`/mscd/bsc-scholarships/${student.slug}`)}
-          />
+          <div key={student.name} id={`student-${student.slug}`}>
+            <StudentCard
+              name={student.name}
+              image={student.image}
+              role={t(`bscScholarships.directory.years.${yearKey}.groups.${groupKey}.students.${student.studentKey}.role`)}
+              campus={t(`bscScholarships.directory.years.${yearKey}.groups.${groupKey}.students.${student.studentKey}.campus`)}
+              moreDetailText={t("bscScholarships.directory.moreDetail")}
+              photoPlaceholderText={t("bscScholarships.directory.photo")}
+              categoryBadge={t("bscScholarships.directory.title")}
+              priority={yearKey === "y2566"}
+              onDetailClick={() => {
+                if (typeof window !== "undefined") {
+                  sessionStorage.setItem("bsc_last_student_slug", student.slug)
+                  sessionStorage.setItem("bsc_scroll_y", window.scrollY.toString())
+                }
+                router.push(`/mscd/bsc-scholarships/${student.slug}`)
+              }}
+            />
+          </div>
         ))}
       </div>
     </div>
@@ -47,6 +55,32 @@ function StudentGroup({ yearKey, groupKey, groupTitle, students, t, router }: St
 export function SelectionDirectory() {
   const t = useT()
   const router = useRouter()
+
+  // เลื่อนกลับไปยังตำแหน่งการ์ดนักเรียนล่าสุดที่กดเข้าไปดูเมื่อกดย้อนกลับมา
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      const lastSlug = sessionStorage.getItem("bsc_last_student_slug")
+      const scrollY = sessionStorage.getItem("bsc_scroll_y")
+
+      if (lastSlug) {
+        // รอให้ DOM เรนเดอร์เสร็จสิ้นเล็กน้อยเพื่อให้หา element เจอ
+        const timer = setTimeout(() => {
+          const element = document.getElementById(`student-${lastSlug}`)
+          if (element) {
+            // เลื่อนไปที่กึ่งกลางหน้าจอเพื่อให้เห็นชัดเจนและสวยงาม
+            element.scrollIntoView({ block: "center", behavior: "smooth" })
+          } else if (scrollY) {
+            window.scrollTo({ top: parseInt(scrollY, 10), behavior: "smooth" })
+          }
+          // เคลียร์ค่าออกเพื่อป้องกันการสกรอลซ้ำโดยไม่ได้ตั้งใจในครั้งถัดไป
+          sessionStorage.removeItem("bsc_last_student_slug")
+          sessionStorage.removeItem("bsc_scroll_y")
+        }, 150)
+
+        return () => clearTimeout(timer)
+      }
+    }
+  }, [])
 
   return (
     <section className="py-10 bg-background">

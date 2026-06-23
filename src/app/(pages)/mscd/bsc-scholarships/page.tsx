@@ -1,6 +1,6 @@
 "use client"
 
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import { useT } from "@/components/language-context"
 import { MainLayout } from "@/layout/main-layout"
 import { BscHero } from "./components/hero"
@@ -24,6 +24,22 @@ function BscScholarshipsContent() {
   const t = useT()
   const [activeTab, setActiveTab] = useState<TabId>("stats")
 
+  // โหลดสถานะแท็บล่าสุดจาก sessionStorage เมื่อคอมโพเนนต์ Mount เพื่อเลี่ยง Hydration Mismatch
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      const savedTab = sessionStorage.getItem("bsc_active_tab") as TabId
+      if (savedTab) {
+        setActiveTab(savedTab)
+      }
+    }
+  }, [])
+
+  // บันทึกแท็บที่เลือกลง sessionStorage
+  const handleTabChange = (tabId: TabId) => {
+    setActiveTab(tabId)
+    sessionStorage.setItem("bsc_active_tab", tabId)
+  }
+
   // ข้อมูลของปุ่มแท็บนำทางทั้ง 6 หัวข้อ (ดึงค่าจากไฟล์แปลภาษา JSON)
   const tabs = [
     { id: "stats", key: "bscScholarships.tabs.stats" },
@@ -46,7 +62,7 @@ function BscScholarshipsContent() {
       <TabNavigation
         tabs={tabs.map((tab) => ({ id: tab.id, label: t(tab.key) }))}
         activeTab={activeTab}
-        setActiveTab={setActiveTab}
+        setActiveTab={handleTabChange}
       />
 
       {/* แสดงผลเนื้อหาของหัวข้อที่เลือกสลับเปลี่ยน */}
