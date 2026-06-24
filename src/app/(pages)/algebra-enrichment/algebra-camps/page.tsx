@@ -5,8 +5,9 @@ import { useT } from "@/components/language-context"
 import { MainLayout } from "@/layout/main-layout"
 import { TabNavigation } from "@/components/tab-navigation"
 import { CampTarget, CampDetails, CampEligibility } from "./components/overview"
+import { CampAnnouncements } from "./components/announcements" // นำเข้าคอมโพเนนต์แสดงประกาศข่าวสารของค่ายพีชคณิต
 
-type TabId = "target" | "details" | "eligibility"
+type TabId = "target" | "details" | "eligibility" | "announcements" // เพิ่มประเภทแท็บสำหรับประกาศข่าวสาร
 
 // คอมโพเนนต์แสดงหน้าของค่ายเสริมสร้างความเข้มแข็งทางพีชคณิต (Algebra Camps)
 export default function AlgebraCampsPage() {
@@ -18,6 +19,7 @@ export default function AlgebraCampsPage() {
     { id: "target", key: "algebraCamps.overview.target.title" },
     { id: "details", key: "algebraCamps.overview.details.title" },
     { id: "eligibility", key: "algebraCamps.overview.eligibility.title" },
+    { id: "announcements", key: "algebraCamps.announcements.title" }, // แท็บแสดงส่วนงานประกาศข่าวสาร
   ] as const
 
   return (
@@ -72,6 +74,7 @@ export default function AlgebraCampsPage() {
         {activeTab === "target" && <CampTarget />}
         {activeTab === "details" && <CampDetails />}
         {activeTab === "eligibility" && <CampEligibility />}
+        {activeTab === "announcements" && <CampAnnouncements />} {/* แสดงประกาศข่าวสารเมื่อเลือกแท็บนี้ */}
       </div>
     </MainLayout>
   )
