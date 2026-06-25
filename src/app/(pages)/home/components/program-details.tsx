@@ -66,18 +66,22 @@ export function ProgramDetails() {
                     {t(d.descKey)}
                   </p>
                   <ul className="mt-5 space-y-3">
-                    {(t(d.itemsKey, { returnObjects: true }) as string[]).map((item, index) => (
-                      <li
-                        key={item}
-                        id={`${d.id}-${index}`}
-                        className="flex scroll-mt-24 items-start gap-3"
-                      >
-                        <span className="mt-0.5 flex h-5 w-5 flex-none items-center justify-center rounded-full bg-accent/15 text-accent">
-                          <Check className="h-3 w-3" />
-                        </span>
-                        <span className="text-sm leading-relaxed text-foreground">{item}</span>
-                      </li>
-                    ))}
+                    {(() => {
+                      const items = t(d.itemsKey, { returnObjects: true })
+                      const itemsArray = Array.isArray(items) ? items : []
+                      return itemsArray.map((item, index) => (
+                        <li
+                          key={item}
+                          id={`${d.id}-${index}`}
+                          className="flex scroll-mt-24 items-start gap-3"
+                        >
+                          <span className="mt-0.5 flex h-5 w-5 flex-none items-center justify-center rounded-full bg-accent/15 text-accent">
+                            <Check className="h-3 w-3" />
+                          </span>
+                          <span className="text-sm leading-relaxed text-foreground">{item}</span>
+                        </li>
+                      ))
+                    })()}
                   </ul>
                 </div>
               </div>

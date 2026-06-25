@@ -3,7 +3,7 @@
 import { useT } from "@/components/language-context"
 import { ProjectCard } from "@/components/project-card"
 
-// โครงสร้างข้อมูลโครงการ 3 โครงการหลัก พร้อมระบุพาธรูปภาพของแต่ละโครงการ
+// โครงสร้างข้อมูลโครงการ 3 โครงการหลัก พร้อมระบุพาธรูปภาพและลิงก์เชื่อมโยงปลายทาง
 const programs = [
   {
     id: "mscd",
@@ -11,6 +11,7 @@ const programs = [
     image: "/images/icon/mscd.png",
     titleKey: "programs.mscd.title",
     descKey: "programs.mscd.desc",
+    href: "/mscd",
   },
   {
     id: "mgss",
@@ -18,6 +19,7 @@ const programs = [
     image: "/images/icon/mgss.png",
     titleKey: "programs.mgss.title",
     descKey: "programs.mgss.desc",
+    href: "/mgss",
   },
   {
     id: "algebra",
@@ -25,19 +27,12 @@ const programs = [
     image: "/images/icon/algebra-enrichment.png",
     titleKey: "programs.algebra.title",
     descKey: "programs.algebra.desc",
+    href: "/algebra-enrichment",
   },
 ]
 
 export function ProgramsSection() {
   const t = useT()
-
-  // ดึงที่อยู่ลิงก์ตาม ID โครงการย่อย เพื่อนำทางผู้ใช้ไปยังหน้านั้นๆ
-  const getProgramHref = (id: string) => {
-    if (id === "mscd") return "/mscd"
-    if (id === "mgss") return "/mgss"
-    if (id === "algebra") return "/algebra-enrichment" // ลิงก์ไปยังหน้าหลักของโครงการพีชคณิต
-    return undefined
-  }
 
   return (
     <section
@@ -71,7 +66,7 @@ export function ProgramsSection() {
                 imageFit="contain"
                 moreDetailText={t("programs.more_detail")}
                 ariaLabel={t("programs.view_details_aria", { abbr: p.abbr })}
-                href={getProgramHref(p.id)}
+                href={p.href}
                 priority={p.id === "mscd"}
               />
             </div>

@@ -10,7 +10,7 @@ function Counter({ target, duration = 1500 }: Readonly<{ target: number; duratio
 
   useEffect(() => {
     let startTime: number | null = null
-    let animationFrameId: number
+    let animationFrameId: number | null = null
 
     // ใช้ Intersection Observer เพื่อเริ่มเล่นแอนิเมชันเมื่อผู้ใช้เลื่อนหน้าจอมาเห็นตัวเลข
     const observer = new IntersectionObserver(
@@ -42,7 +42,9 @@ function Counter({ target, duration = 1500 }: Readonly<{ target: number; duratio
     }
 
     return () => {
-      cancelAnimationFrame(animationFrameId)
+      if (animationFrameId) {
+        cancelAnimationFrame(animationFrameId)
+      }
       observer.disconnect()
     }
   }, [target, duration])
