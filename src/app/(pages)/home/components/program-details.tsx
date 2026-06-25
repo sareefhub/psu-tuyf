@@ -51,13 +51,9 @@ export function ProgramDetails() {
                 <div className="flex items-start gap-4 lg:w-2/5">
                   <span className="text-4xl font-bold text-accent/40">{d.number}</span>
                   <div>
-                    <span className="text-xs font-semibold uppercase tracking-wide text-accent">
-                      {d.abbr}
-                    </span>
-                    <h3 className="mt-1 text-balance text-xl font-bold leading-snug text-primary">
+                    <h3 className="text-balance text-xl font-bold leading-snug text-primary">
                       {t(d.titleKey)}
                     </h3>
-                    <p className="mt-1 text-sm italic text-muted-foreground">{t(d.subKey)}</p>
                   </div>
                 </div>
 
