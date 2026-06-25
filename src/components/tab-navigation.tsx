@@ -13,7 +13,7 @@ interface TabNavigationProps {
   /** id ของแท็บที่กำลังเปิดใช้งานในปัจจุบัน */
   readonly activeTab: string;
   /** ฟังก์ชันสลับการเลือกแท็บ */
-  readonly setActiveTab: (id: string) => void;
+  readonly setActiveTab: (id: any) => void;
 }
 
 // คอมโพเนนต์ตัวกลางสำหรับแถบนำทางแบบแท็บแคปซูล (Global Tab Bar Navigation)
