@@ -8,7 +8,7 @@ export function SiteFooter() {
 
   return (
     <footer id="footer" className="bg-primary text-primary-foreground">
-      <div className="mx-auto max-w-7xl px-6 py-14">
+      <div className="mx-auto max-w-7xl px-6 pt-14 pb-6">
         <div className="grid gap-10 md:grid-cols-3">
           <div>
             <span className="text-xl font-bold">
@@ -74,7 +74,9 @@ export function SiteFooter() {
         </div>
 
         <div className="mt-12 border-t border-primary-foreground/15 pt-6 text-center text-xs text-primary-foreground/60">
-          {t("footer.copyright", { year: new Date().getFullYear() })}
+          <p className="text-center w-full mx-auto">
+            {t("footer.copyright", { year: new Date().getFullYear() })}
+          </p>
         </div>
       </div>
     </footer>
