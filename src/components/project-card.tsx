@@ -69,8 +69,8 @@ export function ProjectCard({
           </span>
         )}
 
-        {/* ชื่อหัวข้อโครงการหลัก */}
-        <h3 className={`${abbr ? "mt-2" : ""} text-lg font-bold leading-snug text-primary transition-colors group-hover:text-accent`}>
+        {/* ชื่อหัวข้อโครงการหลัก (ไม่แสดงเอฟเฟกต์ hover เปลี่ยนสี เพื่อให้สีหัวข้อเป็นสีหลักคงที่) */}
+        <h3 className={`${abbr ? "mt-2" : ""} text-lg font-bold leading-snug text-primary`}>
           {title}
         </h3>
 
