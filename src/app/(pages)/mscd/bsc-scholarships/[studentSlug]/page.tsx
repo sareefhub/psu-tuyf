@@ -13,7 +13,7 @@ interface PageProps {
 }
  
 // คอมโพเนนต์แสดงผลกรณีไม่พบข้อมูลนักเรียนทุน (แยกออกเพื่อลด Cognitive Complexity)
-function StudentNotFound({ t }: { t: any }) {
+function StudentNotFound({ t }: { t: ReturnType<typeof useT> }) {
   return (
     <>
       <div className="py-20 text-center max-w-md mx-auto space-y-4">
