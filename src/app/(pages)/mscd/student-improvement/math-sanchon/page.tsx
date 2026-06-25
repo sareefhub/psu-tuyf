@@ -1,6 +1,5 @@
 "use client"
 
-import { MainLayout } from "@/layout/main-layout"
 import { ProgramCard } from "@/components/program-card"
 import { useT } from "@/components/language-context"
 import { CarouselWrapper } from "@/components/carousel-wrapper"
@@ -79,7 +78,7 @@ export default function MathSanchonPage() {
   const t = useT()
 
   return (
-    <MainLayout className="animate-fade-in bg-slate-50/50 dark:bg-slate-950/20">
+    <div className="bg-slate-50/50 dark:bg-slate-950/20">
       {/* 1. ส่วนแบนเนอร์ Hero */}
       <SanchonHero />
 
@@ -116,6 +115,6 @@ export default function MathSanchonPage() {
           </CarouselWrapper>
         </div>
       </section>
-    </MainLayout>
+    </div>
   )
 }

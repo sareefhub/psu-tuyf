@@ -2,7 +2,6 @@
 
 import { useState } from "react"
 import { useT } from "@/components/language-context"
-import { MainLayout } from "@/layout/main-layout"
 import { TabNavigation } from "@/components/tab-navigation"
 import {
   ScholarshipObjectives,
@@ -31,7 +30,7 @@ export default function AlgebraScholarshipsPage() {
   ] as const
 
   return (
-    <MainLayout className="animate-fade-in">
+    <>
       {/* ส่วนแบนเนอร์หลักด้านบน (Hero Section) */}
       <section className="bg-primary text-primary-foreground relative overflow-hidden py-16 lg:py-20">
         <div className="absolute inset-0 bg-linear-to-br from-primary via-primary/95 to-primary/90" />
@@ -86,6 +85,6 @@ export default function AlgebraScholarshipsPage() {
         {activeTab === "curriculum" && <ScholarshipCurriculum />}
         {activeTab === "announcements" && <ScholarshipAnnouncements />}
       </div>
-    </MainLayout>
+    </>
   )
 }

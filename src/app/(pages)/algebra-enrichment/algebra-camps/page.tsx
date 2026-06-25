@@ -2,7 +2,6 @@
 
 import { useState } from "react"
 import { useT } from "@/components/language-context"
-import { MainLayout } from "@/layout/main-layout"
 import { TabNavigation } from "@/components/tab-navigation"
 import { CampTarget, CampDetails, CampEligibility } from "./components/overview"
 import { CampAnnouncements } from "./components/announcements" // นำเข้าคอมโพเนนต์แสดงประกาศข่าวสารของค่ายพีชคณิต
@@ -23,7 +22,7 @@ export default function AlgebraCampsPage() {
   ] as const
 
   return (
-    <MainLayout className="animate-fade-in">
+    <>
       {/* ส่วนแบนเนอร์หลักด้านบน (Hero Section) */}
       <section className="bg-primary text-primary-foreground relative overflow-hidden py-16 lg:py-20">
         <div className="absolute inset-0 bg-linear-to-br from-primary via-primary/95 to-primary/90" />
@@ -76,6 +75,6 @@ export default function AlgebraCampsPage() {
         {activeTab === "eligibility" && <CampEligibility />}
         {activeTab === "announcements" && <CampAnnouncements />} {/* แสดงประกาศข่าวสารเมื่อเลือกแท็บนี้ */}
       </div>
-    </MainLayout>
+    </>
   )
 }

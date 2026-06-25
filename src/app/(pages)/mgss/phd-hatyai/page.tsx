@@ -2,7 +2,6 @@
 
 import { useEffect } from "react"
 import { useLanguage } from "@/components/language-context"
-import { MainLayout } from "@/layout/main-layout"
 import { StudentCard } from "@/components/student-card"
 import { useRouter } from "next/navigation"
 
@@ -41,7 +40,7 @@ export default function PhdHatyaiDirectoryPage() {
   }, [])
 
   return (
-    <MainLayout className="animate-fade-in">
+    <>
       <section className="py-16 bg-background">
         <div className="mx-auto max-w-7xl px-6">
           {/* หัวข้อแสดงหน้าทำเนียบนักเรียนทุน */}
@@ -104,6 +103,6 @@ export default function PhdHatyaiDirectoryPage() {
           </div>
         </div>
       </section>
-    </MainLayout>
+    </>
   );
 }

@@ -2,7 +2,6 @@
 
 import { useState } from "react"
 import { useLanguage } from "@/components/language-context"
-import { MainLayout } from "@/layout/main-layout"
 import { MgssHero } from "./components/hero"
 import { MgssOverview } from "./components/overview"
 
@@ -37,7 +36,7 @@ function MgssLandingContent() {
       ] as const)
 
   return (
-    <MainLayout className="animate-fade-in">
+    <>
       {/* ส่วนแบนเนอร์หลักด้านบน */}
       <MgssHero />
 
@@ -58,7 +57,7 @@ function MgssLandingContent() {
         {activeTab === "publications" && <PublicationsSection />}
         {activeTab === "announcements" && <AnnouncementsSection />}
       </div>
-    </MainLayout>
+    </>
   )
 }
 

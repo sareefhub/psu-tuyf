@@ -2,7 +2,6 @@
 
 import { useState, type ReactNode } from "react"
 import { useT } from "@/components/language-context"
-import { MainLayout } from "@/layout/main-layout"
 import { TabNavigation } from "@/components/tab-navigation"
 
 import { SharedHero } from "./shared-hero"
@@ -55,7 +54,7 @@ export function ProgramDetailTemplate({
   const [activeTab, setActiveTab] = useState<string>(defaultActiveTab ?? firstTabId)
 
   return (
-    <MainLayout className="animate-fade-in">
+    <>
       <SharedHero translationKey={translationKey} titleKey={heroTitleKey} subtitleKey={heroSubtitleKey} />
       <SharedOverview translationKey={translationKey} descKeys={overviewDescKeys} />
       
@@ -73,6 +72,6 @@ export function ProgramDetailTemplate({
           return null
         })}
       </div>
-    </MainLayout>
+    </>
   )
 }

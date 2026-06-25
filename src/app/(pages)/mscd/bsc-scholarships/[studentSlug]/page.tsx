@@ -7,7 +7,6 @@ import Image from "next/image"
 import Link from "next/link"
 import { ArrowLeft, GraduationCap, Calendar, FileImage, User } from "lucide-react"
 import { bscStudentsActivitiesData } from "@/data/pages/mscd/bsc-scholarships/bsc-scholarships-activities"
-import { MainLayout } from "@/layout/main-layout"
  
 interface PageProps {
   readonly params: Promise<{ studentSlug: string }>
@@ -16,7 +15,7 @@ interface PageProps {
 // คอมโพเนนต์แสดงผลกรณีไม่พบข้อมูลนักเรียนทุน (แยกออกเพื่อลด Cognitive Complexity)
 function StudentNotFound({ t }: { t: any }) {
   return (
-    <MainLayout>
+    <>
       <div className="py-20 text-center max-w-md mx-auto space-y-4">
         <h2 className="text-xl font-bold text-primary">{t("ไม่พบข้อมูลนักเรียนทุน", "Student Profile Not Found")}</h2>
         <Link href="/mscd/bsc-scholarships" className="inline-flex items-center gap-2 text-accent font-bold hover:underline">
@@ -24,7 +23,7 @@ function StudentNotFound({ t }: { t: any }) {
           <span>{t("ย้อนกลับ", "Back")}</span>
         </Link>
       </div>
-    </MainLayout>
+    </>
   )
 }
  
@@ -47,7 +46,7 @@ export default function StudentDetailPage({ params }: PageProps) {
   const studentCampus = lang === "th" ? studentProfile.campus.th : studentProfile.campus.en
 
   return (
-    <MainLayout className="animate-fade-in">
+    <>
       <div className="mx-auto max-w-7xl px-6 pt-8 space-y-8 pb-16">
         
         {/* ปุ่มย้อนกลับสไตล์พรีเมียมคุมโทนระบบ */}
@@ -323,6 +322,6 @@ export default function StudentDetailPage({ params }: PageProps) {
         </div>
 
       </div>
-    </MainLayout>
+    </>
   )
 }

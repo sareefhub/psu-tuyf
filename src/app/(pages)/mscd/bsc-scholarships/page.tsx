@@ -2,7 +2,6 @@
 
 import { useState, useEffect } from "react"
 import { useT } from "@/components/language-context"
-import { MainLayout } from "@/layout/main-layout"
 import { BscHero } from "./components/hero"
 import { ProjectOverview } from "./components/overview"
 import { SelectionStatistics } from "./components/statistics"
@@ -51,7 +50,7 @@ function BscScholarshipsContent() {
   ] as const
 
   return (
-    <MainLayout className="animate-fade-in">
+    <>
       {/* ส่วนแบนเนอร์ด้านบนสุด */}
       <BscHero />
 
@@ -74,7 +73,7 @@ function BscScholarshipsContent() {
         {activeTab === "funding" && <FundingSection />}
         {activeTab === "announcements" && <SelectionAnnouncements />}
       </div>
-    </MainLayout>
+    </>
   )
 }
 

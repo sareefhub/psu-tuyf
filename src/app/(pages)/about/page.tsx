@@ -3,7 +3,6 @@
 import { useState } from "react"
 import Image from "next/image" // นำเข้าคอมโพเนนต์แสดงผลรูปภาพของ Next.js
 import { useT } from "@/components/language-context"
-import { MainLayout } from "@/layout/main-layout"
 import { TabNavigation } from "@/components/tab-navigation"
 import { FundHistory, FundObjectives } from "./components/overview"
 
@@ -22,7 +21,7 @@ export default function AboutFundPage() {
   ] as const
 
   return (
-    <MainLayout className="animate-fade-in">
+    <>
       {/* ส่วนแบนเนอร์หลักด้านบน (Hero Section) */}
       <section className="bg-primary text-primary-foreground relative overflow-hidden py-16 lg:py-20">
         <div className="absolute inset-0 bg-linear-to-br from-primary via-primary/95 to-primary/90" />
@@ -56,7 +55,7 @@ export default function AboutFundPage() {
               <div className="border border-border bg-white dark:bg-card rounded-3xl p-4 shadow-xs">
                 <div className="relative h-40 w-40 sm:h-56 sm:w-56">
                   <Image
-                    src="/images/logo/logo-psu-tuyf.png"
+                     src="/images/logo/logo-psu-tuyf.png"
                     alt="PSU-TUYF Logo"
                     fill
                     priority
@@ -91,6 +90,6 @@ export default function AboutFundPage() {
         {activeTab === "history" && <FundHistory />}
         {activeTab === "objectives" && <FundObjectives />}
       </div>
-    </MainLayout>
+    </>
   )
 }
