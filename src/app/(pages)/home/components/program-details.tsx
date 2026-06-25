@@ -47,39 +47,34 @@ export function ProgramDetails() {
               id={d.id}
               className="scroll-mt-20 rounded-3xl border border-border bg-card p-8 sm:p-10"
             >
-              <div className="flex flex-col gap-6 lg:flex-row lg:justify-between">
-                 <div className="lg:w-[46%]">
-                   <span className="text-4xl font-extrabold text-accent/30 block mb-3 font-mono">
-                     {d.number}
-                   </span>
-                   <h3 className="text-balance text-xl font-bold leading-snug text-primary">
-                     {t(d.titleKey)}
-                   </h3>
-                   <p className="mt-3 text-pretty text-sm leading-relaxed text-muted-foreground/80">
-                     {t(d.descKey)}
-                   </p>
-                 </div>
- 
-                 <div className="lg:w-[48%] lg:flex lg:flex-col lg:justify-center">
-                   <ul className="space-y-4.5">
-                     {(() => {
-                       const items = t(d.itemsKey, { returnObjects: true })
-                       const itemsArray = Array.isArray(items) ? items : []
-                       return itemsArray.map((item, index) => (
-                         <li
-                           key={item}
-                           id={`${d.id}-${index}`}
-                           className="flex scroll-mt-24 items-start gap-3"
-                         >
-                           <span className="mt-0.5 flex h-5 w-5 flex-none items-center justify-center rounded-full bg-accent/15 text-accent">
-                             <Check className="h-3 w-3" />
-                           </span>
-                           <span className="text-sm leading-relaxed text-foreground">{item}</span>
-                         </li>
-                       ))
-                     })()}
-                   </ul>
-                 </div>
+              <div className="flex flex-col gap-4">
+                <span className="text-4xl font-extrabold text-accent/30 block font-mono">
+                  {d.number}
+                </span>
+                <h3 className="text-balance text-xl font-bold leading-snug text-primary">
+                  {t(d.titleKey)}
+                </h3>
+                <p className="text-pretty text-sm leading-relaxed text-muted-foreground/85">
+                  {t(d.descKey)}
+                </p>
+                <ul className="mt-2 space-y-3.5">
+                  {(() => {
+                    const items = t(d.itemsKey, { returnObjects: true })
+                    const itemsArray = Array.isArray(items) ? items : []
+                    return itemsArray.map((item, index) => (
+                      <li
+                        key={item}
+                        id={`${d.id}-${index}`}
+                        className="flex scroll-mt-24 items-start gap-3"
+                      >
+                        <span className="mt-0.5 flex h-5 w-5 flex-none items-center justify-center rounded-full bg-accent/15 text-accent">
+                          <Check className="h-3 w-3" />
+                        </span>
+                        <span className="text-sm leading-relaxed text-foreground">{item}</span>
+                      </li>
+                    ))
+                  })()}
+                </ul>
               </div>
             </article>
           ))}
