@@ -55,22 +55,26 @@ export function ProgramsSection() {
           </p>
         </div>
 
-        {/* ตารางแสดงการ์ดโครงการ (3 คอลัมน์) ในดีไซน์ที่โปร่งสบายและคลีน */}
-        <div className="mt-16 grid gap-8 md:grid-cols-3">
+        {/* ตารางแสดงการ์ดโครงการ (เลื่อนซ้าย-ขวาบนมือถือแบบมี Snap และแสดงเป็น Grid 3 คอลัมน์บนเดสก์ท็อป) */}
+        <div className="mt-16 flex gap-6 overflow-x-auto pb-6 scrollbar-none snap-x snap-mandatory -mx-6 px-6 md:mx-0 md:px-0 md:grid md:grid-cols-3 md:gap-8 md:overflow-x-visible md:pb-0">
           {programs.map((p) => (
-            <ProjectCard
+            <div
               key={p.id}
-              abbr={p.abbr}
-              title={t(p.titleKey)}
-              description={t(p.descKey)}
-              image={p.image}
-              imageAspect="16/10"
-              imageFit="contain"
-              moreDetailText={t("programs.more_detail")}
-              ariaLabel={t("programs.view_details_aria", { abbr: p.abbr })}
-              href={getProgramHref(p.id)}
-              priority={p.id === "mscd"}
-            />
+              className="min-w-[85vw] sm:min-w-[340px] md:min-w-0 snap-start snap-always"
+            >
+              <ProjectCard
+                abbr={p.abbr}
+                title={t(p.titleKey)}
+                description={t(p.descKey)}
+                image={p.image}
+                imageAspect="16/10"
+                imageFit="contain"
+                moreDetailText={t("programs.more_detail")}
+                ariaLabel={t("programs.view_details_aria", { abbr: p.abbr })}
+                href={getProgramHref(p.id)}
+                priority={p.id === "mscd"}
+              />
+            </div>
           ))}
         </div>
       </div>
