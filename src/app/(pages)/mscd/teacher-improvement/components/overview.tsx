@@ -2,6 +2,7 @@
 
 import { useT } from "@/components/language-context"
 import { ProgramCard } from "@/components/program-card"
+import { CarouselWrapper } from "@/components/carousel-wrapper"
 
 // คอมโพเนนต์แสดงข้อมูลภาพรวมโครงการพัฒนาครูคณิตศาสตร์
 export function TeacherOverview() {
@@ -26,7 +27,7 @@ export function TeacherOverview() {
         <hr className="border-border/60" />
 
         {/* ===== ส่วนที่ 2: การ์ดโครงการอบรมแต่ละปีการศึกษาแสดงในรูปแบบ Grid 3 คอลัมน์ (ขยายขนาดรูปภาพขึ้น 4% เพื่อซ่อนขอบกรอบสีฟ้าที่ติดมากับตัวไฟล์ภาพจริง) ===== */}
-        <div className="grid gap-8 md:grid-cols-3 w-full [&_img]:scale-[1.04]">
+        <CarouselWrapper desktopCols={3} containerClassName="w-full [&_img]:scale-[1.04]">
           {/* แสดงการ์ดสำหรับแต่ละปีการศึกษา เรียงลำดับจากใหม่สุดไปเก่าสุด */}
           <ProgramCard
             title="Math 2026"
@@ -46,7 +47,7 @@ export function TeacherOverview() {
             href="/mscd/teacher-improvement/math-2022"
             moreDetailText={t("programs.more_detail")}
           />
-        </div>
+        </CarouselWrapper>
       </div>
     </section>
   )

@@ -3,6 +3,7 @@
 import { MainLayout } from "@/layout/main-layout"
 import { ProgramCard } from "@/components/program-card"
 import { useT } from "@/components/language-context"
+import { CarouselWrapper } from "@/components/carousel-wrapper"
 
 // 1. ส่วนแบนเนอร์ Hero ด้านบนสุดเลียนแบบธีม bsc-scholarships
 function CampHero() {
@@ -64,7 +65,7 @@ export default function ExcellenceMathCampPage() {
       {/* 3. ส่วนแสดงผลการ์ดโครงการอบรมแต่ละปีการศึกษา (แสดงแบบ Grid 4 คอลัมน์) */}
       <section className="py-16 bg-background">
         <div className="mx-auto max-w-7xl px-6">
-          <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4 w-full">
+          <CarouselWrapper desktopCols={4}>
             <ProgramCard
               title={t("excellenceMathCamp.years.emc2026")}
               image="/images/mscd/student-improvement/excellence-match-camp/emc-2026.png"
@@ -97,7 +98,7 @@ export default function ExcellenceMathCampPage() {
               imageFit="contain"
               imageBg="bg-white dark:bg-muted/10"
             />
-          </div>
+          </CarouselWrapper>
         </div>
       </section>
     </MainLayout>

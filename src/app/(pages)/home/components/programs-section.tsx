@@ -1,8 +1,8 @@
 "use client"
 
-import { useState, useRef } from "react"
 import { useT } from "@/components/language-context"
 import { ProjectCard } from "@/components/project-card"
+import { CarouselWrapper } from "@/components/carousel-wrapper"
 
 // โครงสร้างข้อมูลโครงการ 3 โครงการหลัก พร้อมระบุพาธรูปภาพและลิงก์เชื่อมโยงปลายทาง
 const programs = [
@@ -34,44 +34,6 @@ const programs = [
 
 export function ProgramsSection() {
   const t = useT()
-  const [activeCardIndex, setActiveCardIndex] = useState(0)
-  const scrollRef = useRef<HTMLDivElement>(null)
-
-  // คำนวณหาการ์ดใบที่เลื่อนมาใกล้จุดกึ่งกลางของหน้าจอมือถือมากที่สุดขณะกำลังเลื่อนการ์ด
-  const handleScroll = () => {
-    if (!scrollRef.current) return
-    const container = scrollRef.current
-    const children = container.children
-    if (children.length === 0) return
-
-    const containerCenter = container.scrollLeft + container.clientWidth / 2
-    let closestIndex = 0
-    let minDistance = Infinity
-
-    for (let i = 0; i < children.length; i++) {
-      const child = children[i] as HTMLElement
-      const childCenter = child.offsetLeft + child.clientWidth / 2
-      const distance = Math.abs(containerCenter - childCenter)
-      if (distance < minDistance) {
-        minDistance = distance
-        closestIndex = i
-      }
-    }
-    setActiveCardIndex(closestIndex)
-  }
-
-  // ฟังก์ชันสำหรับเลื่อนหน้าจอไปยังตำแหน่งการ์ดใบที่เลือกเมื่อคลิกที่จุดนำทาง
-  const scrollToCard = (index: number) => {
-    if (!scrollRef.current) return
-    const container = scrollRef.current
-    const child = container.children[index] as HTMLElement
-    if (child) {
-      container.scrollTo({
-        left: child.offsetLeft - (container.clientWidth - child.clientWidth) / 2,
-        behavior: "smooth",
-      })
-    }
-  }
 
   return (
     <section
@@ -89,46 +51,24 @@ export function ProgramsSection() {
           </p>
         </div>
 
-        {/* ตารางแสดงการ์ดโครงการ (เลื่อนซ้าย-ขวาบนมือถือแบบจัดกึ่งกลางหน้าจอทีละ 1 การ์ด และแสดงเป็น Grid 3 คอลัมน์บนเดสก์ท็อป) */}
-        <div
-          ref={scrollRef}
-          onScroll={handleScroll}
-          className="mt-16 flex overflow-x-auto pb-6 scrollbar-none snap-x snap-mandatory -mx-6 md:mx-0 md:grid md:grid-cols-3 md:gap-8 md:overflow-x-visible md:pb-0"
-        >
+        {/* เรียกใช้ CarouselWrapper สำหรับจัดการสไลด์บนมือถือ และระบบ Grid บนเดสก์ท็อป */}
+        <CarouselWrapper desktopCols={3} containerClassName="mt-16">
           {programs.map((p) => (
-            <div
+            <ProjectCard
               key={p.id}
-              className="min-w-full px-6 snap-center snap-always md:min-w-0 md:px-0"
-            >
-              <ProjectCard
-                abbr={p.abbr}
-                title={t(p.titleKey)}
-                description={t(p.descKey)}
-                image={p.image}
-                imageAspect="16/10"
-                imageFit="contain"
-                moreDetailText={t("programs.more_detail")}
-                ariaLabel={t("programs.view_details_aria", { abbr: p.abbr })}
-                href={p.href}
-                priority={p.id === "mscd"}
-              />
-            </div>
-          ))}
-        </div>
-
-        {/* จุดแสดงสถานะและการนำทางสไลด์บนมือถือ (Mobile Indicator Dots - แสดงเฉพาะขนาดหน้าจอ md:hidden) */}
-        <div className="mt-6 flex justify-center gap-2 md:hidden">
-          {programs.map((_, idx) => (
-            <button
-              key={_.id}
-              onClick={() => scrollToCard(idx)}
-              aria-label={`Go to slide ${idx + 1}`}
-              className={`h-2.5 rounded-full cursor-pointer transition-all duration-300 ${
-                idx === activeCardIndex ? "w-6 bg-primary" : "w-2.5 bg-primary/30"
-              }`}
+              abbr={p.abbr}
+              title={t(p.titleKey)}
+              description={t(p.descKey)}
+              image={p.image}
+              imageAspect="16/10"
+              imageFit="contain"
+              moreDetailText={t("programs.more_detail")}
+              ariaLabel={t("programs.view_details_aria", { abbr: p.abbr })}
+              href={p.href}
+              priority={p.id === "mscd"}
             />
           ))}
-        </div>
+        </CarouselWrapper>
       </div>
     </section>
   )

@@ -2,6 +2,7 @@
 
 import { useLanguage, useT } from "@/components/language-context"
 import { ProgramCard } from "@/components/program-card"
+import { CarouselWrapper } from "@/components/carousel-wrapper"
 
 // คอมโพเนนต์แสดงภาพรวมและรายละเอียดของโครงการเสริมสร้างความเข้มแข็งทางพีชคณิต (Algebra Enrichment)
 // ออกแบบตามโครงสร้างการจัดวางของหน้า MSCD และ MGSS ตามภาพตัวอย่าง
@@ -150,7 +151,7 @@ export function AlgebraOverview() {
         <hr className="border-border/60" />
 
         {/* ===== ส่วนที่ 2: แสดงการ์ดโครงการย่อยทั้ง 4 โครงการย่อย เพื่อเชื่อมโยงไปยังรายละเอียดของแต่ละส่วน ===== */}
-        <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
+        <CarouselWrapper desktopCols={4}>
           {cards.map((card) => (
             <div
               key={card.id}
@@ -169,7 +170,7 @@ export function AlgebraOverview() {
               />
             </div>
           ))}
-        </div>
+        </CarouselWrapper>
 
       </div>
     </section>

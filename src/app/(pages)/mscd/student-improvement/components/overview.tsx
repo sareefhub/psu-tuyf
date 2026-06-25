@@ -2,6 +2,7 @@
 
 import { useT } from "@/components/language-context"
 import { ProgramCard } from "@/components/program-card"
+import { CarouselWrapper } from "@/components/carousel-wrapper"
 
 // คอมโพเนนต์แสดงข้อมูลภาพรวมโครงการพัฒนาศักยภาพนักเรียน
 export function StudentOverview() {
@@ -32,7 +33,7 @@ export function StudentOverview() {
         <hr className="border-border/60" />
 
         {/* ===== ส่วนที่ 2: การ์ดโครงการย่อยแสดงในรูปแบบ Grid 2 คอลัมน์ ===== */}
-        <div className="grid gap-8 md:grid-cols-2 max-w-4xl mx-auto w-full">
+        <CarouselWrapper desktopCols={2} containerClassName="max-w-4xl mx-auto w-full">
           <ProgramCard
             title="Excellence Math Camp"
             image="/images/mscd/student-improvement/excellence-match-camp.png"
@@ -49,7 +50,7 @@ export function StudentOverview() {
             imageFit="contain"
             imageBg="bg-white dark:bg-muted/10"
           />
-        </div>
+        </CarouselWrapper>
       </div>
     </section>
   )

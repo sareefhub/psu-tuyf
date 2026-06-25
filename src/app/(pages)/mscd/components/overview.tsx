@@ -2,6 +2,7 @@
 
 import { useT } from "@/components/language-context"
 import { ProgramCard } from "@/components/program-card"
+import { CarouselWrapper } from "@/components/carousel-wrapper"
 
 // คอมโพเนนต์แสดงภาพรวมและวัตถุประสงค์หลักของโครงการ MSCD
 // — ส่วนบน: การ์ด 3 ใบ + ปุ่มดูรายละเอียด
@@ -99,7 +100,7 @@ export function MscdOverview() {
         <hr className="border-border/60" />
 
         {/* ===== ส่วนที่ 2: การ์ด 3 ใบพร้อมรูปภาพและปุ่มดูรายละเอียด (ย้ายมาอยู่ด้านล่าง) ===== */}
-        <div className="grid gap-8 md:grid-cols-3">
+        <CarouselWrapper desktopCols={3}>
           {cards.map((card) => (
             <ProgramCard
               key={card.id}
@@ -111,7 +112,7 @@ export function MscdOverview() {
               priority={card.id === "scholarships"}
             />
           ))}
-        </div>
+        </CarouselWrapper>
 
       </div>
     </section>

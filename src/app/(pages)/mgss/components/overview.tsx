@@ -2,6 +2,7 @@
 
 import { useLanguage, useT } from "@/components/language-context"
 import { ProgramCard } from "@/components/program-card"
+import { CarouselWrapper } from "@/components/carousel-wrapper"
 
 // คอมโพเนนต์แสดงรายละเอียดและข้อมูลภาพรวมโครงการสนับสนุนนักศึกษาระดับบัณฑิตศึกษา (MGSS)
 // ปรับปรุงสไตล์และเลย์เอาต์การแสดงผล (หัวข้อใหญ่, ย่อหน้า, ลิสต์รายการย่อย) ให้สอดคล้องกับหน้า MSCD ตามภาพตัวอย่างของผู้ใช้
@@ -83,7 +84,7 @@ export function MgssOverview() {
         <hr className="border-border/60" />
 
         {/* ===== ส่วนที่ 2: การ์ดหลักสูตรทั้ง 3 ใบพร้อมรูปภาพและปุ่มดูรายละเอียด ===== */}
-        <div className="grid gap-8 md:grid-cols-3">
+        <CarouselWrapper desktopCols={3}>
           {cards.map((card) => (
             <div
               key={card.id}
@@ -100,7 +101,7 @@ export function MgssOverview() {
               />
             </div>
           ))}
-        </div>
+        </CarouselWrapper>
 
       </div>
     </section>

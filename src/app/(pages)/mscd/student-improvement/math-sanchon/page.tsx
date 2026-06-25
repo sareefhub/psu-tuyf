@@ -3,6 +3,7 @@
 import { MainLayout } from "@/layout/main-layout"
 import { ProgramCard } from "@/components/program-card"
 import { useT } from "@/components/language-context"
+import { CarouselWrapper } from "@/components/carousel-wrapper"
 
 // 1. ส่วนแบนเนอร์ Hero ด้านบนสุด เลียนแบบธีมแบบเดียวกับ Excellence Math Camp
 function SanchonHero() {
@@ -93,7 +94,7 @@ export default function MathSanchonPage() {
       {/* 3. ส่วนแสดงผลการ์ดโครงการอบรมแต่ละปีการศึกษา (แสดงแบบ Grid 3 คอลัมน์สำหรับ 3 ปี) */}
       <section className="py-16 bg-background">
         <div className="mx-auto max-w-7xl px-6">
-          <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3 w-full [&_img]:scale-[1.04]">
+          <CarouselWrapper desktopCols={3} containerClassName="[&_img]:scale-[1.04]">
             <ProgramCard
               title={t("mathSanchon.years.ms2025")}
               image="/images/mscd/student-improvement/match-sanchon/ms-2025.png"
@@ -112,7 +113,7 @@ export default function MathSanchonPage() {
               href="/mscd/student-improvement/math-sanchon/ms-2023"
               moreDetailText={t("programs.more_detail")}
             />
-          </div>
+          </CarouselWrapper>
         </div>
       </section>
     </MainLayout>
