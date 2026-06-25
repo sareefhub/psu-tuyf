@@ -19,8 +19,9 @@ export function CarouselWrapper({
   const [activeCardIndex, setActiveCardIndex] = useState(0)
   const scrollRef = useRef<HTMLDivElement>(null)
 
-  // กรองเอาเฉพาะข้อมูลที่มีค่าจริง
-  const validChildren = React.Children.toArray(children).filter(Boolean)
+  // กรองเอาเฉพาะ element ที่มีค่าจริงและเป็น React.ReactElement เพื่อความปลอดภัยเรื่อง key
+  const validChildren = React.Children.toArray(children)
+    .filter((child): child is React.ReactElement => React.isValidElement(child))
 
   if (validChildren.length === 0) return null
 
@@ -80,7 +81,7 @@ export function CarouselWrapper({
       >
         {validChildren.map((child, idx) => (
           <div
-            key={idx}
+            key={child.key ?? idx}
             className="min-w-full px-6 snap-center snap-always md:min-w-0 md:px-0"
           >
             {child}
@@ -91,9 +92,9 @@ export function CarouselWrapper({
       {/* จุดแสดงสถานะและการนำทางสไลด์บนมือถือ (แสดงเฉพาะขนาดหน้าจอ md:hidden หรือ sm:hidden ตามความเหมาะสม) */}
       {validChildren.length > 1 && (
         <div className="mt-6 flex justify-center gap-2 md:hidden">
-          {validChildren.map((_, idx) => (
+          {validChildren.map((child, idx) => (
             <button
-              key={idx}
+              key={`dot-${child.key ?? idx}`}
               onClick={() => scrollToCard(idx)}
               aria-label={`Go to slide ${idx + 1}`}
               className={`h-2.5 rounded-full cursor-pointer transition-all duration-300 ${
