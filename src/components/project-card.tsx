@@ -62,15 +62,8 @@ export function ProjectCard({
 
       {/* ส่วนรายละเอียดเนื้อหาของการ์ด */}
       <div className="flex flex-1 flex-col p-6">
-        {/* ชื่อย่อหรือ Tag หัวข้อโครงการ (แสดงผลเมื่อมีข้อมูล) */}
-        {abbr && (
-          <span className="text-xs font-bold uppercase tracking-wider text-muted-foreground/85">
-            {abbr}
-          </span>
-        )}
-
         {/* ชื่อหัวข้อโครงการหลัก (ไม่แสดงเอฟเฟกต์ hover เปลี่ยนสี เพื่อให้สีหัวข้อเป็นสีหลักคงที่) */}
-        <h3 className={`${abbr ? "mt-2" : ""} text-lg font-bold leading-snug text-primary`}>
+        <h3 className="text-lg font-bold leading-snug text-primary">
           {title}
         </h3>
 
