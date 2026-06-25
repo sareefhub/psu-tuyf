@@ -1,21 +1,7 @@
 // ข้อมูลรายละเอียดของโครงการค่ายคณิตศาสตร์เข้ม (Excellence Math Camp / Pre-Olympics Math)
 // เก็บไว้ที่นี่เพื่อความเป็น Clean Code และง่ายต่อการปรับปรุงข้อมูลในอนาคต โดยไม่ต้องแก้ไขตัวไฟล์ UI
 
-export interface AnnouncementItem {
-  readonly title: string;
-  readonly date: string;
-  readonly size: string;
-  readonly fileUrl: string;
-}
-
-export interface CampConfig {
-  readonly year: string;
-  readonly translationKey: string;
-  readonly imageFolder: string;
-  readonly announcements: readonly AnnouncementItem[];
-  readonly postTestImages: readonly string[];
-  readonly galleryImages?: readonly string[];
-}
+import type { CampConfig } from "./types"
 
 export const excellenceCampsData: Record<string, CampConfig> = {
   // ข้อมูลของค่ายปี 2023 (2566)

@@ -1,5 +1,5 @@
 import { CampTemplate } from "../components/camp-template"
-import { excellenceCampsData } from "@/data/pages/mscd/student-improvement/excellence-math-camp"
+import { excellenceCampsData } from "@/data/pages/mscd/student-improvement"
 import { notFound } from "next/navigation"
 
 // กำหนด Revalidation ทุก ๆ 1 ชั่วโมง เพื่อไม่ให้ดึงข้อมูลจาก Cloudinary บ่อยเกินไป แต่รูปภาพยังคงอัปเดต

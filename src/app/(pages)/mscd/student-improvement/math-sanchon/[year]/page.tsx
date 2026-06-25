@@ -1,5 +1,5 @@
 import { SanchonTemplate } from "../components/sanchon-template"
-import { sanchonCampsData } from "@/data/pages/mscd/student-improvement/math-sanchon"
+import { sanchonCampsData } from "@/data/pages/mscd/student-improvement"
 import { notFound } from "next/navigation"
 
 // ฟังก์ชันระบุค่า Parameter สำหรับการสร้างหน้าเพจแบบ Static (Static Generation Optimization)

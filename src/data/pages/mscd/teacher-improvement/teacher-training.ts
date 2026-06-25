@@ -1,20 +1,7 @@
 // ข้อมูลรายละเอียดของโครงการอบรมครูคณิตศาสตร์ (Teacher Training)
 // เก็บไว้ที่นี่เพื่อความเป็น Clean Code และง่ายต่อการปรับปรุงข้อมูลในอนาคต โดยไม่ต้องแก้ไขตัวไฟล์ UI
 
-export interface AnnouncementItem {
-  readonly title: string;
-  readonly date: string;
-  readonly size: string;
-  readonly fileUrl: string;
-}
-
-export interface TeacherTrainingConfig {
-  readonly year: string;
-  readonly translationKey: string;
-  readonly imageFolder: string;
-  readonly announcements: readonly AnnouncementItem[];
-  readonly galleryImages?: readonly string[];
-}
+import type { TeacherTrainingConfig } from "./types"
 
 export const teacherTrainingData: Record<string, TeacherTrainingConfig> = {
   // ข้อมูลโครงการปี 2022 (2565)
