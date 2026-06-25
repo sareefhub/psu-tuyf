@@ -40,35 +40,56 @@ export function HeroSection() {
       id="home"
       className="relative flex min-h-[calc(100vh-4rem)] items-center overflow-hidden bg-primary text-primary-foreground scroll-mt-16"
     >
-      {/* ขยายความกว้างสูงสุดเป็น max-w-7xl และปรับอัตราส่วน Grid เป็น 2:3 เพื่อให้สไลเดอร์รูปภาพฝั่งขวามีพื้นที่แสดงผลใหญ่ขึ้นเต็มตา */}
-      <div className="mx-auto grid max-w-7xl items-center gap-10 px-6 py-16 sm:py-20 lg:grid-cols-[2fr_3fr] lg:py-24">
-        <div className="flex flex-col items-center text-center lg:items-start lg:text-left">
+      {/* ส่วนรูปภาพพื้นหลังสไลด์เต็มหน้าจอ (Full-bleed Background Carousel) */}
+      <div className="absolute inset-0 z-0 select-none">
+        {heroImages.map((img, idx) => (
+          <Image
+            key={img.src}
+            src={img}
+            alt={`${t("hero.img_alt")} ${idx + 1}`}
+            priority={idx === 0} // รูปแรกโหลดล่วงหน้าเพื่อลดปัญหา LCP ของหน้าเว็บ
+            fill
+            quality={95} // กำหนดคุณภาพของภาพสูงถึง 95% เพื่อความคมชัดสูงสุดในการแสดงผลแบบขยายเต็มจอ
+            sizes="100vw"
+            className={`object-cover transition-all duration-1000 ease-in-out ${
+              idx === currentIndex ? "opacity-100 scale-100" : "opacity-0 scale-105"
+            }`}
+          />
+        ))}
+      </div>
+
+      {/* แผ่นกรองและไล่เฉดสีเพื่อให้อ่านข้อความได้ชัดเจนยิ่งขึ้น (Gradient Overlay) */}
+      {/* ปรับลดความทึบลงเหลือ 90% -> 65% -> 80% เพื่อให้เห็นรายละเอียดของภาพพื้นหลังได้คมชัดและสว่างขึ้นอย่างสมบูรณ์แบบ */}
+      <div className="absolute inset-0 z-10 bg-linear-to-b from-primary/90 via-primary/65 to-primary/80" />
+
+      {/* ส่วนเนื้อหาข้อความและปุ่ม (Content Container) */}
+      <div className="relative z-20 mx-auto max-w-7xl px-6 py-24 sm:py-32 lg:py-40 w-full flex items-center justify-center min-h-[calc(100vh-4rem)]">
+        <div className="max-w-3xl flex flex-col items-center text-center">
           <span className="inline-flex w-fit items-center gap-2 rounded-full border border-primary-foreground/20 bg-primary-foreground/10 px-4 py-1.5 text-xs font-medium text-primary-foreground/90">
             {t("hero.badge")}
           </span>
 
-          {/* ใช้ token text-primary-foreground แทน text-white เพื่อให้เปลี่ยนได้จากค่ากลาง */}
-          <h1 className="mt-6 text-balance text-5xl font-bold leading-none tracking-tight text-primary-foreground sm:text-6xl lg:text-7xl">
+          <h1 className="mt-6 text-balance text-5xl font-bold leading-none tracking-tight text-white sm:text-6xl lg:text-7xl drop-shadow-md">
             PSU-TUYF
           </h1>
 
-          <p className="mt-4 text-pretty text-lg font-light leading-relaxed text-primary-foreground/90 sm:text-xl">
+          <p className="mt-4 text-pretty text-lg font-medium leading-relaxed text-white sm:text-xl drop-shadow-xs">
             Prince of Songkla University
             <br />
             The TUYF Charitable Trust Fund
           </p>
 
-          <p className="mt-6 max-w-md mx-auto lg:mx-0 text-pretty text-sm leading-relaxed text-primary-foreground/75 sm:text-base">
+          <p className="mt-6 max-w-2xl mx-auto text-pretty text-sm font-medium leading-relaxed text-white/90 sm:text-base drop-shadow-xs">
             {t("hero.desc_1")}
           </p>
 
-          <div className="mt-8 flex flex-col gap-3 w-full max-w-xs sm:w-auto sm:flex-row sm:justify-center lg:justify-start">
+          <div className="mt-8 flex flex-col gap-3 w-full max-w-xs sm:w-auto sm:flex-row sm:justify-center">
             <Button
               render={<a href="#programs" aria-label="View all programs" />}
               nativeButton={false}
               size="lg"
               variant="secondary"
-              className="w-full sm:w-auto rounded-full px-7 text-base"
+              className="w-full sm:w-auto rounded-full px-7 text-base cursor-pointer"
             >
               {t("hero.btn_view_all")}
               <ArrowRight className="ml-1 h-4 w-4" />
@@ -78,59 +99,44 @@ export function HeroSection() {
               nativeButton={false}
               size="lg"
               variant="outline"
-              className="w-full sm:w-auto rounded-full border-primary-foreground/30 bg-transparent px-7 text-base text-primary-foreground hover:bg-primary-foreground/10 hover:text-primary-foreground"
+              className="w-full sm:w-auto rounded-full border-primary-foreground/30 bg-transparent px-7 text-base text-primary-foreground hover:bg-primary-foreground/10 hover:text-primary-foreground cursor-pointer"
             >
               {t("hero.btn_about")}
             </Button>
           </div>
         </div>
+      </div>
 
-        {/* ส่วนสไลเดอร์แสดงรูปภาพหลายรูป (Carousel Showcase) แสดงรูปภาพเต็มขนาดจริงโดยไม่จำกัดความสูงและไม่ครอปภาพ (แสดงด้านบนเมื่อหน้าจอเล็ก) */}
-        <div className="relative group w-full overflow-hidden rounded-3xl border border-primary-foreground/15 shadow-2xl bg-black/10 order-first lg:order-0">
-          {heroImages.map((img, idx) => (
-            <Image
-              key={img.src}
-              src={img}
-              alt={`${t("hero.img_alt")} ${idx + 1}`}
-              priority={idx === 0} // รูปภาพสไลด์แรกสุดที่เป็น LCP ให้ตั้งค่าโหลดด่วน (LCP Optimization)
-              className={`w-full transition-all duration-700 ease-in-out ${
-                idx === 0 ? "relative" : "absolute inset-0 h-full"
-              } ${idx === currentIndex ? "opacity-100 z-10" : "opacity-0 z-0"}`}
-            />
-          ))}
+      {/* ปุ่มลูกศรควบคุมการสลับสไลด์ย้อนหลัง (Previous Slide Button) */}
+      <button
+        onClick={prevSlide}
+        aria-label="Previous slide"
+        className="absolute left-6 top-1/2 z-30 -translate-y-1/2 hidden md:flex h-12 w-12 cursor-pointer items-center justify-center rounded-full bg-white/10 text-white backdrop-blur-md transition-all duration-300 hover:bg-white hover:text-primary border border-white/20 hover:scale-105 active:scale-95"
+      >
+        <ChevronLeft className="h-6 w-6" />
+      </button>
 
-          {/* ปุ่มเปลี่ยนสไลด์ไปทางซ้าย (วงกลมสีขาวโปร่งแสง ปรากฏเมื่อโฮเวอร์บนกรอบภาพ) */}
+      {/* ปุ่มลูกศรควบคุมการสลับสไลด์ถัดไป (Next Slide Button) */}
+      <button
+        onClick={nextSlide}
+        aria-label="Next slide"
+        className="absolute right-6 top-1/2 z-30 -translate-y-1/2 hidden md:flex h-12 w-12 cursor-pointer items-center justify-center rounded-full bg-white/10 text-white backdrop-blur-md transition-all duration-300 hover:bg-white hover:text-primary border border-white/20 hover:scale-105 active:scale-95"
+      >
+        <ChevronRight className="h-6 w-6" />
+      </button>
+
+      {/* จุดนำทางระบุตำแหน่งสไลด์ (Dots Indicators) */}
+      <div className="absolute bottom-8 left-1/2 z-30 flex -translate-x-1/2 gap-2">
+        {heroImages.map((img, idx) => (
           <button
-            onClick={prevSlide}
-            aria-label="Previous slide"
-            className="absolute left-4 top-1/2 z-20 -translate-y-1/2 flex h-10 w-10 cursor-pointer items-center justify-center rounded-full bg-white/30 text-white backdrop-blur-xs transition-all duration-300 hover:bg-white hover:text-primary opacity-0 group-hover:opacity-100"
-          >
-            <ChevronLeft className="h-6 w-6" />
-          </button>
-
-          {/* ปุ่มเปลี่ยนสไลด์ไปทางขวา (วงกลมสีขาวโปร่งแสง ปรากฏเมื่อโฮเวอร์บนกรอบภาพ) */}
-          <button
-            onClick={nextSlide}
-            aria-label="Next slide"
-            className="absolute right-4 top-1/2 z-20 -translate-y-1/2 flex h-10 w-10 cursor-pointer items-center justify-center rounded-full bg-white/30 text-white backdrop-blur-xs transition-all duration-300 hover:bg-white hover:text-primary opacity-0 group-hover:opacity-100"
-          >
-            <ChevronRight className="h-6 w-6" />
-          </button>
-
-          {/* จุดนำทางสไลด์ (Dots Indicators) อยู่ล่างสุดกึ่งกลาง */}
-          <div className="absolute bottom-4 left-1/2 z-20 flex -translate-x-1/2 gap-2">
-            {Array.from(heroImages.entries()).map(([idx, img]) => (
-              <button
-                key={img.src}
-                onClick={() => setCurrentIndex(idx)}
-                aria-label={`Go to slide ${idx + 1}`}
-                className={`h-2.5 rounded-full cursor-pointer transition-all duration-300 ${
-                  idx === currentIndex ? "w-6 bg-white" : "w-2.5 bg-white/50 hover:bg-white/80"
-                }`}
-              />
-            ))}
-          </div>
-        </div>
+            key={img.src}
+            onClick={() => setCurrentIndex(idx)}
+            aria-label={`Go to slide ${idx + 1}`}
+            className={`h-2.5 rounded-full cursor-pointer transition-all duration-300 ${
+              idx === currentIndex ? "w-6 bg-white" : "w-2.5 bg-white/50 hover:bg-white/80"
+            }`}
+          />
+        ))}
       </div>
     </section>
   )
