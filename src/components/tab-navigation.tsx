@@ -79,34 +79,41 @@ export function TabNavigation({ tabs, activeTab, setActiveTab }: TabNavigationPr
     }
   }, [tabs])
 
-  // เลื่อนแท็บที่เลือกให้มาอยู่ตรงกลางมุมมองเมื่อมีการเปลี่ยนแท็บ
-  useEffect(() => {
-    if (containerRef.current) {
-      const activeBtn = containerRef.current.querySelector('[aria-selected="true"]')
+  const isFirstRender = useRef(true)
+
+  // ฟังก์ชันจัดตำแหน่งเลื่อนแคปซูลให้อยู่ตรงกลาง (เฉพาะแนวราบ ไม่เลื่อนหน้าจอแนวตั้ง)
+  const centerActiveTab = (behavior: "auto" | "smooth") => {
+    const container = containerRef.current
+    if (container) {
+      const activeBtn = container.querySelector('[aria-selected="true"]') as HTMLElement
       if (activeBtn) {
-        activeBtn.scrollIntoView({
-          behavior: "auto",
-          block: "nearest",
-          inline: "center",
+        const containerWidth = container.clientWidth
+        const btnOffsetLeft = activeBtn.offsetLeft
+        const btnWidth = activeBtn.clientWidth
+        const targetScrollLeft = btnOffsetLeft - (containerWidth / 2) + (btnWidth / 2)
+        container.scrollTo({
+          left: targetScrollLeft,
+          behavior,
         })
       }
-      // อัปเดตเงาหลังจากเลื่อน
-      checkScroll()
     }
+  }
+
+  // เลื่อนแท็บที่เลือกให้มาอยู่ตรงกลางมุมมองเมื่อมีการเปลี่ยนแท็บ
+  useEffect(() => {
+    if (isFirstRender.current) {
+      centerActiveTab("auto")
+      isFirstRender.current = false
+    } else {
+      centerActiveTab("smooth")
+    }
+    // อัปเดตเงาหลังจากเลื่อน
+    checkScroll()
   }, [activeTab])
 
   // จัดการเหตุการณ์เมื่อคลิกเลือกแท็บใหม่
-  const handleTabClick = (tabId: string, event?: React.MouseEvent<HTMLButtonElement>) => {
+  const handleTabClick = (tabId: string) => {
     setActiveTab(tabId)
-
-    // เลื่อนปุ่มที่คลิกให้อยู่ตรงกลางสายตาบนมือถือ
-    if (event?.currentTarget) {
-      event.currentTarget.scrollIntoView({
-        behavior: "smooth",
-        block: "nearest",
-        inline: "center",
-      })
-    }
     
     // ตรวจสอบการทำงานในฝั่งไคลเอนต์ก่อนเข้าถึงข้อมูลเบราว์เซอร์ (เปรียบเทียบกับ undefined โดยตรงเพื่อหลีกเลี่ยงคำเตือนของ Linter)
     if (globalThis.window !== undefined) {
@@ -151,7 +158,7 @@ export function TabNavigation({ tabs, activeTab, setActiveTab }: TabNavigationPr
                     key={tab.id}
                     role="tab"
                     aria-selected={isActive}
-                    onClick={(e) => handleTabClick(tab.id, e)}
+                    onClick={() => handleTabClick(tab.id)}
                     className={`rounded-full px-3 py-1.5 sm:px-5 sm:py-2.5 text-[11px] sm:text-xs md:text-sm font-bold whitespace-nowrap transition-all duration-300 cursor-pointer ${
                       isActive
                         ? "bg-primary text-primary-foreground shadow-md"
