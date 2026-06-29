@@ -1,6 +1,6 @@
 "use client"
 
-import { useT } from "@/components/language-context"
+import { useT } from "@/context/language-context"
 import { Award } from "lucide-react"
 
 // คีย์ข้อมูลสำหรับดึงค่าคุณสมบัติจาก i18n JSON

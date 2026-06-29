@@ -2,7 +2,7 @@
 
 import { useState } from "react"
 import { ChevronDown, Menu, X } from "lucide-react"
-import { useLanguage, useT } from "@/components/language-context"
+import { useLanguage, useT } from "@/context/language-context"
 import { usePathname } from "next/navigation"
 import Image from "next/image"
 

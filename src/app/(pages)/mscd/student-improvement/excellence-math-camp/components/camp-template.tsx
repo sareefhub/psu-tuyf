@@ -1,7 +1,7 @@
 "use client"
 
 import Image from "next/image"
-import { useT } from "@/components/language-context"
+import { useT } from "@/context/language-context"
 import { ProgramDetailTemplate, SharedObjectives, SharedAnnouncements, SharedGallery } from "@/components/program-detail-template"
 
 // อินเตอร์เฟซสำหรับข้อมูลประกาศของโครงการค่ายคณิตศาสตร์เข้ม

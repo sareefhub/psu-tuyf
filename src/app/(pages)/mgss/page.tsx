@@ -1,7 +1,7 @@
 "use client"
 
 import { useState } from "react"
-import { useLanguage } from "@/components/language-context"
+import { useLanguage } from "@/context/language-context"
 import { MgssHero } from "./components/hero"
 import { MgssOverview } from "./components/overview"
 

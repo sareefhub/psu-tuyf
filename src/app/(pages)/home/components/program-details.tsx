@@ -1,7 +1,7 @@
 "use client"
 
 import { Check } from "lucide-react"
-import { useT } from "@/components/language-context"
+import { useT } from "@/context/language-context"
 
 const details = [
   {

@@ -1,6 +1,6 @@
 "use client"
 
-import { useT } from "@/components/language-context"
+import { useT } from "@/context/language-context"
 
 // ================= 1. ความเป็นมา (History) =================
 // คอมโพเนนต์แสดงข้อมูลประวัติความเป็นมาของกองทุน

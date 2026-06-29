@@ -1,6 +1,6 @@
 "use client"
 
-import { useT } from "@/components/language-context"
+import { useT } from "@/context/language-context"
 import { SharedAnnouncements } from "@/components/program-detail-template"
 import { AlertCircle } from "lucide-react" // นำเข้าไอคอนแสดงสถานะประกาศว่าง
 

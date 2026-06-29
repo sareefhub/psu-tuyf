@@ -1,6 +1,6 @@
 "use client"
 
-import { useLanguage, useT } from "@/components/language-context"
+import { useLanguage, useT } from "@/context/language-context"
 import { ProgramCard } from "@/components/program-card"
 import { CarouselWrapper } from "@/components/carousel-wrapper"
 

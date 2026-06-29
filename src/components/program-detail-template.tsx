@@ -1,7 +1,7 @@
 "use client"
 
 import { useState, type ReactNode } from "react"
-import { useT } from "@/components/language-context"
+import { useT } from "@/context/language-context"
 import { TabNavigation } from "@/components/tab-navigation"
 
 import { SharedHero } from "./shared-hero"

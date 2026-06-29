@@ -1,7 +1,7 @@
 "use client"
 
 import { useState, useEffect } from "react"
-import { useT } from "@/components/language-context"
+import { useT } from "@/context/language-context"
 import { FileText, Download, Calendar, Eye, X, AlertTriangle } from "lucide-react"
 
 export interface SharedAnnouncementItem {

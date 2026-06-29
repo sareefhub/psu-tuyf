@@ -1,6 +1,6 @@
 "use client"
 
-import { useLanguage } from "@/components/language-context"
+import { useLanguage } from "@/context/language-context"
 
 // ข้อมูลข้อความหัวข้อประกาศโครงการ MGSS
 const announcementsData = {

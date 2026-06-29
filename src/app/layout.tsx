@@ -1,7 +1,7 @@
 import { Analytics } from "@vercel/analytics/next"
 import type { Metadata } from "next"
 import "./globals.css" // นำเข้าสไตล์หลักและสไตล์ฟอนต์ PSU Stidti
-import { LanguageProvider } from "@/components/language-context"
+import { LanguageProvider } from "@/context/language-context"
 
 // กำหนดค่าฐาน URL สำหรับ Metadata เพื่อใช้อ้างอิงพาธสัมพันธ์ (Relative URL) ของรูปภาพและลิงก์ต่างๆ
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://psu-tuyf.sci.psu.ac.th"

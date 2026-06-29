@@ -1,6 +1,6 @@
 "use client"
 
-import { useLanguage } from "@/components/language-context"
+import { useLanguage } from "@/context/language-context"
 import { BookOpen, Calendar, User } from "lucide-react"
 
 // ข้อมูลผลงานวิจัยและการตีพิมพ์ทางวิชาการจริงของโครงการ MGSS

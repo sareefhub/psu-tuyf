@@ -1,6 +1,6 @@
 "use client"
 
-import { useT } from "@/components/language-context"
+import { useT } from "@/context/language-context"
 
 // คอมโพเนนต์แสดงแบนเนอร์ของโครงการทุนการศึกษาปริญญาตรี (B.Sc. Scholarships)
 // ปรับปรุงการออกแบบ ขนาดฟอนต์ เอฟเฟกต์แสง และโครงสร้างโค้ดให้เหมือนกับหน้านักเรียนและหน้าครูอย่างเป็นเอกภาพ

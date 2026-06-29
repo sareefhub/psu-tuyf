@@ -1,6 +1,6 @@
 "use client"
 
-import { useT } from "@/components/language-context"
+import { useT } from "@/context/language-context"
 import { AlertCircle } from "lucide-react"
 
 // ================= 1. กิจกรรมในโครงการ (Exchange Activities) =================

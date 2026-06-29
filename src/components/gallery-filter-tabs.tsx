@@ -1,4 +1,4 @@
-import { useT } from "@/components/language-context"
+import { useT } from "@/context/language-context"
 
 interface GalleryFilterTabsProps {
   readonly uniqueFolders: readonly string[];

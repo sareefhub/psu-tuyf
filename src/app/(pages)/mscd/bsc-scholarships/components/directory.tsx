@@ -1,7 +1,7 @@
 "use client"
 
 import { useEffect } from "react"
-import { useT } from "@/components/language-context"
+import { useT } from "@/context/language-context"
 import { StudentCard } from "@/components/student-card"
 import { useRouter } from "next/navigation"
 

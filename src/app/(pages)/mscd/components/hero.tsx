@@ -1,6 +1,6 @@
 "use client"
 
-import { useT } from "@/components/language-context"
+import { useT } from "@/context/language-context"
 
 // คอมโพเนนต์แสดงแบนเนอร์หลักหน้าโครงการพัฒนาชุมชนอย่างยั่งยืนด้วยคณิตศาสตร์ (MSCD)
 export function MscdHero() {

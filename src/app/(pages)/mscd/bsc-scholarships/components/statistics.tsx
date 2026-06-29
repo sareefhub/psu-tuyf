@@ -1,6 +1,6 @@
 "use client"
 
-import { useT } from "@/components/language-context"
+import { useT } from "@/context/language-context"
 // นำเข้า Image และไฟล์ภาพสถิติแบบ Static เพื่อใช้ประโยชน์ในการคำนวณอัตราส่วนภาพ ป้องกันปัญหา CLS
 import Image from "next/image"
 import statsImg1 from "../../../../../../public/images/mscd/bsc-scholarships/scholarship-student-stats-1.png"

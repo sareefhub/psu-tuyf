@@ -1,7 +1,7 @@
 "use client"
 
 import { useEffect, useState, useRef } from "react"
-import { useT } from "@/components/language-context"
+import { useT } from "@/context/language-context"
 
 // คอมโพเนนต์สำหรับแสดงผลตัวเลขนับขึ้น (Animated Counter) แบบ Clean และสมูท
 function Counter({ target, duration = 1500 }: Readonly<{ target: number; duration?: number }>) {

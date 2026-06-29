@@ -1,6 +1,6 @@
 "use client"
 
-import { useT } from "@/components/language-context"
+import { useT } from "@/context/language-context"
 import { ArrowRight, GraduationCap, CheckCircle2, DollarSign, Users } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import Link from "next/link"

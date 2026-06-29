@@ -1,6 +1,6 @@
 "use client"
 
-import { useT } from "@/components/language-context"
+import { useT } from "@/context/language-context"
 
 // คอมโพเนนต์แบนเนอร์หลักหน้าโครงการเสริมสร้างความเข้มแข็งทางพีชคณิต (Algebra Enrichment Project)
 export function AlgebraHero() {

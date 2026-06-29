@@ -1,7 +1,7 @@
 "use client"
 
 import { useState, useEffect } from "react"
-import { useT } from "@/components/language-context"
+import { useT } from "@/context/language-context"
 import Image from "next/image"
 import { useCloudinaryGallery } from "@/hooks/use-cloudinary-gallery"
 import { GalleryFilterTabs } from "./gallery-filter-tabs"

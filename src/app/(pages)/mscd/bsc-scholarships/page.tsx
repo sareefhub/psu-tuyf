@@ -1,7 +1,7 @@
 "use client"
 
 import { useState, useEffect } from "react"
-import { useT } from "@/components/language-context"
+import { useT } from "@/context/language-context"
 import { BscHero } from "./components/hero"
 import { ProjectOverview } from "./components/overview"
 import { SelectionStatistics } from "./components/statistics"

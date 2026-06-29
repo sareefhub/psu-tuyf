@@ -1,6 +1,6 @@
 "use client"
 
-import { useT } from "@/components/language-context"
+import { useT } from "@/context/language-context"
 import { MapPin, Mail } from "lucide-react"
 
 // คอมโพเนนต์แสดงหน้าติดต่อเรา (Contact Us)

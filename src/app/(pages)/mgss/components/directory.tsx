@@ -1,6 +1,6 @@
 "use client"
 
-import { useLanguage } from "@/components/language-context"
+import { useLanguage } from "@/context/language-context"
 import Image from "next/image"
 
 // นำเข้าไฟล์ภาพสถิติแบบ Static เพื่อใช้ประโยชน์ในการคำนวณอัตราส่วนภาพ ป้องกันปัญหา CLS

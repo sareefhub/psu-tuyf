@@ -1,7 +1,7 @@
 "use client"
 
 import { MapPin, Mail, Phone } from "lucide-react"
-import { useT } from "@/components/language-context"
+import { useT } from "@/context/language-context"
 
 export function SiteFooter() {
   const t = useT()

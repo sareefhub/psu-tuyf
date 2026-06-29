@@ -1,7 +1,7 @@
 "use client"
 
 import { useState } from "react"
-import { useT } from "@/components/language-context"
+import { useT } from "@/context/language-context"
 import { TabNavigation } from "@/components/tab-navigation"
 import { CampTarget, CampDetails, CampEligibility } from "./components/overview"
 import { CampAnnouncements } from "./components/announcements" // นำเข้าคอมโพเนนต์แสดงประกาศข่าวสารของค่ายพีชคณิต

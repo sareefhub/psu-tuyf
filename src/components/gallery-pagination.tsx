@@ -1,5 +1,5 @@
 import { ChevronLeft, ChevronRight } from "lucide-react"
-import { useT } from "@/components/language-context"
+import { useT } from "@/context/language-context"
 
 interface GalleryPaginationProps {
   readonly currentPage: number;

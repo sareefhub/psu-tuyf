@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react"
 import { ArrowRight, ChevronLeft, ChevronRight } from "lucide-react"
 import { Button } from "@/components/ui/button"
-import { useT } from "@/components/language-context"
+import { useT } from "@/context/language-context"
 // นำเข้า Image และภาพประกอบแบบ Static เพื่อประสิทธิภาพและการดึงขนาดสัดส่วนภาพที่แม่นยำ
 import Image from "next/image"
 import heroImg1 from "../../../../../public/images/hero-section/psu-tuyf-1.png"

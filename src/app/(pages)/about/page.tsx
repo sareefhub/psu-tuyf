@@ -2,7 +2,7 @@
 
 import { useState } from "react"
 import Image from "next/image" // นำเข้าคอมโพเนนต์แสดงผลรูปภาพของ Next.js
-import { useT } from "@/components/language-context"
+import { useT } from "@/context/language-context"
 import { TabNavigation } from "@/components/tab-navigation"
 import { FundHistory, FundObjectives } from "./components/overview"
 

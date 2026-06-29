@@ -1,7 +1,7 @@
 "use client"
 
 import { ProgramCard } from "@/components/program-card"
-import { useT } from "@/components/language-context"
+import { useT } from "@/context/language-context"
 import { CarouselWrapper } from "@/components/carousel-wrapper"
 
 // 1. ส่วนแบนเนอร์ Hero ด้านบนสุด เลียนแบบธีมแบบเดียวกับ Excellence Math Camp

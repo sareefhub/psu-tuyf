@@ -1,6 +1,6 @@
 "use client"
 
-import { useT } from "@/components/language-context"
+import { useT } from "@/context/language-context"
 import { Calendar } from "lucide-react"
 
 // ================= ข้อมูลกำหนดการคัดเลือก =================

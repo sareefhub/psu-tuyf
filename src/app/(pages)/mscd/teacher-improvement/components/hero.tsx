@@ -1,6 +1,6 @@
 "use client"
 
-import { useT, useLanguage } from "@/components/language-context"
+import { useT, useLanguage } from "@/context/language-context"
 
 // คอมโพเนนต์แสดงแบนเนอร์ของโครงการพัฒนาครูคณิตศาสตร์ (Teacher Improvement)
 export function TeacherHero() {

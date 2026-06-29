@@ -1,7 +1,7 @@
 "use client"
 
 import { use } from "react"
-import { useT, useLanguage } from "@/components/language-context"
+import { useT, useLanguage } from "@/context/language-context"
 import { useRouter } from "next/navigation"
 import Image from "next/image"
 import Link from "next/link"
