@@ -159,7 +159,7 @@ export function TabNavigation({ tabs, activeTab, setActiveTab }: TabNavigationPr
                     role="tab"
                     aria-selected={isActive}
                     onClick={() => handleTabClick(tab.id)}
-                    className={`rounded-full px-3 py-1.5 sm:px-5 sm:py-2.5 text-[11px] sm:text-xs md:text-sm font-bold whitespace-nowrap transition-all duration-300 cursor-pointer ${
+                    className={`rounded-full px-3 py-1.5 sm:px-5 sm:py-2.5 text-xs sm:text-sm md:text-base font-bold whitespace-nowrap transition-all duration-300 cursor-pointer ${
                       isActive
                         ? "bg-primary text-primary-foreground shadow-md"
                         : "text-muted-foreground hover:text-primary"
