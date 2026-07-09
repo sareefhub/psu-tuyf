@@ -73,7 +73,7 @@ export function MscdOverview() {
           </h2>
 
           {/* คำอธิบายภาพรวมโครงการ */}
-          <p className="text-base leading-relaxed text-muted-foreground/90 text-pretty">
+          <p className="text-sm leading-relaxed text-muted-foreground/90 text-pretty">
             {t("programDetails.mscd.desc")}
           </p>
 
@@ -82,12 +82,12 @@ export function MscdOverview() {
             {subprojects.map((sub) => (
               <div key={sub.id} className="space-y-2">
                 {/* หัวข้อโครงการย่อย */}
-                <h3 className="text-base font-bold text-primary flex items-center gap-2">
+                <h3 className="text-sm font-bold text-primary flex items-center gap-2">
                   <span className="h-1.5 w-1.5 rounded-full bg-accent" />
                   {t(sub.titleKey)}
                 </h3>
                 {/* คำอธิบายโครงการย่อย */}
-                <p className="pl-3.5 text-base leading-relaxed text-muted-foreground/90 text-pretty">
+                <p className="pl-3.5 text-sm leading-relaxed text-muted-foreground/90 text-pretty">
                   {t(sub.descKey)}
                 </p>
               </div>

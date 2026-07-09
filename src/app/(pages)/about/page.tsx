@@ -70,7 +70,7 @@ export default function AboutFundPage() {
               <h2 className="text-2xl font-bold text-primary leading-snug">
                 {t("aboutFund.contentTitle")}
               </h2>
-              <p className="text-base leading-relaxed text-muted-foreground/90 text-pretty">
+              <p className="text-sm leading-relaxed text-muted-foreground/90 text-pretty">
                 {t("aboutFund.history.desc")}
               </p>
             </div>

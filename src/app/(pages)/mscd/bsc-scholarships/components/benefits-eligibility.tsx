@@ -35,7 +35,7 @@ export function EligibilitySection() {
           <h2 className="text-balance text-2xl font-bold tracking-tight text-primary sm:text-3xl">
             {t("bscScholarships.eligibility.title")}
           </h2>
-          <p className="text-base text-muted-foreground/80">
+          <p className="text-sm text-muted-foreground/80">
             {t("bscScholarships.eligibility.desc")}
           </p>
         </div>
@@ -55,14 +55,14 @@ export function EligibilitySection() {
                   <span className="h-6 w-6 rounded-full bg-accent/10 flex items-center justify-center text-xs font-bold text-accent shrink-0">
                     {index + 1}
                   </span>
-                  <p className="text-base text-foreground/90 leading-relaxed font-semibold">
+                  <p className="text-xs text-foreground/90 leading-relaxed font-semibold">
                     {t(`bscScholarships.eligibility.items.${item.key}`)}
                   </p>
                 </div>
                 {"hasSubItems" in item && item.hasSubItems && (
                   <ul className="pl-9 list-disc space-y-1.5 border-t border-border/40 pt-3 mt-1">
                     {(t("bscScholarships.eligibility.subItems1", { returnObjects: true }) as string[]).map((sub) => (
-                      <li key={sub} className="text-sm text-muted-foreground leading-relaxed">
+                      <li key={sub} className="text-[11px] text-muted-foreground leading-relaxed">
                         {sub}
                       </li>
                     ))}
@@ -89,13 +89,13 @@ export function ObligationsSection() {
           <h2 className="text-balance text-2xl font-bold tracking-tight text-primary sm:text-3xl">
             {t("bscScholarships.obligations.title")}
           </h2>
-          <p className="text-base text-muted-foreground/80">
+          <p className="text-sm text-muted-foreground/80">
             {t("bscScholarships.obligations.desc")}
           </p>
         </div>
 
         {/* คำชี้แจงเบื้องต้น */}
-        <p className="text-base text-muted-foreground leading-relaxed text-center px-4">
+        <p className="text-xs text-muted-foreground leading-relaxed text-center px-4">
           {t("bscScholarships.obligations.preamble")}
         </p>
 
@@ -110,7 +110,7 @@ export function ObligationsSection() {
                 <span className="h-6 w-6 rounded-full bg-accent/15 flex items-center justify-center text-xs font-bold text-accent shrink-0">
                   {index + 1}
                 </span>
-                <p className="text-base text-foreground/90 leading-relaxed font-semibold">
+                <p className="text-xs text-foreground/90 leading-relaxed font-semibold">
                   {t(`bscScholarships.obligations.items.${item.key}`)}
                 </p>
               </div>
@@ -119,7 +119,7 @@ export function ObligationsSection() {
                   {(t("bscScholarships.obligations.subItems2", { returnObjects: true }) as string[]).map((sub) => (
                     <li
                       key={sub}
-                      className="text-sm text-muted-foreground leading-relaxed font-semibold"
+                      className="text-[11px] text-muted-foreground leading-relaxed font-semibold"
                     >
                       {sub}
                     </li>
@@ -146,7 +146,7 @@ export function FundingSection() {
           <h2 className="text-balance text-2xl font-bold tracking-tight text-primary sm:text-3xl">
             {t("bscScholarships.funding.title")}
           </h2>
-          <p className="text-base text-muted-foreground/80">
+          <p className="text-sm text-muted-foreground/80">
             {t("bscScholarships.funding.desc")}
           </p>
         </div>
@@ -164,10 +164,10 @@ export function FundingSection() {
                 </div>
               </div>
               <div>
-                <h3 className="font-bold text-primary text-base mb-2">
+                <h3 className="font-bold text-primary text-sm mb-2">
                   {t(`bscScholarships.funding.items.${key}.title`)}
                 </h3>
-                <p className="text-base text-muted-foreground/90 leading-relaxed font-semibold">
+                <p className="text-xs text-muted-foreground/90 leading-relaxed font-semibold">
                   {t(`bscScholarships.funding.items.${key}.desc`)}
                 </p>
               </div>

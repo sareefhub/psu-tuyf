@@ -13,10 +13,10 @@ export function ProjectOverview() {
             <h2 className="text-2xl font-bold text-primary">
               {t("bscScholarships.overview.title")}
             </h2>
-            <p className="text-base leading-relaxed text-muted-foreground/90 text-pretty">
+            <p className="text-sm leading-relaxed text-muted-foreground/90 text-pretty">
               {t("bscScholarships.overview.desc1")}
             </p>
-            <p className="text-base leading-relaxed text-muted-foreground/90 text-pretty">
+            <p className="text-sm leading-relaxed text-muted-foreground/90 text-pretty">
               {t("bscScholarships.overview.desc2")}
             </p>
           </div>

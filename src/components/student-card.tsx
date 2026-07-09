@@ -78,20 +78,20 @@ export function StudentCard({
       {/* ส่วนรายละเอียดข้อมูลผู้ได้รับทุน */}
       <div className="p-5 flex-1 flex flex-col justify-between space-y-4 w-full">
         <div className="space-y-1.5">
-          <h4 className="font-bold text-primary text-base leading-snug group-hover:text-accent transition-colors duration-300">
+          <h4 className="font-bold text-primary text-sm leading-snug group-hover:text-accent transition-colors duration-300">
             {name}
           </h4>
-          <p className="text-sm text-muted-foreground/80 leading-relaxed">
+          <p className="text-xs text-muted-foreground/80 leading-relaxed">
             {role}
           </p>
-          <p className="text-xs font-semibold text-muted-foreground/75 flex items-center gap-1">
+          <p className="text-[10px] font-semibold text-muted-foreground/75 flex items-center gap-1">
             <GraduationCap className="h-3.5 w-3.5 text-accent" />
             {campus}
           </p>
         </div>
 
         {/* ปุ่มดูรายละเอียดเพิ่มเติมสไตล์ Link (ใช้ span เพื่อความถูกต้องทางโครงสร้าง HTML5 ป้องกัน nested button) */}
-        <span className="inline-flex items-center p-0 h-auto justify-start font-semibold text-sm text-primary hover:text-accent hover:no-underline mt-2">
+        <span className="inline-flex items-center p-0 h-auto justify-start font-semibold text-xs text-primary hover:text-accent hover:no-underline mt-2">
           {moreDetailText}
           <ArrowRight className="ml-1.5 h-3.5 w-3.5 transition-transform duration-300 group-hover:translate-x-1" />
         </span>

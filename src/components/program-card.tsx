@@ -60,7 +60,7 @@ export function ProgramCard({
         </h3>
 
         {/* ปุ่มแสดงสัญลักษณ์นำทางไปยังหน้าลิงก์ปลายทาง */}
-        <div className="inline-flex items-center text-base font-semibold text-primary group-hover:text-accent transition-colors">
+        <div className="inline-flex items-center text-sm font-semibold text-primary group-hover:text-accent transition-colors">
           {moreDetailText}
           <ArrowRight className="ml-1.5 h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
         </div>

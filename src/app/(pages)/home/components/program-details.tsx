@@ -54,7 +54,7 @@ export function ProgramDetails() {
                 <h3 className="text-balance text-xl font-bold leading-snug text-primary">
                   {t(d.titleKey)}
                 </h3>
-                <p className="text-pretty text-base leading-relaxed text-muted-foreground/85">
+                <p className="text-pretty text-sm leading-relaxed text-muted-foreground/85">
                   {t(d.descKey)}
                 </p>
                 <ul className="mt-2 space-y-3.5">
@@ -70,7 +70,7 @@ export function ProgramDetails() {
                         <span className="mt-0.5 flex h-5 w-5 flex-none items-center justify-center rounded-full bg-accent/15 text-accent">
                           <Check className="h-3 w-3" />
                         </span>
-                        <span className="text-base leading-relaxed text-foreground">{item}</span>
+                        <span className="text-sm leading-relaxed text-foreground">{item}</span>
                       </li>
                     ))
                   })()}

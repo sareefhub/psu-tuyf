@@ -67,7 +67,7 @@ export function SharedAnnouncements({
           <h2 className="text-balance text-2xl font-bold tracking-tight text-primary sm:text-3xl">
             {displayTitle}
           </h2>
-          <p className="text-base text-muted-foreground/80">
+          <p className="text-sm text-muted-foreground/80">
             {displaySubtitle}
           </p>
         </div>
@@ -87,12 +87,12 @@ export function SharedAnnouncements({
                     <h3 className="font-bold text-primary text-sm sm:text-base leading-snug group-hover:text-accent transition-colors">
                       {item.title}
                     </h3>
-                    <div className="flex flex-wrap items-center gap-x-4 gap-y-1 text-sm text-muted-foreground">
+                    <div className="flex flex-wrap items-center gap-x-4 gap-y-1 text-xs text-muted-foreground">
                       <span className="flex items-center gap-1">
                         <Calendar className="h-3.5 w-3.5" />
                         {item.date}
                       </span>
-                      <span className="bg-secondary px-2 py-0.5 rounded text-xs font-bold">
+                      <span className="bg-secondary px-2 py-0.5 rounded text-2xs font-bold">
                         PDF ({item.size})
                       </span>
                     </div>
@@ -102,7 +102,7 @@ export function SharedAnnouncements({
                 <div className="flex items-center gap-2 self-end sm:self-center shrink-0">
                   <button
                     onClick={() => handlePreview(item.title, item.fileUrl)}
-                    className="inline-flex items-center justify-center gap-1.5 rounded-full border border-border bg-background px-4 py-2 text-sm font-bold text-primary hover:bg-secondary transition-all shadow-xs cursor-pointer whitespace-nowrap"
+                    className="inline-flex items-center justify-center gap-1.5 rounded-full border border-border bg-background px-4 py-2 text-xs font-bold text-primary hover:bg-secondary transition-all shadow-xs cursor-pointer whitespace-nowrap"
                   >
                     <Eye className="h-3.5 w-3.5" />
                     {t("เปิดอ่าน", "Read")}
@@ -116,7 +116,7 @@ export function SharedAnnouncements({
                         handlePreview(item.title, item.fileUrl)
                       }
                     }}
-                    className="inline-flex items-center justify-center gap-1.5 rounded-full bg-primary text-primary-foreground px-4 py-2 text-sm font-bold hover:bg-primary/90 transition-all shadow-xs cursor-pointer whitespace-nowrap"
+                    className="inline-flex items-center justify-center gap-1.5 rounded-full bg-primary text-primary-foreground px-4 py-2 text-xs font-bold hover:bg-primary/90 transition-all shadow-xs cursor-pointer whitespace-nowrap"
                   >
                     <Download className="h-3.5 w-3.5" />
                     {t("ดาวน์โหลด", "Download")}

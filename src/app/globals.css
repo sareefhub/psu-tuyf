@@ -110,9 +110,8 @@
   --font-size-2xs: 0.625rem;   /* ประมาณ 10px (ใช้กับ text-2xs) */
   --font-size-xs: 0.75rem;     /* ประมาณ 12px (ใช้กับ text-xs)  */
   --font-size-sm: 1rem;         /* ประมาณ 16px (ใช้กับ text-sm)  */
-  --font-size-base: 1.2rem;    /* ประมาณ 19.2px (ใช้กับ text-base) */
-  --font-size-lg: 1.28rem;     /* ประมาณ 20.5px (ใช้กับ text-lg)  */
-  --font-size-xl: 1.35rem;     /* ประมาณ 21.6px (ใช้กับ text-xl)  */
+  --font-size-base: 1.125rem;  /* ประมาณ 18px (ใช้กับ text-base) */
+  --font-size-xl: 1.25rem;     /* ประมาณ 20px (ใช้กับ text-xl)  */
   --font-size-2xl: 1.5rem;     /* ประมาณ 24px (ใช้กับ text-2xl) */
   --font-size-3xl: 1.875rem;   /* ประมาณ 30px (ใช้กับ text-3xl) */
   --font-size-4xl: 2.25rem;    /* ประมาณ 36px (ใช้กับ text-4xl) */

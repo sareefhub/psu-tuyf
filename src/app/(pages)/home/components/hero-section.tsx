@@ -158,7 +158,7 @@ export function HeroSection() {
             The TUYF Charitable Trust Fund
           </p>
 
-          <p className="mt-6 max-w-2xl mx-auto text-pretty text-base font-medium leading-relaxed text-white/90 sm:text-lg drop-shadow-xs">
+          <p className="mt-6 max-w-2xl mx-auto text-pretty text-sm font-medium leading-relaxed text-white/90 sm:text-base drop-shadow-xs">
             {t("hero.desc_1")}
           </p>
 
