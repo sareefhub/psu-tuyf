@@ -1,6 +1,6 @@
 import { ReactNode } from "react"
 
-interface SharedSubHeroProps {
+interface SharedPageBannerProps {
   /** หัวข้อหลักประจำหน้าเพจโครงการ (Title) */
   readonly title: string | ReactNode
   /** หัวข้อย่อยภาษาอังกฤษที่จะนำมาแสดงในวงเล็บแถวที่สอง (English/Secondary Title) - ระบุหรือไม่ระบุก็ได้ */
@@ -10,10 +10,10 @@ interface SharedSubHeroProps {
 }
 
 /**
- * คอมโพเนนต์ตัวกลางสำหรับแบนเนอร์ส่วนหัวของหน้าเพจย่อยทั้งหมด (Global Sub-page Hero Banner)
+ * คอมโพเนนต์ตัวกลางสำหรับแบนเนอร์ส่วนหัวของหน้าเพจย่อยทั้งหมด (Global Sub-page Banner)
  * ปรับปรุงระบบแสงเบลอ สี และขนาดตัวอักษรให้อยู่ในจุดเดียวเพื่อความง่ายในการควบคุมระบบดีไซน์ทั้งเว็บไซต์
  */
-export function SharedSubHero({ title, englishTitle, description }: SharedSubHeroProps) {
+export function SharedPageBanner({ title, englishTitle, description }: SharedPageBannerProps) {
   return (
     <section className="bg-primary text-primary-foreground relative overflow-hidden py-16 lg:py-20 animate-fade-in">
       {/* เกรเดียนต์พื้นหลังคุมโทนพรีเมียมสีน้ำเงินเข้ม */}

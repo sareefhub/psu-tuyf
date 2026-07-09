@@ -1,7 +1,7 @@
 "use client"
 
 import { useT, useLanguage } from "@/context/language-context"
-import { SharedSubHero } from "@/components/shared-sub-hero"
+import { SharedPageBanner } from "@/components/shared-page-banner"
 
 // คอมโพเนนต์แสดงแบนเนอร์ของโครงการพัฒนาศักยภาพนักเรียน (Student Improvement)
 export function StudentHero() {
@@ -21,7 +21,7 @@ export function StudentHero() {
   }
 
   return (
-    <SharedSubHero
+    <SharedPageBanner
       title={title}
       englishTitle={subtitle}
       description={

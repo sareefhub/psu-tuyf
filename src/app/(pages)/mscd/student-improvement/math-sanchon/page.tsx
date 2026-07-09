@@ -5,13 +5,13 @@ import { useT } from "@/context/language-context"
 import { CarouselWrapper } from "@/components/carousel-wrapper"
 import { SharedOverview } from "@/components/shared-overview"
 
-import { SharedSubHero } from "@/components/shared-sub-hero"
+import { SharedPageBanner } from "@/components/shared-page-banner"
 
 // 1. ส่วนแบนเนอร์ Hero ด้านบนสุด เลียนแบบธีมแบบเดียวกับ Excellence Math Camp
 function SanchonHero() {
   const t = useT()
   return (
-    <SharedSubHero
+    <SharedPageBanner
       title={t("mathSanchon.hero.title")}
       description={t("mathSanchon.hero.subtitle")}
     />

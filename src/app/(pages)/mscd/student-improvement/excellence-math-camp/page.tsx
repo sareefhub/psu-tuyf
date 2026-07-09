@@ -5,13 +5,13 @@ import { useT } from "@/context/language-context"
 import { CarouselWrapper } from "@/components/carousel-wrapper"
 import { SharedOverview } from "@/components/shared-overview"
 
-import { SharedSubHero } from "@/components/shared-sub-hero"
+import { SharedPageBanner } from "@/components/shared-page-banner"
 
 // 1. ส่วนแบนเนอร์ Hero ด้านบนสุดเลียนแบบธีม bsc-scholarships
 function CampHero() {
   const t = useT()
   return (
-    <SharedSubHero
+    <SharedPageBanner
       title={t("excellenceMathCamp.hero.title")}
       description={t("excellenceMathCamp.hero.subtitle")}
     />
