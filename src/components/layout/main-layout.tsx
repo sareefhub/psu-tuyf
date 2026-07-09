@@ -1,7 +1,7 @@
 import React from "react"
-import { SiteHeader } from "@/components/site-header"
-import { SiteFooter } from "@/components/site-footer"
-import { ScrollToTop } from "@/components/scroll-to-top"
+import { SiteHeader } from "./site-header"
+import { SiteFooter } from "./site-footer"
+import { ScrollToTop } from "./scroll-to-top"
 
 interface MainLayoutProps {
   children: React.ReactNode
