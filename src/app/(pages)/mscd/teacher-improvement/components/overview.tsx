@@ -3,6 +3,7 @@
 import { useT } from "@/context/language-context"
 import { ProgramCard } from "@/components/program-card"
 import { CarouselWrapper } from "@/components/carousel-wrapper"
+import { SharedOverview } from "@/components/shared-overview"
 
 // คอมโพเนนต์แสดงข้อมูลภาพรวมโครงการพัฒนาครูคณิตศาสตร์
 export function TeacherOverview() {
@@ -12,16 +13,11 @@ export function TeacherOverview() {
     <section className="py-16 bg-background animate-fade-in">
       <div className="mx-auto max-w-7xl px-6 space-y-12">
         {/* ===== ส่วนที่ 1: เนื้อหาข้อความอธิบายโครงการ ===== */}
-        <div className="space-y-6">
-          <div className="space-y-4">
-            <h2 className="text-2xl font-bold text-primary">
-              {t("teacherImprovement.overview.title")}
-            </h2>
-            <p className="text-base leading-relaxed text-muted-foreground/90 text-pretty">
-              {t("teacherImprovement.overview.desc1")}
-            </p>
-          </div>
-        </div>
+        <SharedOverview
+          translationKey="teacherImprovement"
+          descKeys={["desc1"]}
+          noSectionWrapper={true}
+        />
 
         {/* ===== เส้นคั่นเลียนแบบจากรูปแบบของหน้าหลัก /mscd เพื่อความสม่ำเสมอของ UI ===== */}
         <hr className="border-border/60" />

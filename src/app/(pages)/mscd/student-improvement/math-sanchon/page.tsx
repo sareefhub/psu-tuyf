@@ -3,6 +3,7 @@
 import { ProgramCard } from "@/components/program-card"
 import { useT } from "@/context/language-context"
 import { CarouselWrapper } from "@/components/carousel-wrapper"
+import { SharedOverview } from "@/components/shared-overview"
 
 import { SharedSubHero } from "@/components/shared-sub-hero"
 
@@ -22,44 +23,35 @@ function SanchonOverview() {
   const t = useT()
   return (
     <section className="py-16 bg-background animate-fade-in">
-      <div className="mx-auto max-w-7xl px-6">
-        <h2 className="text-2xl font-bold text-primary mb-6">
-          {t("mathSanchon.overview.title")}
-        </h2>
-        <div className="space-y-6 text-base leading-relaxed text-muted-foreground/90 text-pretty">
-          <p>
-            {t("mathSanchon.overview.desc1")}
-          </p>
-          <p>
-            {t("mathSanchon.overview.desc2")}
-          </p>
-          <p>
-            {t("mathSanchon.overview.desc3")}
-          </p>
-          
-          <div className="space-y-3 pt-4 border-t border-muted/30">
-            <h3 className="text-lg font-bold text-primary">
-              {t("mathSanchon.overview.objectivesTitle")}
-            </h3>
-            <div className="space-y-4 border-l border-border/80 pl-6 mt-3">
-              <div className="space-y-1">
-                <h4 className="text-base font-bold text-primary flex items-start gap-2 leading-relaxed text-pretty">
-                  <span className="h-1.5 w-1.5 rounded-full bg-accent mt-1.5 shrink-0" />
-                  <span>1. {t("mathSanchon.overview.obj1")}</span>
-                </h4>
-              </div>
-              <div className="space-y-1">
-                <h4 className="text-base font-bold text-primary flex items-start gap-2 leading-relaxed text-pretty">
-                  <span className="h-1.5 w-1.5 rounded-full bg-accent mt-1.5 shrink-0" />
-                  <span>2. {t("mathSanchon.overview.obj2")}</span>
-                </h4>
-              </div>
-              <div className="space-y-1">
-                <h4 className="text-base font-bold text-primary flex items-start gap-2 leading-relaxed text-pretty">
-                  <span className="h-1.5 w-1.5 rounded-full bg-accent mt-1.5 shrink-0" />
-                  <span>3. {t("mathSanchon.overview.obj3")}</span>
-                </h4>
-              </div>
+      <div className="mx-auto max-w-7xl px-6 space-y-6">
+        <SharedOverview
+          translationKey="mathSanchon"
+          noSectionWrapper={true}
+          className="space-y-4"
+        />
+        
+        <div className="space-y-3 pt-4 border-t border-muted/30">
+          <h3 className="text-lg font-bold text-primary">
+            {t("mathSanchon.overview.objectivesTitle")}
+          </h3>
+          <div className="space-y-4 border-l border-border/80 pl-6 mt-3">
+            <div className="space-y-1">
+              <h4 className="text-base font-bold text-primary flex items-start gap-2 leading-relaxed text-pretty">
+                <span className="h-1.5 w-1.5 rounded-full bg-accent mt-1.5 shrink-0" />
+                <span>1. {t("mathSanchon.overview.obj1")}</span>
+              </h4>
+            </div>
+            <div className="space-y-1">
+              <h4 className="text-base font-bold text-primary flex items-start gap-2 leading-relaxed text-pretty">
+                <span className="h-1.5 w-1.5 rounded-full bg-accent mt-1.5 shrink-0" />
+                <span>2. {t("mathSanchon.overview.obj2")}</span>
+              </h4>
+            </div>
+            <div className="space-y-1">
+              <h4 className="text-base font-bold text-primary flex items-start gap-2 leading-relaxed text-pretty">
+                <span className="h-1.5 w-1.5 rounded-full bg-accent mt-1.5 shrink-0" />
+                <span>3. {t("mathSanchon.overview.obj3")}</span>
+              </h4>
             </div>
           </div>
         </div>

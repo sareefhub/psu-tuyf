@@ -3,6 +3,7 @@
 import { useT } from "@/context/language-context"
 import { ProgramCard } from "@/components/program-card"
 import { CarouselWrapper } from "@/components/carousel-wrapper"
+import { SharedOverview } from "@/components/shared-overview"
 
 // คอมโพเนนต์แสดงข้อมูลภาพรวมโครงการพัฒนาศักยภาพนักเรียน
 export function StudentOverview() {
@@ -12,22 +13,10 @@ export function StudentOverview() {
     <section className="py-16 bg-background animate-fade-in">
       <div className="mx-auto max-w-7xl px-6 space-y-12">
         {/* ===== ส่วนที่ 1: เนื้อหาข้อความอธิบายโครงการ ===== */}
-        <div className="space-y-6">
-          <div className="space-y-4">
-            <h2 className="text-2xl font-bold text-primary">
-              {t("studentImprovement.overview.title")}
-            </h2>
-            <p className="text-base leading-relaxed text-muted-foreground/90 text-pretty">
-              {t("studentImprovement.overview.desc1")}
-            </p>
-            <p className="text-base leading-relaxed text-muted-foreground/90 text-pretty">
-              {t("studentImprovement.overview.desc2")}
-            </p>
-            <p className="text-base leading-relaxed text-muted-foreground/90 text-pretty">
-              {t("studentImprovement.overview.desc3")}
-            </p>
-          </div>
-        </div>
+        <SharedOverview
+          translationKey="studentImprovement"
+          noSectionWrapper={true}
+        />
 
         {/* ===== เส้นคั่นเลียนแบบจากรูปแบบของหน้าหลัก /mscd เพื่อความสม่ำเสมอของ UI ===== */}
         <hr className="border-border/60" />

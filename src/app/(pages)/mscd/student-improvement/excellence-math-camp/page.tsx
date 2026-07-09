@@ -3,6 +3,7 @@
 import { ProgramCard } from "@/components/program-card"
 import { useT } from "@/context/language-context"
 import { CarouselWrapper } from "@/components/carousel-wrapper"
+import { SharedOverview } from "@/components/shared-overview"
 
 import { SharedSubHero } from "@/components/shared-sub-hero"
 
@@ -19,23 +20,11 @@ function CampHero() {
 
 // 2. ส่วนข้อมูลภาพรวมโครงการเบื้องต้น
 function CampOverview() {
-  const t = useT()
   return (
-    <section className="py-16 bg-background animate-fade-in">
-      <div className="mx-auto max-w-7xl px-6">
-        <h2 className="text-2xl font-bold text-primary mb-6">
-          {t("excellenceMathCamp.overview.title")}
-        </h2>
-        <div className="space-y-4 text-base leading-relaxed text-muted-foreground/90 text-pretty">
-          <p>
-            {t("excellenceMathCamp.overview.desc1")}
-          </p>
-          <p>
-            {t("excellenceMathCamp.overview.desc2")}
-          </p>
-        </div>
-      </div>
-    </section>
+    <SharedOverview
+      translationKey="excellenceMathCamp"
+      descKeys={["desc1", "desc2"]}
+    />
   )
 }
 
