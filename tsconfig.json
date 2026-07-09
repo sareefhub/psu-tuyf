@@ -25,6 +25,15 @@
     "paths": {
       "@/*": [
         "./src/*"
+      ],
+      "@/components/*": [
+        "./src/components/*",
+        "./src/components/layout/*",
+        "./src/components/shared/*",
+        "./src/components/cards/*",
+        "./src/components/navigation/*",
+        "./src/components/common/*",
+        "./src/components/templates/*"
       ]
     }
   },

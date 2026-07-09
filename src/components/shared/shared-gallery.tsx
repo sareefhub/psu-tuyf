@@ -4,8 +4,8 @@ import { useState, useEffect } from "react"
 import { useT } from "@/context/language-context"
 import Image from "next/image"
 import { useCloudinaryGallery } from "@/hooks/use-cloudinary-gallery"
-import { GalleryFilterTabs } from "./gallery-filter-tabs"
-import { GalleryPagination } from "./gallery-pagination"
+import { GalleryFilterTabs } from "@/components/gallery-filter-tabs"
+import { GalleryPagination } from "@/components/gallery-pagination"
 
 export type { GalleryItem } from "@/hooks/use-cloudinary-gallery"
 

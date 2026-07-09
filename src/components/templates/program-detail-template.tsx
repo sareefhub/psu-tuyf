@@ -4,13 +4,13 @@ import { useState, type ReactNode } from "react"
 import { useT } from "@/context/language-context"
 import { TabNavigation } from "@/components/tab-navigation"
 
-import { SharedHero } from "./shared-hero"
-import { SharedOverview } from "./shared-overview"
-import { SharedObjectives } from "./shared-objectives"
-import { SharedAnnouncements } from "./shared-announcements"
-import { SharedGallery } from "./shared-gallery"
-import type { SharedAnnouncementItem } from "./shared-announcements"
-import type { SharedGalleryProps } from "./shared-gallery"
+import { SharedHero } from "@/components/shared-hero"
+import { SharedOverview } from "@/components/shared-overview"
+import { SharedObjectives } from "@/components/shared-objectives"
+import { SharedAnnouncements } from "@/components/shared-announcements"
+import { SharedGallery } from "@/components/shared-gallery"
+import type { SharedAnnouncementItem } from "@/components/shared-announcements"
+import type { SharedGalleryProps } from "@/components/shared-gallery"
 
 // Re-export components and types to keep the API backward-compatible (Zero Breaking Changes)
 export {
