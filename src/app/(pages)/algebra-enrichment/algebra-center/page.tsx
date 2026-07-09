@@ -60,7 +60,7 @@ export default function AlgebraCenterPage() {
             <h2 className="text-2xl font-bold text-primary leading-snug">
               {t("algebraCenter.overview.title")}
             </h2>
-            <p className="text-sm leading-relaxed text-muted-foreground/90 text-pretty">
+            <p className="text-base leading-relaxed text-muted-foreground/90 text-pretty">
               {t("algebraCenter.overview.desc")}
             </p>
           </div>
