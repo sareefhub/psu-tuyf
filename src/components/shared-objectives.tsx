@@ -1,6 +1,5 @@
-"use client"
-
 import { useT } from "@/context/language-context"
+import { SharedNumberedGrid } from "./shared-numbered-grid"
 
 export function SharedObjectives({
   translationKey,
@@ -12,6 +11,12 @@ export function SharedObjectives({
   const title = t(`${translationKey}.objectivesTitle`)
 
   if (!objectives || !Array.isArray(objectives)) return null
+
+  // แปลง Array ของสตริงให้อยู่ในรูปแบบที่ SharedNumberedGrid รองรับ
+  const items = objectives.map((text, idx) => ({
+    key: String(idx),
+    text: text,
+  }))
 
   return (
     <section className="py-10 bg-background animate-fade-in">
@@ -25,23 +30,11 @@ export function SharedObjectives({
           </p>
         </div>
 
-        <div className="grid gap-6 md:grid-cols-2">
-          {objectives.map((obj, index) => (
-            <div
-              key={obj}
-              className="bg-card border border-border/50 rounded-2xl p-6 shadow-xs space-y-3 hover:border-accent/30 transition-all duration-300"
-            >
-              <div className="flex gap-4 items-start">
-                <span className="h-7 w-7 rounded-xl bg-accent/10 flex items-center justify-center text-xs font-bold text-accent shrink-0">
-                  {index + 1}
-                </span>
-                <p className="text-xs text-foreground/90 leading-relaxed font-semibold">
-                  {obj}
-                </p>
-              </div>
-            </div>
-          ))}
-        </div>
+        {/* เรียกใช้งาน SharedNumberedGrid ตัวกลางเพื่อแชร์ UX/UI ของระบบการ์ดตัวเลขเดียวกันทั้งหมด */}
+        <SharedNumberedGrid
+          items={items}
+          translationKey={translationKey}
+        />
       </div>
     </section>
   )
