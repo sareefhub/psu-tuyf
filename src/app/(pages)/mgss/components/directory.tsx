@@ -57,7 +57,7 @@ export function RecipientsDirectory() {
           <h2 className="text-balance text-2xl font-bold tracking-tight text-primary sm:text-3xl">
             {lang === "en" ? "Active Scholarship Recipients" : "จำนวนนักเรียนที่ได้รับทุน"}
           </h2>
-          <p className="text-sm text-muted-foreground/80">
+          <p className="text-base text-muted-foreground/80">
             {lang === "en"
               ? "List of graduate students currently studying and receiving scholarships under the MGSS project"
               : "รายชื่อของนักศึกษาระดับบัณฑิตศึกษาที่กำลังศึกษาและได้รับทุนการศึกษาโครงการ MGSS ในปัจจุบัน"}
@@ -95,7 +95,7 @@ export function GraduatedDirectory() {
           <h2 className="text-balance text-2xl font-bold tracking-tight text-primary sm:text-3xl">
             {lang === "en" ? "Graduated Scholarship Recipients" : "จำนวนนักเรียนทุนที่สำเร็จการศึกษา"}
           </h2>
-          <p className="text-sm text-muted-foreground/80">
+          <p className="text-base text-muted-foreground/80">
             {lang === "en"
               ? "List of graduate scholarship recipients who have successfully completed their degrees under the MGSS project"
               : "รายชื่อของนักศึกษาทุนโครงการ MGSS ที่ประสบความสำเร็จในการสำเร็จการศึกษาระดับบัณฑิตศึกษา"}

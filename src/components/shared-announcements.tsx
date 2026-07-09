@@ -67,7 +67,7 @@ export function SharedAnnouncements({
           <h2 className="text-balance text-2xl font-bold tracking-tight text-primary sm:text-3xl">
             {displayTitle}
           </h2>
-          <p className="text-sm text-muted-foreground/80">
+          <p className="text-base text-muted-foreground/80">
             {displaySubtitle}
           </p>
         </div>
