@@ -56,7 +56,7 @@ export function FundObjectives() {
               <span className="h-6 w-6 rounded-full bg-accent/10 flex items-center justify-center text-xs font-bold text-accent shrink-0">
                 {index + 1}
               </span>
-              <p className="text-sm text-foreground/90 leading-relaxed font-semibold">
+              <p className="text-base text-foreground/90 leading-relaxed font-normal">
                 {item}
               </p>
             </div>
