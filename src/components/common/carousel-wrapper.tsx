@@ -7,14 +7,17 @@ interface CarouselWrapperProps {
   desktopCols?: 2 | 3 | 4
   gapClassName?: string // กำหนดคลาสระบบช่องว่างแบบระบุคำนำหน้าของ Tailwind โดยตรง (ค่าเริ่มต้น md:gap-8)
   containerClassName?: string // คลาสเพิ่มเติมสำหรับคอนเทนเนอร์หลัก
+  /** รูปแบบเลย์เอาต์การแสดงผลบนเดสก์ท็อป: 'grid' (ตารางคอลัมน์) หรือ 'list' (เรียงแถวแนวตั้งยาวลงมาทีละชิ้น) */
+  desktopLayout?: "grid" | "list"
 }
 
-// คอมโพเนนต์สำหรับแสดงผลเป็น Grid บนเดสก์ท็อป และ Carousel สไลด์บนมือถือ
+// คอมโพเนนต์สำหรับแสดงผลเป็น Grid/List บนเดสก์ท็อป และ Carousel สไลด์บนมือถือ
 export function CarouselWrapper({
   children,
   desktopCols = 3,
   gapClassName = "md:gap-8",
   containerClassName = "",
+  desktopLayout = "grid",
 }: Readonly<CarouselWrapperProps>) {
   const [activeCardIndex, setActiveCardIndex] = useState(0)
   const scrollRef = useRef<HTMLDivElement>(null)
@@ -71,13 +74,18 @@ export function CarouselWrapper({
     4: "sm:grid-cols-2 lg:grid-cols-4",
   }[desktopCols] || "md:grid-cols-3"
 
+  const isList = desktopLayout === "list"
+  const desktopLayoutClass = isList 
+    ? "md:flex md:flex-col md:gap-6" 
+    : `md:grid ${gridColsClass} ${gapClassName}`
+
   return (
     <div className={`w-full ${containerClassName}`}>
-      {/* ส่วนตารางแสดงการ์ด (บนมือถือจะเป็นสไลด์แนวนอน, เดสก์ท็อปแสดงแบบ Grid) */}
+      {/* ส่วนตารางแสดงการ์ด (บนมือถือจะเป็นสไลด์แนวนอน, เดสก์ท็อปแสดงแบบ Grid หรือ List) */}
       <div
         ref={scrollRef}
         onScroll={handleScroll}
-        className={`flex overflow-x-auto pb-6 scrollbar-none snap-x snap-mandatory -mx-6 md:mx-0 md:grid ${gridColsClass} ${gapClassName} md:overflow-x-visible md:pb-0`}
+        className={`flex overflow-x-auto pb-6 scrollbar-none snap-x snap-mandatory -mx-6 md:mx-0 ${desktopLayoutClass} md:overflow-x-visible md:pb-0`}
       >
         {validChildren.map((child, idx) => (
           <div
