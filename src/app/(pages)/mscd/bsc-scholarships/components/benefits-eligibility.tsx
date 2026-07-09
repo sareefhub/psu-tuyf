@@ -33,7 +33,7 @@ export function EligibilitySection() {
   // แปลงคีย์ข้อมูลให้ตรงตามโครงสร้างที่ SharedNumberedGrid รองรับ
   const items = eligibilityKeys.map((item) => ({
     key: item.key,
-    className: item.className,
+    className: "className" in item ? item.className : undefined,
     hasSubItems: "hasSubItems" in item ? item.hasSubItems : false,
   }))
 
