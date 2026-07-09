@@ -53,7 +53,7 @@ export function RecipientsDirectory() {
     <section className="py-10 bg-background animate-fade-in">
       <div className="mx-auto max-w-7xl px-6 space-y-12">
         {/* หัวข้อแสดงข้อมูลหลัก */}
-        <div className="text-center max-w-2xl mx-auto mb-12 space-y-3">
+        <div className="text-center mx-auto mb-12 space-y-3">
           <h2 className="text-balance text-2xl font-bold tracking-tight text-primary sm:text-3xl">
             {lang === "en" ? "Active Scholarship Recipients" : "จำนวนนักเรียนที่ได้รับทุน"}
           </h2>
@@ -91,7 +91,7 @@ export function GraduatedDirectory() {
     <section className="py-10 bg-background animate-fade-in">
       <div className="mx-auto max-w-7xl px-6 space-y-12">
         {/* หัวข้อแสดงข้อมูลหลัก */}
-        <div className="text-center max-w-2xl mx-auto mb-12 space-y-3">
+        <div className="text-center mx-auto mb-12 space-y-3">
           <h2 className="text-balance text-2xl font-bold tracking-tight text-primary sm:text-3xl">
             {lang === "en" ? "Graduated Scholarship Recipients" : "จำนวนนักเรียนทุนที่สำเร็จการศึกษา"}
           </h2>

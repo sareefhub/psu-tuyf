@@ -63,7 +63,7 @@ export function SharedAnnouncements({
   return (
     <section className="py-10 bg-background">
       <div className="mx-auto max-w-7xl px-6">
-        <div className="text-center max-w-2xl mx-auto mb-12 space-y-3">
+        <div className="text-center mx-auto mb-12 space-y-3">
           <h2 className="text-balance text-2xl font-bold tracking-tight text-primary sm:text-3xl">
             {displayTitle}
           </h2>

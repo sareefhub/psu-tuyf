@@ -31,7 +31,7 @@ export function EligibilitySection() {
     <section className="py-10 bg-background">
       <div className="mx-auto max-w-7xl px-6">
         {/* หัวข้อสไตล์หน้าแรก */}
-        <div className="text-center max-w-2xl mx-auto mb-16 space-y-3">
+        <div className="text-center mx-auto mb-16 space-y-3">
           <h2 className="text-balance text-2xl font-bold tracking-tight text-primary sm:text-3xl">
             {t("bscScholarships.eligibility.title")}
           </h2>
@@ -142,7 +142,7 @@ export function FundingSection() {
     <section className="py-10 bg-background">
       <div className="mx-auto max-w-7xl px-6">
         {/* หัวข้อสไตล์หน้าแรก */}
-        <div className="text-center max-w-2xl mx-auto mb-16 space-y-3">
+        <div className="text-center mx-auto mb-16 space-y-3">
           <h2 className="text-balance text-2xl font-bold tracking-tight text-primary sm:text-3xl">
             {t("bscScholarships.funding.title")}
           </h2>
