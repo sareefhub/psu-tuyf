@@ -32,7 +32,7 @@ function SanchonOverview() {
         <h2 className="text-2xl font-bold text-primary mb-6">
           {t("mathSanchon.overview.title")}
         </h2>
-        <div className="space-y-6 text-sm leading-relaxed text-muted-foreground/90 text-pretty">
+        <div className="space-y-6 text-base leading-relaxed text-muted-foreground/90 text-pretty">
           <p>
             {t("mathSanchon.overview.desc1")}
           </p>
@@ -49,19 +49,19 @@ function SanchonOverview() {
             </h3>
             <div className="space-y-4 border-l border-border/80 pl-6 mt-3">
               <div className="space-y-1">
-                <h4 className="text-sm font-bold text-primary flex items-start gap-2 leading-relaxed text-pretty">
+                <h4 className="text-base font-bold text-primary flex items-start gap-2 leading-relaxed text-pretty">
                   <span className="h-1.5 w-1.5 rounded-full bg-accent mt-1.5 shrink-0" />
                   <span>1. {t("mathSanchon.overview.obj1")}</span>
                 </h4>
               </div>
               <div className="space-y-1">
-                <h4 className="text-sm font-bold text-primary flex items-start gap-2 leading-relaxed text-pretty">
+                <h4 className="text-base font-bold text-primary flex items-start gap-2 leading-relaxed text-pretty">
                   <span className="h-1.5 w-1.5 rounded-full bg-accent mt-1.5 shrink-0" />
                   <span>2. {t("mathSanchon.overview.obj2")}</span>
                 </h4>
               </div>
               <div className="space-y-1">
-                <h4 className="text-sm font-bold text-primary flex items-start gap-2 leading-relaxed text-pretty">
+                <h4 className="text-base font-bold text-primary flex items-start gap-2 leading-relaxed text-pretty">
                   <span className="h-1.5 w-1.5 rounded-full bg-accent mt-1.5 shrink-0" />
                   <span>3. {t("mathSanchon.overview.obj3")}</span>
                 </h4>

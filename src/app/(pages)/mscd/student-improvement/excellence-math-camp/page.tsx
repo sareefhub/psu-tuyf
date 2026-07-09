@@ -32,7 +32,7 @@ function CampOverview() {
         <h2 className="text-2xl font-bold text-primary mb-6">
           {t("excellenceMathCamp.overview.title")}
         </h2>
-        <div className="space-y-4 text-sm leading-relaxed text-muted-foreground/90 text-pretty">
+        <div className="space-y-4 text-base leading-relaxed text-muted-foreground/90 text-pretty">
           <p>
             {t("excellenceMathCamp.overview.desc1")}
           </p>
