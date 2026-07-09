@@ -69,7 +69,7 @@ export function ProjectCard({
 
         {/* ข้อความอธิบายรายละเอียดเพิ่มเติม (แสดงผลเมื่อมีข้อมูล) */}
         {description && (
-          <p className="mt-3 flex-1 text-sm leading-relaxed text-muted-foreground/75">
+          <p className="mt-3 flex-1 text-base leading-relaxed text-muted-foreground/75">
             {description}
           </p>
         )}

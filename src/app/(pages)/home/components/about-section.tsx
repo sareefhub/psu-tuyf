@@ -97,7 +97,7 @@ export function AboutSection() {
                 {stat.value}
               </div>
               {/* ฝั่งขวา: ข้อความอธิบายตัวอักษรเล็กชิดซ้าย (นำมาไว้เคียงข้างตัวเลขในแนวราบ) */}
-              <div className="text-left text-xs font-semibold text-muted-foreground leading-tight max-w-35">
+              <div className="text-left text-base font-semibold text-muted-foreground leading-tight max-w-35">
                 {stat.label}
               </div>
             </div>
