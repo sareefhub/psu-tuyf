@@ -52,7 +52,7 @@ export default function ContactPage() {
               </div>
 
               {/* ข้อมูลเนื้อหาที่อยู่แสดงจัดกึ่งกลางเลเยอร์ */}
-              <div className="text-base text-muted-foreground leading-relaxed font-semibold space-y-1">
+              <div className="text-xs text-muted-foreground leading-relaxed font-semibold space-y-1">
                 <p>{t("contactPage.address.room")}</p>
                 <p>{t("contactPage.address.dept")}</p>
                 <p>{t("contactPage.address.faculty")}</p>
@@ -76,7 +76,7 @@ export default function ContactPage() {
               <div className="flex items-center justify-center min-h-16">
                 <a
                   href={`mailto:${t("contactPage.email.value")}`}
-                  className="text-base font-bold text-primary hover:text-accent transition-colors duration-300 break-all"
+                  className="text-sm font-bold text-primary hover:text-accent transition-colors duration-300 break-all"
                 >
                   {t("contactPage.email.value")}
                 </a>
