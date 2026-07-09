@@ -3,6 +3,7 @@
 import { useLanguage, useT } from "@/context/language-context"
 import { ProgramCard } from "@/components/program-card"
 import { CarouselWrapper } from "@/components/carousel-wrapper"
+import { SharedOverview } from "@/components/shared-overview"
 
 // คอมโพเนนต์แสดงรายละเอียดและข้อมูลภาพรวมโครงการสนับสนุนนักศึกษาระดับบัณฑิตศึกษา (MGSS)
 // ปรับปรุงสไตล์และเลย์เอาต์การแสดงผล (หัวข้อใหญ่, ย่อหน้า, ลิสต์รายการย่อย) ให้สอดคล้องกับหน้า MSCD ตามภาพตัวอย่างของผู้ใช้
@@ -45,20 +46,12 @@ export function MgssOverview() {
         {/* ===== ส่วนที่ 1: รายละเอียดข้อความวัตถุประสงค์โครงการและหลักสูตร (ดีไซน์สไตล์เดียวกับหน้า MSCD) ===== */}
         <div className="space-y-6">
 
-          {/* หัวข้อแสดงข้อมูลโครงการระดับล่าง (ประกอบด้วยคำว่า "เกี่ยวกับ" เสมอ) */}
-          <h2 className="text-2xl font-bold text-primary leading-snug">
-            {t("programDetails.mgss.title")}
-          </h2>
-
-          {/* ข้อความอธิบายวัตถุประสงค์หลักของโครงการ */}
-          <p className="text-base leading-relaxed text-muted-foreground/90 text-pretty">
-            {t("programDetails.mgss.desc")}
-          </p>
-
-          {/* รายละเอียดสถิตินักศึกษาทุนและการเกริ่นนำหลักสูตร */}
-          <p className="text-base leading-relaxed text-muted-foreground/90 text-pretty">
-            {t("programDetails.mgss.stats_desc")}
-          </p>
+          {/* หัวข้อหลักและคำอธิบายวัตถุประสงค์หลักของโครงการ MGSS */}
+          <SharedOverview
+            translationKey="programDetails.mgss"
+            descKeys={["desc", "stats_desc"]}
+            noSectionWrapper={true}
+          />
 
           {/* แสดงรายชื่อหลักสูตร 3 หลักสูตร พร้อมสัญลักษณ์จุดกลมและหมายเลขข้อนำหน้า */}
           <div className="space-y-6 border-l border-border/80 pl-6 mt-6">

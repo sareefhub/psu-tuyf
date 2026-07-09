@@ -3,6 +3,7 @@
 import { useT } from "@/context/language-context"
 import { ProgramCard } from "@/components/program-card"
 import { CarouselWrapper } from "@/components/carousel-wrapper"
+import { SharedOverview } from "@/components/shared-overview"
 
 // คอมโพเนนต์แสดงภาพรวมและวัตถุประสงค์หลักของโครงการ MSCD
 // — ส่วนบน: การ์ด 3 ใบ + ปุ่มดูรายละเอียด
@@ -68,14 +69,11 @@ export function MscdOverview() {
         <div className="space-y-6">
 
           {/* หัวข้อหลักของโครงการ MSCD */}
-          <h2 className="text-2xl font-bold text-primary leading-snug">
-            {t("programDetails.mscd.title")}
-          </h2>
-
-          {/* คำอธิบายภาพรวมโครงการ */}
-          <p className="text-base leading-relaxed text-muted-foreground/90 text-pretty">
-            {t("programDetails.mscd.desc")}
-          </p>
+          <SharedOverview
+            translationKey="programDetails.mscd"
+            descKeys={["desc"]}
+            noSectionWrapper={true}
+          />
 
           {/* รายละเอียดโครงการย่อยทั้ง 3 ข้อ */}
           <div className="space-y-6 border-l border-border/80 pl-6 mt-6">
