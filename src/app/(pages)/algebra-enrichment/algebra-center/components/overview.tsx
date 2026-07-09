@@ -1,6 +1,7 @@
 import { useT } from "@/context/language-context"
 import { Users } from "lucide-react"
 import { SharedNumberedGrid } from "@/components/shared-numbered-grid"
+import { SharedIconGrid } from "@/components/shared-icon-grid"
 
 // ================= 1. วัตถุประสงค์ (Objectives) =================
 export function CenterObjectives() {
@@ -79,6 +80,13 @@ export function CenterPersonnel() {
     desc: string
   }>
 
+  // แปลงรายละเอียดบุคลากรให้อยู่ในโครงสร้างที่ SharedIconGrid รองรับ
+  const items = personnel.map((item, idx) => ({
+    key: String(idx),
+    title: item.role,
+    desc: item.desc,
+  }))
+
   return (
     <section className="py-10 bg-background animate-fade-in">
       <div className="mx-auto max-w-7xl px-6">
@@ -92,30 +100,11 @@ export function CenterPersonnel() {
           </p>
         </div>
 
-        {/* เลย์เอาต์การแสดงผลข้อมูลบุคลากรแบบการ์ด 4 คอลัมน์ */}
-        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-          {personnel.map((item) => (
-            <div
-              key={item.role}
-              className="bg-card border border-border/50 rounded-2xl p-6 text-center shadow-sm flex flex-col justify-between hover:border-accent/30 transition-all"
-            >
-              {/* ไอคอนกลมกึ่งกลางการ์ด */}
-              <div className="flex justify-center mb-4">
-                <div className="h-10 w-10 rounded-full bg-accent/10 flex items-center justify-center text-accent">
-                  <Users className="h-5 w-5" />
-                </div>
-              </div>
-              <div>
-                <h3 className="font-bold text-primary text-sm mb-2">
-                  {item.role}
-                </h3>
-                <p className="text-xs text-muted-foreground/90 leading-relaxed font-semibold">
-                  {item.desc}
-                </p>
-              </div>
-            </div>
-          ))}
-        </div>
+        {/* เลย์เอาต์การแสดงผลข้อมูลบุคลากรแบบการ์ด 4 คอลัมน์โดยใช้ตัวกลาง */}
+        <SharedIconGrid
+          items={items}
+          icon={<Users className="h-5 w-5" />}
+        />
       </div>
     </section>
   )

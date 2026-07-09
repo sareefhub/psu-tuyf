@@ -1,6 +1,7 @@
 import { useT } from "@/context/language-context"
 import { Award } from "lucide-react"
 import { SharedNumberedGrid } from "@/components/shared-numbered-grid"
+import { SharedIconGrid } from "@/components/shared-icon-grid"
 
 // ================= 1. วัตถุประสงค์ (Objectives) =================
 export function ScholarshipObjectives() {
@@ -72,7 +73,7 @@ export function ScholarshipEligibility() {
   )
 }
 
-// ================= 3. รายละเอียดทุนการศึกษา (Details) =================
+// ================= 3. อัตราค่าใช้จ่ายสนับสนุนทุนการศึกษา (Funding Rates) =================
 export function ScholarshipDetails() {
   const t = useT()
   const details = t("algebraScholarships.overview.details.items", { returnObjects: true }) as Array<{
@@ -80,8 +81,15 @@ export function ScholarshipDetails() {
     desc: string
   }>
 
+  // แปลงรายละเอียดทุนให้อยู่ในโครงสร้างที่ SharedIconGrid รองรับ
+  const fundingItems = details.map((item, idx) => ({
+    key: String(idx),
+    title: item.title,
+    desc: item.desc,
+  }))
+
   return (
-    <section className="py-10 bg-background animate-fade-in">
+    <section className="py-10 bg-background">
       <div className="mx-auto max-w-7xl px-6">
         {/* หัวข้อสไตล์สากล */}
         <div className="text-center max-w-2xl mx-auto mb-16 space-y-3">
@@ -93,30 +101,12 @@ export function ScholarshipDetails() {
           </p>
         </div>
 
-        {/* เลย์เอาต์รายละเอียดทุนในลักษณะการ์ดแบบ Funding Rates */}
-        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-5">
-          {details.map((item) => (
-            <div
-              key={item.title}
-              className="bg-card border border-border/50 rounded-2xl p-6 text-center shadow-sm flex flex-col justify-between hover:border-accent/30 transition-all"
-            >
-              {/* ไอคอนกลมกึ่งกลางการ์ด */}
-              <div className="flex justify-center mb-4">
-                <div className="h-10 w-10 rounded-full bg-accent/10 flex items-center justify-center text-accent">
-                  <Award className="h-5 w-5" />
-                </div>
-              </div>
-              <div>
-                <h3 className="font-bold text-primary text-sm mb-2">
-                  {item.title}
-                </h3>
-                <p className="text-xs text-muted-foreground/90 leading-relaxed font-semibold">
-                  {item.desc}
-                </p>
-              </div>
-            </div>
-          ))}
-        </div>
+        {/* เลย์เอาต์รายละเอียดทุนในลักษณะการ์ดแบบ Funding Rates โดยใช้ตัวกลาง */}
+        <SharedIconGrid
+          items={fundingItems}
+          icon={<Award className="h-5 w-5" />}
+          gridClassName="grid gap-6 sm:grid-cols-2 lg:grid-cols-5"
+        />
       </div>
     </section>
   )
