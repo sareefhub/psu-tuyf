@@ -1,12 +1,17 @@
-"use client"
-
 import { useT } from "@/context/language-context"
 import { Users } from "lucide-react"
+import { SharedNumberedGrid } from "@/components/shared-numbered-grid"
 
 // ================= 1. วัตถุประสงค์ (Objectives) =================
 export function CenterObjectives() {
   const t = useT()
   const objectives = t("algebraCenter.overview.objectives.items", { returnObjects: true }) as string[]
+
+  // แปลง Array ของสตริงให้อยู่ในรูปแบบที่ SharedNumberedGrid รองรับ
+  const items = objectives.map((text, idx) => ({
+    key: String(idx),
+    text: text,
+  }))
 
   return (
     <section className="py-10 bg-background animate-fade-in">
@@ -21,22 +26,11 @@ export function CenterObjectives() {
           </p>
         </div>
 
-        {/* เลย์เอาต์แสดงผลวัตถุประสงค์แบบการ์ดกริด */}
-        <div className="grid gap-6 md:grid-cols-2">
-          {objectives.map((item, index) => (
-            <div
-              key={item}
-              className="bg-card border border-border/50 rounded-2xl p-6 shadow-sm space-y-3 hover:border-accent/30 transition-all flex gap-3 items-start"
-            >
-              <span className="h-6 w-6 rounded-full bg-accent/10 flex items-center justify-center text-xs font-bold text-accent shrink-0">
-                {index + 1}
-              </span>
-              <p className="text-xs text-foreground/90 leading-relaxed font-semibold">
-                {item}
-              </p>
-            </div>
-          ))}
-        </div>
+        {/* เลย์เอาต์แสดงผลวัตถุประสงค์แบบการ์ดกริดใช้ขนาดตัวอักษรร่วมกับระบบหลัก */}
+        <SharedNumberedGrid
+          items={items}
+          translationKey="algebraCenter.overview.objectives"
+        />
       </div>
     </section>
   )
@@ -46,6 +40,12 @@ export function CenterObjectives() {
 export function CenterMissions() {
   const t = useT()
   const missions = t("algebraCenter.overview.missions.items", { returnObjects: true }) as string[]
+
+  // แปลง Array ของสตริงให้อยู่ในรูปแบบที่ SharedNumberedGrid รองรับ
+  const items = missions.map((text, idx) => ({
+    key: String(idx),
+    text: text,
+  }))
 
   return (
     <section className="py-10 bg-background animate-fade-in">
@@ -60,22 +60,12 @@ export function CenterMissions() {
           </p>
         </div>
 
-        {/* เลย์เอาต์แสดงผลภารกิจหลักแบบการ์ดกริด */}
-        <div className="grid gap-6 md:grid-cols-2">
-          {missions.map((item, index) => (
-            <div
-              key={item}
-              className="bg-card border border-border/50 rounded-2xl p-6 shadow-sm space-y-3 hover:border-accent/30 transition-all flex gap-3 items-start"
-            >
-              <span className="h-6 w-6 rounded-full bg-accent/15 flex items-center justify-center text-xs font-bold text-accent shrink-0">
-                {index + 1}
-              </span>
-              <p className="text-xs text-foreground/90 leading-relaxed font-semibold">
-                {item}
-              </p>
-            </div>
-          ))}
-        </div>
+        {/* เลย์เอาต์แสดงผลภารกิจหลักแบบการ์ดกริดใช้ขนาดตัวอักษรร่วมกับระบบหลัก */}
+        <SharedNumberedGrid
+          items={items}
+          translationKey="algebraCenter.overview.missions"
+          numberBgClassName="bg-accent/15"
+        />
       </div>
     </section>
   )
@@ -102,7 +92,7 @@ export function CenterPersonnel() {
           </p>
         </div>
 
-        {/* เลย์เอาต์การแสดงผลข้อมูลบุคลากรแบบการ์ด 4 คอลัมน์ เลียนแบบสไตล์ส่วนสนับสนุนทุนการศึกษา */}
+        {/* เลย์เอาต์การแสดงผลข้อมูลบุคลากรแบบการ์ด 4 คอลัมน์ */}
         <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
           {personnel.map((item) => (
             <div
@@ -136,6 +126,12 @@ export function CenterActivities() {
   const t = useT()
   const activities = t("algebraCenter.overview.activities.items", { returnObjects: true }) as string[]
 
+  // แปลง Array ของสตริงให้อยู่ในรูปแบบที่ SharedNumberedGrid รองรับ
+  const items = activities.map((text, idx) => ({
+    key: String(idx),
+    text: text,
+  }))
+
   return (
     <section className="py-10 bg-background animate-fade-in">
       <div className="mx-auto max-w-7xl px-6">
@@ -149,22 +145,11 @@ export function CenterActivities() {
           </p>
         </div>
 
-        {/* เลย์เอาต์แสดงผลกิจกรรมสำคัญแบบการ์ดกริด */}
-        <div className="grid gap-6 md:grid-cols-2">
-          {activities.map((item, index) => (
-            <div
-              key={item}
-              className="bg-card border border-border/50 rounded-2xl p-6 shadow-sm space-y-3 hover:border-accent/30 transition-all flex gap-3 items-start"
-            >
-              <span className="h-6 w-6 rounded-full bg-accent/10 flex items-center justify-center text-xs font-bold text-accent shrink-0">
-                {index + 1}
-              </span>
-              <p className="text-xs text-foreground/90 leading-relaxed font-semibold">
-                {item}
-              </p>
-            </div>
-          ))}
-        </div>
+        {/* เลย์เอาต์แสดงผลกิจกรรมสำคัญแบบการ์ดกริดใช้ขนาดตัวอักษรร่วมกับระบบหลัก */}
+        <SharedNumberedGrid
+          items={items}
+          translationKey="algebraCenter.overview.activities"
+        />
       </div>
     </section>
   )

@@ -1,12 +1,17 @@
-"use client"
-
 import { useT } from "@/context/language-context"
 import { Award } from "lucide-react"
+import { SharedNumberedGrid } from "@/components/shared-numbered-grid"
 
 // ================= 1. วัตถุประสงค์ (Objectives) =================
 export function ScholarshipObjectives() {
   const t = useT()
   const objectives = t("algebraScholarships.overview.objectives.items", { returnObjects: true }) as string[]
+
+  // แปลง Array ของสตริงให้อยู่ในรูปแบบที่ SharedNumberedGrid รองรับ
+  const items = objectives.map((text, idx) => ({
+    key: String(idx),
+    text: text,
+  }))
 
   return (
     <section className="py-10 bg-background animate-fade-in">
@@ -22,21 +27,11 @@ export function ScholarshipObjectives() {
         </div>
 
         {/* เลย์เอาต์แสดงผลวัตถุประสงค์ */}
-        <div className="space-y-4">
-          {objectives.map((item, index) => (
-            <div
-              key={item}
-              className="bg-card border border-border/50 rounded-2xl p-6 shadow-sm space-y-3 hover:border-accent/30 transition-all flex gap-3 items-start"
-            >
-              <span className="h-6 w-6 rounded-full bg-accent/10 flex items-center justify-center text-xs font-bold text-accent shrink-0">
-                {index + 1}
-              </span>
-              <p className="text-xs text-foreground/90 leading-relaxed font-semibold">
-                {item}
-              </p>
-            </div>
-          ))}
-        </div>
+        <SharedNumberedGrid
+          items={items}
+          translationKey="algebraScholarships.overview.objectives"
+          gridClassName="space-y-4"
+        />
       </div>
     </section>
   )
@@ -46,6 +41,13 @@ export function ScholarshipObjectives() {
 export function ScholarshipEligibility() {
   const t = useT()
   const eligibility = t("algebraScholarships.overview.eligibility.items", { returnObjects: true }) as string[]
+
+  // แปลง Array ของสตริงให้อยู่ในรูปแบบที่ SharedNumberedGrid รองรับ
+  const items = eligibility.map((text, idx) => ({
+    key: String(idx),
+    text: text,
+    className: idx === 0 ? "md:col-span-2" : "",
+  }))
 
   return (
     <section className="py-10 bg-background animate-fade-in">
@@ -61,26 +63,10 @@ export function ScholarshipEligibility() {
         </div>
 
         {/* เลย์เอาต์แสดงคุณสมบัติเป็นกริดการ์ด 2 คอลัมน์ (ข้อแรกขยายเต็มความกว้างเพื่อความสวยงามสไตล์ B.Sc. Scholarships) */}
-        <div className="grid gap-6 md:grid-cols-2">
-          {eligibility.map((item, index) => {
-            const isFirst = index === 0
-            return (
-              <div
-                key={item}
-                className={`bg-card border border-border/50 rounded-2xl p-6 shadow-sm space-y-3 hover:border-accent/30 transition-all flex gap-3 items-start ${
-                  isFirst ? "md:col-span-2" : ""
-                }`}
-              >
-                <span className="h-6 w-6 rounded-full bg-accent/10 flex items-center justify-center text-xs font-bold text-accent shrink-0">
-                  {index + 1}
-                </span>
-                <p className="text-xs text-foreground/90 leading-relaxed font-semibold">
-                  {item}
-                </p>
-              </div>
-            )
-          })}
-        </div>
+        <SharedNumberedGrid
+          items={items}
+          translationKey="algebraScholarships.overview.eligibility"
+        />
       </div>
     </section>
   )
@@ -141,6 +127,12 @@ export function ScholarshipObligations() {
   const t = useT()
   const obligations = t("algebraScholarships.overview.obligations.items", { returnObjects: true }) as string[]
 
+  // แปลง Array ของสตริงให้อยู่ในรูปแบบที่ SharedNumberedGrid รองรับ
+  const items = obligations.map((text, idx) => ({
+    key: String(idx),
+    text: text,
+  }))
+
   return (
     <section className="py-10 bg-background animate-fade-in">
       <div className="mx-auto max-w-7xl px-6">
@@ -155,21 +147,11 @@ export function ScholarshipObligations() {
         </div>
 
         {/* เลย์เอาต์แสดงข้อปฏิบัติแบบการ์ดกริด 2 คอลัมน์ */}
-        <div className="grid gap-6 md:grid-cols-2">
-          {obligations.map((item, index) => (
-            <div
-              key={item}
-              className="bg-card border border-border/50 rounded-2xl p-6 shadow-sm space-y-3 hover:border-accent/30 transition-all flex gap-3 items-start"
-            >
-              <span className="h-6 w-6 rounded-full bg-accent/15 flex items-center justify-center text-xs font-bold text-accent shrink-0">
-                {index + 1}
-              </span>
-              <p className="text-xs text-foreground/90 leading-relaxed font-semibold">
-                {item}
-              </p>
-            </div>
-          ))}
-        </div>
+        <SharedNumberedGrid
+          items={items}
+          translationKey="algebraScholarships.overview.obligations"
+          numberBgClassName="bg-accent/15"
+        />
       </div>
     </section>
   )
@@ -179,6 +161,12 @@ export function ScholarshipObligations() {
 export function ScholarshipCurriculum() {
   const t = useT()
   const curriculums = t("algebraScholarships.overview.curriculum.items", { returnObjects: true }) as string[]
+
+  // แปลง Array ของสตริงให้อยู่ในรูปแบบที่ SharedNumberedGrid รองรับ
+  const items = curriculums.map((text, idx) => ({
+    key: String(idx),
+    text: text,
+  }))
 
   return (
     <section className="py-10 bg-background animate-fade-in">
@@ -194,21 +182,10 @@ export function ScholarshipCurriculum() {
         </div>
 
         {/* เลย์เอาต์แสดงหลักสูตรที่เข้าศึกษา */}
-        <div className="grid gap-6 md:grid-cols-2">
-          {curriculums.map((item, index) => (
-            <div
-              key={item}
-              className="bg-card border border-border/50 rounded-2xl p-6 shadow-sm space-y-3 hover:border-accent/30 transition-all flex gap-3 items-start"
-            >
-              <span className="h-6 w-6 rounded-full bg-accent/10 flex items-center justify-center text-xs font-bold text-accent shrink-0">
-                {index + 1}
-              </span>
-              <p className="text-xs text-foreground/90 leading-relaxed font-semibold">
-                {item}
-              </p>
-            </div>
-          ))}
-        </div>
+        <SharedNumberedGrid
+          items={items}
+          translationKey="algebraScholarships.overview.curriculum"
+        />
       </div>
     </section>
   )
