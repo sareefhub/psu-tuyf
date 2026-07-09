@@ -1,7 +1,6 @@
-"use client"
-
 import { useT } from "@/context/language-context"
 import { AlertCircle } from "lucide-react"
+import { SharedNumberedGrid } from "@/components/shared-numbered-grid"
 
 // ================= 1. กิจกรรมในโครงการ (Exchange Activities) =================
 export function ExchangeActivities() {
@@ -10,6 +9,15 @@ export function ExchangeActivities() {
     title: string
     desc: string
   }>
+
+  // แปลงรายละเอียดกิจกรรมให้อยู่ในโครงสร้างที่ SharedNumberedGrid รองรับ
+  // โดยส่งข้อความอธิบายความก้าวหน้าย่อยในรูปแบบของ subItems รายการเดียว
+  const objectives = items.map((item, idx) => ({
+    key: String(idx),
+    text: item.title,
+    hasSubItems: true,
+    subItems: [item.desc],
+  }))
 
   return (
     <section className="py-10 bg-background animate-fade-in">
@@ -24,32 +32,12 @@ export function ExchangeActivities() {
           </p>
         </div>
 
-        {/* เลย์เอาต์แสดงกิจกรรมในโครงการ 2 กิจกรรมหลัก */}
-        <div className="space-y-6">
-          {items.map((item, index) => (
-            <div
-              key={item.title}
-              className="bg-card border border-border/50 rounded-2xl p-6 shadow-sm space-y-3 hover:border-accent/30 transition-all"
-            >
-              {/* แถวบน: ตัวเลขและหัวข้อหลักตัวหนา */}
-              <div className="flex gap-3 items-start">
-                <span className="h-6 w-6 rounded-full bg-accent/10 flex items-center justify-center text-xs font-bold text-accent shrink-0">
-                  {index + 1}
-                </span>
-                <p className="text-xs text-foreground/90 leading-relaxed font-bold">
-                  {item.title}
-                </p>
-              </div>
-              
-              {/* แถวล่าง: เส้นคั่นและรายละเอียดตัวเล็กสีเทาปกติ ไม่หนา (สไตล์เดียวกับรูปภาพตัวอย่าง) */}
-              <div className="pl-9 border-t border-border/40 pt-3 mt-1">
-                <p className="text-[11px] text-muted-foreground leading-relaxed font-medium">
-                  {item.desc}
-                </p>
-              </div>
-            </div>
-          ))}
-        </div>
+        {/* เลย์เอาต์แสดงกิจกรรมในโครงการ 2 กิจกรรมหลักโดยใช้ตัวกลาง */}
+        <SharedNumberedGrid
+          items={objectives}
+          translationKey="algebraExchange.overview.activities"
+          gridClassName="space-y-6"
+        />
       </div>
     </section>
   )

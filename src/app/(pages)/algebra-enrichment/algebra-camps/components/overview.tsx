@@ -1,12 +1,17 @@
-"use client"
-
 import { useT } from "@/context/language-context"
 import { AlertCircle } from "lucide-react"
+import { SharedNumberedGrid } from "@/components/shared-numbered-grid"
 
 // ================= 1. กลุ่มเป้าหมาย (Target Group) =================
 export function CampTarget() {
   const t = useT()
   const items = t("algebraCamps.overview.target.items", { returnObjects: true }) as string[]
+
+  // แปลง Array ของสตริงให้อยู่ในรูปแบบที่ SharedNumberedGrid รองรับ
+  const objectives = items.map((text, idx) => ({
+    key: String(idx),
+    text: text,
+  }))
 
   return (
     <section className="py-10 bg-background animate-fade-in">
@@ -21,24 +26,11 @@ export function CampTarget() {
           </p>
         </div>
 
-        {/* เลย์เอาต์แสดงผลข้อมูลกลุ่มเป้าหมาย */}
-        <div className="grid gap-4 md:grid-cols-2">
-          {items.map((item, index) => (
-            <div
-              key={item}
-              className="bg-card border border-border/50 rounded-2xl p-6 shadow-sm flex gap-3 items-start hover:border-accent/30 transition-all"
-            >
-              {/* วงกลมตัวเลขแบบไม่มี Hover Effect (คงสีสว่างปกติ) */}
-              <span className="h-6 w-6 rounded-full bg-accent/10 flex items-center justify-center text-xs font-bold text-accent shrink-0">
-                {index + 1}
-              </span>
-              {/* ปรับฟอนต์ตามขนาดข้อกำหนดของผู้สมัคร */}
-              <p className="text-xs text-foreground/90 leading-relaxed font-semibold">
-                {item}
-              </p>
-            </div>
-          ))}
-        </div>
+        {/* เลย์เอาต์แสดงผลข้อมูลกลุ่มเป้าหมายใช้ขนาดตัวอักษรร่วมกับระบบหลัก */}
+        <SharedNumberedGrid
+          items={objectives}
+          translationKey="algebraCamps.overview.target"
+        />
       </div>
     </section>
   )
@@ -48,6 +40,12 @@ export function CampTarget() {
 export function CampDetails() {
   const t = useT()
   const items = t("algebraCamps.overview.details.items", { returnObjects: true }) as string[]
+
+  // แปลง Array ของสตริงให้อยู่ในรูปแบบที่ SharedNumberedGrid รองรับ
+  const objectives = items.map((text, idx) => ({
+    key: String(idx),
+    text: text,
+  }))
 
   return (
     <section className="py-10 bg-background animate-fade-in">
@@ -62,22 +60,12 @@ export function CampDetails() {
           </p>
         </div>
 
-        {/* เลย์เอาต์แสดงรายละเอียดการจัดค่าย */}
-        <div className="grid gap-4 md:grid-cols-2">
-          {items.map((item, index) => (
-            <div
-              key={item}
-              className="bg-card border border-border/50 rounded-2xl p-6 shadow-sm flex gap-3 items-start hover:border-accent/30 transition-all"
-            >
-              <span className="h-6 w-6 rounded-full bg-accent/15 flex items-center justify-center text-xs font-bold text-accent shrink-0">
-                {index + 1}
-              </span>
-              <p className="text-xs text-foreground/90 leading-relaxed font-semibold">
-                {item}
-              </p>
-            </div>
-          ))}
-        </div>
+        {/* เลย์เอาต์แสดงรายละเอียดการจัดค่ายใช้ขนาดตัวอักษรร่วมกับระบบหลัก */}
+        <SharedNumberedGrid
+          items={objectives}
+          translationKey="algebraCamps.overview.details"
+          numberBgClassName="bg-accent/15"
+        />
       </div>
     </section>
   )
@@ -87,6 +75,12 @@ export function CampDetails() {
 export function CampEligibility() {
   const t = useT()
   const items = t("algebraCamps.overview.eligibility.items", { returnObjects: true }) as string[]
+
+  // แปลง Array ของสตริงให้อยู่ในรูปแบบที่ SharedNumberedGrid รองรับ
+  const objectives = items.map((text, idx) => ({
+    key: String(idx),
+    text: text,
+  }))
 
   return (
     <section className="py-10 bg-background animate-fade-in">
@@ -108,22 +102,11 @@ export function CampEligibility() {
               {t("algebraCamps.overview.eligibility.subDesc")}
             </h3>
 
-            {/* แสดงรายการเอกสารในพอร์ตโฟลิโอ 4 ข้อหลัก */}
-            <div className="grid gap-4 sm:grid-cols-2">
-              {items.map((item, index) => (
-                <div
-                  key={item}
-                  className="bg-secondary/20 border border-border/30 rounded-2xl p-5 flex gap-3 items-start hover:border-accent/20 transition-all"
-                >
-                  <span className="h-6 w-6 rounded-full bg-accent/10 flex items-center justify-center text-xs font-bold text-accent shrink-0">
-                    {index + 1}
-                  </span>
-                  <p className="text-xs text-foreground/90 leading-relaxed font-semibold">
-                    {item}
-                  </p>
-                </div>
-              ))}
-            </div>
+            {/* แสดงรายการเอกสารในพอร์ตโฟลิโอ 4 ข้อหลักโดยใช้ตัวกลาง */}
+            <SharedNumberedGrid
+              items={objectives}
+              translationKey="algebraCamps.overview.eligibility"
+            />
           </div>
 
           {/* กล่องหมายเหตุคำแนะนำจากคณะกรรมการจัดสอบสัมภาษณ์ */}
@@ -133,7 +116,7 @@ export function CampEligibility() {
               <p className="text-2xs font-bold text-amber-600 uppercase tracking-wider">
                 {t("common.important_note", { defaultValue: "หมายเหตุ" })}
               </p>
-              <p className="text-xs text-muted-foreground/90 leading-relaxed font-semibold">
+              <p className="text-xs text-muted-foreground/95 leading-relaxed font-semibold">
                 {t("algebraCamps.overview.eligibility.note")}
               </p>
             </div>
