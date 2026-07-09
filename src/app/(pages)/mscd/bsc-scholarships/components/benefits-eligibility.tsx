@@ -1,6 +1,7 @@
 "use client"
 
 import { useT } from "@/context/language-context"
+import { SharedSectionHeader } from "@/components/shared-section-header"
 import { Award } from "lucide-react"
 
 // คีย์ข้อมูลสำหรับดึงค่าคุณสมบัติจาก i18n JSON
@@ -31,14 +32,10 @@ export function EligibilitySection() {
     <section className="py-10 bg-background">
       <div className="mx-auto max-w-7xl px-6">
         {/* หัวข้อสไตล์หน้าแรก */}
-        <div className="text-center mx-auto mb-16 space-y-3">
-          <h2 className="text-balance text-2xl font-bold tracking-tight text-primary sm:text-3xl">
-            {t("bscScholarships.eligibility.title")}
-          </h2>
-          <p className="text-sm text-muted-foreground/80">
-            {t("bscScholarships.eligibility.desc")}
-          </p>
-        </div>
+        <SharedSectionHeader
+          title={t("bscScholarships.eligibility.title")}
+          description={t("bscScholarships.eligibility.desc")}
+        />
 
         {/* เลย์เอาต์แสดงผลคุณสมบัติ 7 ข้อ */}
         <div className="grid gap-6 md:grid-cols-2">
@@ -85,14 +82,11 @@ export function ObligationsSection() {
     <section className="py-10 bg-background animate-fade-in">
       <div className="mx-auto max-w-7xl px-6 space-y-6">
         {/* หัวข้อสไตล์หน้าแรก */}
-        <div className="text-center space-y-2 mb-8">
-          <h2 className="text-balance text-2xl font-bold tracking-tight text-primary sm:text-3xl">
-            {t("bscScholarships.obligations.title")}
-          </h2>
-          <p className="text-sm text-muted-foreground/80">
-            {t("bscScholarships.obligations.desc")}
-          </p>
-        </div>
+        <SharedSectionHeader
+          title={t("bscScholarships.obligations.title")}
+          description={t("bscScholarships.obligations.desc")}
+          className="text-center space-y-2 mb-8"
+        />
 
         {/* คำชี้แจงเบื้องต้น */}
         <p className="text-sm text-muted-foreground leading-relaxed text-center px-4">
@@ -142,14 +136,10 @@ export function FundingSection() {
     <section className="py-10 bg-background">
       <div className="mx-auto max-w-7xl px-6">
         {/* หัวข้อสไตล์หน้าแรก */}
-        <div className="text-center mx-auto mb-16 space-y-3">
-          <h2 className="text-balance text-2xl font-bold tracking-tight text-primary sm:text-3xl">
-            {t("bscScholarships.funding.title")}
-          </h2>
-          <p className="text-sm text-muted-foreground/80">
-            {t("bscScholarships.funding.desc")}
-          </p>
-        </div>
+        <SharedSectionHeader
+          title={t("bscScholarships.funding.title")}
+          description={t("bscScholarships.funding.desc")}
+        />
 
         {/* อัตราค่าใช้จ่ายสนับสนุนการ์ด 4 ช่อง */}
         <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">

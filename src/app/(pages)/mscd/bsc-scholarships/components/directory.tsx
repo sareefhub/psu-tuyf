@@ -3,6 +3,7 @@
 import { useEffect } from "react"
 import { useT } from "@/context/language-context"
 import { StudentCard } from "@/components/student-card"
+import { SharedSectionHeader } from "@/components/shared-section-header"
 import { useRouter } from "next/navigation"
 
 import { bscDirectoryData } from "@/data/pages/mscd/bsc-scholarships/bsc-scholarships"
@@ -86,14 +87,10 @@ export function SelectionDirectory() {
     <section className="py-10 bg-background">
       <div className="mx-auto max-w-7xl px-6">
         {/* หัวข้อทำเนียบนักเรียนทุน */}
-        <div className="text-center mx-auto mb-16 space-y-3">
-          <h2 className="text-balance text-2xl font-bold tracking-tight text-primary sm:text-3xl">
-            {t("bscScholarships.directory.title")}
-          </h2>
-          <p className="text-sm text-muted-foreground/80">
-            {t("bscScholarships.directory.desc")}
-          </p>
-        </div>
+        <SharedSectionHeader
+          title={t("bscScholarships.directory.title")}
+          description={t("bscScholarships.directory.desc")}
+        />
 
         {/* รายการแบ่งตามปีการศึกษา */}
         <div className="space-y-20">

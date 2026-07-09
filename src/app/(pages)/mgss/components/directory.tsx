@@ -1,6 +1,7 @@
 "use client"
 
 import { useLanguage } from "@/context/language-context"
+import { SharedSectionHeader } from "@/components/shared-section-header"
 import Image from "next/image"
 
 // นำเข้าไฟล์ภาพสถิติแบบ Static เพื่อใช้ประโยชน์ในการคำนวณอัตราส่วนภาพ ป้องกันปัญหา CLS
@@ -52,17 +53,13 @@ export function RecipientsDirectory() {
   return (
     <section className="py-10 bg-background animate-fade-in">
       <div className="mx-auto max-w-7xl px-6 space-y-12">
-        {/* หัวข้อแสดงข้อมูลหลัก */}
-        <div className="text-center mx-auto mb-12 space-y-3">
-          <h2 className="text-balance text-2xl font-bold tracking-tight text-primary sm:text-3xl">
-            {lang === "en" ? "Active Scholarship Recipients" : "จำนวนนักเรียนที่ได้รับทุน"}
-          </h2>
-          <p className="text-sm text-muted-foreground/80">
-            {lang === "en"
-              ? "List of graduate students currently studying and receiving scholarships under the MGSS project"
-              : "รายชื่อของนักศึกษาระดับบัณฑิตศึกษาที่กำลังศึกษาและได้รับทุนการศึกษาโครงการ MGSS ในปัจจุบัน"}
-          </p>
-        </div>
+        <SharedSectionHeader
+          title={lang === "en" ? "Active Scholarship Recipients" : "จำนวนนักเรียนที่ได้รับทุน"}
+          description={lang === "en"
+            ? "List of graduate students currently studying and receiving scholarships under the MGSS project"
+            : "รายชื่อของนักศึกษาระดับบัณฑิตศึกษาที่กำลังศึกษาและได้รับทุนการศึกษาโครงการ MGSS ในปัจจุบัน"}
+          className="text-center mx-auto mb-12 space-y-3"
+        />
 
         {/* เลย์เอาต์แสดงภาพกราฟสถิติ 3 คอลัมน์แบบแบนและคลีน ตามดีไซน์สถิตินักเรียนทุนเดิม */}
         <div className="grid gap-8 md:grid-cols-3">
@@ -90,17 +87,13 @@ export function GraduatedDirectory() {
   return (
     <section className="py-10 bg-background animate-fade-in">
       <div className="mx-auto max-w-7xl px-6 space-y-12">
-        {/* หัวข้อแสดงข้อมูลหลัก */}
-        <div className="text-center mx-auto mb-12 space-y-3">
-          <h2 className="text-balance text-2xl font-bold tracking-tight text-primary sm:text-3xl">
-            {lang === "en" ? "Graduated Scholarship Recipients" : "จำนวนนักเรียนทุนที่สำเร็จการศึกษา"}
-          </h2>
-          <p className="text-sm text-muted-foreground/80">
-            {lang === "en"
-              ? "List of graduate scholarship recipients who have successfully completed their degrees under the MGSS project"
-              : "รายชื่อของนักศึกษาทุนโครงการ MGSS ที่ประสบความสำเร็จในการสำเร็จการศึกษาระดับบัณฑิตศึกษา"}
-          </p>
-        </div>
+        <SharedSectionHeader
+          title={lang === "en" ? "Graduated Scholarship Recipients" : "จำนวนนักเรียนทุนที่สำเร็จการศึกษา"}
+          description={lang === "en"
+            ? "List of graduate scholarship recipients who have successfully completed their degrees under the MGSS project"
+            : "รายชื่อของนักศึกษาทุนโครงการ MGSS ที่ประสบความสำเร็จในการสำเร็จการศึกษาระดับบัณฑิตศึกษา"}
+          className="text-center mx-auto mb-12 space-y-3"
+        />
 
         {/* เลย์เอาต์แสดงภาพกราฟสถิติ 3 คอลัมน์แบบแบนและคลีน ตามดีไซน์สถิตินักเรียนทุนเดิม */}
         <div className="grid gap-8 md:grid-cols-3">

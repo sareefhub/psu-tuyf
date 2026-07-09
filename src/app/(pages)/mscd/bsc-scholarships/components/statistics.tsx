@@ -1,6 +1,7 @@
 "use client"
 
 import { useT } from "@/context/language-context"
+import { SharedSectionHeader } from "@/components/shared-section-header"
 // นำเข้า Image และไฟล์ภาพสถิติแบบ Static เพื่อใช้ประโยชน์ในการคำนวณอัตราส่วนภาพ ป้องกันปัญหา CLS
 import Image from "next/image"
 import statsImg1 from "../../../../../../public/images/mscd/bsc-scholarships/scholarship-student-stats-1.png"
@@ -10,7 +11,7 @@ import statsImg3 from "../../../../../../public/images/mscd/bsc-scholarships/sch
 export function SelectionStatistics() {
   const t = useT()
 
-  // อาเรย์ข้อมูลรูปภาพสถิตินักเรียนทุน (ใช้ตัวแปรภาพที่นำเข้าแบบ Static)
+  // อาเรย์ข้อมูลรูปภาพสถิติต้านักเรียนทุน (ใช้ตัวแปรภาพที่นำเข้าแบบ Static)
   const statsImages = [
     {
       src: statsImg1,
@@ -30,14 +31,10 @@ export function SelectionStatistics() {
     <section className="py-10 bg-background">
       <div className="mx-auto max-w-7xl px-6">
         {/* หัวข้อสถิติแบบ Clean Clean สไตล์หน้าแรก */}
-        <div className="text-center mx-auto mb-16 space-y-3">
-          <h2 className="text-balance text-2xl font-bold tracking-tight text-primary sm:text-3xl">
-            {t("bscScholarships.statistics.title")}
-          </h2>
-          <p className="text-sm text-muted-foreground/80">
-            {t("bscScholarships.statistics.desc")}
-          </p>
-        </div>
+        <SharedSectionHeader
+          title={t("bscScholarships.statistics.title")}
+          description={t("bscScholarships.statistics.desc")}
+        />
 
         {/* เลย์เอาต์แสดงภาพกราฟสถิติ 3 คอลัมน์แบบแบนและคลีน */}
         <div className="grid gap-8 md:grid-cols-3">
