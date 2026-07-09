@@ -4,22 +4,16 @@ import { ProgramCard } from "@/components/program-card"
 import { useT } from "@/context/language-context"
 import { CarouselWrapper } from "@/components/carousel-wrapper"
 
+import { SharedSubHero } from "@/components/shared-sub-hero"
+
 // 1. ส่วนแบนเนอร์ Hero ด้านบนสุดเลียนแบบธีม bsc-scholarships
 function CampHero() {
   const t = useT()
   return (
-    <section className="bg-primary text-primary-foreground relative overflow-hidden py-16 lg:py-20 animate-fade-in">
-      <div className="absolute inset-0 bg-linear-to-br from-primary via-primary to-primary/95" />
-      <div className="absolute -right-40 -top-40 w-96 h-96 rounded-full bg-accent/10 blur-3xl" />
-      <div className="mx-auto max-w-7xl px-6 relative z-10 space-y-4">
-        <h1 className="text-3xl font-bold tracking-tight sm:text-4xl md:text-5xl lg:text-6xl leading-tight">
-          {t("excellenceMathCamp.hero.title")}
-        </h1>
-        <p className="max-w-3xl text-sm font-light leading-relaxed text-primary-foreground/80 sm:text-base">
-          {t("excellenceMathCamp.hero.subtitle")}
-        </p>
-      </div>
-    </section>
+    <SharedSubHero
+      title={t("excellenceMathCamp.hero.title")}
+      description={t("excellenceMathCamp.hero.subtitle")}
+    />
   )
 }
 

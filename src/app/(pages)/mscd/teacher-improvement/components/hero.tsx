@@ -1,6 +1,7 @@
 "use client"
 
 import { useT, useLanguage } from "@/context/language-context"
+import { SharedSubHero } from "@/components/shared-sub-hero"
 
 // คอมโพเนนต์แสดงแบนเนอร์ของโครงการพัฒนาครูคณิตศาสตร์ (Teacher Improvement)
 export function TeacherHero() {
@@ -14,37 +15,25 @@ export function TeacherHero() {
   // หลีกเลี่ยงการใช้ nested ternary เพื่อให้โค้ดสะอาดและแก้ไขข้อเตือน SonarLint
   let subtitle = ""
   if (titleFull.includes(" (")) {
-    subtitle = `(${titleFull.split(" (")[1]}`
+    subtitle = titleFull.split(" (")[1].replace(/\)$/, "")
   } else if (lang === "th") {
-    subtitle = "(Teacher Improvement)"
+    subtitle = "Teacher Improvement"
   }
 
   return (
-    <section className="bg-primary text-primary-foreground relative overflow-hidden py-16 lg:py-20 animate-fade-in">
-      <div className="absolute inset-0 bg-linear-to-br from-primary via-primary to-primary/95" />
-      <div className="absolute -right-40 -top-40 w-96 h-96 rounded-full bg-accent/10 blur-3xl" />
-      <div className="mx-auto max-w-7xl px-6 relative z-10">
-        <h1 className="text-balance text-3xl font-bold tracking-tight text-primary-foreground sm:text-4xl md:text-5xl lg:text-6xl leading-tight sm:leading-tight">
-          <span className="block text-primary-foreground">
-            {title}
-          </span>
-          {subtitle && (
-            <span className="block text-primary-foreground/80 text-lg sm:text-xl md:text-2xl lg:text-3xl font-normal mt-2 tracking-wide font-sans">
-              {subtitle}
-            </span>
-          )}
-        </h1>
-
-        <p className="mt-6 max-w-3xl text-pretty text-sm font-light leading-relaxed text-primary-foreground/80 sm:text-base flex flex-col gap-2">
-          {/* ย้าย ภายใต้โครงการ PSU-TUYF... มาอยู่ที่จุดนี้ตามคำขอ */}
+    <SharedSubHero
+      title={title}
+      englishTitle={subtitle}
+      description={
+        <span className="flex flex-col gap-2">
           <span className="block font-medium text-primary-foreground">
             {t("teacherImprovement.hero.subtitle")}
           </span>
           <span className="block text-primary-foreground/90">
             {t("teacherImprovement.hero.desc")}
           </span>
-        </p>
-      </div>
-    </section>
+        </span>
+      }
+    />
   )
 }
