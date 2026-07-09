@@ -20,7 +20,7 @@ export function SharedObjectives({
           <h2 className="text-balance text-2xl font-bold tracking-tight text-primary sm:text-3xl">
             {title && title !== `${translationKey}.objectivesTitle` ? title : t("วัตถุประสงค์หลักของโครงการ", "Main Objectives")}
           </h2>
-          <p className="text-sm text-muted-foreground/80">
+          <p className="text-base text-muted-foreground/80">
             {t("วัตถุประสงค์ที่มุ่งเน้นเพื่อยกระดับทักษะและการพัฒนาการศึกษาของโครงการ", "Objectives focusing on skill enhancement and educational development of the project")}
           </p>
         </div>
@@ -35,7 +35,7 @@ export function SharedObjectives({
                 <span className="h-7 w-7 rounded-xl bg-accent/10 flex items-center justify-center text-xs font-bold text-accent shrink-0">
                   {index + 1}
                 </span>
-                <p className="text-xs text-foreground/90 leading-relaxed font-semibold">
+                <p className="text-base text-foreground/90 leading-relaxed font-semibold">
                   {obj}
                 </p>
               </div>

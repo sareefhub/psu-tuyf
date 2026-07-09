@@ -16,7 +16,7 @@ export function FundHistory() {
             <span className="h-2 w-2 rounded-full bg-accent" />
             {t("aboutFund.history.title")}
           </h3>
-          <p className="text-sm leading-relaxed text-muted-foreground/90 text-pretty pl-4 border-l-2 border-accent/20">
+          <p className="text-base leading-relaxed text-muted-foreground/90 text-pretty pl-4 border-l-2 border-accent/20">
             {t("aboutFund.history.desc")}
           </p>
         </div>
@@ -40,7 +40,7 @@ export function FundObjectives() {
           <h2 className="text-balance text-2xl font-bold tracking-tight text-primary sm:text-3xl">
             {t("aboutFund.objectives.title")}
           </h2>
-          <p className="text-sm text-muted-foreground/80">
+          <p className="text-base text-muted-foreground/80">
             {t("aboutFund.objectives.desc")}
           </p>
         </div>
@@ -56,7 +56,7 @@ export function FundObjectives() {
               <span className="h-6 w-6 rounded-full bg-accent/10 flex items-center justify-center text-xs font-bold text-accent shrink-0">
                 {index + 1}
               </span>
-              <p className="text-xs text-foreground/90 leading-relaxed font-semibold">
+              <p className="text-base text-foreground/90 leading-relaxed font-semibold">
                 {item}
               </p>
             </div>

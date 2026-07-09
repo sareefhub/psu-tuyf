@@ -46,7 +46,7 @@ export function ProgramsSection() {
           <h2 className="text-balance text-3xl font-bold tracking-tight text-primary sm:text-4xl">
             {t("programs.title")}
           </h2>
-          <p className="mt-4 text-pretty leading-relaxed text-muted-foreground/80">
+          <p className="mt-4 text-pretty leading-relaxed text-muted-foreground/80 text-base">
             {t("programs.subtitle")}
           </p>
         </div>

@@ -65,7 +65,7 @@ export function AboutSection() {
         <h2 className="mt-3 text-balance text-3xl font-bold tracking-tight text-primary sm:text-4xl">
           {t("about.title")}
         </h2>
-        <div className="mt-6 space-y-4 text-pretty leading-relaxed text-muted-foreground">
+        <div className="mt-6 space-y-4 text-pretty leading-relaxed text-muted-foreground text-base">
           <p>{t("about.desc_1")}</p>
           <p>{t("about.desc_2")}</p>
         </div>
