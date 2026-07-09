@@ -52,14 +52,14 @@ export function EligibilitySection() {
                   <span className="h-6 w-6 rounded-full bg-accent/10 flex items-center justify-center text-xs font-bold text-accent shrink-0">
                     {index + 1}
                   </span>
-                  <p className="text-sm text-foreground/90 leading-relaxed font-semibold">
+                  <p className="text-base text-foreground/90 leading-relaxed font-normal">
                     {t(`bscScholarships.eligibility.items.${item.key}`)}
                   </p>
                 </div>
                 {"hasSubItems" in item && item.hasSubItems && (
                   <ul className="pl-9 list-disc space-y-1.5 border-t border-border/40 pt-3 mt-1">
                     {(t("bscScholarships.eligibility.subItems1", { returnObjects: true }) as string[]).map((sub) => (
-                      <li key={sub} className="text-xs text-muted-foreground leading-relaxed">
+                      <li key={sub} className="text-sm text-muted-foreground leading-relaxed font-normal">
                         {sub}
                       </li>
                     ))}
@@ -104,7 +104,7 @@ export function ObligationsSection() {
                 <span className="h-6 w-6 rounded-full bg-accent/15 flex items-center justify-center text-xs font-bold text-accent shrink-0">
                   {index + 1}
                 </span>
-                <p className="text-sm text-foreground/90 leading-relaxed font-semibold">
+                <p className="text-base text-foreground/90 leading-relaxed font-normal">
                   {t(`bscScholarships.obligations.items.${item.key}`)}
                 </p>
               </div>
@@ -113,7 +113,7 @@ export function ObligationsSection() {
                   {(t("bscScholarships.obligations.subItems2", { returnObjects: true }) as string[]).map((sub) => (
                     <li
                       key={sub}
-                      className="text-xs text-muted-foreground leading-relaxed font-semibold"
+                      className="text-sm text-muted-foreground leading-relaxed font-normal"
                     >
                       {sub}
                     </li>
