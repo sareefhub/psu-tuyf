@@ -1,5 +1,5 @@
 import React from "react"
-import { MainLayout } from "@/components/layout/main-layout"
+import { MainLayout } from "@/components/main-layout"
 
 interface PagesLayoutProps {
   readonly children: React.ReactNode
