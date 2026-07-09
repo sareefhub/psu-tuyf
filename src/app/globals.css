@@ -106,20 +106,21 @@
      ระบบขนาดตัวอักษรกลาง (Typography Scale Variables)
      กำหนดที่นี่ที่เดียวเพื่อความง่ายในการปรับแต่งขนาดทั้งระบบ
      ========================================== */
-  --font-size-3xs: 0.5625rem;  /* ประมาณ 9px  (ใช้กับ text-3xs) */
-  --font-size-2xs: 0.625rem;   /* ประมาณ 10px (ใช้กับ text-2xs) */
-  --font-size-xs: 0.75rem;     /* ประมาณ 12px (ใช้กับ text-xs)  */
-  --font-size-sm: 1rem;         /* ประมาณ 16px (ใช้กับ text-sm)  */
-  --font-size-base: 1.125rem;  /* ประมาณ 18px (ใช้กับ text-base) */
-  --font-size-xl: 1.25rem;     /* ประมาณ 20px (ใช้กับ text-xl)  */
-  --font-size-2xl: 1.5rem;     /* ประมาณ 24px (ใช้กับ text-2xl) */
-  --font-size-3xl: 1.875rem;   /* ประมาณ 30px (ใช้กับ text-3xl) */
-  --font-size-4xl: 2.25rem;    /* ประมาณ 36px (ใช้กับ text-4xl) */
-  --font-size-5xl: 3rem;       /* ประมาณ 48px (ใช้กับ text-5xl) */
-  --font-size-6xl: 3.75rem;    /* ประมาณ 60px (ใช้กับ text-6xl) */
-  --font-size-7xl: 4.5rem;     /* ประมาณ 72px (ใช้กับ text-7xl) */
-  --font-size-8xl: 6rem;       /* ประมาณ 96px (ใช้กับ text-8xl) */
-  --font-size-9xl: 8rem;       /* ประมาณ 128px (ใช้กับ text-9xl)*/
+  --font-size-3xs: 0.75rem;    /* ประมาณ 12px (ใช้กับ text-3xs) */
+  --font-size-2xs: 0.875rem;   /* ประมาณ 14px (ใช้กับ text-2xs) */
+  --font-size-xs: 1rem;        /* ประมาณ 16px (ใช้กับ text-xs)  */
+  --font-size-sm: 1.125rem;    /* ประมาณ 18px (ใช้กับ text-sm)  */
+  --font-size-base: 1.25rem;   /* ประมาณ 20px (ใช้กับ text-base) */
+  --font-size-lg: 1.375rem;    /* ประมาณ 22px (ใช้กับ text-lg)  */
+  --font-size-xl: 1.5rem;      /* ประมาณ 24px (ใช้กับ text-xl)  */
+  --font-size-2xl: 1.75rem;    /* ประมาณ 28px (ใช้กับ text-2xl) */
+  --font-size-3xl: 2.125rem;   /* ประมาณ 34px (ใช้กับ text-3xl) */
+  --font-size-4xl: 2.5rem;     /* ประมาณ 40px (ใช้กับ text-4xl) */
+  --font-size-5xl: 3.25rem;    /* ประมาณ 52px (ใช้กับ text-5xl) */
+  --font-size-6xl: 4rem;       /* ประมาณ 64px (ใช้กับ text-6xl) */
+  --font-size-7xl: 5rem;       /* ประมาณ 80px (ใช้กับ text-7xl) */
+  --font-size-8xl: 6.5rem;     /* ประมาณ 104px (ใช้กับ text-8xl) */
+  --font-size-9xl: 8.5rem;     /* ประมาณ 136px (ใช้กับ text-9xl)*/
 }
 
 .dark {
