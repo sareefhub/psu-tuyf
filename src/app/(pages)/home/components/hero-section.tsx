@@ -1,6 +1,6 @@
 "use client"
 
-import { useState, useEffect } from "react"
+import { useState, useEffect, useRef } from "react"
 import { ArrowRight, ChevronLeft, ChevronRight } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { useT } from "@/context/language-context"
@@ -19,6 +19,13 @@ export function HeroSection() {
   const t = useT()
   const [currentIndex, setCurrentIndex] = useState(0)
 
+  // ตัวแปรอ้างอิงสำหรับเก็บตำแหน่งการเริ่มต้นสัมผัสบนหน้าจอ
+  const touchStartX = useRef(0)
+  const touchStartY = useRef(0)
+
+  // ตัวแปรล็อกสำหรับการสไลด์ด้วยเมาส์ (Wheel Cooldown)
+  const isWheelLocked = useRef(false)
+
   // ฟังก์ชันย้อนกลับไปรูปภาพสไลด์ก่อนหน้า
   const prevSlide = () => {
     setCurrentIndex((prev) => (prev === 0 ? heroImages.length - 1 : prev - 1))
@@ -27,6 +34,74 @@ export function HeroSection() {
   // ฟังก์ชันถัดไปของรูปภาพสไลด์
   const nextSlide = () => {
     setCurrentIndex((prev) => (prev === heroImages.length - 1 ? 0 : prev + 1))
+  }
+
+  // ฟังก์ชันดักจับตอนที่ผู้ใช้เริ่มสัมผัสหน้าจอ
+  const handleTouchStart = (e: React.TouchEvent) => {
+    const touch = e.touches[0] || e.targetTouches[0] || e.changedTouches[0]
+    if (touch) {
+      touchStartX.current = touch.clientX
+      touchStartY.current = touch.clientY
+    }
+  }
+
+  // ฟังก์ชันวิเคราะห์ทิศทางการสไลด์เมื่อผู้ใช้ปล่อยนิ้ว
+  const handleTouchEnd = (e: React.TouchEvent) => {
+    if (touchStartX.current === 0) return
+
+    const touch = e.changedTouches[0] || e.touches[0] || e.targetTouches[0]
+    if (!touch) return
+
+    const touchEndX = touch.clientX
+    const touchEndY = touch.clientY
+
+    const diffX = touchStartX.current - touchEndX
+    const diffY = touchStartY.current - touchEndY
+    const minSwipeDistance = 40 // ลดระยะขั้นต่ำเหลือ 40px เพื่อให้ปัดง่ายขึ้นบนหน้าจอมือถือจริง
+
+    // ตรวจสอบว่าความยาวในการลากตามแนวนอนมากกว่าแนวตั้ง เพื่อไม่ให้ขัดขวางการเลื่อนเว็บปกติ (Scroll)
+    if (Math.abs(diffX) > Math.abs(diffY) && Math.abs(diffX) > minSwipeDistance) {
+      if (diffX > 0) {
+        nextSlide() // ลากซ้าย -> สไลด์ถัดไป
+      } else {
+        prevSlide() // ลากขวา -> สไลด์ก่อนหน้า
+      }
+    }
+
+    // รีเซ็ตค่าพิกัดเริ่มต้น
+    touchStartX.current = 0
+    touchStartY.current = 0
+  }
+
+  // ฟังก์ชันดักจับการหมุนลูกกลิ้งเมาส์ (Mouse Wheel / Shift + Scroll) หรือ Trackpad
+  const handleWheel = (e: React.WheelEvent) => {
+    const wheelThreshold = 30 // ความเร็วและระยะการหมุนขั้นต่ำในการรับรู้
+    
+    // ตรวจจับ 2 กรณี:
+    // 1. มีการสกรอลแนวนอนตรงๆ (e.deltaX) เช่น ปัด Trackpad สองนิ้ว หรือเมาส์ที่มีล้อแนวนอน
+    // 2. มีการกด Shift ร่วมกับการหมุนลูกกลิ้งแนวตั้งปกติ (e.deltaY) ซึ่งบนบราวเซอร์บางตัวค่าจะส่งมาที่ deltaY แทน
+    const isHorizontalScroll = Math.abs(e.deltaX) > wheelThreshold
+    const isShiftVerticalScroll = e.shiftKey && Math.abs(e.deltaY) > wheelThreshold
+
+    if (isHorizontalScroll || isShiftVerticalScroll) {
+      if (isWheelLocked.current) return // ข้ามการทำงานหากยังอยู่ในช่วง cooldown
+      
+      isWheelLocked.current = true
+      
+      // เลือกใช้ค่าความเร็วจากแกนที่เกิดการเลื่อนขึ้นจริง
+      const directionValue = isHorizontalScroll ? e.deltaX : e.deltaY
+      
+      if (directionValue > 0) {
+        nextSlide() // สกรอลไปทางขวา -> สไลด์ถัดไป
+      } else {
+        prevSlide() // สกรอลไปทางซ้าย -> สไลด์ก่อนหน้า
+      }
+
+      // หน่วงเวลา cooldown เพื่อป้องกันสไลด์เปลี่ยนรัวๆ เกินไป
+      setTimeout(() => {
+        isWheelLocked.current = false
+      }, 800)
+    }
   }
 
   // ตั้งเวลาเปลี่ยนภาพสไลด์อัตโนมัติ (Auto-play) ทุกๆ 5 วินาที
@@ -39,6 +114,9 @@ export function HeroSection() {
     <section
       id="home"
       className="relative flex min-h-[calc(100vh-4rem)] items-center overflow-hidden bg-primary text-primary-foreground scroll-mt-16"
+      onTouchStart={handleTouchStart}
+      onTouchEnd={handleTouchEnd}
+      onWheel={handleWheel}
     >
       {/* ส่วนรูปภาพพื้นหลังสไลด์เต็มหน้าจอ (Full-bleed Background Carousel) */}
       <div className="absolute inset-0 z-0 select-none">
