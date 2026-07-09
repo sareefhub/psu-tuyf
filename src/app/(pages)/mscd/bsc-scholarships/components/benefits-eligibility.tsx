@@ -35,7 +35,7 @@ export function EligibilitySection() {
           <h2 className="text-balance text-2xl font-bold tracking-tight text-primary sm:text-3xl">
             {t("bscScholarships.eligibility.title")}
           </h2>
-          <p className="text-base text-muted-foreground/80">
+          <p className="text-sm text-muted-foreground/80">
             {t("bscScholarships.eligibility.desc")}
           </p>
         </div>
@@ -89,13 +89,13 @@ export function ObligationsSection() {
           <h2 className="text-balance text-2xl font-bold tracking-tight text-primary sm:text-3xl">
             {t("bscScholarships.obligations.title")}
           </h2>
-          <p className="text-base text-muted-foreground/80">
+          <p className="text-sm text-muted-foreground/80">
             {t("bscScholarships.obligations.desc")}
           </p>
         </div>
 
         {/* คำชี้แจงเบื้องต้น */}
-        <p className="text-base text-muted-foreground leading-relaxed text-center px-4">
+        <p className="text-sm text-muted-foreground leading-relaxed text-center px-4">
           {t("bscScholarships.obligations.preamble")}
         </p>
 
@@ -146,7 +146,7 @@ export function FundingSection() {
           <h2 className="text-balance text-2xl font-bold tracking-tight text-primary sm:text-3xl">
             {t("bscScholarships.funding.title")}
           </h2>
-          <p className="text-base text-muted-foreground/80">
+          <p className="text-sm text-muted-foreground/80">
             {t("bscScholarships.funding.desc")}
           </p>
         </div>
