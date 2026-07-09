@@ -1,6 +1,7 @@
 "use client"
 
 import { useT } from "@/context/language-context"
+import { SharedNumberedGrid } from "@/components/shared-numbered-grid"
 
 // ================= 1. ความเป็นมา (History) =================
 // คอมโพเนนต์แสดงข้อมูลประวัติความเป็นมาของกองทุน
@@ -32,6 +33,12 @@ export function FundObjectives() {
   // ดึงรายการวัตถุประสงค์ที่เป็นอาร์เรย์ (Array) จาก JSON
   const objectives = t("aboutFund.objectives.items", { returnObjects: true }) as string[]
 
+  // แปลง Array ของสตริงให้อยู่ในรูปแบบที่ SharedNumberedGrid รองรับ
+  const items = objectives.map((text, idx) => ({
+    key: String(idx),
+    text: text,
+  }))
+
   return (
     <section className="py-10 bg-background animate-fade-in">
       <div className="mx-auto max-w-7xl px-6">
@@ -46,22 +53,10 @@ export function FundObjectives() {
         </div>
 
         {/* เลย์เอาต์แสดงผลวัตถุประสงค์แบบการ์ดกริด 2 คอลัมน์ */}
-        <div className="grid gap-6 md:grid-cols-2">
-          {objectives.map((item, index) => (
-            <div
-              key={item}
-              className="bg-card border border-border/50 rounded-2xl p-6 shadow-sm space-y-3 hover:border-accent/30 transition-all flex gap-3 items-start"
-            >
-              {/* ตัวเลขลำดับข้อดีไซน์กลมสีแบรนด์ */}
-              <span className="h-6 w-6 rounded-full bg-accent/10 flex items-center justify-center text-xs font-bold text-accent shrink-0">
-                {index + 1}
-              </span>
-              <p className="text-base text-foreground/90 leading-relaxed font-normal">
-                {item}
-              </p>
-            </div>
-          ))}
-        </div>
+        <SharedNumberedGrid
+          items={items}
+          translationKey="aboutFund.objectives"
+        />
       </div>
     </section>
   )

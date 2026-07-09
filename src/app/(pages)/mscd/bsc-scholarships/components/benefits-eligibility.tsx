@@ -2,11 +2,12 @@
 
 import { useT } from "@/context/language-context"
 import { SharedSectionHeader } from "@/components/shared-section-header"
+import { SharedNumberedGrid } from "@/components/shared-numbered-grid"
 import { Award } from "lucide-react"
 
 // คีย์ข้อมูลสำหรับดึงค่าคุณสมบัติจาก i18n JSON
 const eligibilityKeys = [
-  { key: "item1", hasSubItems: true },
+  { key: "item1", hasSubItems: true, className: "md:col-span-2" },
   { key: "item2" },
   { key: "item3" },
   { key: "item4" },
@@ -38,37 +39,11 @@ export function EligibilitySection() {
         />
 
         {/* เลย์เอาต์แสดงผลคุณสมบัติ 7 ข้อ */}
-        <div className="grid gap-6 md:grid-cols-2">
-          {eligibilityKeys.map((item, index) => {
-            const isFirst = index === 0
-            return (
-              <div
-                key={item.key}
-                className={`bg-card border border-border/50 rounded-2xl p-6 shadow-sm space-y-3 hover:border-accent/30 transition-all ${
-                  isFirst ? "md:col-span-2" : ""
-                }`}
-              >
-                <div className="flex gap-3 items-start">
-                  <span className="h-6 w-6 rounded-full bg-accent/10 flex items-center justify-center text-xs font-bold text-accent shrink-0">
-                    {index + 1}
-                  </span>
-                  <p className="text-base text-foreground/90 leading-relaxed font-normal">
-                    {t(`bscScholarships.eligibility.items.${item.key}`)}
-                  </p>
-                </div>
-                {"hasSubItems" in item && item.hasSubItems && (
-                  <ul className="pl-9 list-disc space-y-1.5 border-t border-border/40 pt-3 mt-1">
-                    {(t("bscScholarships.eligibility.subItems1", { returnObjects: true }) as string[]).map((sub) => (
-                      <li key={sub} className="text-sm text-muted-foreground leading-relaxed font-normal">
-                        {sub}
-                      </li>
-                    ))}
-                  </ul>
-                )}
-              </div>
-            )
-          })}
-        </div>
+        <SharedNumberedGrid
+          items={eligibilityKeys}
+          translationKey="bscScholarships.eligibility"
+          subItemsTranslationKey="subItems1"
+        />
       </div>
     </section>
   )
@@ -89,40 +64,17 @@ export function ObligationsSection() {
         />
 
         {/* คำชี้แจงเบื้องต้น */}
-        <p className="text-sm text-muted-foreground leading-relaxed text-center px-4">
+        <p className="text-base text-muted-foreground leading-relaxed text-center px-4">
           {t("bscScholarships.obligations.preamble")}
         </p>
 
         {/* แผงแสดงผลข้อปฏิบัติ 2 ส่วน */}
-        <div className="grid gap-6 md:grid-cols-2">
-          {obligationsKeys.map((item, index) => (
-            <div
-              key={item.key}
-              className="bg-card border border-border/50 rounded-2xl p-6 shadow-sm space-y-4 hover:border-accent/30 transition-all"
-            >
-              <div className="flex gap-3 items-start">
-                <span className="h-6 w-6 rounded-full bg-accent/15 flex items-center justify-center text-xs font-bold text-accent shrink-0">
-                  {index + 1}
-                </span>
-                <p className="text-base text-foreground/90 leading-relaxed font-normal">
-                  {t(`bscScholarships.obligations.items.${item.key}`)}
-                </p>
-              </div>
-              {"hasSubItems" in item && item.hasSubItems && (
-                <ul className="pl-9 list-disc space-y-1.5 border-t border-border/40 pt-3">
-                  {(t("bscScholarships.obligations.subItems2", { returnObjects: true }) as string[]).map((sub) => (
-                    <li
-                      key={sub}
-                      className="text-sm text-muted-foreground leading-relaxed font-normal"
-                    >
-                      {sub}
-                    </li>
-                  ))}
-                </ul>
-              )}
-            </div>
-          ))}
-        </div>
+        <SharedNumberedGrid
+          items={obligationsKeys}
+          translationKey="bscScholarships.obligations"
+          subItemsTranslationKey="subItems2"
+          numberBgClassName="bg-accent/15"
+        />
       </div>
     </section>
   )
