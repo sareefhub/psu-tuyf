@@ -66,12 +66,12 @@ export function AlgebraOverview() {
           </h2>
 
           {/* ข้อความอธิบายบทนำของโครงการ */}
-          <p className="text-sm leading-relaxed text-muted-foreground/90 text-pretty">
+          <p className="text-base leading-relaxed text-muted-foreground/90 text-pretty">
             {t("algebraEnrichment.intro")}
           </p>
 
           {/* คำอธิบายการสนับสนุนจากคณะกรรมการที่ปรึกษา */}
-          <p className="text-sm leading-relaxed text-muted-foreground/90 text-pretty">
+          <p className="text-base leading-relaxed text-muted-foreground/90 text-pretty">
             {t("algebraEnrichment.advisor.desc")}
           </p>
 
@@ -80,7 +80,7 @@ export function AlgebraOverview() {
             <h3 className="text-lg font-bold text-primary">
               {t("algebraEnrichment.rationale.title")}
             </h3>
-            <p className="text-sm leading-relaxed text-muted-foreground/90 text-pretty">
+            <p className="text-base leading-relaxed text-muted-foreground/90 text-pretty">
               {t("algebraEnrichment.rationale.desc")}
             </p>
           </div>
@@ -94,7 +94,7 @@ export function AlgebraOverview() {
             <div className="space-y-4 border-l border-border/80 pl-6 mt-3">
               {objectives.map((item, idx) => (
                 <div key={item} className="space-y-1">
-                  <h4 className="text-sm font-bold text-primary flex items-center gap-2">
+                  <h4 className="text-base font-bold text-primary flex items-center gap-2">
                     <span className="h-1.5 w-1.5 rounded-full bg-accent" />
                     {idx + 1}. {item}
                   </h4>
@@ -112,11 +112,11 @@ export function AlgebraOverview() {
             <div className="space-y-6 border-l border-border/80 pl-6 mt-3">
               {benefits.map((item, idx) => (
                 <div key={item.title} className="space-y-2">
-                  <h4 className="text-sm font-bold text-primary flex items-center gap-2">
+                  <h4 className="text-base font-bold text-primary flex items-center gap-2">
                     <span className="h-1.5 w-1.5 rounded-full bg-accent" />
                     {idx + 1}. {item.title}
                   </h4>
-                  <p className="pl-3.5 text-sm leading-relaxed text-muted-foreground/90 text-pretty">
+                  <p className="pl-3.5 text-base leading-relaxed text-muted-foreground/90 text-pretty">
                     {item.desc}
                   </p>
                 </div>
@@ -133,11 +133,11 @@ export function AlgebraOverview() {
             <div className="space-y-6 border-l border-border/80 pl-6 mt-3">
               {outcomes.map((item, idx) => (
                 <div key={item.title} className="space-y-2">
-                  <h4 className="text-sm font-bold text-primary flex items-center gap-2">
+                  <h4 className="text-base font-bold text-primary flex items-center gap-2">
                     <span className="h-1.5 w-1.5 rounded-full bg-accent" />
                     {idx + 1}. {item.title}
                   </h4>
-                  <p className="pl-3.5 text-sm leading-relaxed text-muted-foreground/90 text-pretty">
+                  <p className="pl-3.5 text-base leading-relaxed text-muted-foreground/90 text-pretty">
                     {item.desc}
                   </p>
                 </div>

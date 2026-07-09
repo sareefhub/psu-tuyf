@@ -51,12 +51,12 @@ export function MgssOverview() {
           </h2>
 
           {/* ข้อความอธิบายวัตถุประสงค์หลักของโครงการ */}
-          <p className="text-sm leading-relaxed text-muted-foreground/90 text-pretty">
+          <p className="text-base leading-relaxed text-muted-foreground/90 text-pretty">
             {t("programDetails.mgss.desc")}
           </p>
 
           {/* รายละเอียดสถิตินักศึกษาทุนและการเกริ่นนำหลักสูตร */}
-          <p className="text-sm leading-relaxed text-muted-foreground/90 text-pretty">
+          <p className="text-base leading-relaxed text-muted-foreground/90 text-pretty">
             {t("programDetails.mgss.stats_desc")}
           </p>
 
@@ -65,7 +65,7 @@ export function MgssOverview() {
             {items.map((item, idx) => (
               <div key={item} className="space-y-2">
                 {/* หัวข้อหลักสูตรตัวหนาสไตล์เดียวกับ MSCD */}
-                <h3 className="text-sm font-bold text-primary flex items-center gap-2">
+                <h3 className="text-base font-bold text-primary flex items-center gap-2">
                   <span className="h-1.5 w-1.5 rounded-full bg-accent" />
                   {idx + 1}. {item}
                 </h3>
@@ -74,7 +74,7 @@ export function MgssOverview() {
           </div>
 
           {/* ข้อความวิสัยทัศน์ในอนาคตของโครงการ */}
-          <p className="text-sm leading-relaxed text-muted-foreground/90 text-pretty pt-2">
+          <p className="text-base leading-relaxed text-muted-foreground/90 text-pretty pt-2">
             {t("programDetails.mgss.future_desc")}
           </p>
 
