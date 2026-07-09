@@ -107,8 +107,8 @@
      กำหนดที่นี่ที่เดียวเพื่อความง่ายในการปรับแต่งขนาดทั้งระบบ
      ========================================== */
   --font-size-3xs: 0.625rem;   /* ประมาณ 10px (ใช้กับ text-3xs) */
-  --font-size-2xs: 0.6875rem;  /* ประมาณ 11px (ใช้กับ text-2xs) */
-  --font-size-xs: 0.8125rem;   /* ประมาณ 13px (ใช้กับ text-xs)  */
+  --font-size-2xs: 0.75rem;    /* ประมาณ 12px (ใช้กับ text-2xs) */
+  --font-size-xs: 0.875rem;    /* ประมาณ 14px (ใช้กับ text-xs)  */
   --font-size-sm: 1rem;        /* ประมาณ 16px (ใช้กับ text-sm)  */
   --font-size-base: 1.125rem;  /* ประมาณ 18px (ใช้กับ text-base) */
   --font-size-lg: 1.25rem;     /* ประมาณ 20px (ใช้กับ text-lg)  */
