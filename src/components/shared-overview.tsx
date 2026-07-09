@@ -20,7 +20,7 @@ export function SharedOverview({
             <h2 className="text-2xl font-bold text-primary">
               {t("ข้อมูลโครงการเบื้องต้น", "Project Overview")}
             </h2>
-            <div className="space-y-4 text-sm leading-relaxed text-muted-foreground/90 text-pretty">
+            <div className="space-y-4 text-base leading-relaxed text-muted-foreground/90 text-pretty">
               {keys.map((key) => {
                 const fullKey = `${translationKey}.${key}`
                 const content = t(fullKey)

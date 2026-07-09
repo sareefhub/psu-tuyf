@@ -17,13 +17,13 @@ export function StudentOverview() {
             <h2 className="text-2xl font-bold text-primary">
               {t("studentImprovement.overview.title")}
             </h2>
-            <p className="text-sm leading-relaxed text-muted-foreground/90 text-pretty">
+            <p className="text-base leading-relaxed text-muted-foreground/90 text-pretty">
               {t("studentImprovement.overview.desc1")}
             </p>
-            <p className="text-sm leading-relaxed text-muted-foreground/90 text-pretty">
+            <p className="text-base leading-relaxed text-muted-foreground/90 text-pretty">
               {t("studentImprovement.overview.desc2")}
             </p>
-            <p className="text-sm leading-relaxed text-muted-foreground/90 text-pretty">
+            <p className="text-base leading-relaxed text-muted-foreground/90 text-pretty">
               {t("studentImprovement.overview.desc3")}
             </p>
           </div>
