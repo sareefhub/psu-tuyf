@@ -82,7 +82,7 @@ export function SharedAnnouncements({
                     <FileText className="h-5 w-5" />
                   </div>
                   <div className="space-y-1">
-                    <h3 className="font-bold text-primary text-sm sm:text-base leading-snug group-hover:text-accent transition-colors">
+                    <h3 className="font-bold text-primary text-base leading-snug group-hover:text-accent transition-colors">
                       {item.title}
                     </h3>
                     <div className="flex flex-wrap items-center gap-x-4 gap-y-1 text-xs text-muted-foreground">

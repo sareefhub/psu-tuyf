@@ -29,7 +29,7 @@ export function SharedEmptyState({
 
       {/* ข้อความหลักและรายละเอียดเพิ่มเติม */}
       <div className="space-y-1">
-        <h3 className="font-bold text-primary text-sm sm:text-base">
+        <h3 className="font-bold text-primary text-base">
           {title}
         </h3>
         {description && (
