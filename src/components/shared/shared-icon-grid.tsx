@@ -26,23 +26,24 @@ export function SharedIconGrid({
   return (
     <div className={gridClassName}>
       {items.map((item) => (
+        /* ใช้ h-full เพื่อให้การ์ดมีความสูงเท่ากันทั้งหมดในแต่ละแถว และจัดกึ่งกลางเนื้อหา */
         <div
           key={item.key}
-          className="bg-card border border-border/50 rounded-2xl p-6 text-center shadow-sm flex flex-col justify-between hover:border-accent/30 transition-all duration-300"
+          className="h-full bg-card border border-border/50 rounded-2xl p-6 text-center shadow-sm flex flex-col items-center justify-center hover:border-accent/30 transition-all duration-300"
         >
           {/* กล่องวงกลมไอคอนกึ่งกลางการ์ด */}
-          <div className="flex justify-center mb-4">
+          <div className="mb-4">
             <div className="h-10 w-10 rounded-full bg-accent/10 flex items-center justify-center text-accent">
               {icon}
             </div>
           </div>
 
-          {/* เนื้อความการ์ด */}
+          {/* เนื้อความการ์ด - อยู่ต่อจากไอคอนพอดี ไม่แยกห่างกัน */}
           <div>
-            <h3 className="font-bold text-primary text-sm mb-2">
+            <h3 className="font-bold text-primary text-base mb-2">
               {item.title}
             </h3>
-            <p className="text-xs text-muted-foreground/90 leading-relaxed font-semibold">
+            <p className="text-sm text-muted-foreground/90 leading-relaxed font-semibold">
               {item.desc}
             </p>
           </div>
