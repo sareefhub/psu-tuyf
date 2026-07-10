@@ -2,7 +2,7 @@
 
 import { useT } from "@/context/language-context"
 import { SharedAnnouncements } from "@/components/program-detail-template"
-import { AlertCircle } from "lucide-react" // นำเข้าไอคอนแสดงสถานะประกาศว่าง
+import { SharedEmptyState } from "@/components/shared/shared-empty-state"
 
 // ข้อมูลประกาศเอกสาร PDF ของค่ายพีชคณิต (ตั้งค่าเป็นอาร์เรย์ว่างตามฟีดแบคผู้ใช้ที่ยังไม่ต้องการให้มีรายการประกาศในขณะนี้)
 const announcementsData: Array<{ key: string; size: string; fileUrl: string }> = []
@@ -36,20 +36,11 @@ export function CampAnnouncements() {
             </p>
           </div>
           
-          {/* การออกแบบหน้าตากล่องแสดงผลแดชสุดหรูหรา เมื่อยังไม่มีรายการประกาศเอกสาร */}
-          <div className="max-w-xl mx-auto p-8 rounded-3xl border border-dashed border-border/80 bg-card flex flex-col items-center text-center space-y-4">
-            <div className="h-12 w-12 rounded-2xl bg-secondary/50 flex items-center justify-center text-muted-foreground/60">
-              <AlertCircle className="h-6 w-6" />
-            </div>
-            <div className="space-y-1">
-              <h3 className="font-bold text-primary text-sm sm:text-base">
-                {t("ยังไม่มีประกาศและข่าวสารในขณะนี้", "No announcements available at this time")}
-              </h3>
-              <p className="text-xs sm:text-sm text-muted-foreground/75 leading-relaxed">
-                {t("ขณะนี้อยู่ระหว่างการจัดเตรียมข้อมูลรับสมัครและเอกสารของโครงการ กรุณาติดตามประกาศในภายหลัง", "We are currently preparing application details and documents. Please check back later.")}
-              </p>
-            </div>
-          </div>
+          {/* เรียกใช้งานคอมโพเนนต์ตัวกลางเมื่อไม่มีข้อมูลประกาศ */}
+          <SharedEmptyState
+            title={t("ยังไม่มีประกาศและข่าวสารในขณะนี้", "No announcements available at this time")}
+            description={t("ขณะนี้อยู่ระหว่างการจัดเตรียมข้อมูลรับสมัครและเอกสารของโครงการ กรุณาติดตามประกาศในภายหลัง", "We are currently preparing application details and documents. Please check back later.")}
+          />
         </div>
       </section>
     )
