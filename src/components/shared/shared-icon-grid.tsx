@@ -43,7 +43,7 @@ export function SharedIconGrid({
             <h3 className="font-bold text-primary text-base mb-2">
               {item.title}
             </h3>
-            <p className="text-sm text-muted-foreground/90 leading-relaxed font-semibold">
+            <p className="text-sm text-muted-foreground/90 leading-relaxed">
               {item.desc}
             </p>
           </div>
