@@ -6,6 +6,7 @@ import { useRouter } from "next/navigation"
 import Image from "next/image"
 import Link from "next/link"
 import { ArrowLeft, GraduationCap, Calendar, FileImage, User } from "lucide-react"
+import { SharedEmptyState } from "@/components/shared/shared-empty-state"
 
 import { mgssStudentsActivitiesData } from "@/data/pages/mgss/student-activities"
 
@@ -316,16 +317,13 @@ export default function MgssStudentDetailPage({ params }: PageProps) {
               })}
             </div>
           ) : (
-            // กล่องแสดงผลในกรณีที่ยังไม่มีข้อมูลกิจกรรม (Empty State Card)
-            <div className="bg-card border border-border/40 rounded-3xl p-12 text-center text-muted-foreground/60 space-y-3 max-w-2xl mx-auto shadow-2xs">
-              <User className="h-10 w-10 mx-auto text-muted-foreground/30 mb-2" />
-              <p className="text-sm font-semibold">
-                {t("ไม่มีข้อมูลกิจกรรมที่บันทึกไว้ในขณะนี้", "No activities recorded at the moment.")}
-              </p>
-              <p className="text-xs text-muted-foreground/60 font-light">
-                {t("ประวัติกิจกรรมการทำจิตอาสาและการบำเพ็ญประโยชน์จะแสดงที่นี่เมื่อมีการอัปเดต", "Volunteer and community service activities will be shown here once updated.")}
-              </p>
-            </div>
+            /* เรียกใช้งานคอมโพเนนต์ตัวกลางเมื่อไม่มีข้อมูลกิจกรรม */
+            <SharedEmptyState
+              title={t("ไม่มีข้อมูลกิจกรรมที่บันทึกไว้ในขณะนี้", "No activities recorded at the moment.")}
+              description={t("ประวัติกิจกรรมการทำจิตอาสาและการบำเพ็ญประโยชน์จะแสดงที่นี่เมื่อมีการอัปเดต", "Volunteer and community service activities will be shown here once updated.")}
+              icon={<User className="h-6 w-6" />}
+              className="max-w-2xl mx-auto p-12 rounded-3xl border border-dashed border-border/80 bg-card flex flex-col items-center text-center space-y-4 shadow-2xs"
+            />
           )}
         </div>
 
